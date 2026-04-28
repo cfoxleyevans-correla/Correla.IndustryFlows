@@ -1,0 +1,247 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0381",
+  "flowVersion": "001",
+  "flowName": "Metering Point Address Update",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Notification of request to update a Metering Point Address and the subsequent response.",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "Distributor",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "69L": {
+      "name": "MPAN Core",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "70L": {
+      "name": "Contact Details",
+      "parent": "69L",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1860",
+          "name": "Requestor Contact Name",
+          "format": "CHAR(50)",
+          "required": false
+        },
+        {
+          "ref": "J1861",
+          "name": "Requestor Telephone Number",
+          "format": "CHAR(14)",
+          "required": false
+        },
+        {
+          "ref": "J2211",
+          "name": "Requestor Contact Email",
+          "format": "CHAR(100)",
+          "required": false
+        }
+      ]
+    },
+    "71L": {
+      "name": "Current Metering Point Address",
+      "parent": "69L",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "72L": {
+      "name": "Proposed Metering Point Address",
+      "parent": "71L",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1026",
+          "name": "Address Line 1",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1027",
+          "name": "Address Line 2",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1028",
+          "name": "Address Line 3",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1029",
+          "name": "Address Line 4",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1030",
+          "name": "Address Line 5",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1031",
+          "name": "Address Line 6",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1032",
+          "name": "Address Line 7",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1033",
+          "name": "Address Line 8",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1034",
+          "name": "Address Line 9",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J0757",
+          "name": "Postcode",
+          "format": "CHAR(10)",
+          "required": false
+        }
+      ]
+    },
+    "73L": {
+      "name": "Response",
+      "parent": "69L",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2212",
+          "name": "Response Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Annex C"
+}

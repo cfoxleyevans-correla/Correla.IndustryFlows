@@ -1,0 +1,307 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0019",
+  "flowVersion": "001",
+  "flowName": "Metering System EAC/AA Data",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of the annualised advance and estimated annual consumption calculated by the Data Collector for a metering system.",
+  "routes": [
+    {
+      "from": "NHHDC",
+      "to": "NHHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPI": {
+      "name": "Instruction File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "ZIN": {
+      "name": "Instruction Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J1109",
+          "name": "Type Code",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0083",
+          "name": "Metering System Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "ISD": {
+      "name": "Significant Date",
+      "parent": "ZIN",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0328",
+          "name": "Significant Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "AAH": {
+      "name": "Annualised Advance Set Header",
+      "parent": "ZIN",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1097",
+          "name": "Effective to Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "AAD": {
+      "name": "Annualised Advance Details",
+      "parent": "AAH",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0079",
+          "name": "Annualised Advance",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "EAH": {
+      "name": "Estimated Annual Consumption Header",
+      "parent": "ZIN",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "EAD": {
+      "name": "Estimated Annual Consumption Details",
+      "parent": "EAH",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0081",
+          "name": "Estimated Annual Consumption",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "REG": {
+      "name": "Registration Details (DC)",
+      "parent": "ZIN",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "PSC": {
+      "name": "Profile Class/Standard Settlement Configuration",
+      "parent": "ZIN",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "IMC": {
+      "name": "Measurement Class (DC)",
+      "parent": "ZIN",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0082",
+          "name": "Measurement Class Id",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "GSP": {
+      "name": "GSP Group (DC)",
+      "parent": "ZIN",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "IES": {
+      "name": "Energisation Status (DC)",
+      "parent": "ZIN",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1099",
+          "name": "Energisation Status Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "This flow includes Unmetered Supply requirements."
+}

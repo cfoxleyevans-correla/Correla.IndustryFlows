@@ -1,0 +1,72 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0224",
+  "flowVersion": "001",
+  "flowName": "Notification of Programme for Re-Certification Meter Changes",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "The Meter Operator notifies the Supplier of those metering points where he will be changing meters which have reached the end of their certification life.",
+  "routes": [
+    {
+      "from": "AMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "508": {
+      "name": "Programme Period",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0718",
+          "name": "Programme Start Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0720",
+          "name": "Programme End Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "509": {
+      "name": "MPAN Cores",
+      "parent": "508",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

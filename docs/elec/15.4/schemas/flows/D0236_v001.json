@@ -1,0 +1,146 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0236",
+  "flowVersion": "001",
+  "flowName": "Revenue Protection Service Statistical Report",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "A report from the Revenue Protection Service in accordance with the Revenue Protection Code of Practice and giving a twelve month rolling figure of investigations and performances.",
+  "routes": [
+    {
+      "from": "RPS",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "625": {
+      "name": "Report Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1018",
+          "name": "Report Month",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0868",
+          "name": "Number of Supply Points in RPS Area",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0824",
+          "name": "Priority A Reports Received",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0825",
+          "name": "Priority B Reports Received",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0826",
+          "name": "Priority C Reports Received",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0827",
+          "name": "Successful Calls Meeting Priority A",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0828",
+          "name": "Successful Calls Meeting Priority B",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0829",
+          "name": "Successful Calls Meeting Priority C",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0867",
+          "name": "Successful Calls Failing to Meet Priority A",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0838",
+          "name": "Successful Calls Failing to Meet Priority B",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0866",
+          "name": "Successful Calls Failing to Meet Priority C",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0830",
+          "name": "Warrant of Entry Numbers",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0831",
+          "name": "Interference Suspected Numbers",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0832",
+          "name": "Interference Confirmed Numbers",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0833",
+          "name": "Billed kWh",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0872",
+          "name": "Irregularities Found",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0864",
+          "name": "Jobs Not Actioned Due to Incorrect Data",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0836",
+          "name": "Jobs Where No Problems Found",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0870",
+          "name": "Disconnected (De-energised) Over 24 Hours",
+          "format": "NUM(4)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

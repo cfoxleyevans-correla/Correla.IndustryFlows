@@ -1,0 +1,121 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0289",
+  "flowVersion": "002",
+  "flowName": "Notification of MC/EAC/PC",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Establishes the Measurement Class for Half Hourly metered or unmetered supply. It also provides a Profile Class and EAC to allow the estimation of consumption.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "82B": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "83B": {
+      "name": "Measurement Class Details",
+      "parent": "82B",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0082",
+          "name": "Measurement Class Id",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0094",
+          "name": "Effective from Settlement Date {MSMCDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "84B": {
+      "name": "EAC Details",
+      "parent": "82B",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0081",
+          "name": "Estimated Annual Consumption",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J0090",
+          "name": "Effective from Settlement Date {EACDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "85B": {
+      "name": "Profile Class Details",
+      "parent": "82B",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0092",
+          "name": "Effective from Settlement Date {MSPCDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "EAC Details and Profile Class details must be populated on change of Measurement Class Details where recipient is the HHDC.Effective dates can not be earlier than the REGI date.It is anticipated this data flow would arrive at a similar time to the D0148 & the D0131 in the appointment life cycle.Where this flow is sent to the Meter Operator, only the Supplier and Measurement Class details should be populated (Groups 82B and 83B)."
+}

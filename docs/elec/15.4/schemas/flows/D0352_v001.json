@@ -1,0 +1,278 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0352",
+  "flowVersion": "001",
+  "flowName": "Notification of Physical Disconnections",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "The Distribution Business notifies a Supplier of one or more metering points which require Physical Disconnection and for which the Supplier is Registered.",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "01I": {
+      "name": "Programme Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1846",
+          "name": "Distribution Business Unique Reference",
+          "format": "CHAR(13)",
+          "required": true
+        },
+        {
+          "ref": "J1860",
+          "name": "Requestor Contact Name",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J1861",
+          "name": "Requestor Telephone Number",
+          "format": "CHAR(14)",
+          "required": true
+        },
+        {
+          "ref": "J1850",
+          "name": "Requestor Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1851",
+          "name": "Requestor Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1852",
+          "name": "Requestor Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1853",
+          "name": "Requestor Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1854",
+          "name": "Requestor Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1855",
+          "name": "Requestor Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1856",
+          "name": "Requestor Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1857",
+          "name": "Requestor Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1858",
+          "name": "Requestor Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1859",
+          "name": "Requestor Address Postcode",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        },
+        {
+          "ref": "J1848",
+          "name": "Evidence of Site Ownership",
+          "format": "BOOLEAN(1)",
+          "required": true
+        }
+      ]
+    },
+    "02I": {
+      "name": "Primary Site Contact Details",
+      "parent": "01I",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0489",
+          "name": "Contact Name",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J0490",
+          "name": "Contact Telephone Number",
+          "format": "CHAR(14)",
+          "required": false
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "03I": {
+      "name": "Secondary Site Contact Details",
+      "parent": "02I",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0489",
+          "name": "Contact Name",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J0490",
+          "name": "Contact Telephone Number",
+          "format": "CHAR(14)",
+          "required": false
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "04I": {
+      "name": "MPAN Details",
+      "parent": "02I",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1847",
+          "name": "Disconnection Type Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J1849",
+          "name": "Earliest Planned Disconnection Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Though all of the address data items included in this flow is defined within the structure as being optional, the address itself is mandatory and must be included in the flow. The use of any individual address item cannot be made mandatory as, in the absence of an agreed address structure for all flows, an address may be constructed from any combination of the Address Line and Postcode items."
+}

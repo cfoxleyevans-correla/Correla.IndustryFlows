@@ -1,0 +1,127 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0299",
+  "flowVersion": "001",
+  "flowName": "Stage 2 BM Unit Registration Data File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "The file of Stage 2 BM Units and their associations to Suppliers and GSP Groups.",
+  "routes": [
+    {
+      "from": "MDDA",
+      "to": "HHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "MDDA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "MDD": {
+      "name": "Market Domain Data Version",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0754",
+          "name": "MDD Version Number",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0773",
+          "name": "MDD Publication Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "GSG": {
+      "name": "GSP Groups",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "SUP": {
+      "name": "Supplier",
+      "parent": "GSG",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "BMR": {
+      "name": "BM Unit Registration",
+      "parent": "SUP",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1628",
+          "name": "BM Unit Id",
+          "format": "CHAR(11)",
+          "required": true
+        },
+        {
+          "ref": "J1632",
+          "name": "Effective from Settlement Date {BMUIGG}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1633",
+          "name": "Effective to Settlement Date {BMUIGG}",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J1631",
+          "name": "Default BM Unit Flag",
+          "format": "BOOLEAN(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The Stage 2 BM Unit Registration Data File is output in ascending order by GSP Group Id, Supplier Id and BM Unit Id;The Stage 2 BM Unit Registration Data File contains all Stage 2 BM Units registered in MDD at the time that the file is generated.  It does not include logically deleted BM Units; andIn order to ensure that a BM Unit is available for any consumption received by the SVAA, a Default BM Unit will be defined for each Supplier for every GSP Group in England and Wales."
+}

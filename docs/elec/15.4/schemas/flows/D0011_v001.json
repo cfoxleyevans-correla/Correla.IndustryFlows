@@ -1,0 +1,163 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0011",
+  "flowVersion": "001",
+  "flowName": "Agreement of Contractual Terms",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Acknowledgement of appointment and terms or renewal of contractual terms.",
+  "routes": [
+    {
+      "from": "HHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "034": {
+      "name": "Contract Terms Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0048",
+          "name": "Contract Reference",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "035": {
+      "name": "DC Effective Date",
+      "parent": "034",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0219",
+          "name": "Effective from Date {DCA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "036": {
+      "name": "MOP Effective Date",
+      "parent": "034",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0210",
+          "name": "Effective from Date {MOA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "037": {
+      "name": "DA Effective Date",
+      "parent": "034",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0334",
+          "name": "Effective from Settlement Date {DAA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "038": {
+      "name": "Agreed Service Details",
+      "parent": "034",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0274",
+          "name": "Service Reference",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0275",
+          "name": "Service Level Reference",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Rejection of Agent appointment flow (D0261).Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

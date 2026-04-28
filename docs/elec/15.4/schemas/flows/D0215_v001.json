@@ -1,0 +1,113 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0215",
+  "flowVersion": "001",
+  "flowName": "Provision of Site Technical Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Provision of Site Technical Details required by MOP to install metering.",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "490": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0443",
+          "name": "Supply Voltage",
+          "format": "NUM(3)",
+          "required": true
+        },
+        {
+          "ref": "J0456",
+          "name": "Supply Capacity",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J0427",
+          "name": "Number of Phases",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0454",
+          "name": "CT Ratio",
+          "format": "CHAR(6)",
+          "required": false
+        },
+        {
+          "ref": "J0505",
+          "name": "CT Class",
+          "format": "CHAR(4)",
+          "required": false
+        },
+        {
+          "ref": "J0506",
+          "name": "CT Rating",
+          "format": "NUM(6)",
+          "required": false
+        },
+        {
+          "ref": "J0455",
+          "name": "VT Ratio",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J0677",
+          "name": "VT Class",
+          "format": "CHAR(4)",
+          "required": false
+        },
+        {
+          "ref": "J0678",
+          "name": "VT Rating",
+          "format": "NUM(3)",
+          "required": false
+        },
+        {
+          "ref": "J1025",
+          "name": "Meter Equipment/Service Location",
+          "format": "CHAR(30)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

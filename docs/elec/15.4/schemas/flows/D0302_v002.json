@@ -1,0 +1,291 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0302",
+  "flowVersion": "002",
+  "flowName": "Notification of Customer Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "The Supplier will inform the participants of customer contact address and mailing address details.",
+  "routes": [
+    {
+      "from": "AMVLP",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SMEM",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "68C": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "69C": {
+      "name": "Customer Details",
+      "parent": "68C",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0375",
+          "name": "Customer Name",
+          "format": "CHAR(100)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        },
+        {
+          "ref": "J0693",
+          "name": "Customer Password",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J0694",
+          "name": "Customer Password Effective from Date",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0692",
+          "name": "Special Access",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1011",
+          "name": "Maximum Power Requirement",
+          "format": "NUM(6)",
+          "required": false
+        }
+      ]
+    },
+    "15J": {
+      "name": "Contact Name",
+      "parent": "68C",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0489",
+          "name": "Contact Name",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J1845",
+          "name": "Customer Preferred Contact Method",
+          "format": "CHAR(1)",
+          "required": false
+        }
+      ]
+    },
+    "16J": {
+      "name": "Contact Telephone",
+      "parent": "15J",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0490",
+          "name": "Contact Telephone Number",
+          "format": "CHAR(14)",
+          "required": true
+        },
+        {
+          "ref": "J0491",
+          "name": "Contact Fax Number",
+          "format": "CHAR(14)",
+          "required": false
+        }
+      ]
+    },
+    "17J": {
+      "name": "Contact Email",
+      "parent": "15J",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2060",
+          "name": "Contact Email",
+          "format": "CHAR(100)",
+          "required": true
+        }
+      ]
+    },
+    "70C": {
+      "name": "Mailing Address",
+      "parent": "68C",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1674",
+          "name": "Delete Mailing Address Data Held",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1046",
+          "name": "Mailing Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1047",
+          "name": "Mailing Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1048",
+          "name": "Mailing Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1049",
+          "name": "Mailing Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1050",
+          "name": "Mailing Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1051",
+          "name": "Mailing Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1052",
+          "name": "Mailing Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1053",
+          "name": "Mailing Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1054",
+          "name": "Mailing Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0566",
+          "name": "Mailing Address Postcode",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "This flow must be sent whenever there is a new or changed value for any data item contained within Groups 69C, 15J, 16J, 17J.The address should only be populated where there is a new or changed mailing address.  Though each address line in this flow is optional, when an address is to be updated using this flow the entire address must be included in the flow.   An update to an individual line within an address will require the entire address to be sent.Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

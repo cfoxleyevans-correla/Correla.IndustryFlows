@@ -1,0 +1,235 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0170",
+  "flowVersion": "001",
+  "flowName": "Request for Metering System Related Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "On appointment or change of agent appointment, metering system related details are requested to be transferred",
+  "routes": [
+    {
+      "from": "ADSA",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "ADSA",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MPAS",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MPAS",
+      "to": "MA",
+      "version": "15.4"
+    },
+    {
+      "from": "MPAS",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MPAS",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MPAS",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SMEM",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "350": {
+      "name": "Request Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0028",
+          "name": "Date Action Required By",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0007",
+          "name": "Requested Action Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        },
+        {
+          "ref": "J0926",
+          "name": "New Meter Operator Id",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0927",
+          "name": "New Data Collector Id",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "351": {
+      "name": "MPAN Cores",
+      "parent": "350",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

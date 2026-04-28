@@ -1,0 +1,271 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0311",
+  "flowVersion": "002",
+  "flowName": "Notification of Old Supplier Information",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Old Supplier notifies New Supplier of existing billing information.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "05D": {
+      "name": "MPAN",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0928",
+          "name": "Effective to Settlement Date {REGI} for Old Supplier",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": false
+        },
+        {
+          "ref": "J0220",
+          "name": "Meter Timeswitch Code",
+          "format": "NUM(3)",
+          "required": false
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": false
+        },
+        {
+          "ref": "J1026",
+          "name": "Address Line 1",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1027",
+          "name": "Address Line 2",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1028",
+          "name": "Address Line 3",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1029",
+          "name": "Address Line 4",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1030",
+          "name": "Address Line 5",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1031",
+          "name": "Address Line 6",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1032",
+          "name": "Address Line 7",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1033",
+          "name": "Address Line 8",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1034",
+          "name": "Address Line 9",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J0757",
+          "name": "Postcode",
+          "format": "CHAR(10)",
+          "required": false
+        }
+      ]
+    },
+    "06D": {
+      "name": "Meter Details",
+      "parent": "05D",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0483",
+          "name": "Meter Type",
+          "format": "CHAR(5)",
+          "required": false
+        },
+        {
+          "ref": "J2239",
+          "name": "Last Inspection Date",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    },
+    "07D": {
+      "name": "Last Actual or Customer Register Readings",
+      "parent": "06D",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0016",
+          "name": "Reading Date & Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "08D": {
+      "name": "Old Supplier Estimated CoS Readings",
+      "parent": "06D",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        }
+      ]
+    },
+    "09D": {
+      "name": "Old Supplier's Last EAC Header",
+      "parent": "05D",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "10D": {
+      "name": "Old Supplier's Last EAC Details",
+      "parent": "09D",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0081",
+          "name": "Estimated Annual Consumption",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The Flow is sent in order for the New Supplier to have early visibility of key information and may be used at the New Supplier's discretion as an aid to identify potential problems when data is compared to that from other sources. It does not supersede industry process flow data. Address details in this flow (Address Lines 1-9 and Postcode) should refer to the Site Address held within the billing system, rather than the Billing/ Contact Address. Groups 09D and 10D refer to Estimated Annual Consumption and should be completed with information received from the NHHDC for Non-MHHS Metering Points only, e.g. groups EAH and EAD from D0019. All other fields should be populated with the Old Supplier's view of the data items from their billing processes. For example, Meter Type should be populated with the Meter Type that the customer is being billed to rather than the latest view of Meter Type from the MOp. This is to enable the New Supplier to identify potential mismatches between historic customer billing and the MPAS/ Agent view. The Old Supplier Estimated CoS Reading should be populated with an Estimated Reading produced from the Old Supplier Billing system only where the Customer has been billed at least once by that Supplier. The receiving Supplier should assume that the Reading Type for Old Supplier's Estimated CoS Reading is \"O\" The Last Inspection Date shall be provided by the Losing Supplier, if known and by a person qualified to do so, by obtaining the most recent of the following: \u0095 Meter installation date \u0095 Last date that the meter was inspected either by by the Losing Supplier or previous supplier \u0095 Where no meter is installed, the 06D Group would not be included (so no Last Inspection Date is required) for example maybe on a New Connection \u0095 The Last Inspection Date is only used on the Supplier to Supplier instance of the Data Flow"
+}

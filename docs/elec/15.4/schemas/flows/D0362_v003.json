@@ -1,0 +1,845 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0362",
+  "flowVersion": "003",
+  "flowName": "CFD Supplier Invoice Backing Data",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Calculation details for CFD payments from (or to) a Supplier.",
+  "routes": [
+    {
+      "from": "CFD Settlement Services Provider",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "55I": {
+      "name": "EMR Invoice Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1889",
+          "name": "EMR Party Id",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1950",
+          "name": "EMR Invoice Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J1949",
+          "name": "EMR Invoice Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1951",
+          "name": "EMR Invoice Payment Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1952",
+          "name": "EMR Invoice Total",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "56I": {
+      "name": "CFD Levy Payment",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1909",
+          "name": "CFD Levy Payment Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1910",
+          "name": "CFD Levy Rate",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J1904",
+          "name": "CFD Daily Supplier Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1905",
+          "name": "CFD Daily Supplier EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1908",
+          "name": "CFD Levy Payment",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1907",
+          "name": "CFD Levy Net Payment",
+          "format": "NUM(14)",
+          "required": false
+        }
+      ]
+    },
+    "57I": {
+      "name": "CFD Period Gross Demand",
+      "parent": "56I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "46, 48, 50"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J1911",
+          "name": "CFD Period Supplier Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1912",
+          "name": "CFD Period Supplier EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "58I": {
+      "name": "CFD Reserve Payment",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1973",
+          "name": "Obligation Period",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J2042",
+          "name": "Total Reserve Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2014",
+          "name": "Supplier Reserve Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1994",
+          "name": "Reference Period Supplier Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1997",
+          "name": "Reference Period Total Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1995",
+          "name": "Reference Period Supplier EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1998",
+          "name": "Reference Period Total EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1993",
+          "name": "Reference Period Start Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1992",
+          "name": "Reference Period End Date",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    },
+    "59I": {
+      "name": "CFD Reserve Payment Reference Day",
+      "parent": "58I",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1904",
+          "name": "CFD Daily Supplier Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2023",
+          "name": "Total Daily Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1905",
+          "name": "CFD Daily Supplier EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2026",
+          "name": "Total Daily EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "60I": {
+      "name": "CFD Quarterly Reconciliation Payment",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1973",
+          "name": "Obligation Period",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J2024",
+          "name": "Total Daily Contribution",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2025",
+          "name": "Total Daily Contribution Reconciliation Adjustment",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1913",
+          "name": "CFD Quarterly Contribution",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2286",
+          "name": "Net Quarterly Interest Contribution",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2012",
+          "name": "Supplier Quarterly Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2039",
+          "name": "Total Quarterly Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2013",
+          "name": "Supplier Quarterly EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2040",
+          "name": "Total Quarterly EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2065",
+          "name": "Supplier Quarterly Green Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2066",
+          "name": "Total Quarterly Green Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2047",
+          "name": "Total Net Quarterly Non-Generation Payments",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2032",
+          "name": "Total Net Quarterly Interest",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1914",
+          "name": "CFD Quarterly Contribution Reconciliation Adjustment",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2285",
+          "name": "Net Quarterly Interest Contribution Adjustment",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1988",
+          "name": "Previous Reserve Payment",
+          "format": "NUM(14)",
+          "required": false
+        }
+      ]
+    },
+    "61I": {
+      "name": "CFD Quarterly Reconciliation Day",
+      "parent": "60I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1904",
+          "name": "CFD Daily Supplier Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2023",
+          "name": "Total Daily Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1905",
+          "name": "CFD Daily Supplier EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2026",
+          "name": "Total Daily EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2063",
+          "name": "CFD Daily Supplier Green Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2064",
+          "name": "Total Daily Green Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1936",
+          "name": "Daily Net Generator Payments",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1991",
+          "name": "Reconciled Levy Rate",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J2006",
+          "name": "Supplier Daily Contribution",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2007",
+          "name": "Supplier Daily Contribution Reconciliation Adjustment",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "62I": {
+      "name": "CFD Quarterly Reconciliation Period",
+      "parent": "61I",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "46, 48, 50"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J2010",
+          "name": "Supplier Period Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2036",
+          "name": "Total Period Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2011",
+          "name": "Supplier Period EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2037",
+          "name": "Total Period EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2067",
+          "name": "Supplier Period Green Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2068",
+          "name": "Total Period Green Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1983",
+          "name": "Period Net Generator Payments",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "63I": {
+      "name": "Daily Net Generator Payment",
+      "parent": "61I",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1906",
+          "name": "CFD Id",
+          "format": "CHAR(16)",
+          "required": true
+        },
+        {
+          "ref": "J1935",
+          "name": "Daily CFD Net Payment",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2284",
+          "name": "Daily Net Generator Compensatory Interest",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "64I": {
+      "name": "Generator Reconciliation Period",
+      "parent": "63I",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "46, 48, 50"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J2000",
+          "name": "Reference Price",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J2005",
+          "name": "Strike Price",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J1967",
+          "name": "Metered Volume",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1983",
+          "name": "Period Net Generator Payments",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "65I": {
+      "name": "CFD Mutualisation Payment",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1893",
+          "name": "Amount in Default",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1941",
+          "name": "Defaulted Amount Due Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1940",
+          "name": "Defaulted Amount Details",
+          "format": "CHAR(120)",
+          "required": true
+        },
+        {
+          "ref": "J2056",
+          "name": "CFD Mutualisation Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1994",
+          "name": "Reference Period Supplier Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1997",
+          "name": "Reference Period Total Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1995",
+          "name": "Reference Period Supplier EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1998",
+          "name": "Reference Period Total EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1993",
+          "name": "Reference Period Start Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1992",
+          "name": "Reference Period End Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2008",
+          "name": "Supplier Mutualisation Amount",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "66I": {
+      "name": "CFD Interest Payment",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1950",
+          "name": "EMR Invoice Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J1949",
+          "name": "EMR Invoice Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1893",
+          "name": "Amount in Default",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1955",
+          "name": "Interest Payment From Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1956",
+          "name": "Interest Payment To Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1954",
+          "name": "Interest Amount",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "67I": {
+      "name": "CFD Interest Rate",
+      "parent": "66I",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1958",
+          "name": "Interest Rate Effective Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1957",
+          "name": "Interest Rate",
+          "format": "NUM(8)",
+          "required": true
+        }
+      ]
+    },
+    "76J": {
+      "name": "CFD Mutualisation Repayment",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1893",
+          "name": "Amount in Default",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1941",
+          "name": "Defaulted Amount Due Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2008",
+          "name": "Supplier Mutualisation Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2070",
+          "name": "Mutualisation Payment Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2069",
+          "name": "Amount Recovered",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2071",
+          "name": "Supplier Mutualisation Repayment",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "COC": {
+      "name": "CFD Operational Cost Refund",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2281",
+          "name": "CFD Fiscal Year",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J2283",
+          "name": "CFD Operational Cost Levy Total Refund Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1994",
+          "name": "Reference Period Supplier Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1997",
+          "name": "Reference Period Total Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1995",
+          "name": "Reference Period Supplier EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1998",
+          "name": "Reference Period Total EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2282",
+          "name": "CFD Operational Cost Levy Supplier Refund Amount",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

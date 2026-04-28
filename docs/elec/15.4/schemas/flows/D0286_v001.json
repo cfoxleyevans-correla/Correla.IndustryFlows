@@ -1,0 +1,97 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0286",
+  "flowVersion": "001",
+  "flowName": "Data Aggregation and Settlements Timetable File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "The timetable of certain settlement activities related to payment dates for a range of payment dates.",
+  "routes": [
+    {
+      "from": "MDDA",
+      "to": "NHHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "MDDA",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "TTH": {
+      "name": "Timetable Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1584",
+          "name": "First Payment Date",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1585",
+          "name": "Last Payment Date",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "PST": {
+      "name": "Timetable Details",
+      "parent": "TTH",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0902",
+          "name": "Payment Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0747",
+          "name": "SVA Notification Deadline Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1586",
+          "name": "Planned Data Aggregation Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1587",
+          "name": "Planned SSR Run Date",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

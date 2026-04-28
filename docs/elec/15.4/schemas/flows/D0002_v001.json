@@ -1,0 +1,233 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0002",
+  "flowVersion": "001",
+  "flowName": "Fault Resolution Report or Request for Decision on Further Action",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Fault Investigation has been carried out and a report on an action taken is being made or a request for a decision on next course of action.",
+  "routes": [
+    {
+      "from": "ADSA",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "ADSA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "CMRC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SIP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "CMRC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SIP",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "004": {
+      "name": "Metering Points Inspected",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0173",
+          "name": "Reason for Request",
+          "format": "CHAR(100)",
+          "required": true
+        },
+        {
+          "ref": "J1012",
+          "name": "Date Fault Suspected/Detected",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "005": {
+      "name": "Meter Detail per MPAN Core",
+      "parent": "004",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "006": {
+      "name": "Meter Registers Inspected",
+      "parent": "005",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0014",
+          "name": "Date of Action",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0008",
+          "name": "Nature of Maintenance",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "760": {
+      "name": "Site Visit Information",
+      "parent": "004",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0214",
+  "flowVersion": "001",
+  "flowName": "Confirmation of Proving Tests",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Confirmation is being provided that proving tests have been successfully carried out on half hourly metering systems.",
+  "routes": [
+    {
+      "from": "AMEM",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "489": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0014",
+          "name": "Date of Action",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

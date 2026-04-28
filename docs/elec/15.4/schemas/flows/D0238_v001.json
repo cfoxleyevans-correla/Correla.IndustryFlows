@@ -1,0 +1,314 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0238",
+  "flowVersion": "001",
+  "flowName": "Request and Information for Revenue Protection Investigation",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "A request/confirmation that an investigation into a suspected metering tampering case should be carried out by the Revenue Protection Service and provision of background information to assist the investigation.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "RPS",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "627": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0178",
+          "name": "Meter Operator Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0375",
+          "name": "Customer Name",
+          "format": "CHAR(100)",
+          "required": false
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0693",
+          "name": "Customer Password",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J0851",
+          "name": "Supplier Contact Name",
+          "format": "CHAR(50)",
+          "required": false
+        },
+        {
+          "ref": "J0852",
+          "name": "Supplier Contact Telephone Number",
+          "format": "CHAR(14)",
+          "required": false
+        },
+        {
+          "ref": "J0842",
+          "name": "Revenue Protection Priority Level",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0174",
+          "name": "Appointment Date",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0292",
+          "name": "Earliest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0293",
+          "name": "Latest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0451",
+          "name": "Tampering Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0841",
+          "name": "Tampering Report Source",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0822",
+          "name": "Tampering Report Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "628": {
+      "name": "Associated MPANs",
+      "parent": "627",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0845",
+          "name": "Associated MPAN",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "629": {
+      "name": "Meter Details",
+      "parent": "627",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0410",
+          "name": "Manufacturers Make & Type",
+          "format": "CHAR(60)",
+          "required": true
+        },
+        {
+          "ref": "J0483",
+          "name": "Meter Type",
+          "format": "CHAR(5)",
+          "required": true
+        },
+        {
+          "ref": "J0419",
+          "name": "Meter Location",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0716",
+          "name": "Timing Device Id (Serial Number)",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J0848",
+          "name": "Date of Meter Installation",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0862",
+          "name": "Last Reading/Inspected Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0846",
+          "name": "Date Customer Took Responsibility for Supply",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0850",
+          "name": "Disconnected for Non-Payment Status",
+          "format": "BOOLEAN(0)",
+          "required": true
+        }
+      ]
+    },
+    "630": {
+      "name": "Meter Register Details per Meter",
+      "parent": "629",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "631": {
+      "name": "Reading Dates Covering Two Years",
+      "parent": "630",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0016",
+          "name": "Reading Date & Time",
+          "format": "DATETIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": false
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Where a meter change or agent change has occurred during the historical readings period this should be highlighted within the readings through 'type' and 'date and time'.Though all of the address data items included in this flow are defined within the structure as being optional, the address itself is mandatory and must be included in the flow.  The use of any individual address item cannot be made mandatory as, in the absence of an agreed address structure for all flows, an address may be constructed from any combination of the Address Line and Postcode items."
+}

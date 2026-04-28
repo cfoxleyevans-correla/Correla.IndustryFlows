@@ -1,0 +1,128 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0275",
+  "flowVersion": "001",
+  "flowName": "Validated Half Hourly Advances",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Half Hourly consumption values for use in Supplier and Distributor billing where the HH periods are specified in UTC.",
+  "routes": [
+    {
+      "from": "ADSA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "ESNA",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "ESNA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SDSA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "25B": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "26B": {
+      "name": "Date",
+      "parent": "25B",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0018",
+          "name": "Date (Midnight to Midnight UTC)",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "27B": {
+      "name": "HH Periods in UTC",
+      "parent": "26B",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "48"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0020",
+          "name": "Actual/Estimated Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0177",
+          "name": "Period Metered Consumption",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

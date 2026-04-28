@@ -1,0 +1,56 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0167",
+  "flowVersion": "001",
+  "flowName": "Response to Distribution System Enquiry",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Sent by the SFIC (System Fault Information Centre) of a Distributor in response to an enquiry.",
+  "routes": [
+    {
+      "from": "SFIC",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "346": {
+      "name": "Enquiry Response Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0705",
+          "name": "Supplier Reference",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0014",
+          "name": "Date of Action",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

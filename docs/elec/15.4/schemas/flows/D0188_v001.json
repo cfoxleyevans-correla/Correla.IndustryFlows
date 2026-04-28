@@ -1,0 +1,152 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0188",
+  "flowVersion": "001",
+  "flowName": "Key Transaction Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Notification of details relating to key charging transactions.",
+  "routes": [
+    {
+      "from": "PPMIP",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "386": {
+      "name": "Customer Payment Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0582",
+          "name": "Key Meter Supplier/Customer Id",
+          "format": "CHAR(20)",
+          "required": true
+        },
+        {
+          "ref": "J0583",
+          "name": "Key Charging Machine Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0530",
+          "name": "Terminal Transaction Number",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J0527",
+          "name": "Customer Payment Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0526",
+          "name": "Customer Payment Amount",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0543",
+          "name": "Standing Charge",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0547",
+          "name": "Debt Recovery Rate",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0584",
+          "name": "Active Credit on Key",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0585",
+          "name": "Key Debt",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0586",
+          "name": "Key Date Stamp",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0016",
+          "name": "Reading Date & Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0539",
+          "name": "Total Credit Accepted",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0537",
+          "name": "Credit Balance",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": false
+        }
+      ]
+    },
+    "387": {
+      "name": "Meter Register Detail per Meter",
+      "parent": "386",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J0542",
+          "name": "Prepayment Unit Rate",
+          "format": "NUM(5)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "For the data items outlined below, default values should be inputted for new meters on the initial population of the data flow:Ref                         Default ValueJ0537                     0.00J0010                     '00'J0016                     19500101000000J0040                     0.0J0539                     0.00"
+}

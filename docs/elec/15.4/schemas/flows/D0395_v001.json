@@ -1,0 +1,89 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0395",
+  "flowVersion": "001",
+  "flowName": "Confirmation that an electricity meter has been moved during a service alteration",
+  "status": "Operational",
+  "ownership": "DCUSA",
+  "description": "Confirmation to an Electricity Supplier and Meter Operator from the Electricity Distributor that an electricity meter has been moved as part of a service alteration.",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "90M": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "91M": {
+      "name": "New Meter Location",
+      "parent": "90M",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0419",
+          "name": "Meter Location",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2310",
+          "name": "Work Completed Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The flow will be used to inform the Electricity Supplier and the Meter Operator that the electricity meter has been moved during the service alteration and the works have been completed. The meter location will indicate the new position that the electricity meter has been moved to."
+}

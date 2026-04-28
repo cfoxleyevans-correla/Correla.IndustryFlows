@@ -1,0 +1,62 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0343",
+  "flowVersion": "001",
+  "flowName": "Response from GDCC to GD Licensee",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Response flow from the GDCC, including reason codes to indicate acceptance or reason for rejection of an update.",
+  "routes": [
+    {
+      "from": "GDCC",
+      "to": "GD Licensee",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "89G": {
+      "name": "Party Green Deal MPAN Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1818",
+          "name": "Party Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1813",
+          "name": "Green Deal MPAN Core",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "90G": {
+      "name": "GDCC Response Codes",
+      "parent": "89G",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1811",
+          "name": "GDCC Response Code",
+          "format": "CHAR(3)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The Party Instruction Number is the value received on the inbound flow to which the GDCC Response Codes relate.All appropriate GDCC Response Codes are to be included in the flow."
+}

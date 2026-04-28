@@ -1,0 +1,122 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0277",
+  "flowVersion": "001",
+  "flowName": "Teleswitch Contact Interval Data File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Daily details of teleswitch contact switching times.  Each file relates to a single day.  It must include data for all Tele-switch Groups which are related to Standard Settlement Configurations defined in MDD for that day, and may optionally include data for other Tele-switch Groups (which ISRA will ignore).  It is anticipated that Teleswitch Agent will meet this requirement by including all Tele-switch Groups in the file.",
+  "routes": [
+    {
+      "from": "Teleswitch Agent",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "TSD": {
+      "name": "Teleswitch Date",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0018",
+          "name": "Date (Midnight to Midnight UTC)",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "TSU": {
+      "name": "Teleswitch User",
+      "parent": "TSD",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0135",
+          "name": "Tele-Switch User Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "TSG": {
+      "name": "Teleswitch Group",
+      "parent": "TSU",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0136",
+          "name": "Tele-Switch Group Id",
+          "format": "NUM(4)",
+          "required": true
+        }
+      ]
+    },
+    "TSC": {
+      "name": "Teleswitch Contact",
+      "parent": "TSG",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1570",
+          "name": "Tele-Switch Contact Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1571",
+          "name": "Start of Day Tele-Switch on Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "TCI": {
+      "name": "Teleswitch Contact Interval",
+      "parent": "TSC",
+      "level": 5,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1572",
+          "name": "Effective Time (UTC)",
+          "format": "TIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J1573",
+          "name": "Tele-Switch On Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The file should be ordered by Tele-Switch User Id, Tele-Switch Group Id, Tele-Switch Contact Code and Effective Time (UTC)."
+}

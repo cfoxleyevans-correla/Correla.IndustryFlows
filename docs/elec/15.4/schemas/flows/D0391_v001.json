@@ -1,0 +1,68 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0391",
+  "flowVersion": "001",
+  "flowName": "Metered Volume History Request",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "A request from the SVAA for a HHDA to send  historic Metered Volume data for an MPAN from a specified date to the day before the HHDA started sending Metred Volumes in response to a D0354",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "HHDA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "733": {
+      "name": "File Sequence Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "81M": {
+      "name": "Metering System Notification",
+      "parent": "733",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2307",
+          "name": "Metered Volume History From Date",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

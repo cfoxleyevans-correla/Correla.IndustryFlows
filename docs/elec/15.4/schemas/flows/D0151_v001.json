@@ -1,0 +1,163 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0151",
+  "flowVersion": "001",
+  "flowName": "Termination of Appointment or Contract by Supplier",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "This is a notification that an existing appointment or contract is to be terminated by a Supplier, including the situation when there has been an upheld objection to Change of Supplier.",
+  "routes": [
+    {
+      "from": "AMVLP",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "HHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "NHHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "297": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0279",
+          "name": "Termination Reason",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "298": {
+      "name": "Effective to Date",
+      "parent": "297",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0360",
+          "name": "Effective to Date {MOA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "99H": {
+      "name": "CoS Details",
+      "parent": "298",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1194",
+          "name": "New Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "299": {
+      "name": "Effective toDate",
+      "parent": "297",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0399",
+          "name": "Effective to Date {DCA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "300": {
+      "name": "Effective to Date",
+      "parent": "297",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0340",
+          "name": "Effective to Settlement Date {DAA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "If the Agent requires further information than that provided by the Termination Reason this should be detailed in the Additional Information field.Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

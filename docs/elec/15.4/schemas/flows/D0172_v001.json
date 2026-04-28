@@ -1,0 +1,97 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0172",
+  "flowVersion": "001",
+  "flowName": "Confirmation of Changes",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Flows received, accepted and/or rejected by MPAS, providing a summary of activity and the result of processing.",
+  "routes": [
+    {
+      "from": "MPAS",
+      "to": "DCC",
+      "version": "15.4"
+    },
+    {
+      "from": "MPAS",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "749": {
+      "name": "File Sequence Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "357": {
+      "name": "Summary of Activity and Result of Processing",
+      "parent": "749",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J0723",
+          "name": "Instruction Type",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0821",
+          "name": "Deemed Received Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1064",
+          "name": "File Identifier",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0522",
+          "name": "Instructions Received by MPAS",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0523",
+          "name": "Instructions Accepted by MPAS",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0524",
+          "name": "Instructions Rejected by MPAS",
+          "format": "NUM(5)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

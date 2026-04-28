@@ -1,0 +1,92 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0072",
+  "flowVersion": "001",
+  "flowName": "Instruction to Obtain Change of Supplier Reading",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "On change of Supplier, the NHHDC is requested to provide an actual or deemed reading.Where the read is being used in place of a Routine Read or that used for a CoS or CoT, reading type \"X\" should be used. Where the reading is being used to change an SSC then reading types \"F\" and \"I\" should be used as per their current convention, and where sent by the Supplier would indicate a site visit has not been made. All other read types should be used as per current processing rules.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "150": {
+      "name": "MPANs & Effective Estimate Dates",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0173",
+          "name": "Reason for Request",
+          "format": "CHAR(100)",
+          "required": true
+        }
+      ]
+    },
+    "28B": {
+      "name": "Appointments",
+      "parent": "150",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0174",
+          "name": "Appointment Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0292",
+          "name": "Earliest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0293",
+          "name": "Latest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

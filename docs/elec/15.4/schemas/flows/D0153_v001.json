@@ -1,0 +1,91 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0153",
+  "flowVersion": "001",
+  "flowName": "Notification of Data Aggregator Appointment and Terms",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "This is a notification that a data aggregator (HH or NHH) is to be appointed to a metering system and of the contractual terms to be applied.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "HHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "NHHDA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "312": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0334",
+          "name": "Effective from Settlement Date {DAA}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0048",
+          "name": "Contract Reference",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "313": {
+      "name": "Agreed Service Details",
+      "parent": "312",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0274",
+          "name": "Service Reference",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0275",
+          "name": "Service Level Reference",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "This flow supersedes D0027 in Version 1.This flow includes Unmetered Supply Requirements."
+}

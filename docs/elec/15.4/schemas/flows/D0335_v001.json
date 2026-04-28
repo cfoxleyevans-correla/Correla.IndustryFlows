@@ -1,0 +1,68 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0335",
+  "flowVersion": "001",
+  "flowName": "New Green Deal Plan MPAN Core",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "The Green Deal Licensee will use this transaction to provide an alternative Green Deal MPAN Core to facilitate ongoing charging against Green Deal Plan(s).",
+  "routes": [
+    {
+      "from": "GD Licensee",
+      "to": "GDCC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "34H": {
+      "name": "New Green Deal MPAN Core Information",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1813",
+          "name": "Green Deal MPAN Core",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1816",
+          "name": "New GD MPAN Core Reason Request Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1818",
+          "name": "Party Instruction Number",
+          "format": "INT(20)",
+          "required": false
+        },
+        {
+          "ref": "J1809",
+          "name": "GDCC Instruction Number",
+          "format": "INT(20)",
+          "required": false
+        },
+        {
+          "ref": "J1814",
+          "name": "New GD MPAN Core",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1815",
+          "name": "New GD MPAN Core EFD",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Where the Green Deal Licensee is initiating the request, the Party Instruction Number should be populated, where this is a response to  an D0334 'Request for New Green Deal MPAN' data flow received the GDCC instruction number should be returned."
+}

@@ -1,0 +1,180 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0139",
+  "flowVersion": "002",
+  "flowName": "Confirmation or Rejection of Energisation Status Change",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "This flow confirms that the Energisation Status of a metering point has been changed, or notifies that a change was not possible and gives the reason for failure.",
+  "routes": [
+    {
+      "from": "AMEM",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "CMRC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "CMRC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SIP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "261": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0014",
+          "name": "Date of Action",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1253",
+          "name": "Failure to Energise or De-Energise Reason Code",
+          "format": "NUM(2)",
+          "required": false
+        },
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": false
+        }
+      ]
+    },
+    "262": {
+      "name": "Meter Detail per MPAN Core",
+      "parent": "261",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        }
+      ]
+    },
+    "263": {
+      "name": "Register Details per Meter",
+      "parent": "262",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN"
+}

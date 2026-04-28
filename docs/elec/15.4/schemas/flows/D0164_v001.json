@@ -1,0 +1,126 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0164",
+  "flowVersion": "001",
+  "flowName": "Notification of New or Changed Interruption of Supply",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Issue new/revised details of planned interruption(s) of supply or of previous/long term interruption(s) of supply caused by distribution network fault(s).",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "341": {
+      "name": "Interruption of Supply Information",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0617",
+          "name": "Interruption of Supply Status Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0486",
+          "name": "Interruption of Supply Reference",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0485",
+          "name": "Start Date Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0487",
+          "name": "Interruption of Supply Reason Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "342": {
+      "name": "End Date Time",
+      "parent": "341",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0488",
+          "name": "End Date Time",
+          "format": "DATETIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "343": {
+      "name": "Estimated End Date Time",
+      "parent": "341",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0686",
+          "name": "Estimated End Date Time",
+          "format": "DATETIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "344": {
+      "name": "Area(s) Affected",
+      "parent": "341",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0714",
+          "name": "Area Affected by Interruption",
+          "format": "CHAR(35)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

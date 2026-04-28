@@ -1,0 +1,94 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0355",
+  "flowVersion": "001",
+  "flowName": "Metering System Reporting Confirmation",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Used to notify a Supplier or the SVAA that their Metering System Reporting Notification has been accepted, including verification of the notification.",
+  "routes": [
+    {
+      "from": "HHDA",
+      "to": "CFD Settlement Services Provider",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDA",
+      "to": "CM Settlement Services Provider",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDA",
+      "to": "SVAA",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "15I": {
+      "name": "File Sequence Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": false
+        }
+      ]
+    },
+    "16I": {
+      "name": "Confirmed Metering System Reporting Notifications",
+      "parent": "15I",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1017",
+          "name": "Incoming Instruction Number",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1869",
+          "name": "Effective from Settlement Date {MSCM}",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1870",
+          "name": "Effective to Settlement Date {MSCM}",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Sent in response to a D0354 (Metering System Reporting Notification). When the SVAA has sent a D0354, the HHDA must only respond to the SVAA. Where the sender of the D0354 is a Supplier, the HHDA should only respond to the relevant Supplier and additionally copy the D0355 to the CFD Settlement Services Provider and CM Settlement Services Provider"
+}

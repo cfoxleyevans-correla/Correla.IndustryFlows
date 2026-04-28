@@ -1,0 +1,50 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0125",
+  "flowVersion": "001",
+  "flowName": "Confirmation of Disconnection of Supply",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Confirmation is being given of disconnection of supply to a premises.",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "249": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0014",
+          "name": "Date of Action",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

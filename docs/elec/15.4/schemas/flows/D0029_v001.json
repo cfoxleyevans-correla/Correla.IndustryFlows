@@ -1,0 +1,301 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0029",
+  "flowVersion": "001",
+  "flowName": "Standard Settlement Configuration Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of the Valid Settlement Configuration Profile Classes, Valid Measurement Profile Class, Clock Intervals, Teleswitch Intervals.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "RDT": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1089",
+          "name": "User Name",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "RUN": {
+      "name": "Profile Production Run Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1091",
+          "name": "Profile Production Date",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1092",
+          "name": "Profile Production Time",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "SSC": {
+      "name": "Standard Settlement Configuration Profile Class",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0122",
+          "name": "Profile Class Description",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J0123",
+          "name": "Switched Load Profile Class Ind",
+          "format": "BOOLEAN(0)",
+          "required": true
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0075",
+          "name": "Standard Settlement Configuration Desc",
+          "format": "CHAR(50)",
+          "required": true
+        }
+      ]
+    },
+    "VMR": {
+      "name": "Valid Measurement Requirement Profile Class",
+      "parent": "SSC",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0132",
+          "name": "Switched Load Indicator",
+          "format": "BOOLEAN(0)",
+          "required": true
+        },
+        {
+          "ref": "J0744",
+          "name": "GMT Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "AFY": {
+      "name": "Average Fraction of Yearly Consumption",
+      "parent": "VMR",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1104",
+          "name": "GSP Group",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0133",
+          "name": "Average Fraction of Yearly Consumption",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "CKI": {
+      "name": "Clock Intervals",
+      "parent": "VMR",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0726",
+          "name": "Day of the Week Id",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0289",
+          "name": "Start Day",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0290",
+          "name": "Start Month",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0142",
+          "name": "Start Time",
+          "format": "TIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0287",
+          "name": "End Day",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0288",
+          "name": "End Month",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0143",
+          "name": "End Time",
+          "format": "TIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "TSW": {
+      "name": "Tele-Switch Intervals",
+      "parent": "VMR",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0135",
+          "name": "Tele-Switch User Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0136",
+          "name": "Tele-Switch Group Id",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0137",
+          "name": "Tele-Switch Switch Id",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0142",
+          "name": "Start Time",
+          "format": "TIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0143",
+          "name": "End Time",
+          "format": "TIME(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "This report is produced for a day and contains the details of SSC that were valid for that day only, therefore effective from/to dates are not required."
+}

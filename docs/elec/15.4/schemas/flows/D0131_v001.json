@@ -1,0 +1,126 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0131",
+  "flowVersion": "001",
+  "flowName": "Metering Point Address Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "The Supplier will inform agents of change to Metering Point Address details.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "253": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "71C": {
+      "name": "Metering Point Address",
+      "parent": "253",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "An update to an individual line within an address will require the entire address to be sent. The Data Item Address Key is included in this flow for possible future facilitation of address maintenance."
+}

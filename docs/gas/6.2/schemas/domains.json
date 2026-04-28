@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Code",
+    "description": "A data type in the form of characters within a value domain defined by Market Domain Data. Meaning can only be conveyed through its association to the Short Description domain. Text must have quotation marks around the values.",
+    "units": "",
+    "validSet": "Within market domain data",
+    "validation": "As valid set",
+    "subTypeOf": "TEXT",
+    "picture": "a(n) Continuous",
+    "logicalFormat": "CHAR(n)",
+    "physicalLength": "Any",
+    "notes": "Where no data is provided for optional and conditional text fields, quotation marks must still be included - (e.g. \"abcde\",\"\",\"defgh\",) which indicates that an optional data item between the data items 'abcde' and 'defgh' is not included in this instance of the Data Group"
+  },
+  {
+    "name": "Co-ordinate",
+    "description": "A geographical datatype comprising of the Cartesian coordinates of latitude, longitude and ellipsoid height.",
+    "units": "",
+    "validSet": "As defined by the ordnance survey",
+    "validation": "As valid set",
+    "subTypeOf": "INTEGER",
+    "picture": "+9(7)",
+    "logicalFormat": "INT(7)",
+    "physicalLength": "7",
+    "notes": ""
+  },
+  {
+    "name": "Date",
+    "description": "A datatype whose values are points in time to the resolution: year, month and day (yyyymmdd)",
+    "units": "",
+    "validSet": "A valid date",
+    "validation": "As valid set and picture",
+    "subTypeOf": "INTEGER",
+    "picture": "yyyymmdd",
+    "logicalFormat": "DATE",
+    "physicalLength": "8",
+    "notes": ""
+  },
+  {
+    "name": "Identifier",
+    "description": "An identifier unique to the party which created the object to which it identifies.",
+    "units": "",
+    "validSet": "Integer",
+    "validation": "As valid set",
+    "subTypeOf": "INTEGER",
+    "picture": "+9(8)",
+    "logicalFormat": "INT(8)",
+    "physicalLength": "8",
+    "notes": ""
+  },
+  {
+    "name": "Integer",
+    "description": "A mathematical datatype comprising the exact integral values",
+    "units": "",
+    "validSet": "Integer",
+    "validation": "As valid set",
+    "subTypeOf": "",
+    "picture": "+9(n)",
+    "logicalFormat": "INT(n)",
+    "physicalLength": "Any",
+    "notes": ""
+  },
+  {
+    "name": "Real",
+    "description": "A datatype whose values are decimal numbers.",
+    "units": "",
+    "validSet": "Any",
+    "validation": "As valid set",
+    "subTypeOf": "",
+    "picture": "",
+    "logicalFormat": "NUM(n,m)",
+    "physicalLength": "Any",
+    "notes": ""
+  },
+  {
+    "name": "Short Description",
+    "description": "A description of a Code, in the form of characters, symbols, words, phrases, paragraphs, sentences or other character arrangements.  Data items within this domain will be included within market domain data, but will not be transferred within RGMA data flows. Text must have quotation marks around the values.",
+    "units": "",
+    "validSet": "Within market domain data",
+    "validation": "As valid set",
+    "subTypeOf": "TEXT",
+    "picture": "x(n)",
+    "logicalFormat": "CHAR(n)",
+    "physicalLength": "Any",
+    "notes": "Short description items are limited to a maximum of 100 characters (excluding quotation marks). Where no data is provided for optional and conditional text fields, quotation marks must still be included - (e.g. \"abcde\",\"\",\"defgh\",) which indicates that an optional data item between the data items 'abcde' and 'defgh' is not included in this instance of the Data Group"
+  },
+  {
+    "name": "String",
+    "description": "A sequence of alpha or numeric characters which may contain the EDIFACT Level B Character set (IOS 646) and the underscore character. Text must have quotation marks around the values.",
+    "units": "",
+    "validSet": "Any",
+    "validation": "As valid set",
+    "subTypeOf": "TEXT",
+    "picture": "x(n)",
+    "logicalFormat": "CHAR(n)",
+    "physicalLength": "Any",
+    "notes": "This may contain characters supported by the EDIFACT Level B Character set (ISO 646) and the underscore character. Where no data is provided for optional and conditional text fields, quotation marks must still be included - (e.g. \"abcde\",\"\",\"defgh\",) which indicates that an optional data item between the data items 'abcde' and 'defgh' is not included in this instance of the Data Group"
+  },
+  {
+    "name": "Text",
+    "description": "A datatype in the form of characters, symbols, words, phrases, paragraphs, sentences or other character arrangements, intended to convey a meaning. Text must have quotation marks around the values.",
+    "units": "",
+    "validSet": "Any symbols from the EDIFACT Level B character set and the underscore character",
+    "validation": "As valid set",
+    "subTypeOf": "",
+    "picture": "x(n)",
+    "logicalFormat": "CHAR(n)",
+    "physicalLength": "Any",
+    "notes": "Text items are limited to a maximum of 210 characters (excluding quotation marks). Where no data is provided for optional and conditional text fields, quotation marks must still be included - (e.g. \"abcde\",\"\",\"defgh\",) which indicates that an optional data item between the data items 'abcde' and 'defgh' is not included in this instance of the Data Group"
+  },
+  {
+    "name": "Time",
+    "description": "A datatype whose values are points in time to the resolution: hours, minutes and seconds (hhmmss).  Text must have quotation marks around the values.",
+    "units": "",
+    "validSet": "A valid time within a 24 hour period",
+    "validation": "As valid set and picture",
+    "subTypeOf": "TEXT",
+    "picture": "hhmmss",
+    "logicalFormat": "TIME",
+    "physicalLength": "6",
+    "notes": "The time is always given using the 24 hour clock. Where no data is provided for optional and conditional text fields, quotation marks must still be included - (e.g. \"abcde\",\"\",\"defgh\",) which indicates that an optional data item between the data items 'abcde' and 'defgh' is not included in this instance of the Data Group"
+  }
+]

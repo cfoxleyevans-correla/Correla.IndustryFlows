@@ -1,0 +1,119 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0368",
+  "flowVersion": "001",
+  "flowName": "Notification of Agreed or Cancelled Appointment With Customer",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "The Distribution Business notifies a Supplier and Meter Operator of a new, changed or cancelled customer appointment to fix any category B network fault or defect that is preventing a Supplier installing or changing a meter.",
+  "routes": [
+    {
+      "from": "SFIC",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "SFIC",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "SFIC",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "SFIC",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "09J": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "10J": {
+      "name": "Customer Agreed Appointment Details",
+      "parent": "09J",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2050",
+          "name": "Customer Agreed Appointment Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2051",
+          "name": "Customer Agreed Appointment Time Band",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J2052",
+          "name": "Appointment Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0292",
+          "name": "Earliest Appointment Time",
+          "format": "TIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0293",
+          "name": "Latest Appointment Time",
+          "format": "TIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "11J": {
+      "name": "Customer Cancelled Appointment",
+      "parent": "09J",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2053",
+          "name": "Customer Cancelled Appointment",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The use of 'R' is to be restricted to existing appointments that are re-booked after the initial D0368 has been sent, for a new date or same day and new time in both instances."
+}

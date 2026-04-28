@@ -1,0 +1,105 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0393",
+  "flowVersion": "001",
+  "flowName": "Metered Volume History Acceptance",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "The acceptance from a HHDA to SVAA to send  historic Metered Volume data for an MPAN in response to a D0391, plus the requested data",
+  "routes": [
+    {
+      "from": "HHDA",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "733": {
+      "name": "File Sequence Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "83M": {
+      "name": "Acceptance Details",
+      "parent": "733",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "84M": {
+      "name": "History Days",
+      "parent": "83M",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "85M": {
+      "name": "Settlement Period Metered Volume Data",
+      "parent": "84M",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "46,48,50"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J2309",
+          "name": "Historic Metered Volume",
+          "format": "NUM(9)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "If the HHDA has no historic data for the specified period for a MPAN, they should not include a \"History Days\" group for that MPAN."
+}

@@ -1,0 +1,163 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0342",
+  "flowVersion": "001",
+  "flowName": "Notice of Collection Cessation",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "The details and reason for cessation of attempts to collect Green Deal monies by the GD Licensee on behalf of the GD Provider.",
+  "routes": [
+    {
+      "from": "GD Licensee",
+      "to": "GDCC",
+      "version": "15.4"
+    },
+    {
+      "from": "GDCC",
+      "to": "GD Remittance Processor",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "46H": {
+      "name": "GD Remittance Party Information",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1803",
+          "name": "GD Remittance Processor MPID",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1783",
+          "name": "GD Licensee MPID",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "47H": {
+      "name": "GD Cessation Information",
+      "parent": "46H",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J1789",
+          "name": "GD Payment Period End Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1807",
+          "name": "GD Total Charges Not Collected",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J1773",
+          "name": "GD Cease Collection Reason Code",
+          "format": "CHAR(3)",
+          "required": true
+        }
+      ]
+    },
+    "48H": {
+      "name": "Last Mailing Address Information",
+      "parent": "47H",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1744",
+          "name": "Bill Payer Telephone Number",
+          "format": "CHAR(14)",
+          "required": false
+        },
+        {
+          "ref": "J1046",
+          "name": "Mailing Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1047",
+          "name": "Mailing Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1048",
+          "name": "Mailing Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1049",
+          "name": "Mailing Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1050",
+          "name": "Mailing Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1051",
+          "name": "Mailing Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1052",
+          "name": "Mailing Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1053",
+          "name": "Mailing Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1054",
+          "name": "Mailing Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0566",
+          "name": "Mailing Address Postcode",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Though each address line is optional, when an address is to be updated using this flow, the entire address must be included in the flow."
+}

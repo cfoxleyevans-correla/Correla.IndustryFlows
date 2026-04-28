@@ -1,0 +1,85 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0295",
+  "flowVersion": "001",
+  "flowName": "Rejection of BM Unit Allocation",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Notification to the Supplier that the BM Unit allocation has been rejected  and giving the reason for rejection.",
+  "routes": [
+    {
+      "from": "HHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "23C": {
+      "name": "File Sequence Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "24C": {
+      "name": "Rejected Allocations",
+      "parent": "23C",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1017",
+          "name": "Incoming Instruction Number",
+          "format": "NUM(12)",
+          "required": false
+        },
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J1628",
+          "name": "BM Unit Id",
+          "format": "CHAR(11)",
+          "required": false
+        },
+        {
+          "ref": "J1647",
+          "name": "Effective from Settlement Date {MSBMU}",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J1646",
+          "name": "BM Unit Allocation Rejection Reason Code",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

@@ -1,0 +1,245 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0005",
+  "flowVersion": "001",
+  "flowName": "Instruction on Action",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Request for action on metering systems.",
+  "routes": [
+    {
+      "from": "ADSA",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "ADSA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SMEM",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "017": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0173",
+          "name": "Reason for Request",
+          "format": "CHAR(100)",
+          "required": true
+        },
+        {
+          "ref": "J0174",
+          "name": "Appointment Date",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0292",
+          "name": "Earliest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0293",
+          "name": "Latest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        }
+      ]
+    },
+    "018": {
+      "name": "Meters",
+      "parent": "017",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "019": {
+      "name": "Requested Actions",
+      "parent": "018",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0007",
+          "name": "Requested Action Code",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "020": {
+      "name": "Action Required By",
+      "parent": "019",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0028",
+          "name": "Date Action Required By",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "021": {
+      "name": "Settlement Date",
+      "parent": "019",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0088",
+          "name": "Effective to Settlement Date {MACDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

@@ -1,0 +1,140 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0306",
+  "flowVersion": "002",
+  "flowName": "Request for Debt Information",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Request for debt information upon agreement from Customer",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "87C": {
+      "name": "Metering Point / Customer Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2248",
+          "name": "Customer Title",
+          "format": "CHAR(100)",
+          "required": false
+        },
+        {
+          "ref": "J2246",
+          "name": "Customer Forename",
+          "format": "CHAR(100)",
+          "required": false
+        },
+        {
+          "ref": "J2247",
+          "name": "Customer Surname",
+          "format": "CHAR(100)",
+          "required": true
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "61M": {
+      "name": "Rejection Reason",
+      "parent": "87C",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2249",
+          "name": "DAP Rejection Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Annex C for flow notes."
+}

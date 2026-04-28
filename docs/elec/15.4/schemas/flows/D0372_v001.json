@@ -1,0 +1,686 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0372",
+  "flowVersion": "001",
+  "flowName": "Aggregated Embedded Network Disconnected DUoS Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "A report of profiled DPM data by settlement class for Metering Points on embedded networks, summed over Data Aggregator and Supplier. This report is sent to Host LDSOs (as defined in BSC Procedure BSCP128), and includes data for all embedded networks within their distribution services area",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "Distributor",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "24K": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "27K": {
+      "name": "Report Parameters",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1089",
+          "name": "User Name",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "25K": {
+      "name": "Demand Control Event Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2079",
+          "name": "Demand Control Event ID",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1577",
+          "name": "Start Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J1578",
+          "name": "End Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "26K": {
+      "name": "Settlement Information 1",
+      "parent": "25K",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0882",
+          "name": "Settlement Code Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0195",
+          "name": "SSR Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0196",
+          "name": "SSR Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0197",
+          "name": "SSR Run Type Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "28K": {
+      "name": "Embeded Distributor",
+      "parent": "25K",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1724",
+          "name": "Embedded Distributor Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1741",
+          "name": "Embedded Distributor Name",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "29K": {
+      "name": "Distributor",
+      "parent": "28K",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0323",
+          "name": "Distributor Name",
+          "format": "CHAR(40)",
+          "required": true
+        }
+      ]
+    },
+    "30K": {
+      "name": "GSP Group",
+      "parent": "29K",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "31K": {
+      "name": "DPM Information",
+      "parent": "30K",
+      "level": 5,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1103",
+          "name": "Profile Class",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1724",
+          "name": "Embedded Distributor Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2082",
+          "name": "DPM Total All EACs",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2083",
+          "name": "DPM Total Annualised Advance Report Value",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2084",
+          "name": "DPM Total EAC MSID Count",
+          "format": "INT(8)",
+          "required": true
+        },
+        {
+          "ref": "J2081",
+          "name": "DPM Total AA MSID Count",
+          "format": "INT(8)",
+          "required": true
+        },
+        {
+          "ref": "J2080",
+          "name": "DPM Default EAC MSID Count",
+          "format": "INT(8)",
+          "required": true
+        }
+      ]
+    },
+    "32K": {
+      "name": "Settlement Periods",
+      "parent": "31K",
+      "level": 6,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2085",
+          "name": "Profiled DPM Consumption (Settlement Period 01)",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2086",
+          "name": "Profiled DPM Consumption (Settlement Period 02)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2087",
+          "name": "Profiled DPM Consumption (Settlement Period 03)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2088",
+          "name": "Profiled DPM Consumption (Settlement Period 04)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2089",
+          "name": "Profiled DPM Consumption (Settlement Period 05)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2090",
+          "name": "Profiled DPM Consumption (Settlement Period 06)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2091",
+          "name": "Profiled DPM Consumption (Settlement Period 07)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2092",
+          "name": "Profiled DPM Consumption (Settlement Period 08)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2093",
+          "name": "Profiled DPM Consumption (Settlement Period 09)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2094",
+          "name": "Profiled DPM Consumption (Settlement Period 10)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2095",
+          "name": "Profiled DPM Consumption (Settlement Period 11)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2096",
+          "name": "Profiled DPM Consumption (Settlement Period 12)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2097",
+          "name": "Profiled DPM Consumption (Settlement Period 13)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2098",
+          "name": "Profiled DPM Consumption (Settlement Period 14)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2099",
+          "name": "Profiled DPM Consumption (Settlement Period 15)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2100",
+          "name": "Profiled DPM Consumption (Settlement Period 16)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2101",
+          "name": "Profiled DPM Consumption (Settlement Period 17)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2102",
+          "name": "Profiled DPM Consumption (Settlement Period 18)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2103",
+          "name": "Profiled DPM Consumption (Settlement Period 19)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2104",
+          "name": "Profiled DPM Consumption (Settlement Period 20)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2105",
+          "name": "Profiled DPM Consumption (Settlement Period 21)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2106",
+          "name": "Profiled DPM Consumption (Settlement Period 22)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2107",
+          "name": "Profiled DPM Consumption (Settlement Period 23)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2108",
+          "name": "Profiled DPM Consumption (Settlement Period 24)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2109",
+          "name": "Profiled DPM Consumption (Settlement Period 25)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2110",
+          "name": "Profiled DPM Consumption (Settlement Period 26)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2111",
+          "name": "Profiled DPM Consumption (Settlement Period 27)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2112",
+          "name": "Profiled DPM Consumption (Settlement Period 28)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2113",
+          "name": "Profiled DPM Consumption (Settlement Period 29)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2114",
+          "name": "Profiled DPM Consumption (Settlement Period 30)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2115",
+          "name": "Profiled DPM Consumption (Settlement Period 31)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2116",
+          "name": "Profiled DPM Consumption (Settlement Period 32)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2117",
+          "name": "Profiled DPM Consumption (Settlement Period 33)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2118",
+          "name": "Profiled DPM Consumption (Settlement Period 34)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2119",
+          "name": "Profiled DPM Consumption (Settlement Period 35)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2120",
+          "name": "Profiled DPM Consumption (Settlement Period 36)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2121",
+          "name": "Profiled DPM Consumption (Settlement Period 37)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2122",
+          "name": "Profiled DPM Consumption (Settlement Period 38)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2123",
+          "name": "Profiled DPM Consumption (Settlement Period 39)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2124",
+          "name": "Profiled DPM Consumption (Settlement Period 40)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2125",
+          "name": "Profiled DPM Consumption (Settlement Period 41)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2126",
+          "name": "Profiled DPM Consumption (Settlement Period 42)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2127",
+          "name": "Profiled DPM Consumption (Settlement Period 43)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2128",
+          "name": "Profiled DPM Consumption (Settlement Period 44)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2129",
+          "name": "Profiled DPM Consumption (Settlement Period 45)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2130",
+          "name": "Profiled DPM Consumption (Settlement Period 46)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2131",
+          "name": "Profiled DPM Consumption (Settlement Period 47)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J2132",
+          "name": "Profiled DPM Consumption (Settlement Period 48)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J2133",
+          "name": "Profiled DPM Consumption (Settlement Period 49)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J2134",
+          "name": "Profiled DPM Consumption (Settlement Period 50)",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "33K": {
+      "name": "Daily DPM",
+      "parent": "31K",
+      "level": 6,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2078",
+          "name": "Daily Profiled DPM Total EAC",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2077",
+          "name": "Daily Profiled DPM Total Annualised Advance",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "34K": {
+      "name": "Settlement Information 2",
+      "parent": "25K",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0882",
+          "name": "Settlement Code Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0195",
+          "name": "SSR Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0196",
+          "name": "SSR Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0197",
+          "name": "SSR Run Type Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Annex C for flow notes."
+}

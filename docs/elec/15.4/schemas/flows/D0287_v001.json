@@ -1,0 +1,158 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0287",
+  "flowVersion": "001",
+  "flowName": "Annually Recalculated Researched Consumption",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of the recalculated Average Fraction of Yearly Consumption (AFYC), GSP Group Profile Class Average EACs and GSP Group Profile Class Default EACs.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "MDDA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "GSP": {
+      "name": "GSP Groups",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "PFC": {
+      "name": "Profile Class",
+      "parent": "GSP",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "SSC": {
+      "name": "VSCPC Details",
+      "parent": "PFC",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "AFC": {
+      "name": "AFYC Details",
+      "parent": "SSC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1214",
+          "name": "Time Pattern Regime Id",
+          "format": "CHAR(5)",
+          "required": true
+        },
+        {
+          "ref": "J0133",
+          "name": "Average Fraction of Yearly Consumption",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0731",
+          "name": "Effective from Settlement Date {AFOYCS}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0738",
+          "name": "Effective to Settlement Date {AFOYCS}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "GAE": {
+      "name": "GSPG PC Average EACs",
+      "parent": "SSC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0768",
+          "name": "Researched Average EAC",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0763",
+          "name": "Effective from Settlement Date {GGPCAE}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "GDE": {
+      "name": "GSPG PC Default EACs",
+      "parent": "PFC",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1593",
+          "name": "Researched Default EAC",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J1592",
+          "name": "Effective from Settlement Date {GGPCDE}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The use of the term \"recalculated\" is deliberate.  This data flow will only be used for details where an existing value has been recalculated.  New AFYCs, Average and Default EACs will be handled through the normal channels for MDD."
+}

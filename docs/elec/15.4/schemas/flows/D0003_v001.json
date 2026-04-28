@@ -1,0 +1,241 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0003",
+  "flowVersion": "001",
+  "flowName": "Half Hourly Advances",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Half hourly data from half hourly meters.",
+  "routes": [
+    {
+      "from": "ADSA",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "ADSA",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "ADSA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "HHDC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "007": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "008": {
+      "name": "Meter Ids",
+      "parent": "007",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        }
+      ]
+    },
+    "009": {
+      "name": "Reading Dates/Types",
+      "parent": "008",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1019",
+          "name": "Reading Date & Time in UTC",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "010": {
+      "name": "Meter Registers",
+      "parent": "009",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "011": {
+      "name": "Dates for HH Data",
+      "parent": "010",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0018",
+          "name": "Date (Midnight to Midnight UTC)",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "012": {
+      "name": "HH Advances",
+      "parent": "011",
+      "level": 6,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "48"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0019",
+          "name": "Meter Period Number",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0020",
+          "name": "Actual/Estimated Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0021",
+          "name": "Meter Period Value",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0378",
+          "name": "Meter Period Tag",
+          "format": "CHAR(16)",
+          "required": false
+        },
+        {
+          "ref": "J0707",
+          "name": "Meter Period Flag",
+          "format": "BOOLEAN(0)",
+          "required": false
+        },
+        {
+          "ref": "J0709",
+          "name": "Meter Period Status",
+          "format": "BOOLEAN(0)",
+          "required": false
+        },
+        {
+          "ref": "J0708",
+          "name": "Meter Period Reason Code",
+          "format": "CHAR(2)",
+          "required": false
+        }
+      ]
+    },
+    "013": {
+      "name": "Site Visit Information",
+      "parent": "007",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "This flow is for notification of validated half-hourly advances and includes optional data items for any site visit check information.Where site visit information details apply at meter level it is anticipated that this will be detailed at MPAN Core level in the Additional Information field.  Flow occurrence between Distributor and Supplier and Supplier to DC have been included to cover the Unmetered Supply Requirements."
+}

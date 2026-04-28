@@ -1,0 +1,254 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0301",
+  "flowVersion": "002",
+  "flowName": "Erroneous Transfer Communication",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Notification / Update of an Erroneous Registration / Transfer",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "63C": {
+      "name": "Metering Point / Customer Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0924",
+          "name": "Effective from Settlement Date {REGI} for New Supplier",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1669",
+          "name": "Initial Customer Contact Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1657",
+          "name": "Initiating Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1650",
+          "name": "Associated Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0375",
+          "name": "Customer Name",
+          "format": "CHAR(100)",
+          "required": true
+        },
+        {
+          "ref": "J1668",
+          "name": "Customer Telephone Number",
+          "format": "CHAR(14)",
+          "required": false
+        },
+        {
+          "ref": "J1670",
+          "name": "Customer Requests No Contact",
+          "format": "CHAR(1)",
+          "required": false
+        }
+      ]
+    },
+    "64C": {
+      "name": "Erroneous Registration / Transfer Details",
+      "parent": "63C",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1671",
+          "name": "Reason for Return",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1672",
+          "name": "Status of Erroneous Transfer",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "65C": {
+      "name": "Erroneous Registration / Transfer Details",
+      "parent": "63C",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1671",
+          "name": "Reason for Return",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1672",
+          "name": "Status of Erroneous Transfer",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "66C": {
+      "name": "Meter / Reading Types",
+      "parent": "63C",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "67C": {
+      "name": "ET Readings",
+      "parent": "66C",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0016",
+          "name": "Reading Date & Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Annex C for flow notesJ0012 (Additional Information) is mandatory if J1672 (Status of Erroneous Transfer) is populated with 'C' or 'F'."
+}

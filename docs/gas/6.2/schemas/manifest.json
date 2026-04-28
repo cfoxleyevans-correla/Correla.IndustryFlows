@@ -1,0 +1,223 @@
+{
+  "$schema": "https://example.com/rgma/flow-schema/v1/manifest",
+  "rgmaVersion": "6.2",
+  "generatedAt": "2026-04-28T16:37:03Z",
+  "flows": [
+    {
+      "flowId": "G0100",
+      "flowVersion": "001",
+      "flowName": "Request Metering Job Parent (ORJOB)",
+      "file": "flows/G0100_v001.json"
+    },
+    {
+      "flowId": "G0101",
+      "flowVersion": "001",
+      "flowName": "Request Metering Job Supplier to MAM (ORJOB)",
+      "file": "flows/G0101_v001.json"
+    },
+    {
+      "flowId": "G0200",
+      "flowVersion": "001",
+      "flowName": "Notification of Metering Job Parent (ONJOB)",
+      "file": "flows/G0200_v001.json"
+    },
+    {
+      "flowId": "G0201",
+      "flowVersion": "001",
+      "flowName": "Notification of Measuring Asset Installation MAM to Supplier to Shipper (ONJOB)",
+      "file": "flows/G0201_v001.json"
+    },
+    {
+      "flowId": "G0202",
+      "flowVersion": "001",
+      "flowName": "Notification of Measuring Asset Installation Shipper to CDSP (JOB)",
+      "file": "flows/G0202_v001.json"
+    },
+    {
+      "flowId": "G0203",
+      "flowVersion": "001",
+      "flowName": "Notification of Measuring Asset Removal MAM to Supplier to Shipper (ONJOB)",
+      "file": "flows/G0203_v001.json"
+    },
+    {
+      "flowId": "G0204",
+      "flowVersion": "001",
+      "flowName": "Notification of Measuring Asset Removal Shipper to CDSP (JOB)",
+      "file": "flows/G0204_v001.json"
+    },
+    {
+      "flowId": "G0205",
+      "flowVersion": "001",
+      "flowName": "Notification of Measuring Asset Exchange MAM to Supplier to Shipper (ONJOB)",
+      "file": "flows/G0205_v001.json"
+    },
+    {
+      "flowId": "G0206",
+      "flowVersion": "001",
+      "flowName": "Notification of Measuring Asset Exchange Shipper to CDSP (JOB)",
+      "file": "flows/G0206_v001.json"
+    },
+    {
+      "flowId": "G0207",
+      "flowVersion": "001",
+      "flowName": "Notification of a Measuring Asset Other Job MAM to Supplier to Shipper (ONJOB)",
+      "file": "flows/G0207_v001.json"
+    },
+    {
+      "flowId": "G0208",
+      "flowVersion": "001",
+      "flowName": "Notification of a Non-Measuring Asset Job MAM to Supplier to Shipper (ONJOB)",
+      "file": "flows/G0208_v001.json"
+    },
+    {
+      "flowId": "G0300",
+      "flowVersion": "001",
+      "flowName": "Request for Transfer of Asset Details Parent (ORDET)",
+      "file": "flows/G0300_v001.json"
+    },
+    {
+      "flowId": "G0301",
+      "flowVersion": "001",
+      "flowName": "Request for Transfer of Asset Details (ORDET)",
+      "file": "flows/G0301_v001.json"
+    },
+    {
+      "flowId": "G0400",
+      "flowVersion": "001",
+      "flowName": "Transfer of Asset Details Parent (ONDET)",
+      "file": "flows/G0400_v001.json"
+    },
+    {
+      "flowId": "G0401",
+      "flowVersion": "001",
+      "flowName": "Transfer of Metering Asset Details MAM to MAM (ONDET)",
+      "file": "flows/G0401_v001.json"
+    },
+    {
+      "flowId": "G0402",
+      "flowVersion": "001",
+      "flowName": "Transfer of Non-Metering Asset Details MAM to MAM (ONDET)",
+      "file": "flows/G0402_v001.json"
+    },
+    {
+      "flowId": "G0500",
+      "flowVersion": "001",
+      "flowName": "Notification of MAM Appointment / De-Appointment Parent (ONAGE)",
+      "file": "flows/G0500_v001.json"
+    },
+    {
+      "flowId": "G0501",
+      "flowVersion": "001",
+      "flowName": "Notification of MAM Appointment (ONAGE)",
+      "file": "flows/G0501_v001.json"
+    },
+    {
+      "flowId": "G0502",
+      "flowVersion": "001",
+      "flowName": "Notification of MAM De Appointment (ONAGE)",
+      "file": "flows/G0502_v001.json"
+    },
+    {
+      "flowId": "G0600",
+      "flowVersion": "001",
+      "flowName": "Notification of Metering Details Update Parent (ONUPD)",
+      "file": "flows/G0600_v001.json"
+    },
+    {
+      "flowId": "G0601",
+      "flowVersion": "001",
+      "flowName": "Notification of MAM Appointment MAM to MAP (ONUPD)",
+      "file": "flows/G0601_v001.json"
+    },
+    {
+      "flowId": "G0602",
+      "flowVersion": "001",
+      "flowName": "Notification of MAM De-appointment to MAP (ONUPD)",
+      "file": "flows/G0602_v001.json"
+    },
+    {
+      "flowId": "G0603",
+      "flowVersion": "001",
+      "flowName": "Notification of Asset Installation MAM to MAP (ONUPD)",
+      "file": "flows/G0603_v001.json"
+    },
+    {
+      "flowId": "G0604",
+      "flowVersion": "001",
+      "flowName": "Notification of Asset Removal MAM to MAP (ONUPD)",
+      "file": "flows/G0604_v001.json"
+    },
+    {
+      "flowId": "G0605",
+      "flowVersion": "001",
+      "flowName": "Notification of Metering Details Found or Missing Asset MAM to Supplier to Shipper (ONUPD)",
+      "file": "flows/G0605_v001.json"
+    },
+    {
+      "flowId": "G0606",
+      "flowVersion": "001",
+      "flowName": "Notification of Metering Details Found or Missing Asset Shipper to CDSP (UPD)",
+      "file": "flows/G0606_v001.json"
+    },
+    {
+      "flowId": "G0607",
+      "flowVersion": "001",
+      "flowName": "Notification of Metering Details Update or Refresh MAM to Supplier to Shipper (ONUPD)",
+      "file": "flows/G0607_v001.json"
+    },
+    {
+      "flowId": "G0608",
+      "flowVersion": "001",
+      "flowName": "Notification of Metering Details Update or Refresh Shipper to CDSP (UPD)",
+      "file": "flows/G0608_v001.json"
+    },
+    {
+      "flowId": "G0700",
+      "flowVersion": "001",
+      "flowName": "Response (Parent)",
+      "file": "flows/G0700_v001.json"
+    },
+    {
+      "flowId": "G0701",
+      "flowVersion": "001",
+      "flowName": "Response (Rejection)",
+      "file": "flows/G0701_v001.json"
+    },
+    {
+      "flowId": "G0702",
+      "flowVersion": "001",
+      "flowName": "Response (Acceptance)",
+      "file": "flows/G0702_v001.json"
+    },
+    {
+      "flowId": "G0609",
+      "flowVersion": "001",
+      "flowName": "Notification of Metering Details Found or Missing Asset MAM to CDSP (ONUPD)",
+      "file": "flows/G0609_v001.json"
+    },
+    {
+      "flowId": "G0610",
+      "flowVersion": "001",
+      "flowName": "Notification of Metering Details Update or Refresh MAM to CDSP (ONUPD)",
+      "file": "flows/G0610_v001.json"
+    },
+    {
+      "flowId": "G0209",
+      "flowVersion": "001",
+      "flowName": "Notification of Measuring Asset Installation MAM to CDSP (ONJOB)",
+      "file": "flows/G0209_v001.json"
+    },
+    {
+      "flowId": "G0210",
+      "flowVersion": "001",
+      "flowName": "Notification of Measuring Asset Removal MAM to CDSP (ONJOB)",
+      "file": "flows/G0210_v001.json"
+    },
+    {
+      "flowId": "G0211",
+      "flowVersion": "001",
+      "flowName": "Notification of Measuring Asset Exchange MAM to CDSP (ONJOB)",
+      "file": "flows/G0211_v001.json"
+    }
+  ]
+}

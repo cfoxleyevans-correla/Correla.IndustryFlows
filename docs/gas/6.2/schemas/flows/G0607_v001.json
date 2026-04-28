@@ -1,0 +1,1091 @@
+{
+  "$schema": "https://example.com/rgma/flow-schema/v1",
+  "flowId": "G0607",
+  "flowVersion": "001",
+  "flowName": "Notification of Metering Details Update or Refresh MAM to Supplier to Shipper (ONUPD)",
+  "status": "Operational",
+  "ownership": "RGMA (SPAA Ltd)",
+  "description": "This flow is used to notify the recipient of updated metering related details. This flow should be used following initial MAM appointment and any other subsequent updates.",
+  "routes": [],
+  "groups": {
+    "121": {
+      "code": "121",
+      "name": "Transaction",
+      "level": 1,
+      "parent": null,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0055",
+          "name": "Transaction Reference",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(15)"
+        },
+        {
+          "ref": "A0056",
+          "name": "Transaction Comment",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(210)"
+        },
+        {
+          "ref": "A0053",
+          "name": "Contract Reference",
+          "required": false,
+          "conditional": true,
+          "format": "CHAR(25)"
+        },
+        {
+          "ref": "A0144",
+          "name": "Transaction Type Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0167",
+          "name": "Transaction Type Reason Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0058",
+          "name": "Cross-Ref Other Internal Job Reference",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(15)"
+        },
+        {
+          "ref": "A0122",
+          "name": "Cross-Ref Other External Job Reference",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(15)"
+        },
+        {
+          "ref": "A0142",
+          "name": "Transaction Status Code",
+          "required": false,
+          "conditional": true,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0057",
+          "name": "Transaction Status Change Reason Code",
+          "required": false,
+          "conditional": true,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0161",
+          "name": "Market Sector Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(1)"
+        },
+        {
+          "ref": "A0166",
+          "name": "Date of Notice",
+          "required": false,
+          "conditional": true,
+          "format": "DATE(0)"
+        },
+        {
+          "ref": "A0068",
+          "name": "Registration Body",
+          "required": false,
+          "conditional": true,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0069",
+          "name": "Registration Reference",
+          "required": false,
+          "conditional": true,
+          "format": "CHAR(20)"
+        },
+        {
+          "ref": "A0081",
+          "name": "Effective From Date",
+          "required": false,
+          "conditional": true,
+          "format": "DATE(0)"
+        },
+        {
+          "ref": "A0082",
+          "name": "Effective To Date",
+          "required": false,
+          "conditional": true,
+          "format": "DATE(0)"
+        }
+      ]
+    },
+    "10": {
+      "code": "10",
+      "name": "Address",
+      "level": 4,
+      "parent": "9",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0102",
+          "name": "Address Type Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0003",
+          "name": "Address Text",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(210)"
+        },
+        {
+          "ref": "A0004",
+          "name": "Sub Building Name Number",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0006",
+          "name": "Building Name Number",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0007",
+          "name": "Dependent Thoroughfare",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0008",
+          "name": "Thoroughfare",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0009",
+          "name": "Double Dependent Locality",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0010",
+          "name": "Dependent Locality",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0011",
+          "name": "Post Town",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0012",
+          "name": "County",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0013",
+          "name": "Post Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(10)"
+        },
+        {
+          "ref": "A0015",
+          "name": "Grid Co-ord X",
+          "required": false,
+          "conditional": false,
+          "format": "INT(7)"
+        },
+        {
+          "ref": "A0016",
+          "name": "Grid Co-ord Y",
+          "required": false,
+          "conditional": false,
+          "format": "INT(7)"
+        },
+        {
+          "ref": "A0017",
+          "name": "Grid Co-ord Z",
+          "required": false,
+          "conditional": false,
+          "format": "INT(7)"
+        },
+        {
+          "ref": "A0018",
+          "name": "Unique Property-Reference Number",
+          "required": false,
+          "conditional": true,
+          "format": "CHAR(12)"
+        }
+      ]
+    },
+    "9": {
+      "code": "9",
+      "name": "Name",
+      "level": 3,
+      "parent": "70",
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0107",
+          "name": "Person Type Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0088",
+          "name": "Title",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(6)"
+        },
+        {
+          "ref": "A0089",
+          "name": "Initials",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(4)"
+        },
+        {
+          "ref": "A0090",
+          "name": "Surname",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(30)"
+        },
+        {
+          "ref": "A0100",
+          "name": "Person Notes",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(100)"
+        },
+        {
+          "ref": "A0101",
+          "name": "Access Password",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(30)"
+        }
+      ]
+    },
+    "11": {
+      "code": "11",
+      "name": "Contact Mechanism",
+      "level": 4,
+      "parent": "9",
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0049",
+          "name": "Contact Mechanism Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0106",
+          "name": "Contact Mechanism Value",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(100)"
+        }
+      ]
+    },
+    "70": {
+      "code": "70",
+      "name": "Meter Point",
+      "level": 2,
+      "parent": "121",
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0178",
+          "name": "Data Update Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0072",
+          "name": "Meter Point Reference Number",
+          "required": true,
+          "conditional": false,
+          "format": "INT(10)"
+        },
+        {
+          "ref": "A0076",
+          "name": "Meter Link Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(1)"
+        },
+        {
+          "ref": "A0077",
+          "name": "Meter Point Status Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(2)"
+        },
+        {
+          "ref": "A0059",
+          "name": "Location Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(2)"
+        },
+        {
+          "ref": "A0157",
+          "name": "Meter Point Location Notes",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(100)"
+        },
+        {
+          "ref": "A0075",
+          "name": "Access Instructions",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(210)"
+        },
+        {
+          "ref": "A0074",
+          "name": "Conversion Factor",
+          "required": false,
+          "conditional": false,
+          "format": "NUM(9)"
+        },
+        {
+          "ref": "A0073",
+          "name": "Last Inspection Date",
+          "required": false,
+          "conditional": false,
+          "format": "DATE(0)"
+        },
+        {
+          "ref": "A0164",
+          "name": "Metering Pressure",
+          "required": false,
+          "conditional": true,
+          "format": "NUM(9)"
+        }
+      ]
+    },
+    "28": {
+      "code": "28",
+      "name": "Address",
+      "level": 3,
+      "parent": "70",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0102",
+          "name": "Address Type Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0003",
+          "name": "Address Text",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(210)"
+        },
+        {
+          "ref": "A0004",
+          "name": "Sub Building Name Number",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0006",
+          "name": "Building Name Number",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0007",
+          "name": "Dependent Thoroughfare",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0008",
+          "name": "Thoroughfare",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0009",
+          "name": "Double Dependent Locality",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0010",
+          "name": "Dependent Locality",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0011",
+          "name": "Post Town",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0012",
+          "name": "County",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(40)"
+        },
+        {
+          "ref": "A0013",
+          "name": "Post Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(10)"
+        },
+        {
+          "ref": "A0015",
+          "name": "Grid Co-ord X",
+          "required": false,
+          "conditional": false,
+          "format": "INT(7)"
+        },
+        {
+          "ref": "A0016",
+          "name": "Grid Co-ord Y",
+          "required": false,
+          "conditional": false,
+          "format": "INT(7)"
+        },
+        {
+          "ref": "A0017",
+          "name": "Grid Co-ord Z",
+          "required": false,
+          "conditional": false,
+          "format": "INT(7)"
+        },
+        {
+          "ref": "A0018",
+          "name": "Unique Property-Reference Number",
+          "required": false,
+          "conditional": true,
+          "format": "CHAR(12)"
+        }
+      ]
+    },
+    "21": {
+      "code": "21",
+      "name": "Asset",
+      "level": 3,
+      "parent": "70",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0178",
+          "name": "Data Update Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0144",
+          "name": "Transaction Type Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0024",
+          "name": "Asset Class Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0109",
+          "name": "Product Id",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(10)"
+        },
+        {
+          "ref": "A0163",
+          "name": "Payment Method Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0083",
+          "name": "Model Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(10)"
+        },
+        {
+          "ref": "A0060",
+          "name": "Manufacturer Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(3)"
+        },
+        {
+          "ref": "A0021",
+          "name": "Year of Manufacture",
+          "required": false,
+          "conditional": false,
+          "format": "INT(4)"
+        },
+        {
+          "ref": "A0022",
+          "name": "Serial Number",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(14)"
+        },
+        {
+          "ref": "A0059",
+          "name": "Location Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(2)"
+        },
+        {
+          "ref": "A0158",
+          "name": "Asset Location Notes",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(100)"
+        },
+        {
+          "ref": "A0037",
+          "name": "Asset Status Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(2)"
+        }
+      ]
+    },
+    "173": {
+      "code": "173",
+      "name": "Meter",
+      "level": 4,
+      "parent": "21",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0178",
+          "name": "Data Update Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0025",
+          "name": "Meter Type Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0085",
+          "name": "Meter Mechanism Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0112",
+          "name": "Measuring Capacity",
+          "required": false,
+          "conditional": false,
+          "format": "NUM(10)"
+        },
+        {
+          "ref": "A0079",
+          "name": "Meter Usage Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(1)"
+        },
+        {
+          "ref": "A0044",
+          "name": "Collar Status Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0149",
+          "name": "OAMI Inspection Date",
+          "required": false,
+          "conditional": false,
+          "format": "DATE(0)"
+        },
+        {
+          "ref": "A0126",
+          "name": "Role Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0160",
+          "name": "Last Refurbished Date",
+          "required": false,
+          "conditional": false,
+          "format": "DATE(0)"
+        },
+        {
+          "ref": "A0194",
+          "name": "Pulse Value",
+          "required": false,
+          "conditional": false,
+          "format": "NUM(7)"
+        }
+      ]
+    },
+    "35": {
+      "code": "35",
+      "name": "Converter",
+      "level": 4,
+      "parent": "21",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0178",
+          "name": "Data Update Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0036",
+          "name": "Conversion Basis Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0027",
+          "name": "Converter Conversion Factor",
+          "required": false,
+          "conditional": false,
+          "format": "NUM(9)"
+        }
+      ]
+    },
+    "24": {
+      "code": "24",
+      "name": "Register Details",
+      "level": 4,
+      "parent": "21",
+      "cardinality": {
+        "min": 0,
+        "max": 2
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0178",
+          "name": "Data Update Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0124",
+          "name": "Register Type Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0121",
+          "name": "Number of Dials or Digits",
+          "required": false,
+          "conditional": false,
+          "format": "INT(2)"
+        },
+        {
+          "ref": "A0123",
+          "name": "Units of Measure",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0120",
+          "name": "Multiplication Factor",
+          "required": false,
+          "conditional": false,
+          "format": "NUM(6)"
+        }
+      ]
+    },
+    "7": {
+      "code": "7",
+      "name": "Reading",
+      "level": 5,
+      "parent": "24",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0031",
+          "name": "Reading Date",
+          "required": false,
+          "conditional": false,
+          "format": "DATE(0)"
+        },
+        {
+          "ref": "A0034",
+          "name": "Round The Clock",
+          "required": false,
+          "conditional": false,
+          "format": "INT(2)"
+        },
+        {
+          "ref": "A0033",
+          "name": "Reading Index",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(12)"
+        }
+      ]
+    },
+    "8": {
+      "code": "8",
+      "name": "Market Participant",
+      "level": 4,
+      "parent": "21",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0126",
+          "name": "Role Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0064",
+          "name": "Market Participant Abbreviated Name",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(3)"
+        }
+      ]
+    },
+    "27": {
+      "code": "27",
+      "name": "Name",
+      "level": 4,
+      "parent": "21",
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0107",
+          "name": "Person Type Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0088",
+          "name": "Title",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(6)"
+        },
+        {
+          "ref": "A0089",
+          "name": "Initials",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(4)"
+        },
+        {
+          "ref": "A0090",
+          "name": "Surname",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(30)"
+        },
+        {
+          "ref": "A0100",
+          "name": "Person Notes",
+          "required": false,
+          "conditional": true,
+          "format": "CHAR(100)"
+        },
+        {
+          "ref": "A0101",
+          "name": "Access Password",
+          "required": false,
+          "conditional": true,
+          "format": "CHAR(30)"
+        }
+      ]
+    },
+    "12": {
+      "code": "12",
+      "name": "Appointment",
+      "level": 4,
+      "parent": "21",
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0019",
+          "name": "Appointment Qualifier Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0138",
+          "name": "Appointment Date From",
+          "required": true,
+          "conditional": false,
+          "format": "DATE(0)"
+        },
+        {
+          "ref": "A0139",
+          "name": "Appointment Date To",
+          "required": false,
+          "conditional": false,
+          "format": "DATE(0)"
+        },
+        {
+          "ref": "A0019",
+          "name": "Appointment Qualifier Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0140",
+          "name": "Appointment Time From",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(6)"
+        },
+        {
+          "ref": "A0141",
+          "name": "Appointment Time To",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(6)"
+        }
+      ]
+    },
+    "14": {
+      "code": "14",
+      "name": "Care Details",
+      "level": 4,
+      "parent": "9",
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0039",
+          "name": "Care Category Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(2)"
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "A number of data items within this flow are included in the MDD Product Table.  Only valid combinations, as set out in MDD, should be provided or inferred.Meter Point Address Group (028): At least A0004 or A0006 and A0007 should be provided. If neither are provided, A0008 should be provided. Where the post code is not known, the relevant GT default value should be used.Asset Group (021) Only one Asset segment per Asset type expected for update / refresh variance.Asset; Serial Number (A0022) mandated for updates relating to a Measuring Asset.Asset: Asset Status Code (A0037) mandatory where Non Measuring Assets are being notified.Meter: Role Code (A0126) should be used to identify the Gas Act Owner, allowable values C, S or T. Register Details: Number of Dials or Digits (A0121) if provided, must be consistent with Reading Index (A0033).Reading: Reading Date (A0031) provides the effective date, from which an update is deemed to have taken place, where this is not provided in the Appointment Group (030). Market Participant Group (008): Identifies the Old MAM if the transaction is notifying the New MAM of their appointment, or the New MAM if it is the New MAM notifying the Supplier of their appointment by a GAO, which is not the Supplier, otherwise this will be the Asset Provider."
+}

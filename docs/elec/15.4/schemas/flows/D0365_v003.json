@@ -1,0 +1,458 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0365",
+  "flowVersion": "003",
+  "flowName": "CFD Generator Invoice Backing Data",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Calculation details for CFD payments to (or from) a CFD Generator.",
+  "routes": [
+    {
+      "from": "CFD Settlement Services Provider",
+      "to": "CFD Generator",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "86I": {
+      "name": "EMR Invoice Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1889",
+          "name": "EMR Party Id",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1950",
+          "name": "EMR Invoice Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J1949",
+          "name": "EMR Invoice Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1951",
+          "name": "EMR Invoice Payment Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1952",
+          "name": "EMR Invoice Total",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "87I": {
+      "name": "Contract for Difference",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1906",
+          "name": "CFD Id",
+          "format": "CHAR(16)",
+          "required": true
+        },
+        {
+          "ref": "J1932",
+          "name": "Contract Type",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J2019",
+          "name": "Total Aggregate Difference",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2041",
+          "name": "Total Reconciliation Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2027",
+          "name": "Total Interest",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1971",
+          "name": "Net Payable Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2178",
+          "name": "Total Ad Hoc Payment",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "88I": {
+      "name": "CFD Billing Period",
+      "parent": "87I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1891",
+          "name": "Aggregate Difference Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1990",
+          "name": "Reconciliation Amount",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1931",
+          "name": "Compensatory Interest",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2290",
+          "name": "Phase Multiplier",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2291",
+          "name": "Phase Total Installed Capacity",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J2292",
+          "name": "Project Total Installed Capacity",
+          "format": "NUM(13)",
+          "required": false
+        }
+      ]
+    },
+    "89I": {
+      "name": "CFD Settlement Unit",
+      "parent": "88I",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2004",
+          "name": "Settlement Unit Id",
+          "format": "INT(2)",
+          "required": true
+        },
+        {
+          "ref": "J1967",
+          "name": "Metered Volume",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1947",
+          "name": "DSF Unit Metered Volume",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J1945",
+          "name": "DSF Station Load",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J1946",
+          "name": "DSF Station Load Proportion",
+          "format": "NUM(8)",
+          "required": false
+        },
+        {
+          "ref": "J0252",
+          "name": "Transmission Loss Multiplier",
+          "format": "NUM(10)",
+          "required": true
+        },
+        {
+          "ref": "J2000",
+          "name": "Reference Price",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J2293",
+          "name": "Rolling Negative Price Period",
+          "format": "BOOLEAN(1)",
+          "required": true
+        },
+        {
+          "ref": "J2005",
+          "name": "Strike Price",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J2287",
+          "name": "Maximum Contract Capacity",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2001",
+          "name": "Renewable Qualifying Multiplier",
+          "format": "NUM(8)",
+          "required": false
+        },
+        {
+          "ref": "J2002",
+          "name": "Renewable Qualifying Multiplier Type",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1915",
+          "name": "CHP Qualifying Multiplier",
+          "format": "NUM(8)",
+          "required": false
+        },
+        {
+          "ref": "J1943",
+          "name": "Difference",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J1944",
+          "name": "Difference Amount",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "CME": {
+      "name": "CFD Metered Entity Settlement Unit",
+      "parent": "89I",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2288",
+          "name": "Metered Entity Id",
+          "format": "CHAR(25)",
+          "required": true
+        },
+        {
+          "ref": "J2289",
+          "name": "Metered Entity Metered Volume",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0252",
+          "name": "Transmission Loss Multiplier",
+          "format": "NUM(10)",
+          "required": false
+        },
+        {
+          "ref": "J0156",
+          "name": "Line Loss Factor",
+          "format": "NUM(5)",
+          "required": false
+        }
+      ]
+    },
+    "90I": {
+      "name": "CFD Default Interest",
+      "parent": "87I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1950",
+          "name": "EMR Invoice Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J1949",
+          "name": "EMR Invoice Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1893",
+          "name": "Amount in Default",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1955",
+          "name": "Interest Payment From Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1956",
+          "name": "Interest Payment To Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1954",
+          "name": "Interest Amount",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "91I": {
+      "name": "CFD Default Interest Rate",
+      "parent": "90I",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1958",
+          "name": "Interest Rate Effective Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1957",
+          "name": "Interest Rate",
+          "format": "NUM(8)",
+          "required": true
+        }
+      ]
+    },
+    "92I": {
+      "name": "CFD Ad Hoc Payment",
+      "parent": "87I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2179",
+          "name": "CFD Ad Hoc Payment Description",
+          "format": "CHAR(250)",
+          "required": false
+        },
+        {
+          "ref": "J1934",
+          "name": "Curtailment Compensation Amount",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2018",
+          "name": "Termination Amount",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1989",
+          "name": "Qualifying Change in Law Amount",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1953",
+          "name": "Generation Tax Amount",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2180",
+          "name": "Sustainability Change in Law Amount",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2181",
+          "name": "Other CFD Ad Hoc Payment",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1931",
+          "name": "Compensatory Interest",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2182",
+          "name": "Compensatory Interest From Date",
+          "format": "DATE(8)",
+          "required": false
+        },
+        {
+          "ref": "J2183",
+          "name": "Compensatory Interest To Date",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

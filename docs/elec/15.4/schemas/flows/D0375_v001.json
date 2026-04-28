@@ -1,0 +1,147 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0375",
+  "flowVersion": "001",
+  "flowName": "Disconnected MSIDs and Estimated Half Hourly Demand Disconnection Volumes",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Communication of MSIDs and Estimates of Half Hourly disconnection values for use in estimating the effects of Demand Control Events.",
+  "routes": [
+    {
+      "from": "HHDC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "HHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "HHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "NHHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "NHHDC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "61K": {
+      "name": "Demand Control Event Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2079",
+          "name": "Demand Control Event ID",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1577",
+          "name": "Start Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J1578",
+          "name": "End Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "62K": {
+      "name": "Metering Systems",
+      "parent": "61K",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0083",
+          "name": "Metering System Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "63K": {
+      "name": "Settlement Date",
+      "parent": "62K",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "64K": {
+      "name": "HH Periods",
+      "parent": "63K",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "46, 48, 50"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2175",
+          "name": "Estimated HH Demand Disconnection Volume",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Annex C for flow notes.This flow is used to fulfil two different functions:1. the communication of Estimated Half Hourly Demand Disconnection Volumes for all HH Metering Systems disconnected by a Distributor, for Inclusion in Supplier's Demand Disconnection Volume, and2. the communication of MSIDs the Transmission Company believes may have provided it with voluntary demand side actions (i.e. non-BM STOR and DSBR) and the anticipated volumes delivered."
+}

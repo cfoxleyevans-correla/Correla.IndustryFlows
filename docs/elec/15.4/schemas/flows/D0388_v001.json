@@ -1,0 +1,145 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0388",
+  "flowVersion": "001",
+  "flowName": "UMS Inventory",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Unmetered inventory data",
+  "routes": [
+    {
+      "from": "UMSO",
+      "to": "MA",
+      "version": "15.4"
+    },
+    {
+      "from": "UMSO",
+      "to": "UMSDSA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "GP1": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2267",
+          "name": "Inventory Sequence Number",
+          "format": "INT(4)",
+          "required": true
+        },
+        {
+          "ref": "J2279",
+          "name": "Effective from Date {UMS}",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    },
+    "GP2": {
+      "name": "UMS Sub-Meter",
+      "parent": "GP1",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2271",
+          "name": "UMS Sub-Meter",
+          "format": "CHAR(7)",
+          "required": true
+        },
+        {
+          "ref": "J2277",
+          "name": "CMS Indicator",
+          "format": "BOOLEAN(1)",
+          "required": true
+        }
+      ]
+    },
+    "GP3": {
+      "name": "Non-CMS",
+      "parent": "GP2",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2272",
+          "name": "Switch Regime",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J2276",
+          "name": "Charge Code",
+          "format": "CHAR(13)",
+          "required": true
+        },
+        {
+          "ref": "J2268",
+          "name": "Number of Items",
+          "format": "INT(6)",
+          "required": true
+        }
+      ]
+    },
+    "GP4": {
+      "name": "CMS",
+      "parent": "GP2",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2278",
+          "name": "CMS Unit Reference",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J2272",
+          "name": "Switch Regime",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J2276",
+          "name": "Charge Code",
+          "format": "CHAR(13)",
+          "required": true
+        },
+        {
+          "ref": "J2268",
+          "name": "Number of Items",
+          "format": "INT(6)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

@@ -1,0 +1,439 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0290",
+  "flowVersion": "001",
+  "flowName": "Instruction to Read Meter",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "The Data Processor will inform the Meter Reader of the required Customer, Site, Meter, and Reading details in order for a meter reading site visit to be arranged.",
+  "routes": [
+    {
+      "from": "NHHDC",
+      "to": "MRS",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "MRS",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "86B": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0375",
+          "name": "Customer Name",
+          "format": "CHAR(100)",
+          "required": false
+        },
+        {
+          "ref": "J0693",
+          "name": "Customer Password",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J0692",
+          "name": "Special Access",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J0489",
+          "name": "Contact Name",
+          "format": "CHAR(50)",
+          "required": false
+        },
+        {
+          "ref": "J0490",
+          "name": "Contact Telephone Number",
+          "format": "CHAR(14)",
+          "required": false
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "87B": {
+      "name": "Reading Window Details",
+      "parent": "86B",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0277",
+          "name": "Regular Reading Cycle",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1595",
+          "name": "Target Read Date",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0173",
+          "name": "Reason for Request",
+          "format": "CHAR(100)",
+          "required": false
+        }
+      ]
+    },
+    "88B": {
+      "name": "Appointment Details",
+      "parent": "86B",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0174",
+          "name": "Appointment Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0292",
+          "name": "Earliest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0293",
+          "name": "Latest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0173",
+          "name": "Reason for Request",
+          "format": "CHAR(100)",
+          "required": false
+        }
+      ]
+    },
+    "89B": {
+      "name": "Meter Details",
+      "parent": "86B",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0419",
+          "name": "Meter Location",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0098",
+          "name": "Retrieval Method",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "90B": {
+      "name": "Settlement Registers",
+      "parent": "89B",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "91B": {
+      "name": "Time Pattern Regime",
+      "parent": "90B",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "92B": {
+      "name": "Expected Register Readings",
+      "parent": "91B",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0679",
+          "name": "Register Mapping Coefficient",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0474",
+          "name": "Meter Register Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0478",
+          "name": "Number of Register Digits",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J1598",
+          "name": "Expected Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J1596",
+          "name": "High Tolerance Reading",
+          "format": "NUM(9)",
+          "required": false
+        },
+        {
+          "ref": "J1597",
+          "name": "Low Tolerance Reading",
+          "format": "NUM(9)",
+          "required": false
+        }
+      ]
+    },
+    "93B": {
+      "name": "Non Settlement Registers",
+      "parent": "89B",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1267",
+          "name": "Metering System Non Settlement Functionality Code",
+          "format": "CHAR(10)",
+          "required": true
+        }
+      ]
+    },
+    "94B": {
+      "name": "Time Pattern Regimes",
+      "parent": "93B",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "95B": {
+      "name": "Expected Register Readings",
+      "parent": "94B",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0679",
+          "name": "Register Mapping Coefficient",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0474",
+          "name": "Meter Register Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0478",
+          "name": "Number of Register Digits",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J1598",
+          "name": "Expected Register Reading",
+          "format": "NUM(9)",
+          "required": false
+        },
+        {
+          "ref": "J1596",
+          "name": "High Tolerance Reading",
+          "format": "NUM(9)",
+          "required": false
+        },
+        {
+          "ref": "J1597",
+          "name": "Low Tolerance Reading",
+          "format": "NUM(9)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Annex C for Flow Notes"
+}

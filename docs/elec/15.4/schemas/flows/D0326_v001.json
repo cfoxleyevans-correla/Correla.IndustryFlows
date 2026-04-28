@@ -1,0 +1,164 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0326",
+  "flowVersion": "001",
+  "flowName": "Green Deal Licensee Update to Bill Payer Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Provides updated Bill Payer Details for Green Deal Plans to GD Providers via the GDCC.",
+  "routes": [
+    {
+      "from": "GD Licensee",
+      "to": "GDCC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "11H": {
+      "name": "GD Bill Payer Update",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1813",
+          "name": "Green Deal MPAN Core",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1818",
+          "name": "Party Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1742",
+          "name": "Bill Payer Details EFD",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1745",
+          "name": "Change of Account Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "12H": {
+      "name": "GD Bill Payer Details",
+      "parent": "11H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1743",
+          "name": "Bill Payer Name",
+          "format": "CHAR(100)",
+          "required": true
+        },
+        {
+          "ref": "J1744",
+          "name": "Bill Payer Telephone Number",
+          "format": "CHAR(14)",
+          "required": false
+        },
+        {
+          "ref": "J1746",
+          "name": "Company Registration Number",
+          "format": "CHAR(20)",
+          "required": false
+        }
+      ]
+    },
+    "13H": {
+      "name": "Mailing Address Information",
+      "parent": "11H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1674",
+          "name": "Delete Mailing Address Data Held",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1046",
+          "name": "Mailing Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1047",
+          "name": "Mailing Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1048",
+          "name": "Mailing Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1049",
+          "name": "Mailing Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1050",
+          "name": "Mailing Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1051",
+          "name": "Mailing Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1052",
+          "name": "Mailing Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1053",
+          "name": "Mailing Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1054",
+          "name": "Mailing Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0566",
+          "name": "Mailing Address Postcode",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "This flow must be sent whenever there is a changed or new value for any data item contained within the GD Bill Payer Name or Mailing address Information groups and following a Change of Supplier.Where the flow is sent following a Change of Supplier, the value of data item J1742 should be the same as the New Suppliers Registration Effective From Date.The address should only be populated where there is a new or changed mailing address.Though each address line is optional, when an address is to be updated using this flow the entire address must be included in the flow. An update to an individual line within an address will require the entire address to be sent.The Bill Payer Telephone Number is provided solely for use in CCA statements."
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0346",
+  "flowVersion": "001",
+  "flowName": "Notification of Erroneous Registration Status",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "GDCC notifies the GD Provider and Remittance Processor of the status of an Erroneous Registration related to the Green Deal MPAN Core with which the Green Deal Plan is associated",
+  "routes": [
+    {
+      "from": "GDCC",
+      "to": "GD Provider",
+      "version": "15.4"
+    },
+    {
+      "from": "GDCC",
+      "to": "GD Remittance Processor",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "63H": {
+      "name": "GD Erroneous Registration Status",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1809",
+          "name": "GDCC Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J1826",
+          "name": "Erroneous Registration Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0117",
+          "name": "Effective to Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J1791",
+          "name": "GD Plan Actual End Date",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The Effective to Settlement Date {REGI} is only be populated when the Erroneous Registration Status is set to a status of 'R' (Resolved).The GD Plan actual end Date is only be populated when the Erroneous Registration Status is set to a status of 'E' (Green Deal Plan ended during period of Erroneous Registration)."
+}

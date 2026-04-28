@@ -1,0 +1,144 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0052",
+  "flowVersion": "001",
+  "flowName": "Affirmation of Metering System Settlement Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Establish the settlement details and EAC applied for a specified metering point and unmetered supply.  Used for new metering points, change in settlement details or change in Profile Class.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "UMSO",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "UMSO",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "121": {
+      "name": "MPAN Cores with Settlement Dates",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0092",
+          "name": "Effective from Settlement Date {MSPCDC}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0082",
+          "name": "Measurement Class Id",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0094",
+          "name": "Effective from Settlement Date {MSMCDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "122": {
+      "name": "Settlement Details",
+      "parent": "121",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0300",
+          "name": "Effective from Settlement Date {SCON}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0093",
+          "name": "Effective from Settlement Date {MSGGDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "124": {
+      "name": "Time Pattern Regime",
+      "parent": "122",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0081",
+          "name": "Estimated Annual Consumption",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J0090",
+          "name": "Effective from Settlement Date {EACDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "This flow includes unmetered supply requirements."
+}

@@ -1,0 +1,271 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0225",
+  "flowVersion": "002",
+  "flowName": "Priority Services Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Exchange of details between relevant trading participants identifying the contact details and reasons for customers or other members of the household requiring priority services.",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SMEM",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "510": {
+      "name": "Priority Services contact details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1884",
+          "name": "Primary Priority Service Contact Name",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1720",
+          "name": "Primary Priority Service Phone Number 1",
+          "format": "CHAR(20)",
+          "required": false
+        },
+        {
+          "ref": "J1885",
+          "name": "Primary Priority Service Phone Number 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1719",
+          "name": "Alternate Priority Service Contact Name",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1886",
+          "name": "Alternate Priority Service Phone Number 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1887",
+          "name": "Alternate Priority Service Phone Number 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1874",
+          "name": "Priority Service Contact Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1875",
+          "name": "Priority Service Contact Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1876",
+          "name": "Priority Service Contact Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1877",
+          "name": "Priority Service Contact Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1878",
+          "name": "Priority Service Contact Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1879",
+          "name": "Priority Service Contact Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1880",
+          "name": "Priority Service Contact Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1881",
+          "name": "Priority Service Contact Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1882",
+          "name": "Priority Service Contact Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1883",
+          "name": "Priority Service Contact Postcode",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J2208",
+          "name": "Lawful basis for sharing",
+          "format": "BOOLEAN(1)",
+          "required": true
+        },
+        {
+          "ref": "J2210",
+          "name": "Delete All PSR Codes",
+          "format": "BOOLEAN(1)",
+          "required": true
+        }
+      ]
+    },
+    "99C": {
+      "name": "Update Priority Services Details",
+      "parent": "510",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1699",
+          "name": "Priority Services Category",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J2209",
+          "name": "PSR code expiry date",
+          "format": "DATE(8)",
+          "required": false
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "For guidance on PSR codes please refer to the Energy Networks Association website."
+}

@@ -1,0 +1,230 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0132",
+  "flowVersion": "001",
+  "flowName": "Details of Disconnection of Supply",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Where the supply is no longer required a request is made for disconnection of the supply.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "Distributor",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "254": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1648",
+          "name": "Disconnection Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0174",
+          "name": "Appointment Date",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0292",
+          "name": "Earliest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0293",
+          "name": "Latest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0489",
+          "name": "Contact Name",
+          "format": "CHAR(50)",
+          "required": false
+        },
+        {
+          "ref": "J0419",
+          "name": "Meter Location",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0375",
+          "name": "Customer Name",
+          "format": "CHAR(100)",
+          "required": false
+        },
+        {
+          "ref": "J1046",
+          "name": "Mailing Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1047",
+          "name": "Mailing Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1048",
+          "name": "Mailing Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1049",
+          "name": "Mailing Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1050",
+          "name": "Mailing Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1051",
+          "name": "Mailing Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1052",
+          "name": "Mailing Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1053",
+          "name": "Mailing Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1054",
+          "name": "Mailing Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0566",
+          "name": "Mailing Address Postcode",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "00I": {
+      "name": "Additional Request Information",
+      "parent": "254",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1845",
+          "name": "Customer Preferred Contact Method",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1844",
+          "name": "Customer Preferred Contact Details",
+          "format": "CHAR(255)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Though all of the address data items included in this flow are defined within the structure as being optional, the address itself is mandatory and must be included in the flow.  The use of any individual address item cannot be made mandatory as, in the absence of an agreed address structure for all flows, an address may be constructed from any combination of the Address Line and Postcode items."
+}

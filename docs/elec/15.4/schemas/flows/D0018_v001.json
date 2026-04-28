@@ -1,0 +1,1759 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0018",
+  "flowVersion": "001",
+  "flowName": "Daily Profile Data Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of the daily profile production process.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "RDT": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1089",
+          "name": "User Name",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "HDR": {
+      "name": "Daily Profile Data Report Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1091",
+          "name": "Profile Production Date",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1092",
+          "name": "Profile Production Time",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "GSP": {
+      "name": "GSP Group",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0062",
+          "name": "Actual Noon Temperature",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0068",
+          "name": "Noon Effective Temperature",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0077",
+          "name": "Time of Sunset",
+          "format": "TIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0875",
+          "name": "Sunset Variable",
+          "format": "CHAR(5)",
+          "required": true
+        }
+      ]
+    },
+    "PCL": {
+      "name": "Profile Class Details",
+      "parent": "GSP",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "PFL": {
+      "name": "Profile Details",
+      "parent": "PCL",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0072",
+          "name": "Profile Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "BPP": {
+      "name": "Basic Period Profile Coefficients",
+      "parent": "PFL",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0069",
+          "name": "Period Profile Coefficient Value (Settlement Period 01)",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1362",
+          "name": "Period Profile Coefficient Value (Settlement Period 02)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1363",
+          "name": "Period Profile Coefficient Value (Settlement Period 03)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1364",
+          "name": "Period Profile Coefficient Value (Settlement Period 04)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1365",
+          "name": "Period Profile Coefficient Value (Settlement Period 05)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1366",
+          "name": "Period Profile Coefficient Value (Settlement Period 06)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1367",
+          "name": "Period Profile Coefficient Value (Settlement Period 07)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1368",
+          "name": "Period Profile Coefficient Value (Settlement Period 08)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1369",
+          "name": "Period Profile Coefficient Value (Settlement Period 09)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1370",
+          "name": "Period Profile Coefficient Value (Settlement Period 10)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1371",
+          "name": "Period Profile Coefficient Value (Settlement Period 11)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1372",
+          "name": "Period Profile Coefficient Value (Settlement Period 12)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1373",
+          "name": "Period Profile Coefficient Value (Settlement Period 13)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1374",
+          "name": "Period Profile Coefficient Value (Settlement Period 14)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1375",
+          "name": "Period Profile Coefficient Value (Settlement Period 15)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1376",
+          "name": "Period Profile Coefficient Value (Settlement Period 16)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1377",
+          "name": "Period Profile Coefficient Value (Settlement Period 17)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1378",
+          "name": "Period Profile Coefficient Value (Settlement Period 18)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1379",
+          "name": "Period Profile Coefficient Value (Settlement Period 19)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1380",
+          "name": "Period Profile Coefficient Value (Settlement Period 20)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1381",
+          "name": "Period Profile Coefficient Value (Settlement Period 21)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1382",
+          "name": "Period Profile Coefficient Value (Settlement Period 22)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1383",
+          "name": "Period Profile Coefficient Value (Settlement Period 23)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1384",
+          "name": "Period Profile Coefficient Value (Settlement Period 24)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1385",
+          "name": "Period Profile Coefficient Value (Settlement Period 25)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1386",
+          "name": "Period Profile Coefficient Value (Settlement Period 26)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1387",
+          "name": "Period Profile Coefficient Value (Settlement Period 27)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1388",
+          "name": "Period Profile Coefficient Value (Settlement Period 28)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1389",
+          "name": "Period Profile Coefficient Value (Settlement Period 29)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1390",
+          "name": "Period Profile Coefficient Value (Settlement Period 30)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1391",
+          "name": "Period Profile Coefficient Value (Settlement Period 31)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1392",
+          "name": "Period Profile Coefficient Value (Settlement Period 32)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1393",
+          "name": "Period Profile Coefficient Value (Settlement Period 33)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1394",
+          "name": "Period Profile Coefficient Value (Settlement Period 34)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1395",
+          "name": "Period Profile Coefficient Value (Settlement Period 35)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1396",
+          "name": "Period Profile Coefficient Value (Settlement Period 36)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1397",
+          "name": "Period Profile Coefficient Value (Settlement Period 37)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1398",
+          "name": "Period Profile Coefficient Value (Settlement Period 38)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1399",
+          "name": "Period Profile Coefficient Value (Settlement Period 39)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1400",
+          "name": "Period Profile Coefficient Value (Settlement Period 40)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1401",
+          "name": "Period Profile Coefficient Value (Settlement Period 41)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1402",
+          "name": "Period Profile Coefficient Value (Settlement Period 42)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1403",
+          "name": "Period Profile Coefficient Value (Settlement Period 43)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1404",
+          "name": "Period Profile Coefficient Value (Settlement Period 44)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1405",
+          "name": "Period Profile Coefficient Value (Settlement Period 45)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1406",
+          "name": "Period Profile Coefficient Value (Settlement Period 46)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1407",
+          "name": "Period Profile Coefficient Value (Settlement Period 47)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1408",
+          "name": "Period Profile Coefficient Value (Settlement Period 48)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1409",
+          "name": "Period Profile Coefficient Value (Settlement Period 49)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1410",
+          "name": "Period Profile Coefficient Value (Settlement Period 50)",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "SSC": {
+      "name": "Standard Settlement Configuration Details",
+      "parent": "PCL",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "CPP": {
+      "name": "Combined Period Profile Coefficients",
+      "parent": "SSC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0876",
+          "name": "Low Register Profile Coefficient (Settlement Period 01)",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J0877",
+          "name": "Normal Register Profile Coefficient (Settlement Period 01)",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1460",
+          "name": "Low Register Profile Coefficient (Settlement Period 02)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1509",
+          "name": "Normal Register Profile Coefficient (Settlement Period 02)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1461",
+          "name": "Low Register Profile Coefficient (Settlement Period 03)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1510",
+          "name": "Normal Register Profile Coefficient (Settlement Period 03)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1462",
+          "name": "Low Register Profile Coefficient (Settlement Period 04)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1511",
+          "name": "Normal Register Profile Coefficient (Settlement Period 04)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1463",
+          "name": "Low Register Profile Coefficient (Settlement Period 05)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1512",
+          "name": "Normal Register Profile Coefficient (Settlement Period 05)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1464",
+          "name": "Low Register Profile Coefficient (Settlement Period 06)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1513",
+          "name": "Normal Register Profile Coefficient (Settlement Period 06)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1465",
+          "name": "Low Register Profile Coefficient (Settlement Period 07)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1514",
+          "name": "Normal Register Profile Coefficient (Settlement Period 07)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1466",
+          "name": "Low Register Profile Coefficient (Settlement Period 08)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1515",
+          "name": "Normal Register Profile Coefficient (Settlement Period 08)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1467",
+          "name": "Low Register Profile Coefficient (Settlement Period 09)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1516",
+          "name": "Normal Register Profile Coefficient (Settlement Period 09)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1468",
+          "name": "Low Register Profile Coefficient (Settlement Period 10)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1517",
+          "name": "Normal Register Profile Coefficient (Settlement Period 10)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1469",
+          "name": "Low Register Profile Coefficient (Settlement Period 11)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1518",
+          "name": "Normal Register Profile Coefficient (Settlement Period 11)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1470",
+          "name": "Low Register Profile Coefficient (Settlement Period 12)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1519",
+          "name": "Normal Register Profile Coefficient (Settlement Period 12)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1471",
+          "name": "Low Register Profile Coefficient (Settlement Period 13)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1520",
+          "name": "Normal Register Profile Coefficient (Settlement Period 13)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1472",
+          "name": "Low Register Profile Coefficient (Settlement Period 14)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1521",
+          "name": "Normal Register Profile Coefficient (Settlement Period 14)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1473",
+          "name": "Low Register Profile Coefficient (Settlement Period 15)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1522",
+          "name": "Normal Register Profile Coefficient (Settlement Period 15)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1474",
+          "name": "Low Register Profile Coefficient (Settlement Period 16)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1523",
+          "name": "Normal Register Profile Coefficient (Settlement Period 16)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1475",
+          "name": "Low Register Profile Coefficient (Settlement Period 17)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1524",
+          "name": "Normal Register Profile Coefficient (Settlement Period 17)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1476",
+          "name": "Low Register Profile Coefficient (Settlement Period 18)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1525",
+          "name": "Normal Register Profile Coefficient (Settlement Period 18)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1477",
+          "name": "Low Register Profile Coefficient (Settlement Period 19)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1526",
+          "name": "Normal Register Profile Coefficient (Settlement Period 19)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1478",
+          "name": "Low Register Profile Coefficient (Settlement Period 20)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1527",
+          "name": "Normal Register Profile Coefficient (Settlement Period 20)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1479",
+          "name": "Low Register Profile Coefficient (Settlement Period 21)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1528",
+          "name": "Normal Register Profile Coefficient (Settlement Period 21)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1480",
+          "name": "Low Register Profile Coefficient (Settlement Period 22)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1529",
+          "name": "Normal Register Profile Coefficient (Settlement Period 22)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1481",
+          "name": "Low Register Profile Coefficient (Settlement Period 23)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1530",
+          "name": "Normal Register Profile Coefficient (Settlement Period 23)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1482",
+          "name": "Low Register Profile Coefficient (Settlement Period 24)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1531",
+          "name": "Normal Register Profile Coefficient (Settlement Period 24)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1483",
+          "name": "Low Register Profile Coefficient (Settlement Period 25)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1532",
+          "name": "Normal Register Profile Coefficient (Settlement Period 25)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1484",
+          "name": "Low Register Profile Coefficient (Settlement Period 26)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1533",
+          "name": "Normal Register Profile Coefficient (Settlement Period 26)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1485",
+          "name": "Low Register Profile Coefficient (Settlement Period 27)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1534",
+          "name": "Normal Register Profile Coefficient (Settlement Period 27)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1486",
+          "name": "Low Register Profile Coefficient (Settlement Period 28)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1535",
+          "name": "Normal Register Profile Coefficient (Settlement Period 28)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1487",
+          "name": "Low Register Profile Coefficient (Settlement Period 29)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1536",
+          "name": "Normal Register Profile Coefficient (Settlement Period 29)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1488",
+          "name": "Low Register Profile Coefficient (Settlement Period 30)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1537",
+          "name": "Normal Register Profile Coefficient (Settlement Period 30)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1489",
+          "name": "Low Register Profile Coefficient (Settlement Period 31)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1538",
+          "name": "Normal Register Profile Coefficient (Settlement Period 31)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1490",
+          "name": "Low Register Profile Coefficient (Settlement Period 32)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1539",
+          "name": "Normal Register Profile Coefficient (Settlement Period 32)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1491",
+          "name": "Low Register Profile Coefficient (Settlement Period 33)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1540",
+          "name": "Normal Register Profile Coefficient (Settlement Period 33)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1492",
+          "name": "Low Register Profile Coefficient (Settlement Period 34)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1541",
+          "name": "Normal Register Profile Coefficient (Settlement Period 34)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1493",
+          "name": "Low Register Profile Coefficient (Settlement Period 35)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1542",
+          "name": "Normal Register Profile Coefficient (Settlement Period 35)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1494",
+          "name": "Low Register Profile Coefficient (Settlement Period 36)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1543",
+          "name": "Normal Register Profile Coefficient (Settlement Period 36)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1495",
+          "name": "Low Register Profile Coefficient (Settlement Period 37)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1544",
+          "name": "Normal Register Profile Coefficient (Settlement Period 37)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1496",
+          "name": "Low Register Profile Coefficient (Settlement Period 38)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1545",
+          "name": "Normal Register Profile Coefficient (Settlement Period 38)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1497",
+          "name": "Low Register Profile Coefficient (Settlement Period 39)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1546",
+          "name": "Normal Register Profile Coefficient (Settlement Period 39)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1498",
+          "name": "Low Register Profile Coefficient (Settlement Period 40)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1547",
+          "name": "Normal Register Profile Coefficient (Settlement Period 40)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1499",
+          "name": "Low Register Profile Coefficient (Settlement Period 41)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1548",
+          "name": "Normal Register Profile Coefficient (Settlement Period 41)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1500",
+          "name": "Low Register Profile Coefficient (Settlement Period 42)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1549",
+          "name": "Normal Register Profile Coefficient (Settlement Period 42)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1501",
+          "name": "Low Register Profile Coefficient (Settlement Period 43)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1550",
+          "name": "Normal Register Profile Coefficient (Settlement Period 43)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1502",
+          "name": "Low Register Profile Coefficient (Settlement Period 44)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1551",
+          "name": "Normal Register Profile Coefficient (Settlement Period 44)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1503",
+          "name": "Low Register Profile Coefficient (Settlement Period 45)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1552",
+          "name": "Normal Register Profile Coefficient (Settlement Period 45)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1504",
+          "name": "Low Register Profile Coefficient (Settlement Period 46)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1553",
+          "name": "Normal Register Profile Coefficient (Settlement Period 46)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1505",
+          "name": "Low Register Profile Coefficient (Settlement Period 47)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1554",
+          "name": "Normal Register Profile Coefficient (Settlement Period 47)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1506",
+          "name": "Low Register Profile Coefficient (Settlement Period 48)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1555",
+          "name": "Normal Register Profile Coefficient (Settlement Period 48)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1507",
+          "name": "Low Register Profile Coefficient (Settlement Period 49)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1556",
+          "name": "Normal Register Profile Coefficient (Settlement Period 49)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1508",
+          "name": "Low Register Profile Coefficient (Settlement Period 50)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1557",
+          "name": "Normal Register Profile Coefficient (Settlement Period 50)",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "VMR": {
+      "name": "Valid Measurement Requirement",
+      "parent": "SSC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "PPC": {
+      "name": "Period Profile Coefficients",
+      "parent": "VMR",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0069",
+          "name": "Period Profile Coefficient Value (Settlement Period 01)",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J0070",
+          "name": "Period Register on State Indicator (Settlement Period 01)",
+          "format": "BOOLEAN(0)",
+          "required": true
+        },
+        {
+          "ref": "J1362",
+          "name": "Period Profile Coefficient Value (Settlement Period 02)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1411",
+          "name": "Period Register on State Indicator (Settlement Period 02)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1363",
+          "name": "Period Profile Coefficient Value (Settlement Period 03)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1412",
+          "name": "Period Register on State Indicator (Settlement Period 03)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1364",
+          "name": "Period Profile Coefficient Value (Settlement Period 04)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1413",
+          "name": "Period Register on State Indicator (Settlement Period 04)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1365",
+          "name": "Period Profile Coefficient Value (Settlement Period 05)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1414",
+          "name": "Period Register on State Indicator (Settlement Period 05)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1366",
+          "name": "Period Profile Coefficient Value (Settlement Period 06)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1415",
+          "name": "Period Register on State Indicator (Settlement Period 06)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1367",
+          "name": "Period Profile Coefficient Value (Settlement Period 07)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1416",
+          "name": "Period Register on State Indicator (Settlement Period 07)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1368",
+          "name": "Period Profile Coefficient Value (Settlement Period 08)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1417",
+          "name": "Period Register on State Indicator (Settlement Period 08)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1369",
+          "name": "Period Profile Coefficient Value (Settlement Period 09)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1418",
+          "name": "Period Register on State Indicator (Settlement Period 09)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1370",
+          "name": "Period Profile Coefficient Value (Settlement Period 10)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1419",
+          "name": "Period Register on State Indicator (Settlement Period 10)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1371",
+          "name": "Period Profile Coefficient Value (Settlement Period 11)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1420",
+          "name": "Period Register on State Indicator (Settlement Period 11)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1372",
+          "name": "Period Profile Coefficient Value (Settlement Period 12)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1421",
+          "name": "Period Register on State Indicator (Settlement Period 12)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1373",
+          "name": "Period Profile Coefficient Value (Settlement Period 13)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1422",
+          "name": "Period Register on State Indicator (Settlement Period 13)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1374",
+          "name": "Period Profile Coefficient Value (Settlement Period 14)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1423",
+          "name": "Period Register on State Indicator (Settlement Period 14)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1375",
+          "name": "Period Profile Coefficient Value (Settlement Period 15)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1424",
+          "name": "Period Register on State Indicator (Settlement Period 15)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1376",
+          "name": "Period Profile Coefficient Value (Settlement Period 16)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1425",
+          "name": "Period Register on State Indicator (Settlement Period 16)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1377",
+          "name": "Period Profile Coefficient Value (Settlement Period 17)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1426",
+          "name": "Period Register on State Indicator (Settlement Period 17)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1378",
+          "name": "Period Profile Coefficient Value (Settlement Period 18)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1427",
+          "name": "Period Register on State Indicator (Settlement Period 18)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1379",
+          "name": "Period Profile Coefficient Value (Settlement Period 19)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1428",
+          "name": "Period Register on State Indicator (Settlement Period 19)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1380",
+          "name": "Period Profile Coefficient Value (Settlement Period 20)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1429",
+          "name": "Period Register on State Indicator (Settlement Period 20)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1381",
+          "name": "Period Profile Coefficient Value (Settlement Period 21)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1430",
+          "name": "Period Register on State Indicator (Settlement Period 21)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1382",
+          "name": "Period Profile Coefficient Value (Settlement Period 22)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1431",
+          "name": "Period Register on State Indicator (Settlement Period 22)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1383",
+          "name": "Period Profile Coefficient Value (Settlement Period 23)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1432",
+          "name": "Period Register on State Indicator (Settlement Period 23)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1384",
+          "name": "Period Profile Coefficient Value (Settlement Period 24)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1433",
+          "name": "Period Register on State Indicator (Settlement Period 24)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1385",
+          "name": "Period Profile Coefficient Value (Settlement Period 25)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1434",
+          "name": "Period Register on State Indicator (Settlement Period 25)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1386",
+          "name": "Period Profile Coefficient Value (Settlement Period 26)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1435",
+          "name": "Period Register on State Indicator (Settlement Period 26)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1387",
+          "name": "Period Profile Coefficient Value (Settlement Period 27)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1436",
+          "name": "Period Register on State Indicator (Settlement Period 27)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1388",
+          "name": "Period Profile Coefficient Value (Settlement Period 28)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1437",
+          "name": "Period Register on State Indicator (Settlement Period 28)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1389",
+          "name": "Period Profile Coefficient Value (Settlement Period 29)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1438",
+          "name": "Period Register on State Indicator (Settlement Period 29)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1390",
+          "name": "Period Profile Coefficient Value (Settlement Period 30)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1439",
+          "name": "Period Register on State Indicator (Settlement Period 30)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1391",
+          "name": "Period Profile Coefficient Value (Settlement Period 31)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1440",
+          "name": "Period Register on State Indicator (Settlement Period 31)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1392",
+          "name": "Period Profile Coefficient Value (Settlement Period 32)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1441",
+          "name": "Period Register on State Indicator (Settlement Period 32)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1393",
+          "name": "Period Profile Coefficient Value (Settlement Period 33)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1442",
+          "name": "Period Register on State Indicator (Settlement Period 33)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1394",
+          "name": "Period Profile Coefficient Value (Settlement Period 34)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1443",
+          "name": "Period Register on State Indicator (Settlement Period 34)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1395",
+          "name": "Period Profile Coefficient Value (Settlement Period 35)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1444",
+          "name": "Period Register on State Indicator (Settlement Period 35)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1396",
+          "name": "Period Profile Coefficient Value (Settlement Period 36)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1445",
+          "name": "Period Register on State Indicator (Settlement Period 36)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1397",
+          "name": "Period Profile Coefficient Value (Settlement Period 37)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1446",
+          "name": "Period Register on State Indicator (Settlement Period 37)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1398",
+          "name": "Period Profile Coefficient Value (Settlement Period 38)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1447",
+          "name": "Period Register on State Indicator (Settlement Period 38)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1399",
+          "name": "Period Profile Coefficient Value (Settlement Period 39)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1448",
+          "name": "Period Register on State Indicator (Settlement Period 39)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1400",
+          "name": "Period Profile Coefficient Value (Settlement Period 40)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1449",
+          "name": "Period Register on State Indicator (Settlement Period 40)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1401",
+          "name": "Period Profile Coefficient Value (Settlement Period 41)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1450",
+          "name": "Period Register on State Indicator (Settlement Period 41)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1402",
+          "name": "Period Profile Coefficient Value (Settlement Period 42)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1451",
+          "name": "Period Register on State Indicator (Settlement Period 42)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1403",
+          "name": "Period Profile Coefficient Value (Settlement Period 43)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1452",
+          "name": "Period Register on State Indicator (Settlement Period 43)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1404",
+          "name": "Period Profile Coefficient Value (Settlement Period 44)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1453",
+          "name": "Period Register on State Indicator (Settlement Period 44)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1405",
+          "name": "Period Profile Coefficient Value (Settlement Period 45)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1454",
+          "name": "Period Register on State Indicator (Settlement Period 45)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1406",
+          "name": "Period Profile Coefficient Value (Settlement Period 46)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1455",
+          "name": "Period Register on State Indicator (Settlement Period 46)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1407",
+          "name": "Period Profile Coefficient Value (Settlement Period 47)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1456",
+          "name": "Period Register on State Indicator (Settlement Period 47)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1408",
+          "name": "Period Profile Coefficient Value (Settlement Period 48)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1457",
+          "name": "Period Register on State Indicator (Settlement Period 48)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1409",
+          "name": "Period Profile Coefficient Value (Settlement Period 49)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1458",
+          "name": "Period Register on State Indicator (Settlement Period 49)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1410",
+          "name": "Period Profile Coefficient Value (Settlement Period 50)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1459",
+          "name": "Period Register on State Indicator (Settlement Period 50)",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "* Only 1 settlement day's data is included in this flow.* Only the GSP groups in which the Supplier and NHHDC are operating are included.* Will be sent to NHHDCs in relation to Settlement Dates affected by a Demand Control Event."
+}

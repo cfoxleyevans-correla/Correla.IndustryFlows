@@ -1,0 +1,174 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0312",
+  "flowVersion": "003",
+  "flowName": "Notification of Meter Information to MPAS",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Update MPAS with change to non-MPAS sourced data and the response",
+  "routes": [
+    {
+      "from": "MOP",
+      "to": "MPAS",
+      "version": "15.4"
+    },
+    {
+      "from": "MPAS",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MPAS",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "11D": {
+      "name": "MPAN Core",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "12D": {
+      "name": "Meter Info Group",
+      "parent": "11D",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0483",
+          "name": "Meter Type",
+          "format": "CHAR(5)",
+          "required": true
+        },
+        {
+          "ref": "J1677",
+          "name": "Meter Asset Provider Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0848",
+          "name": "Date of Meter Installation",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0419",
+          "name": "Meter Location",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J2312",
+          "name": "Electricity Smart Meter Equipment (ESME ID)",
+          "format": "CHAR(23)",
+          "required": false
+        },
+        {
+          "ref": "J2313",
+          "name": "Number of Displayed Register Digits",
+          "format": "INT(1)",
+          "required": false
+        }
+      ]
+    },
+    "13D": {
+      "name": "Meters Removed",
+      "parent": "11D",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J1269",
+          "name": "Date of Meter Removal",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1677",
+          "name": "Meter Asset Provider Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2312",
+          "name": "Electricity Smart Meter Equipment (ESME ID)",
+          "format": "CHAR(23)",
+          "required": false
+        }
+      ]
+    },
+    "76M": {
+      "name": "Sending Meter Operator",
+      "parent": "11D",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0178",
+          "name": "Meter Operator Id",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "77M": {
+      "name": "Response",
+      "parent": "76M",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2256",
+          "name": "MOP Flow Response Code",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Annex C for Flow Notes"
+}

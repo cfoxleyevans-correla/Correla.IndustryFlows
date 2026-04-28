@@ -1,0 +1,169 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0193",
+  "flowVersion": "001",
+  "flowName": "Confirmation of Key Meter Installation",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Confirmation of key meter installation is being given with details of the meter and settings.",
+  "routes": [
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "395": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0375",
+          "name": "Customer Name",
+          "format": "CHAR(100)",
+          "required": false
+        }
+      ]
+    },
+    "396": {
+      "name": "Meter Details",
+      "parent": "395",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0419",
+          "name": "Meter Location",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0410",
+          "name": "Manufacturers Make & Type",
+          "format": "CHAR(60)",
+          "required": true
+        },
+        {
+          "ref": "J0501",
+          "name": "Meter Current Rating",
+          "format": "NUM(3)",
+          "required": true
+        },
+        {
+          "ref": "J0554",
+          "name": "Total Debt",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0547",
+          "name": "Debt Recovery Rate",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0848",
+          "name": "Date of Meter Installation",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0556",
+          "name": "Emergency Credit",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0557",
+          "name": "Initial Credit",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0543",
+          "name": "Standing Charge",
+          "format": "NUM(5)",
+          "required": true
+        }
+      ]
+    },
+    "397": {
+      "name": "Meter Register Detail per Meter",
+      "parent": "396",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0474",
+          "name": "Meter Register Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0478",
+          "name": "Number of Register Digits",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J0542",
+          "name": "Prepayment Unit Rate",
+          "format": "NUM(5)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

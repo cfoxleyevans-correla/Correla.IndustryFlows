@@ -1,0 +1,80 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0280",
+  "flowVersion": "001",
+  "flowName": "Teleswitch Contact to Register Mapping File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of the mapping between time pattern regimes and teleswitch contacts.",
+  "routes": [
+    {
+      "from": "MDDA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "TTP": {
+      "name": "Tele-Switch Time Pattern Regime Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1214",
+          "name": "Time Pattern Regime Id",
+          "format": "CHAR(5)",
+          "required": true
+        },
+        {
+          "ref": "J0135",
+          "name": "Tele-Switch User Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0136",
+          "name": "Tele-Switch Group Id",
+          "format": "NUM(4)",
+          "required": true
+        }
+      ]
+    },
+    "TCR": {
+      "name": "Tele-Switch Contact Rules",
+      "parent": "TTP",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1574",
+          "name": "Tele-Switch Register Rule Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J1570",
+          "name": "Tele-Switch Contact Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1575",
+          "name": "Tele-Switch Contact Rule",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The file should be ordered by Time Pattern Regime Id, Tele-Switch Register Rule Id and Tele-Switch Contact Code."
+}

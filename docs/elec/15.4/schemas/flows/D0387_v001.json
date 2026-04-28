@@ -1,0 +1,190 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0387",
+  "flowVersion": "001",
+  "flowName": "Metering System Half Hourly Volume Adjustments",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Adjustments to a Supplier's Energy Imbalance Position calculated by BSC Systems in relation to an SVA Metering System",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "20I": {
+      "name": "Supplier",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "BMU": {
+      "name": "BM Unit",
+      "parent": "20I",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1628",
+          "name": "BM Unit Id",
+          "format": "CHAR(11)",
+          "required": true
+        }
+      ]
+    },
+    "78M": {
+      "name": "MPAN Cores",
+      "parent": "BMU",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        }
+      ]
+    },
+    "79M": {
+      "name": "Settlement Period",
+      "parent": "78M",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "46,48,50"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "80M": {
+      "name": "Metering System Half Hourly Volume Adjustments",
+      "parent": "79M",
+      "level": 5,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "2"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0160",
+          "name": "Consumption Component Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J2260",
+          "name": "Secondary Half Hourly Delivered Volumes (Non-Losses)",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2258",
+          "name": "MPAN Applicable Balancing Services Volume Data (Non-Losses)",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2259",
+          "name": "Secondary Half Hourly Delivered Volumes (Losses)",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2257",
+          "name": "MPAN Applicable Balancing Services Volume Data (Losses)",
+          "format": "NUM(14)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "\"MPAN Applicable Balancing Services Volume Data\" relates to BSC Modification P354 \"Use of ABSVD for non-BM Balancing Services at the metered (MPAN) level\" and \"Secondary Half Hourly Delivered Volumes\" relates to BSC Modification P344 \"Project TERRE implementation into GB market arrangements\""
+}

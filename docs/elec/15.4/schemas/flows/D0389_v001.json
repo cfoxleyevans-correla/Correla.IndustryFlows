@@ -1,0 +1,91 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0389",
+  "flowVersion": "001",
+  "flowName": "UMS Response",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Unmetered inventory response flow",
+  "routes": [
+    {
+      "from": "MA",
+      "to": "UMSO",
+      "version": "15.4"
+    },
+    {
+      "from": "UMSDSA",
+      "to": "UMSO",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "RP1": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2267",
+          "name": "Inventory Sequence Number",
+          "format": "INT(4)",
+          "required": true
+        },
+        {
+          "ref": "J2269",
+          "name": "Response Reason Code",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "RP2": {
+      "name": "Invalid Charge Code",
+      "parent": "RP1",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2270",
+          "name": "UMS Error Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2272",
+          "name": "Switch Regime",
+          "format": "CHAR(3)",
+          "required": false
+        },
+        {
+          "ref": "J2276",
+          "name": "Charge Code",
+          "format": "CHAR(13)",
+          "required": false
+        },
+        {
+          "ref": "J2278",
+          "name": "CMS Unit Reference",
+          "format": "CHAR(12)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0126",
+  "flowVersion": "001",
+  "flowName": "Asset Condition Report Response / Clearance",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "The System Fault Information Centre is informing the Supplier and MOP of the outcome of an investigation into a report of a Category A report by telephone, or a Category B report by a D0135 flow",
+  "routes": [
+    {
+      "from": "SFIC",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "SFIC",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "SFIC",
+      "to": "SIP",
+      "version": "15.4"
+    },
+    {
+      "from": "SFIC",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "SFIC",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "250": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0008",
+          "name": "Nature of Maintenance",
+          "format": "CHAR(200)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "61H": {
+      "name": "Asset Condition Response",
+      "parent": "250",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1825",
+          "name": "Asset Condition Report Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1824",
+          "name": "Asset Condition Code",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J1823",
+          "name": "Asset Condition Clearance Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1822",
+          "name": "Asset Condition Clearance Date",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "This flow shall be sent for all Urgent Actions reported, i.e. Category A and B issues. The Distribution Business will send the D0126 to the Supplier and Meter Operator registered within MPAS on the day the flow is sent. This may not be the Supplier or Meter Operator reporting the issue. Where \"Asset Condition Clearance Code\" (J1823) is populated with 'D' (Disputed \u0096 no defect identified that prevents meter installation), 'R' (Resolved \u0096 defect cleared but Asset Condition Category less serious than reported) or 'U' (Unable to Resolve), the Distribution Business must provide an explaination of why the code has been used within \"Additional Information\" (J0012).The Distribution Business will send the D0126 to the Supplier and Meter Operator  registered within MPAS on the day the flow is sent. This may not be the Supplier or Meter Operator reporting the issue.Where \"Asset Condition Clearance Code\" (J1823) is populated with 'D' (Disputed \u0096 no defect identified that prevents meter installation), 'R' (Resolved \u0096 defect cleared but Asset Condition Category less serious than reported) or 'U' (Unable to Resolve), the Distribution Business must provide an explaination of why the code has been used within \"Additional Information\" (J0012)."
+}

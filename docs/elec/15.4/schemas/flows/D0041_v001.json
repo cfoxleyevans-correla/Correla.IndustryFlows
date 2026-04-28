@@ -1,0 +1,175 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0041",
+  "flowVersion": "001",
+  "flowName": "Supplier Purchase Matrix Data File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of NHH Consumption per Supplier aggregated per GSP Group by profile class, line loss factor class and measurement requirement.",
+  "routes": [
+    {
+      "from": "NHHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDA",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J1104",
+          "name": "GSP Group",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "SUP": {
+      "name": "Supplier Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "SPM": {
+      "name": "Supplier Purchase Matrix Details",
+      "parent": "SUP",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0190",
+          "name": "SPM Default EAC MSID Count",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0191",
+          "name": "SPM Default Unmetered MSID Count",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0153",
+          "name": "SPM Total AA MSID Count",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0148",
+          "name": "SPM Total Annualised Advance",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J0149",
+          "name": "SPM Total EAC",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J0150",
+          "name": "SPM Total EAC MSID Count",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0151",
+          "name": "SPM Total Unmetered Consumption",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J0152",
+          "name": "SPM Total Unmetered MSID Count",
+          "format": "NUM(8)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "If the details are sent to the Supplier then only details relevant to that Supplier will be included."
+}

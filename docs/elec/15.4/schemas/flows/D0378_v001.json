@@ -1,0 +1,211 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0378",
+  "flowVersion": "001",
+  "flowName": "BM Unit Aggregated Half Hour Demand Disconnection Data File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Aggregated line loss adjusted HH disconnection volumes in a GSP Group by Supplier and BM Unit.",
+  "routes": [
+    {
+      "from": "HHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDA",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "76K": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J1104",
+          "name": "GSP Group",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "77K": {
+      "name": "Demand Control Event Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2079",
+          "name": "Demand Control Event ID",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1577",
+          "name": "Start Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J1578",
+          "name": "End Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "78K": {
+      "name": "Supplier",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "79K": {
+      "name": "BM Unit",
+      "parent": "78K",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1628",
+          "name": "BM Unit Id",
+          "format": "CHAR(11)",
+          "required": true
+        }
+      ]
+    },
+    "80K": {
+      "name": "Consumption Component Class",
+      "parent": "79K",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0160",
+          "name": "Consumption Component Class Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "81K": {
+      "name": "Settlement Period  / Data Aggregator HH MSID Count",
+      "parent": "80K",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J2153",
+          "name": "Data Aggregator Disconnected HH MSID Count",
+          "format": "INT(10)",
+          "required": true
+        }
+      ]
+    },
+    "82K": {
+      "name": "Aggregated BM Unit Demand Disconnection Energy",
+      "parent": "81K",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2167",
+          "name": "Aggregated BM Unit Demand Disconnection Energy",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "83K": {
+      "name": "Aggregated BM Unit Demand Disconnection Line Losses",
+      "parent": "81K",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2166",
+          "name": "Aggregated BM Unit Demand Disconnection Line Losses",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Where this flow is being sent to the Supplier, the flow will contain data for that Supplier only.The BM Unit Aggregated Half Hour Data File is output in ascending order by Supplier Id, BM Unit Id, Consumption Component Class Id and Settlement Period Id.This flow is sent alongside the D0298 but only for Settlement Dates which include Settlement Period/s affected by a Demand Control Event.The flow is only required in relation to Suppliers that have Metering Systems affected by a Demand Control Event. The Start Date and Time and End Date and Time represent the beginning and end of a Demand Control Event instructed by the Transmission Company."
+}

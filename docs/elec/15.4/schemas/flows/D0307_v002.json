@@ -1,0 +1,98 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0307",
+  "flowVersion": "002",
+  "flowName": "Debt Information",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Estimate of Debt Held on Meter",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "90C": {
+      "name": "Customer Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1694",
+          "name": "Complex Debt Indicator",
+          "format": "BOOLEAN(0)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "91C": {
+      "name": "Debt Details",
+      "parent": "90C",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0547",
+          "name": "Debt Recovery Rate",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J1695",
+          "name": "Estimated Total Debt Outstanding",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "62M": {
+      "name": "Rejection Reason",
+      "parent": "90C",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2249",
+          "name": "DAP Rejection Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Annex C for flow notes."
+}

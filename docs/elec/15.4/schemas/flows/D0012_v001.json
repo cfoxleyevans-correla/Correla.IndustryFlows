@@ -1,0 +1,76 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0012",
+  "flowVersion": "001",
+  "flowName": "Confirmation of the Inclusion of the Metering Point in the Reading Schedules",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Acknowledge that a specified metering point is included in a reading schedule quoting the dates applicable.",
+  "routes": [
+    {
+      "from": "HHDC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "039": {
+      "name": "Reading Schedule Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0369",
+          "name": "Meter Reading Schedule Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0277",
+          "name": "Regular Reading Cycle",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

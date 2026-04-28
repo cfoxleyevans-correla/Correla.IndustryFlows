@@ -1,0 +1,194 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0279",
+  "flowVersion": "001",
+  "flowName": "Teleswitch Contact Interval Data Report File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of the switching times for teleswitch contacts.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "RDT": {
+      "name": "Report Parameters",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1089",
+          "name": "User Name",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "HDR": {
+      "name": "Teleswitch Contact Interval Data Report Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0873",
+          "name": "Profile Production Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0874",
+          "name": "Profile Production Run Time",
+          "format": "TIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J1576",
+          "name": "Tele-Switch Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "TSU": {
+      "name": "Teleswitch User",
+      "parent": "HDR",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0135",
+          "name": "Tele-Switch User Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "TSG": {
+      "name": "Teleswitch Group",
+      "parent": "TSU",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0136",
+          "name": "Tele-Switch Group Id",
+          "format": "NUM(4)",
+          "required": true
+        }
+      ]
+    },
+    "TSC": {
+      "name": "Teleswitch Contact",
+      "parent": "TSG",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1570",
+          "name": "Tele-Switch Contact Code",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "TCI": {
+      "name": "Teleswitch Contact Interval",
+      "parent": "TSC",
+      "level": 5,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1577",
+          "name": "Start Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J1578",
+          "name": "End Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J1579",
+          "name": "Tele-Switch Contact State",
+          "format": "BOOLEAN(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The file should be ordered by Tele-Switch User Id, Tele-Switch Group Id, Tele-Switch Contact Code and Start Date and Time."
+}

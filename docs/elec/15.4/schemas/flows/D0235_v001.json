@@ -1,0 +1,211 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0235",
+  "flowVersion": "001",
+  "flowName": "Half Hourly Aggregation Exception Report",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Details of exceptions raised by the HHDA on incomplete/inconsistent data received from HHDCs against that received from MPAS.",
+  "routes": [
+    {
+      "from": "HHDA",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "605": {
+      "name": "Flow Structure Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "996": {
+      "name": "Consumption data received but not expected",
+      "parent": "605",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0205",
+          "name": "Data Collector Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "997": {
+      "name": "Expected consumption data received but from incorrect source",
+      "parent": "605",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0205",
+          "name": "Data Collector Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1250",
+          "name": "Data Collector Id (incorrect)",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "998": {
+      "name": "Consumption data expected but not received",
+      "parent": "605",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0205",
+          "name": "Data Collector Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "999": {
+      "name": "Consumption data received for de-energised meter",
+      "parent": "605",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0205",
+          "name": "Data Collector Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "00A": {
+      "name": "Consumption data received for incorrect Supplier",
+      "parent": "605",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0205",
+          "name": "Data Collector Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1251",
+          "name": "Supplier Id (incorrect)",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

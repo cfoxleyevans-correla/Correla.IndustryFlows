@@ -1,0 +1,56 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0334",
+  "flowVersion": "001",
+  "flowName": "Request for New Green Deal MPAN Core",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Request to the Green Deal Licensee to provide an alternative Green Deal MPAN Core in the event of service alterations or for the correction of errors.",
+  "routes": [
+    {
+      "from": "GDCC",
+      "to": "GD Licensee",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "33H": {
+      "name": "New Green Deal MPAN Request Information",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1809",
+          "name": "GDCC Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1813",
+          "name": "Green Deal MPAN Core",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1816",
+          "name": "New GD MPAN Core Reason Request Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1815",
+          "name": "New GD MPAN Core EFD",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

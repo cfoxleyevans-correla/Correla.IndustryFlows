@@ -1,0 +1,793 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0030",
+  "flowVersion": "001",
+  "flowName": "Aggregated DUoS Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "A report of profiled SPM data by settlement class summed over Data Aggregator and Distributor. The Distributor will receive one report per Supplier. The report also includes domain data. In part one where the information is sent to the Distributor it will contain all Suppliers, whereas where the information is sent to the Supplier it will contain only data pertaining to that Supplier.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "RDT": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1089",
+          "name": "User Name",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "HDR": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0882",
+          "name": "Settlement Code Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0195",
+          "name": "SSR Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0196",
+          "name": "SSR Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0197",
+          "name": "SSR Run Type Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "SUP": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0248",
+          "name": "Supplier Name",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0244",
+          "name": "BSC Trading Party Id",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "DIS": {
+      "name": "",
+      "parent": "SUP",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0323",
+          "name": "Distributor Name",
+          "format": "CHAR(40)",
+          "required": true
+        }
+      ]
+    },
+    "GP1": {
+      "name": "",
+      "parent": "DIS",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "VMR": {
+      "name": "",
+      "parent": "GP1",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1103",
+          "name": "Profile Class",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1296",
+          "name": "SPM Total All EACs",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1195",
+          "name": "SPM Total Annualised Advance Report Value",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0150",
+          "name": "SPM Total EAC MSID Count",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0153",
+          "name": "SPM Total AA MSID Count",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0190",
+          "name": "SPM Default EAC MSID Count",
+          "format": "NUM(8)",
+          "required": true
+        }
+      ]
+    },
+    "SPX": {
+      "name": "",
+      "parent": "VMR",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1292",
+          "name": "Profiled SPM Consumption (Settlement Period 01)",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1312",
+          "name": "Profiled SPM Consumption (Settlement Period 02)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1313",
+          "name": "Profiled SPM Consumption (Settlement Period 03)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1314",
+          "name": "Profiled SPM Consumption (Settlement Period 04)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1315",
+          "name": "Profiled SPM Consumption (Settlement Period 05)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1316",
+          "name": "Profiled SPM Consumption (Settlement Period 06)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1317",
+          "name": "Profiled SPM Consumption (Settlement Period 07)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1318",
+          "name": "Profiled SPM Consumption (Settlement Period 08)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1319",
+          "name": "Profiled SPM Consumption (Settlement Period 09)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1320",
+          "name": "Profiled SPM Consumption (Settlement Period 10)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1321",
+          "name": "Profiled SPM Consumption (Settlement Period 11)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1322",
+          "name": "Profiled SPM Consumption (Settlement Period 12)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1323",
+          "name": "Profiled SPM Consumption (Settlement Period 13)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1324",
+          "name": "Profiled SPM Consumption (Settlement Period 14)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1325",
+          "name": "Profiled SPM Consumption (Settlement Period 15)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1326",
+          "name": "Profiled SPM Consumption (Settlement Period 16)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1327",
+          "name": "Profiled SPM Consumption (Settlement Period 17)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1328",
+          "name": "Profiled SPM Consumption (Settlement Period 18)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1329",
+          "name": "Profiled SPM Consumption (Settlement Period 19)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1330",
+          "name": "Profiled SPM Consumption (Settlement Period 20)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1331",
+          "name": "Profiled SPM Consumption (Settlement Period 21)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1332",
+          "name": "Profiled SPM Consumption (Settlement Period 22)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1333",
+          "name": "Profiled SPM Consumption (Settlement Period 23)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1334",
+          "name": "Profiled SPM Consumption (Settlement Period 24)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1335",
+          "name": "Profiled SPM Consumption (Settlement Period 25)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1336",
+          "name": "Profiled SPM Consumption (Settlement Period 26)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1337",
+          "name": "Profiled SPM Consumption (Settlement Period 27)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1338",
+          "name": "Profiled SPM Consumption (Settlement Period 28)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1339",
+          "name": "Profiled SPM Consumption (Settlement Period 29)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1340",
+          "name": "Profiled SPM Consumption (Settlement Period 30)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1341",
+          "name": "Profiled SPM Consumption (Settlement Period 31)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1342",
+          "name": "Profiled SPM Consumption (Settlement Period 32)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1343",
+          "name": "Profiled SPM Consumption (Settlement Period 33)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1344",
+          "name": "Profiled SPM Consumption (Settlement Period 34)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1345",
+          "name": "Profiled SPM Consumption (Settlement Period 35)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1346",
+          "name": "Profiled SPM Consumption (Settlement Period 36)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1347",
+          "name": "Profiled SPM Consumption (Settlement Period 37)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1348",
+          "name": "Profiled SPM Consumption (Settlement Period 38)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1349",
+          "name": "Profiled SPM Consumption (Settlement Period 39)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1350",
+          "name": "Profiled SPM Consumption (Settlement Period 40)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1351",
+          "name": "Profiled SPM Consumption (Settlement Period 41)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1352",
+          "name": "Profiled SPM Consumption (Settlement Period 42)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1353",
+          "name": "Profiled SPM Consumption (Settlement Period 43)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1354",
+          "name": "Profiled SPM Consumption (Settlement Period 44)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1355",
+          "name": "Profiled SPM Consumption (Settlement Period 45)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1356",
+          "name": "Profiled SPM Consumption (Settlement Period 46)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1357",
+          "name": "Profiled SPM Consumption (Settlement Period 47)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1358",
+          "name": "Profiled SPM Consumption (Settlement Period 48)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1359",
+          "name": "Profiled SPM Consumption (Settlement Period 49)",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1360",
+          "name": "Profiled SPM Consumption (Settlement Period 50)",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "TOT": {
+      "name": "",
+      "parent": "VMR",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0885",
+          "name": "Daily Profiled SPM Total EAC",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0884",
+          "name": "Daily Profiled SPM Total Annualised Advance",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "HD2": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0882",
+          "name": "Settlement Code Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0195",
+          "name": "SSR Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0196",
+          "name": "SSR Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0197",
+          "name": "SSR Run Type Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "SU2": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0248",
+          "name": "Supplier Name",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "CCC": {
+      "name": "",
+      "parent": "SUP",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0160",
+          "name": "Consumption Component Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0161",
+          "name": "AA/EAC Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0020",
+          "name": "Actual/Estimated Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0163",
+          "name": "Data Aggregation Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0164",
+          "name": "Metered/Unmetered Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0162",
+          "name": "Consumption Component Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0165",
+          "name": "GSP Group Correction Scaling Factor",
+          "format": "NUM(4)",
+          "required": true
+        }
+      ]
+    },
+    "SP2": {
+      "name": "",
+      "parent": "SUP",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0167",
+          "name": "Settlement Period Label",
+          "format": "CHAR(6)",
+          "required": true
+        },
+        {
+          "ref": "J0166",
+          "name": "GSP Group Correction Factor",
+          "format": "NUM(18)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Settlement Period Id in Part III is not shown in the Logical Design - Function Definition but is shown in the Logical Design User Interface. It is left in this flow.Logical Design defines Part 1 as one I/O structure and Parts II and III as another thus implying that these are two different flows."
+}

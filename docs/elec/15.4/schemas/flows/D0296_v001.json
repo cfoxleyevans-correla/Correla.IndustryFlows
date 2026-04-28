@@ -1,0 +1,656 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0296",
+  "flowVersion": "001",
+  "flowName": "Supplier BM Unit Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Report for each Supplier containing details of the Supplier's valid BM Units, GSP Group/BM Unit/Profile Class/Standard Settlement Configuration mappings and consumption/generation by BM Unit and Consumption Component Class.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "RDT": {
+      "name": "Report Parameters",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1089",
+          "name": "User Name",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "HDR": {
+      "name": "Additional Header Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0882",
+          "name": "Settlement Code Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0195",
+          "name": "SSR Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0196",
+          "name": "SSR Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0197",
+          "name": "SSR Run Type Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0248",
+          "name": "Supplier Name",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "GSP": {
+      "name": "GSP Group",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "BM1": {
+      "name": "BM Unit Standing Data",
+      "parent": "GSP",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1628",
+          "name": "BM Unit Id",
+          "format": "CHAR(11)",
+          "required": true
+        },
+        {
+          "ref": "J1631",
+          "name": "Default BM Unit Flag",
+          "format": "BOOLEAN(0)",
+          "required": true
+        }
+      ]
+    },
+    "PCL": {
+      "name": "Profile Class",
+      "parent": "BM1",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "SSC": {
+      "name": "Standard Settlement Configuration",
+      "parent": "PCL",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "BM2": {
+      "name": "BM Unit Half Hourly and Non-Half Hourly Energy by CCC and Settlement Period",
+      "parent": "GSP",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1628",
+          "name": "BM Unit Id",
+          "format": "CHAR(11)",
+          "required": true
+        },
+        {
+          "ref": "J1631",
+          "name": "Default BM Unit Flag",
+          "format": "BOOLEAN(0)",
+          "required": true
+        }
+      ]
+    },
+    "CCC": {
+      "name": "Consumption Component Class Half Hourly and Non-Half Hourly Energy",
+      "parent": "BM2",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0160",
+          "name": "Consumption Component Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0165",
+          "name": "GSP Group Correction Scaling Factor",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0161",
+          "name": "AA/EAC Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0020",
+          "name": "Actual/Estimated Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0163",
+          "name": "Data Aggregation Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0164",
+          "name": "Metered/Unmetered Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0162",
+          "name": "Consumption Component Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "SE1": {
+      "name": "Settlement Period Half Hourly and Non-Half Hourly Energy",
+      "parent": "CCC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0167",
+          "name": "Settlement Period Label",
+          "format": "CHAR(6)",
+          "required": true
+        },
+        {
+          "ref": "J1629",
+          "name": "Aggregated BM Unit Energy",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1630",
+          "name": "Aggregated BM Unit Line Losses",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1638",
+          "name": "Corrected BM Unit Energy",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1639",
+          "name": "Corrected BM Unit Line Losses",
+          "format": "NUM(14)",
+          "required": false
+        }
+      ]
+    },
+    "TL1": {
+      "name": "Daily Total 1 BM Unit Half Hourly and Non-Half Hourly Energy",
+      "parent": "CCC",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1642",
+          "name": "Daily Aggregated BM Unit Energy",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1643",
+          "name": "Daily Aggregated BM Unit Line Losses",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1644",
+          "name": "Daily Corrected BM Unit Energy",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1645",
+          "name": "Daily Corrected BM Unit Line Losses",
+          "format": "NUM(14)",
+          "required": false
+        }
+      ]
+    },
+    "BM3": {
+      "name": "BM Unit Half Hourly and Non-Half Hourly Energy by Settlement Period",
+      "parent": "GSP",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1628",
+          "name": "BM Unit Id",
+          "format": "CHAR(11)",
+          "required": true
+        },
+        {
+          "ref": "J1631",
+          "name": "Default BM Unit Flag",
+          "format": "BOOLEAN(0)",
+          "required": true
+        }
+      ]
+    },
+    "BMV": {
+      "name": "Period BM Unit Total Allocated Volume",
+      "parent": "BM3",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0167",
+          "name": "Settlement Period Label",
+          "format": "CHAR(6)",
+          "required": true
+        },
+        {
+          "ref": "J1636",
+          "name": "Uncorrected Period BM Unit Total Allocated Volume",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1637",
+          "name": "Period BM Unit Total Allocated Volume",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "TL2": {
+      "name": "Daily Total 2 BM Unit Half Hourly and Non-Half Hourly Energy",
+      "parent": "BM3",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1640",
+          "name": "Daily Uncorrected Period BM Unit Total Allocated Volume",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1641",
+          "name": "Daily Period BM Unit Total Allocated Volume",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "DA2": {
+      "name": "Data Aggregator",
+      "parent": "GSP",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0183",
+          "name": "Data Aggregator Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0271",
+          "name": "Data Aggregator Name",
+          "format": "CHAR(40)",
+          "required": true
+        }
+      ]
+    },
+    "BM4": {
+      "name": "BM Unit Half Hourly Energy",
+      "parent": "DA2",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1628",
+          "name": "BM Unit Id",
+          "format": "CHAR(11)",
+          "required": false
+        },
+        {
+          "ref": "J1634",
+          "name": "SSR Run BM Unit Id",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1635",
+          "name": "Default BM Unit Reason Code",
+          "format": "CHAR(2)",
+          "required": false
+        }
+      ]
+    },
+    "CC2": {
+      "name": "Consumption Component Class Half Hourly Energy",
+      "parent": "BM4",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0161",
+          "name": "AA/EAC Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0020",
+          "name": "Actual/Estimated Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0160",
+          "name": "Consumption Component Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0162",
+          "name": "Consumption Component Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0163",
+          "name": "Data Aggregation Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0164",
+          "name": "Metered/Unmetered Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "SE2": {
+      "name": "Settlement Period Half Hourly Energy",
+      "parent": "CC2",
+      "level": 5,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0167",
+          "name": "Settlement Period Label",
+          "format": "CHAR(6)",
+          "required": true
+        },
+        {
+          "ref": "J1629",
+          "name": "Aggregated BM Unit Energy",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1630",
+          "name": "Aggregated BM Unit Line Losses",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J0241",
+          "name": "Data Aggregator HH MSID Count",
+          "format": "NUM(10)",
+          "required": true
+        }
+      ]
+    },
+    "TL3": {
+      "name": "Daily Total BM Unit Half Hourly Energy",
+      "parent": "CC2",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1642",
+          "name": "Daily Aggregated BM Unit Energy",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1643",
+          "name": "Daily Aggregated BM Unit Line Losses",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J1120",
+          "name": "Daily DA HH MSID Count",
+          "format": "NUM(10)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The Supplier BM Unit Report is output in ascending order by GSP Group Id.  The sort order of the repeating groups is specified as follows:BM1        BM Unit Id, Profile Class Id, Standard Settlement Configuration IdBM2        BM Unit Id, Consumption Component Class Id, Settlement Period IdBM3        BM Unit Id, Settlement Period IdDA2        Data Aggregator Id, BM Unit Id, Consumption Component Class Id, Settlement Period IdThe BM1 group will include all BM Units effective in the GSP Group on the Settlement Day for the Supplier.  This includes BM Units for which no energy was allocated by the SSR Run;Profile Class/Standard Settlement Configuration mappings (PCL group) are included only where they have been notified to the SVAA by the Supplier;The BM2 and BM3 groups will include only those BM Units for which energy volumes have been allocated by the SSR Run; andThe BM Unit Id field in the BM4 group will be populated with the BM Unit Id supplied by the HHDA.  If the HHDA provides D0040 files (without BMU) then this field will be null."
+}

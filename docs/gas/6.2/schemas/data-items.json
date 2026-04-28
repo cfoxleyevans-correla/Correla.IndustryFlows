@@ -1,0 +1,2926 @@
+{
+  "A0075": {
+    "name": "Access Instructions",
+    "ref": "A0075",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Additional instructions necessary to support an agents visit.Examples: 'through the gate to left of front door', 'down unmarked lane beside the P.O'.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(210)",
+    "physicalLength": "210",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0101": {
+    "name": "Access Password",
+    "ref": "A0101",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The password required to gain access to the persons property",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(30)",
+    "physicalLength": "30",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0001": {
+    "name": "Address Id",
+    "ref": "A0001",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Unique Identifier.",
+    "units": "See notes",
+    "validation": "As Valid Set",
+    "domain": "Identifier",
+    "logicalFormat": "INT(8)",
+    "physicalLength": "8",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0003": {
+    "name": "Address Text",
+    "ref": "A0003",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "'Postally not required' text such as a textual description of locational aspects not contained elsewhere. Example: Gas Beacon in field.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(210)",
+    "physicalLength": "210",
+    "synonyms": "",
+    "notes": "There is no equivalent field on the S70, it has been introduced to be in line with the MPAS Metering Point Address Line 1 which is a 50 character field.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0102": {
+    "name": "Address Type Code",
+    "ref": "A0102",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code which defines the type of address usage.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0103": {
+    "name": "Address Type Description",
+    "ref": "A0103",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the address type.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0138": {
+    "name": "Appointment Date From",
+    "ref": "A0138",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Date of the appointment e.g. 20020731.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0139": {
+    "name": "Appointment Date To",
+    "ref": "A0139",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Date that the appointment may be up to.  If the appointment needs to be on a particular date, this will be the same as the 'From date', if it can be any date from a specified date, this will be empty e.g. 20020308.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0020": {
+    "name": "Appointment Description",
+    "ref": "A0020",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is the description for the Appointment Qualifier Code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0019": {
+    "name": "Appointment Qualifier Code",
+    "ref": "A0019",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code which defines the appointment qualifier. This can be related to the Appointment dates and it can be related to the Appointment times.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0140": {
+    "name": "Appointment Time From",
+    "ref": "A0140",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The actual time, or start time of a range e.g. 090000 (9am) or AM (any time in the morning).  If this is blank then it can be any time from.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(6)",
+    "physicalLength": "6",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0141": {
+    "name": "Appointment Time To",
+    "ref": "A0141",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The time to which this relates to, within a time range.  If this is blank then it can be any time to.  If both the from and to date are blank then it can be any time e.g. 160000 (4pm) or PM (anytime in the afternoon).",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(6)",
+    "physicalLength": "6",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0024": {
+    "name": "Asset Class Code",
+    "ref": "A0024",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A code to indicate the classification of the Asset.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "'address' (A0208)",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0152": {
+    "name": "Asset Class Description",
+    "ref": "A0152",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the Asset Class.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0158": {
+    "name": "Asset Location Notes",
+    "ref": "A0158",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is extra notes if the Location Code is insufficient.  It must be entered if the Location Code is 'Other'.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0037": {
+    "name": "Asset Status Code",
+    "ref": "A0037",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Asset status code (Industry Standard), can also identify the condition of the Asset.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(2)",
+    "physicalLength": "2",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0038": {
+    "name": "Asset Status Description",
+    "ref": "A0038",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the Asset Status.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0173": {
+    "name": "Attribute Number",
+    "ref": "A0173",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is the value attributed to a data item, as defined in the RGMA.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0174": {
+    "name": "Attribute Value",
+    "ref": "A0174",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is the value for the data item identified, to be entered in the tables.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0006": {
+    "name": "Building Name Number",
+    "ref": "A0006",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is the Name and/or Number of the Building.  The Name is first. Building number in address (Industry Standard).  Premises within a building name and number range should be held as a Building Name in the form of 'Tower House School 14-22'.  Following PAF usage, this item will also take the value of any non-standard house or building number e.g. \"12-13\", or \"6A\".  Also holds the name of any sub-usage divided building such as a block of flats, when the name of an individual flat will be held in the Sub Building Name_Number.This can also be the plot number e.g Plot 58",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(40)",
+    "physicalLength": "40",
+    "synonyms": "",
+    "notes": "The definition of this has been taken from the current S70 Building Name and Building Number fields combined. It is equivalent to the SAF Metering Point address line 3.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0039": {
+    "name": "Care Category Code",
+    "ref": "A0039",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A code used to define the type of special conditions a person may have. Leading zero's should be populated where required by the relevant Valid Set value.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(2)",
+    "physicalLength": "2",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0040": {
+    "name": "Care Category Description",
+    "ref": "A0040",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the type of special conditions a person may have.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0044": {
+    "name": "Collar Status Code",
+    "ref": "A0044",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code to identify the status of the collar. The absence of a collar where one was notified is used to alert the Meter Worker to potential tampering.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0045": {
+    "name": "Collar Status Description",
+    "ref": "A0045",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description associated with the collar status code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0050": {
+    "name": "Contact Description",
+    "ref": "A0050",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is the description for the Mechanism Code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0049": {
+    "name": "Contact Mechanism Code",
+    "ref": "A0049",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The type of communication media that can be used (Industry Standard).",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0106": {
+    "name": "Contact Mechanism Value",
+    "ref": "A0106",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The value related to the contact mechanism code.Examples:   020 7432 3005, SPAA@electralink.co.uk.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0053": {
+    "name": "Contract Reference",
+    "ref": "A0053",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The contract reference the supplier has with the service provider, this is purely commercial.  This may indicate the Service Level Agreement / responses required.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(25)",
+    "physicalLength": "25",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0036": {
+    "name": "Conversion Basis Code",
+    "ref": "A0036",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is the conversion basis the converter is set up to convert against.  The code indicates if the converter compensates for e.g. 'T' Temperature.Amongst the wide range of converters produced one, some or all of the values identified within the C&D regs may be applied \u0096 pressure, temperature, compressibility and/or density. The cost of the models will vary according to this functionality. The majority of converters fitted at the current time convert for pressure, temperature and compressibility only. Compressibility and density conversion only applies above 2 bar metering pressure. Density conversion functionality tends to come with flow computers only and some of these models even take gas composition into account.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0074": {
+    "name": "Conversion Factor",
+    "ref": "A0074",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A fixed factor applied where no Converter is fitted and the meter reading needs to be corrected for pressure, altitude and/or temperature.  This is a fixed value for domestic, provided by Ofgem (1.02264) but can vary for other component types (or Assets in the context of this document) at a Meter Point.  Fixed by GT according to location, height, pressure and temperature.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Real",
+    "logicalFormat": "NUM(9 ,6)",
+    "physicalLength": "15",
+    "synonyms": "",
+    "notes": "This should be maintained even if there is a converter, to allow for conversion of readings from the meter should the converter malfunction.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0027": {
+    "name": "Converter Conversion Factor",
+    "ref": "A0027",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A fixed factor applied where the Converter does not convert for all inputs, so readings still require correction to account for variations due to pressure, altitude and / or temperature.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Real",
+    "logicalFormat": "NUM(9 ,6)",
+    "physicalLength": "15",
+    "synonyms": "",
+    "notes": "This has been included as a billing requirement (not audit) as an Asset may not have a task associated with it (e.g. install task type).",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0012": {
+    "name": "County",
+    "ref": "A0012",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The county name for postal purposes.  For PAF validated addresses this is as specified by the Royal Mail within the Post code Address File e.g. West Midlands.  NOTE:  The Postal County may differ from the county within which the premise/land parcel is physically located.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(40)",
+    "physicalLength": "40",
+    "synonyms": "",
+    "notes": "There is no equivalent field on the S70, it has been introduced to be in line with the SAF Metering Point Address Line 9.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0184": {
+    "name": "Created date",
+    "ref": "A0184",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Date of creation of the input file.  Example 20020312.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0185": {
+    "name": "Created time",
+    "ref": "A0185",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Clock Time 24 hr clock",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Time",
+    "logicalFormat": "TIME",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0122": {
+    "name": "Cross-Ref Other External Job Reference",
+    "ref": "A0122",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Used to identify another job, by a company other than the one to which this request applies.  If the external job or Organisation needs to be identified this will be provided in the Job Comments",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(15)",
+    "physicalLength": "15",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0058": {
+    "name": "Cross-Ref Other Internal Job Reference",
+    "ref": "A0058",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Used to identify another job which relates to Organisation to which this request applies.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(15)",
+    "physicalLength": "15",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0178": {
+    "name": "Data Update Code",
+    "ref": "A0178",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Identifies whether the record contains corrected data.  If it is blank then all the information contained in the record is new data or for reference purposes.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0014": {
+    "name": "Data Update Description",
+    "ref": "A0014",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The description for the Data Update Code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0166": {
+    "name": "Date of Notice",
+    "ref": "A0166",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The date the Meter Worker entered the job details on the form or into the computer for onward transmission.  Example 20020312.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0010": {
+    "name": "Dependent Locality",
+    "ref": "A0010",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A named geographic area within a Post Town such as a postal district e.g. Westminster.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(40)",
+    "physicalLength": "40",
+    "synonyms": "",
+    "notes": "The definition of this has been taken from the current S70. This is equivalent to the SAF Metering Point address line 7.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0007": {
+    "name": "Dependent Thoroughfare",
+    "ref": "A0007",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The name of a minor street dependent on the additional name of a larger street (Principle Street) to provide the full street address of a premise/land parcel e.g. Back High Street",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(40)",
+    "physicalLength": "40",
+    "synonyms": "",
+    "notes": "There is no equivalent field on the S70, it has been introduced to be in line with the SAF Metering Point Address Line 4.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0009": {
+    "name": "Double Dependent Locality",
+    "ref": "A0009",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A named geographic area within a dependent locality such as a postal sub-district e.g. Millbank.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(40)",
+    "physicalLength": "40",
+    "synonyms": "",
+    "notes": "There is no equivalent field on the S70, it has been introduced to be in line with the SAF Metering Point Address Line 6.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0110": {
+    "name": "Earliest Year of Manufacture",
+    "ref": "A0110",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Earliest year of manufacture. Example1990.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(4)",
+    "physicalLength": "4",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0051": {
+    "name": "EFD Contact",
+    "ref": "A0051",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective from date e.g. 20020531.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "From and to dates are included to cater for change of contact (e.g. original contact goes on holiday).",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0070": {
+    "name": "EFD for Relevance",
+    "ref": "A0070",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective from date e.g. 20020531.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0104": {
+    "name": "EFD for Validity",
+    "ref": "A0104",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective from date e.g. 20020531.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0042": {
+    "name": "EFD for Validity",
+    "ref": "A0042",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective from date e.g. 20020531.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0066": {
+    "name": "EFD for Validity",
+    "ref": "A0066",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective from date e.g. 20020531.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0175": {
+    "name": "Effective Attribute Date",
+    "ref": "A0175",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "If the table entry is being inserted, this will be the date from which the values become effective.  If this is provided with an attribute identified as 'Terminate' then this is the date the entry is no longer valid (other than for historic use). Example 20020312.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0081": {
+    "name": "Effective From Date",
+    "ref": "A0081",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective from date e.g. 20020531.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0082": {
+    "name": "Effective To Date",
+    "ref": "A0082",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective to date e.g. 20030206.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0052": {
+    "name": "ETD Contact",
+    "ref": "A0052",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective to date e.g. 20020531.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "From and to dates are included to cater for change of contact (e.g. original contact goes on holiday).",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0071": {
+    "name": "ETD for Relevance",
+    "ref": "A0071",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective to date e.g. 20030206.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0105": {
+    "name": "ETD for Validity",
+    "ref": "A0105",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective to date e.g. 20030206.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0043": {
+    "name": "ETD for Validity",
+    "ref": "A0043",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective to date e.g. 20020228.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0067": {
+    "name": "ETD for Validity",
+    "ref": "A0067",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Effective to date e.g. 20030602.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0186": {
+    "name": "File Identifier",
+    "ref": "A0186",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "File generation number, unique for the Originator in role.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(8)",
+    "physicalLength": "8",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0179": {
+    "name": "File Type Code",
+    "ref": "A0179",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "As defined in the Online RGMA Data Flow Catalogue.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0196": {
+    "name": "File Type Description",
+    "ref": "A0196",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The description for the File Type Code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0187": {
+    "name": "File Usage Code",
+    "ref": "A0187",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Identifies what environment the file is being used for.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0169": {
+    "name": "File Usage Description",
+    "ref": "A0169",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The description for the File Usage Code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0015": {
+    "name": "Grid Co-ord X",
+    "ref": "A0015",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Unambiguous spatial reference for a longitude coordinate to a fixed datum point as defined by the Ordinance Survey (OS).  Sometimes known as Eastings.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Co-ordinate",
+    "logicalFormat": "INT(7)",
+    "physicalLength": "7",
+    "synonyms": "",
+    "notes": "Industry standard to be used is undefined.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0016": {
+    "name": "Grid Co-ord Y",
+    "ref": "A0016",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Unambiguous spatial reference for a latitude coordinate to a fixed datum point as defined by OS.  Sometimes known as Northings.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Co-ordinate",
+    "logicalFormat": "INT(7)",
+    "physicalLength": "7",
+    "synonyms": "",
+    "notes": "Industry standard to be used is undefined.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0017": {
+    "name": "Grid Co-ord Z",
+    "ref": "A0017",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Unambiguous spatial reference for height relative to a fixed datum point as defined by OS.  May be negative to allow for a depth underground.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Co-ordinate",
+    "logicalFormat": "INT(7)",
+    "physicalLength": "7",
+    "synonyms": "",
+    "notes": "Industry standard to be used is undefined.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0089": {
+    "name": "Initials",
+    "ref": "A0089",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Initials of the Person e.g. P M.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(4)",
+    "physicalLength": "4",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0028": {
+    "name": "Installation Date",
+    "ref": "A0028",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Date the asset was installed. Example: 20020312.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "This has been included as a billing requirement (not audit) as an Asset may not have a Task associated with it (e.g. remove task type).",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0147": {
+    "name": "Installation Time",
+    "ref": "A0147",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The time that the installation was made. Examples: 160000 or PM.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(6)",
+    "physicalLength": "6",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0054": {
+    "name": "Job Id",
+    "ref": "A0054",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Unique Identifier.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Identifier",
+    "logicalFormat": "INT(8)",
+    "physicalLength": "8",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0073": {
+    "name": "Last Inspection Date",
+    "ref": "A0073",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The date on which the meter installation was last inspected e.g. 20020531.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0160": {
+    "name": "Last Refurbished Date",
+    "ref": "A0160",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Where present this is the date the asset was refurbished.  Example 20020312.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0111": {
+    "name": "Last Year of Manufacture",
+    "ref": "A0111",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Last year of manufacture. Example: 1998.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(4)",
+    "physicalLength": "4",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0059": {
+    "name": "Location Code",
+    "ref": "A0059",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A code representing the location of the Asset. These values are the sameas for the Meter Location and in the short term can be set to be the same, however the location ofthe meter point can be different than the Meter and the MAM requires both e.g. for inspects, they need to check the Meter and the connection point.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(2)",
+    "physicalLength": "2",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0150": {
+    "name": "Location Description",
+    "ref": "A0150",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The text description of the location.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0060": {
+    "name": "Manufacturer Code",
+    "ref": "A0060",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The unique code of the manufacturer of the meter or other instrument configuration.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(3)",
+    "physicalLength": "3",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Meter Product Table"
+    }
+  },
+  "A0061": {
+    "name": "Manufacturer Description",
+    "ref": "A0061",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Text description represented by manufacturer code",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0064": {
+    "name": "Market Participant Abbreviated Name",
+    "ref": "A0064",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A code identifying a Market Participant",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(3)",
+    "physicalLength": "3",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Market Participant Table"
+    }
+  },
+  "A0065": {
+    "name": "Market Participant Name",
+    "ref": "A0065",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Text to describe the Market Participant referenced in the Market Participant Code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(50)",
+    "physicalLength": "50",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Market Participant Table"
+    }
+  },
+  "A0161": {
+    "name": "Market Sector Code",
+    "ref": "A0161",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Identifies the Market Sector the job is related to.  It is required to ensure that the relevant service response times are met.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(1)",
+    "physicalLength": "1",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0162": {
+    "name": "Market Sector Description",
+    "ref": "A0162",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is the description of the Market Sector Code",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0200": {
+    "name": "MDD Issue Date",
+    "ref": "A0200",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Date of MDD notification / refresh. Example: 20020312.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0199": {
+    "name": "MDD Version",
+    "ref": "A0199",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Unique version number of MDD notification / refresh",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "INT(6)",
+    "physicalLength": "6",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0112": {
+    "name": "Measuring Capacity",
+    "ref": "A0112",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The maximum volume of gas (Q Max) that can be put through an Asset per hour, based on the manufacturers maximum value.  This information is not on the Asset itself, but is published (the manufactures maximum value).  The service size will be one of the factors which determine the capacity of the Asset required. Permitted values for the relevant Product Id are defined in MDD.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Real",
+    "logicalFormat": "NUM(10 ,4)",
+    "physicalLength": "14",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Meter Product Table"
+    }
+  },
+  "A0076": {
+    "name": "Meter Link Code",
+    "ref": "A0076",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Defines the potential relationship between Meter Points.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(1)",
+    "physicalLength": "1",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0085": {
+    "name": "Meter Mechanism Code",
+    "ref": "A0085",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The coded value describing the payment mechanism of the Meter or Module.  This value should be used for Advanced Domestic or Smart Meters to denote SMETS compliance.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Meter Product Table"
+    }
+  },
+  "A0086": {
+    "name": "Meter Mechanism Description",
+    "ref": "A0086",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the Meter Mechanism Code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0157": {
+    "name": "Meter Point Location Notes",
+    "ref": "A0157",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is extra notes if the Location Code is insufficient e.g. if the Location Code is 'Other'.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0072": {
+    "name": "Meter Point Reference Number",
+    "ref": "A0072",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A unique identifier for the point at which a meter is, has been or will be connected to the gas network. A new MPRN is also allocated if the meter point is reconnected after having been extinct.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Integer",
+    "logicalFormat": "INT(10)",
+    "physicalLength": "10",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0077": {
+    "name": "Meter Point Status Code",
+    "ref": "A0077",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code identifying the status of the Meter Point.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(2)",
+    "physicalLength": "2",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0078": {
+    "name": "Meter Point Status Description",
+    "ref": "A0078",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the status of the Meter Point.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0025": {
+    "name": "Meter Type Code",
+    "ref": "A0025",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code to define the type of meter.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Meter Product Table"
+    }
+  },
+  "A0026": {
+    "name": "Meter Type Description",
+    "ref": "A0026",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the Meter Type.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0079": {
+    "name": "Meter Usage Code",
+    "ref": "A0079",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code to define the usage a meter is put to.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(1)",
+    "physicalLength": "1",
+    "synonyms": "",
+    "notes": "This has been split out from Meter Link Code.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0080": {
+    "name": "Meter Usage Code Description",
+    "ref": "A0080",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the Meter Usage Code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0164": {
+    "name": "Metering Pressure",
+    "ref": "A0164",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The metering pressure is the pressure at the inlet of the Meter and is measured in millibars (absolute).",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Real",
+    "logicalFormat": "NUM(9 ,3)",
+    "physicalLength": "12",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0083": {
+    "name": "Model Code",
+    "ref": "A0083",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code which uniquely identifies the model.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(10)",
+    "physicalLength": "10",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Meter Product Table"
+    }
+  },
+  "A0084": {
+    "name": "Model Description",
+    "ref": "A0084",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the model.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0120": {
+    "name": "Multiplication Factor",
+    "ref": "A0120",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The multiplication factor to apply to the resultant index advance indicated by the current reading.Permitted values for the relevant Product Id are defined within MDD.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Real",
+    "logicalFormat": "NUM(6 ,3)",
+    "physicalLength": "9",
+    "synonyms": "",
+    "notes": "Format to allow for 1000.000",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Meter Product Table"
+    }
+  },
+  "A0137": {
+    "name": "Not Used",
+    "ref": "A0137",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Unique Identifier.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Identifier",
+    "logicalFormat": "NUM(8)",
+    "physicalLength": "8",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0128": {
+    "name": "Not Used",
+    "ref": "A0128",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The code associated with the fault displayed on a Meter, usually identifies safety issues or tampering.Example: 01",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0171": {
+    "name": "Not Used",
+    "ref": "A0171",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is the unique identifier of the table as defined by the industry for the relevant attributes.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0029": {
+    "name": "Not Used",
+    "ref": "A0029",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Date the Asset was removed.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0159": {
+    "name": "Not Used",
+    "ref": "A0159",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description expanding the table identifier.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0148": {
+    "name": "Not Used",
+    "ref": "A0148",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The time the Asset was removed.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Time",
+    "logicalFormat": "TIME",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0195": {
+    "name": "Not Used",
+    "ref": "A0195",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Related to the MDD Table.  It is the date for which the table will become active in the industry.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0172": {
+    "name": "Not Used",
+    "ref": "A0172",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Related to the MDD Table.  It is the date for which all related records in the transaction are to be terminated.  Tables themselves will only be created and terminated manually.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0176": {
+    "name": "Not Used",
+    "ref": "A0176",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Where the attribute is the key one, this code will be used to differentiate between inserting a new entry, termination or an update of an existing entry.  Where it is not the key this will identify if it is an update or for reporting/information purposes only.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0087": {
+    "name": "Not Used",
+    "ref": "A0087",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Unique Identifier.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Identifier",
+    "logicalFormat": "NUM(8)",
+    "physicalLength": "8",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0121": {
+    "name": "Number of Dials or Digits",
+    "ref": "A0121",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Number of significant dials or digits on the Asset which are considered during the Asset reading.  Used to validate Asset readings and to determine the number of complete units consumed.  For a converter this is the number of dials for the converted or unconverted register as indicated in the field above.  Where they are both the same, only the unconverted dials will be entered. Permitted values for the relevant Product Id are defined in MDD.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Integer",
+    "logicalFormat": "INT(2)",
+    "physicalLength": "2",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Meter Product Table"
+    }
+  },
+  "A0149": {
+    "name": "OAMI Inspection Date",
+    "ref": "A0149",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is the date that the accuracy of the Register of a Meter or Converter is checked and will usually be done by a qualified installer e.g. 20020531.  If it is not present then (other than by commercial agreement) a separate job is required for an inspector to check it.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0180": {
+    "name": "Originator Id",
+    "ref": "A0180",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The Market Participants abbreviated name",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(12)",
+    "physicalLength": "12",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Market Participant Table"
+    }
+  },
+  "A0181": {
+    "name": "Originator Role",
+    "ref": "A0181",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "As defined by MDD (A0126 Role Code)",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0193": {
+    "name": "Outcome Code",
+    "ref": "A0193",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Indicates if the response was successful or unsuccessful.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0163": {
+    "name": "Payment Method Code",
+    "ref": "A0163",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The coded value describing the payment method of the product.It is only applicable for Measuring Assets.  This value is used with the status, for the relevant Measuring Assets to determine if billing of the Meter Point is credit or prepayment e.g. credit meter with a prepayment module which is active would be prepayment.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Meter Product Table"
+    }
+  },
+  "A0168": {
+    "name": "Payment Method Description",
+    "ref": "A0168",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the payment mechanism.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0100": {
+    "name": "Person Notes",
+    "ref": "A0100",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Free text information applicable to the customer.Examples: dog at premises, always shut the gate.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0107": {
+    "name": "Person Type Code",
+    "ref": "A0107",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code for the person contact type.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0108": {
+    "name": "Person Type Description",
+    "ref": "A0108",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the person contact type.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0013": {
+    "name": "Post Code",
+    "ref": "A0013",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "An abbreviated form of address provided in this format by the Royal Mail and used by them in identifying one or more delivery points e.g. a property or post box.  This contains a valid set of any alpha numeric set of characters where alpha characters are in the standard English language set.NOTE:  The Post Code is comprised of two halves, the Out Code and the In Code.  The Out Code defines the Royal Mail area (character 1-2) and district (character 3 and 4) in which the premises associated with the Post Code reside e.g. B65.The In Code e.g. 5GT is used to identify a small number of premises within the Street the Out Code identifies.  The Post Code must be used in conjunction with a building/Sub building name/number to uniquely identify it.The Incode and Outcode are always separated by a space.Example:  SW1  6NC",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(10)",
+    "physicalLength": "10",
+    "synonyms": "",
+    "notes": "The definition of this has been taken from a combination of the current S70 Post Code Out and In codes. The SAF Metering Point address Post Code contains this as the first part of the 'Post Code' field.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0011": {
+    "name": "Post Town",
+    "ref": "A0011",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is also known as 'Locality'.  It is the name of the town in which the address lies e.g. London.  NOTE:  The Post Town may differ from the town within which the premise/land parcel is physically located.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(40)",
+    "physicalLength": "40",
+    "synonyms": "",
+    "notes": "The definition of this has been taken from the current S70. This is equivalent to the SAF Metering Point address line 8.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0207": {
+    "name": "Price",
+    "ref": "A0207",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Value of the price for the price type and units indicated.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Real",
+    "logicalFormat": "NUM(15 ,2)",
+    "physicalLength": "17",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0205": {
+    "name": "Price Band Code",
+    "ref": "A0205",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code to indicate the price band for the service.Examples: A1.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0206": {
+    "name": "Price Band Description",
+    "ref": "A0206",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the price band.Examples: 400 to 500 per day.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0201": {
+    "name": "Price Type Code",
+    "ref": "A0201",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code to indicate what the price is for.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0202": {
+    "name": "Price Type Description",
+    "ref": "A0202",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the price units.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0203": {
+    "name": "Price Unit Code",
+    "ref": "A0203",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code for the units the price represents.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0204": {
+    "name": "Price Unit Description",
+    "ref": "A0204",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the price units.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0109": {
+    "name": "Product Id",
+    "ref": "A0109",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "MDD defined value to identify a set of assets with common attributes.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(10)",
+    "physicalLength": "10",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Meter Product Table"
+    }
+  },
+  "A0194": {
+    "name": "Pulse Value",
+    "ref": "A0194",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The number, or fraction of a unit a pulse represents. Permitted values for the relevant Product Id are defined in MDD.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Real",
+    "logicalFormat": "NUM(7 ,2)",
+    "physicalLength": "9",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Meter Product Table"
+    }
+  },
+  "A0031": {
+    "name": "Reading Date",
+    "ref": "A0031",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Date of the reading e.g. 20020531.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Date",
+    "logicalFormat": "DATE",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0033": {
+    "name": "Reading Index",
+    "ref": "A0033",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The actual index read from the Asset.  Where a Converter is being read, this will be the converted or unconverted reading (Industry Standard). Examples: 12345; 00123 etc.  The number of digits should be padded to match the number of dials as defined within MDD.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(12)",
+    "physicalLength": "12",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0032": {
+    "name": "Reading Time",
+    "ref": "A0032",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Time of the reading e.g. 090000.  This is part of the key but can be empty.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Time",
+    "logicalFormat": "TIME",
+    "physicalLength": "0",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0182": {
+    "name": "Recipient Id",
+    "ref": "A0182",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The Market Participants abbreviated name.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(12)",
+    "physicalLength": "12",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Market Participant Table"
+    }
+  },
+  "A0183": {
+    "name": "Recipient Role",
+    "ref": "A0183",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "As defined by MDD (A0126 Role Code)",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0188": {
+    "name": "Record Count",
+    "ref": "A0188",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Count excludes the Header and Trailer.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Integer",
+    "logicalFormat": "INT(10)",
+    "physicalLength": "10",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0177": {
+    "name": "Record Identifier",
+    "ref": "A0177",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This identifies the record.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0165": {
+    "name": "Record Identifier Description",
+    "ref": "A0165",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is the description of the Record Identifier.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0124": {
+    "name": "Register Type Code",
+    "ref": "A0124",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code which uniquely determines the type of register.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0125": {
+    "name": "Register Type Description",
+    "ref": "A0125",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the register type.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0068": {
+    "name": "Registration Body",
+    "ref": "A0068",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Registration body of the company performing the work.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0069": {
+    "name": "Registration Reference",
+    "ref": "A0069",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Registration reference of the Market Participant in the role for which he/she is registered.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(20)",
+    "physicalLength": "20",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0190": {
+    "name": "Response Code",
+    "ref": "A0190",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The Response Code identifying why a File, Transaction or Record has been rejected.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0191": {
+    "name": "Response Description",
+    "ref": "A0191",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The description of the response code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0192": {
+    "name": "Response Notes",
+    "ref": "A0192",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Free format text to add further information to a response e.g. values which may help identify the rejection reason further.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(210)",
+    "physicalLength": "210",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0197": {
+    "name": "Response Type Code",
+    "ref": "A0197",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Indicates the Response Type Code (related to the originating record e.g. this will be an RRJOB if the originating record was an ORJOB).",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0198": {
+    "name": "Response Type Description",
+    "ref": "A0198",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the Response Type Code.Example:  A response to a request for a Job",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0126": {
+    "name": "Role Code",
+    "ref": "A0126",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Unique code which identifies the role the Market Participant is acting in. The Gas Act Owner of a Meter is identified by the link between the Role and Asset. The different Gas Act Owners (Consumer, Supplier or Transporter) therefore each have a role in their own right. Role Code is also used in the Market Participant data group.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0127": {
+    "name": "Role Description",
+    "ref": "A0127",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Text description of the code represented in Role Code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0034": {
+    "name": "Round The Clock",
+    "ref": "A0034",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The number of times the asset register has passed through zero (Industry Standard) e.g. 01 related to the last reading successfully updated on the related system.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Integer",
+    "logicalFormat": "INT(2)",
+    "physicalLength": "2",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0022": {
+    "name": "Serial Number",
+    "ref": "A0022",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The manufacturers serial number including alphabetic characters e.g. 1876544098.  This is mandatory for certain assets e.g. Meter, Converter.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(14)",
+    "physicalLength": "14",
+    "synonyms": "",
+    "notes": "For metric meters this needs to be up to 14 chars (also supports legacy meters).",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0030": {
+    "name": "Software Version",
+    "ref": "A0030",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Identifies the version of the software on the asset e.g. 02.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(2)",
+    "physicalLength": "2",
+    "synonyms": "",
+    "notes": "Logical format based on Industry definition.  Not used in the RGMA flows.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0004": {
+    "name": "Sub Building Name Number",
+    "ref": "A0004",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The Name and/or Number of a recognised sub-division of a building.Example: The Name and/or Number of an individual flat (Peacocks, 5) within a block of flats.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(40)",
+    "physicalLength": "40",
+    "synonyms": "",
+    "notes": "The definition of this has been taken from the current S70. This is equivalent to the MPAS Metering Point address line 2 which is 30 char.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0090": {
+    "name": "Surname",
+    "ref": "A0090",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Surname of the Person.Example: Williams.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(30)",
+    "physicalLength": "30",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0134": {
+    "name": "Task Comments",
+    "ref": "A0134",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Examples: first task, last task.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(200)",
+    "physicalLength": "200",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0132": {
+    "name": "Task Id",
+    "ref": "A0132",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Unique Identifier.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Identifier",
+    "logicalFormat": "INT(8)",
+    "physicalLength": "8",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0135": {
+    "name": "Task Order",
+    "ref": "A0135",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The order in which the task should be carried out within a Job.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Integer",
+    "logicalFormat": "INT(3)",
+    "physicalLength": "3",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0133": {
+    "name": "Task Reference",
+    "ref": "A0133",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The reference for the task.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Identifier",
+    "logicalFormat": "INT(8)",
+    "physicalLength": "8",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0008": {
+    "name": "Thoroughfare",
+    "ref": "A0008",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The main street associated with an address.  NOTE: In certain circumstances \u0096 predominantly rural areas, there may not be any street named as part of the postal address e.g. High Street.",
+    "units": "None",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(40)",
+    "physicalLength": "40",
+    "synonyms": "",
+    "notes": "The definition of this has been taken from the current S70 'Principle Street'. This is equivalent to the SAF Metering Point address line 5.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0088": {
+    "name": "Title",
+    "ref": "A0088",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Title of the person.Example: Mr.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(6)",
+    "physicalLength": "6",
+    "synonyms": "",
+    "notes": "Market Participants should be mindful that UK Link includes a defined set of allowable values for this data item.",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0056": {
+    "name": "Transaction Comment",
+    "ref": "A0056",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Free format comments on the job action taken/to be taken. This can include: Job instructions e.g. collect the meter, special tools they may need, if a bypass is to be fitted, Meter collection address, The job that the 'Cross-Ref Other Job Reference' field relates to would be indicated here e.g. service pipe. Examples:  Collect meter on the way to the address etc.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Text",
+    "logicalFormat": "CHAR(210)",
+    "physicalLength": "210",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0189": {
+    "name": "Transaction Count",
+    "ref": "A0189",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Count excludes the Header and Trailer.  For response transactions this is the count of RESP/REJFL's  (not TROUTs)",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Integer",
+    "logicalFormat": "INT(10)",
+    "physicalLength": "10",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0055": {
+    "name": "Transaction Reference",
+    "ref": "A0055",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This reference is used to assist with reconciling responses to the original transactions sent and may be used for tracking purposes e.g. a notification of a job has been returned further to the request.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(15)",
+    "physicalLength": "15",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0057": {
+    "name": "Transaction Status Change Reason Code",
+    "ref": "A0057",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A Code which qualifies the reason for the change of Work Status.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0062": {
+    "name": "Transaction Status Change Reason Description",
+    "ref": "A0062",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The description of the Transaction Status Change Reason Code.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0142": {
+    "name": "Transaction Status Code",
+    "ref": "A0142",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Code which defines what status the job is in.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0143": {
+    "name": "Transaction Status Description",
+    "ref": "A0143",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "The description of the 'Transaction Status Code'.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0144": {
+    "name": "Transaction Type Code",
+    "ref": "A0144",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A Code which uniquely identifies the type of work.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0145": {
+    "name": "Transaction Type Description",
+    "ref": "A0145",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the meter work type.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0167": {
+    "name": "Transaction Type Reason Code",
+    "ref": "A0167",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "This is the reason for the work \u0096 in the case of Other Visits, this provides more information on the type of work required.   This can also assist in determining the cost of the visit.It is considered this field is likely to be defined commercially, but structured so it can be used to assist with charging.This may also indicate if there has been a variance to the job requested.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0151": {
+    "name": "Transaction Type Reason Description",
+    "ref": "A0151",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Description of the meter work type.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Short Description",
+    "logicalFormat": "CHAR(100)",
+    "physicalLength": "100",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data General"
+    }
+  },
+  "A0018": {
+    "name": "Unique Property-Reference Number",
+    "ref": "A0018",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "A unique reference number identifying an individual address and its associated land parcel.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "String",
+    "logicalFormat": "CHAR(12)",
+    "physicalLength": "12",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  },
+  "A0123": {
+    "name": "Units of Measure",
+    "ref": "A0123",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Units in which the volume is expressed. At the time of writing legacy flows contain a 'Metric/Imperial' indicator.  This can be deduced from this field if it is cu M (M) or cu ft (I).",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Code",
+    "logicalFormat": "CHAR(5)",
+    "physicalLength": "5",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "As defined within Market Domain Data Meter Product Table"
+    }
+  },
+  "A0021": {
+    "name": "Year of Manufacture",
+    "ref": "A0021",
+    "ownership": "RGMA (SPAA Ltd)",
+    "description": "Year of manufacture for the asset as stamped on the asset e.g. 1999.  This is mandatory for certain assets e.g. Meters.",
+    "units": "",
+    "validation": "As Valid Set",
+    "domain": "Integer",
+    "logicalFormat": "INT(4)",
+    "physicalLength": "4",
+    "synonyms": "",
+    "notes": "",
+    "validSet": {
+      "kind": "constraint",
+      "text": "Any within the constraints of format."
+    }
+  }
+}

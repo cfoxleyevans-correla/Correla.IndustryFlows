@@ -1,0 +1,117 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0004",
+  "flowVersion": "001",
+  "flowName": "Notification of Failure to Obtain Reading",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "A report identifying meter reading systems where readings could not be obtained.",
+  "routes": [
+    {
+      "from": "ADSA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MRS",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MRS",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "014": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "015": {
+      "name": "Attempted Reading Details",
+      "parent": "014",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0016",
+          "name": "Reading Date & Time",
+          "format": "DATETIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "016": {
+      "name": "Site Visit Information",
+      "parent": "015",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Reading date & time is that date and time at which the last attempt was made to read the meter.For routine readings where no access is obtained these will still be passed to the Supplier (for billing the customer) to estimate and the EAC used by the DC for Settlement.  No access means that the Agent was unable to gain sight of the meter."
+}

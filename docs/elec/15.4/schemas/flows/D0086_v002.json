@@ -1,0 +1,228 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0086",
+  "flowVersion": "002",
+  "flowName": "Notification of Change of Supplier Readings",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Transfer change of supplier readings that have passed validations, failed validations and that are deemed readings.",
+  "routes": [
+    {
+      "from": "NHHDC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "196": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0022",
+          "name": "BSC Validation Status",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "765": {
+      "name": "Site Visit Information",
+      "parent": "196",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "197": {
+      "name": "Meter/Reading Types",
+      "parent": "196",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "766": {
+      "name": "Site Visit Information",
+      "parent": "197",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "198": {
+      "name": "Register Readings",
+      "parent": "197",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0016",
+          "name": "Reading Date & Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J0044",
+          "name": "MD Reset Date & Time",
+          "format": "DATETIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J1013",
+          "name": "Number of MD Resets",
+          "format": "NUM(3)",
+          "required": false
+        },
+        {
+          "ref": "J0045",
+          "name": "Meter Reading Flag",
+          "format": "BOOLEAN(0)",
+          "required": false
+        },
+        {
+          "ref": "J1888",
+          "name": "Reading Method",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "07A": {
+      "name": "Meter Reading Validation Result",
+      "parent": "198",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0332",
+          "name": "Meter Reading Reason Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0047",
+          "name": "Meter Reading Status",
+          "format": "BOOLEAN(0)",
+          "required": true
+        }
+      ]
+    },
+    "199": {
+      "name": "Site Visit Information",
+      "parent": "198",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The structure of this data flow must always match the structure of flow D0010.Where confirming a reading received on a D0071, where \"Reading Type\" has been populated with the value 'O' (Old Supplier's Estimated CoS Reading), the NHHDC should populate the data item \"Reading Type\" with 'D' to signify that the reading has been Deemed or Estimated and is in line with meter reading history."
+}

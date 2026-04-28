@@ -1,0 +1,90 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0354",
+  "flowVersion": "001",
+  "flowName": "Metering System Reporting Notification",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Supplier notification to HHDA of Metering Systems to be reported to the Supplier in relation to EMR or SVAA notification to HHDA of Metering Systems to be reported to SVAA. To be used for both initial notification and for updates.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "HHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SVAA",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "HHDA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "13I": {
+      "name": "File Sequence Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "14I": {
+      "name": "Metering System Reporting Notifications",
+      "parent": "13I",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1869",
+          "name": "Effective from Settlement Date {MSCM}",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1870",
+          "name": "Effective to Settlement Date {MSCM}",
+          "format": "DATE(8)",
+          "required": false
+        },
+        {
+          "ref": "J0048",
+          "name": "Contract Reference",
+          "format": "CHAR(10)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

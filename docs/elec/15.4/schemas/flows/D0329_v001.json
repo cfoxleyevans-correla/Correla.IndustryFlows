@@ -1,0 +1,103 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0329",
+  "flowVersion": "001",
+  "flowName": "Response to Green Deal Remittance Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Acknowledgement of receipt of the provided Remittance Details flow.  Also used to inform of any errors in the incoming file.",
+  "routes": [
+    {
+      "from": "GD Remittance Processor",
+      "to": "GDCC",
+      "version": "15.4"
+    },
+    {
+      "from": "GDCC",
+      "to": "GD Licensee",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "19H": {
+      "name": "Payment Transaction Remittance Reference Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1797",
+          "name": "GD Payment Transaction Remittance Reference",
+          "format": "CHAR(20)",
+          "required": true
+        },
+        {
+          "ref": "J1803",
+          "name": "GD Remittance Processor MPID",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1783",
+          "name": "GD Licensee MPID",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "20H": {
+      "name": "Payment Transaction Response Codes",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1799",
+          "name": "GD Payment Transaction Response Code",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J1796",
+          "name": "GD Payment Transaction Records Rejected",
+          "format": "INT(7)",
+          "required": false
+        }
+      ]
+    },
+    "21H": {
+      "name": "Remittance Lines Rejected",
+      "parent": "20H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J1798",
+          "name": "GD Payment Transaction Remittance Rejection Code",
+          "format": "CHAR(3)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

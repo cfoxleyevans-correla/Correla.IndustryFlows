@@ -1,0 +1,212 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0321",
+  "flowVersion": "001",
+  "flowName": "GD Provider Update to Plan Information",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "GD Provider sends updates to the GDCC to update plan data which do not directly impact on charges.",
+  "routes": [
+    {
+      "from": "GD Provider",
+      "to": "GDCC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "94G": {
+      "name": "GD Provider Update References",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J1818",
+          "name": "Party Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1801",
+          "name": "GD Provider Update Reason Code",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "95G": {
+      "name": "Default Bill Payer Information",
+      "parent": "94G",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1749",
+          "name": "Default Bill Payer Name",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1746",
+          "name": "Company Registration Number",
+          "format": "CHAR(20)",
+          "required": false
+        },
+        {
+          "ref": "J1026",
+          "name": "Address Line 1",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1027",
+          "name": "Address Line 2",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1028",
+          "name": "Address Line 3",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1029",
+          "name": "Address Line 4",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1030",
+          "name": "Address Line 5",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1031",
+          "name": "Address Line 6",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1032",
+          "name": "Address Line 7",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1033",
+          "name": "Address Line 8",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1034",
+          "name": "Address Line 9",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J0757",
+          "name": "Postcode",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J1748",
+          "name": "Default Bill Payer Contact Telephone Number",
+          "format": "CHAR(14)",
+          "required": false
+        },
+        {
+          "ref": "J1817",
+          "name": "Overseas Address Indicator",
+          "format": "BOOLEAN(1)",
+          "required": true
+        },
+        {
+          "ref": "J1779",
+          "name": "GD Default Bill Payer \u0096 EFD",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    },
+    "96G": {
+      "name": "EPC and Savings Data",
+      "parent": "94G",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1754",
+          "name": "EPC Report Reference",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1804",
+          "name": "GD Savings - Electricity",
+          "format": "NUM(9)",
+          "required": false
+        },
+        {
+          "ref": "J1805",
+          "name": "GD Savings - Gas",
+          "format": "NUM(9)",
+          "required": false
+        },
+        {
+          "ref": "J1806",
+          "name": "GD Savings \u0096 Other Fuels",
+          "format": "NUM(9)",
+          "required": false
+        }
+      ]
+    },
+    "97G": {
+      "name": "Customer Account Information",
+      "parent": "94G",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1750",
+          "name": "Electricity Account Number",
+          "format": "CHAR(20)",
+          "required": true
+        },
+        {
+          "ref": "J1777",
+          "name": "GD Customer Site Reference",
+          "format": "CHAR(20)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "On Initial (I) Green Deal Plan set up and subject to rules regarding the population of addresses, all items are required with the exception of data items J1804, J1805, and J1806.On Update (U) Groups only to be included where data is being sent for items in that Group.If request is to Cancel (C) plan, Groups 95G, 96G and 97G should be omitted.Though each address line is optional, when an address is to be updated using this flow the entire address must be included in the flow. An update to an individual line within an address will require the entire address to be sent."
+}

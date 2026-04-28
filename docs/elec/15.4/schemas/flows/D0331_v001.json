@@ -1,0 +1,192 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0331",
+  "flowVersion": "001",
+  "flowName": "Update Green Deal Market Data",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Provides updates to standing data used in operation of the processes relating to the GDCC",
+  "routes": [
+    {
+      "from": "GDCC",
+      "to": "GD Licensee",
+      "version": "15.4"
+    },
+    {
+      "from": "GDCC",
+      "to": "GD Provider",
+      "version": "15.4"
+    },
+    {
+      "from": "GDCC",
+      "to": "GD Remittance Processor",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "25H": {
+      "name": "GD Market Data Version Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1784",
+          "name": "GD Market Data File Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1786",
+          "name": "GD Market Data Version Number",
+          "format": "INT(8)",
+          "required": true
+        },
+        {
+          "ref": "J1785",
+          "name": "GD Market Data Publication Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J0754",
+          "name": "MDD Version Number",
+          "format": "NUM(8)",
+          "required": true
+        }
+      ]
+    },
+    "26H": {
+      "name": "GD Market Roles",
+      "parent": "25H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0001",
+          "name": "Market Participant Role Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0753",
+          "name": "Market Role Description",
+          "format": "CHAR(40)",
+          "required": true
+        }
+      ]
+    },
+    "27H": {
+      "name": "GD Market Participants",
+      "parent": "25H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0002",
+          "name": "Market Participant Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0750",
+          "name": "Market Participant Name",
+          "format": "CHAR(40)",
+          "required": true
+        }
+      ]
+    },
+    "28H": {
+      "name": "GD Market Participant Roles",
+      "parent": "27H",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0001",
+          "name": "Market Participant Role Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1297",
+          "name": "Effective from Date {MPR}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1298",
+          "name": "Effective to Date {MPR}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "29H": {
+      "name": "GD Bank Information",
+      "parent": "28H",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1771",
+          "name": "GD Bank Account Purpose",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1772",
+          "name": "GD Bank Account Sort Code",
+          "format": "CHAR(6)",
+          "required": true
+        },
+        {
+          "ref": "J1770",
+          "name": "GD Bank Account Number",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1769",
+          "name": "GD Bank Account Name",
+          "format": "CHAR(100)",
+          "required": true
+        },
+        {
+          "ref": "J1767",
+          "name": "GD Bank Account EFD",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1768",
+          "name": "GD Bank Account ETD",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "These updates will be released at the same time schedule as the BSC MDD release."
+}

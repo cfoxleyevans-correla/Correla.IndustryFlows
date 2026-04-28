@@ -1,0 +1,266 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0367",
+  "flowVersion": "001",
+  "flowName": "Smart Meter Configuration Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Notifies how a smart meter is configured",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "01J": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1254",
+          "name": "Effective from Settlement Date {MSMTD}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0098",
+          "name": "Retrieval Method",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0722",
+          "name": "Retrieval Method Effective Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0483",
+          "name": "Meter Type",
+          "format": "CHAR(5)",
+          "required": true
+        }
+      ]
+    },
+    "02J": {
+      "name": "NHH Mapping Details",
+      "parent": "01J",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0300",
+          "name": "Effective from Settlement Date {SCON}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "03J": {
+      "name": "Time Pattern Regimes",
+      "parent": "02J",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "04J": {
+      "name": "Meter Details",
+      "parent": "03J",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        }
+      ]
+    },
+    "05J": {
+      "name": "Meter Register",
+      "parent": "04J",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1712",
+          "name": "Meter Register Description",
+          "format": "CHAR(16)",
+          "required": false
+        },
+        {
+          "ref": "J0679",
+          "name": "Register Mapping Coefficient",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0474",
+          "name": "Meter Register Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0475",
+          "name": "Meter Register Multiplier",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J0478",
+          "name": "Number of Register Digits",
+          "format": "NUM(1)",
+          "required": true
+        }
+      ]
+    },
+    "06J": {
+      "name": "Non Settlements Registers",
+      "parent": "02J",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1267",
+          "name": "Metering System Non Settlement Functionality Code",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J1268",
+          "name": "Effective From Settlement Date {MSNSFC}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "07J": {
+      "name": "Meter Details",
+      "parent": "06J",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        }
+      ]
+    },
+    "08J": {
+      "name": "Meter Register",
+      "parent": "07J",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1712",
+          "name": "Meter Register Description",
+          "format": "CHAR(16)",
+          "required": false
+        },
+        {
+          "ref": "J0474",
+          "name": "Meter Register Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0475",
+          "name": "Meter Register Multiplier",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J0478",
+          "name": "Number of Register Digits",
+          "format": "NUM(1)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The Register Mapping Coefficient is required for mapping the difference between two or more physical registers' readings to a Settlement Register.This flow is for all SMETS meters.Agnostic of SMSO (not all will be serviced via DCC)."
+}

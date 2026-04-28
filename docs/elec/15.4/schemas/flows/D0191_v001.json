@@ -1,0 +1,109 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0191",
+  "flowVersion": "001",
+  "flowName": "Request Special Visit to Read/Reset Key Meter",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "A request is being made for a non-routine visit to a specified customer to read the key meter and/or adjust the settings.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SMEM",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "391": {
+      "name": "Customer Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0489",
+          "name": "Contact Name",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J0173",
+          "name": "Reason for Request",
+          "format": "CHAR(100)",
+          "required": true
+        },
+        {
+          "ref": "J0174",
+          "name": "Appointment Date",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0292",
+          "name": "Earliest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0293",
+          "name": "Latest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0419",
+          "name": "Meter Location",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0591",
+          "name": "Tariff Setting",
+          "format": "NUM(3)",
+          "required": false
+        },
+        {
+          "ref": "J0554",
+          "name": "Total Debt",
+          "format": "NUM(7)",
+          "required": false
+        },
+        {
+          "ref": "J0547",
+          "name": "Debt Recovery Rate",
+          "format": "NUM(5)",
+          "required": false
+        },
+        {
+          "ref": "J0556",
+          "name": "Emergency Credit",
+          "format": "NUM(5)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Where 'Reason for Request' is 'Read Meter Only' meter setting details will not be provided."
+}

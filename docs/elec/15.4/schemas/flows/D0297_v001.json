@@ -1,0 +1,79 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0297",
+  "flowVersion": "001",
+  "flowName": "Notification of BM Unit Allocation",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Supplier notification to HHDA or SVAA of the BM Unit for an MPAN. To be used for both initial allocation (where the Supplier doesn't want to use the default BM Unit) and for updates.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "HHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "44C": {
+      "name": "File Sequence Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "45C": {
+      "name": "BM Unit Allocation",
+      "parent": "44C",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1628",
+          "name": "BM Unit Id",
+          "format": "CHAR(11)",
+          "required": true
+        },
+        {
+          "ref": "J1647",
+          "name": "Effective from Settlement Date {MSBMU}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

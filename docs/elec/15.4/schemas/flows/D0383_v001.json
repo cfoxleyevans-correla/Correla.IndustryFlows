@@ -1,0 +1,331 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0383",
+  "flowVersion": "001",
+  "flowName": "Notification of Commissioning Information",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Half Hourly notification of Commissioning information which is transferred when there is a new connection, change in equipment, configuration or upon Change of Agent.",
+  "routes": [
+    {
+      "from": "AMEM",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "MOP",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "95L": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2216",
+          "name": "Number of Feeders",
+          "format": "INT(2)",
+          "required": true
+        }
+      ]
+    },
+    "96L": {
+      "name": "Feeder Information",
+      "parent": "95L",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2217",
+          "name": "Feeder Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J1684",
+          "name": "Feeder Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2218",
+          "name": "Measurement Transformers Located at Defined Metering Point",
+          "format": "BOOLEAN(1)",
+          "required": true
+        },
+        {
+          "ref": "J0427",
+          "name": "Number of Phases",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J2219",
+          "name": "CT Commissioning Information Available",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2220",
+          "name": "VT Commissioning Information Available",
+          "format": "CHAR(15)",
+          "required": true
+        },
+        {
+          "ref": "J2221",
+          "name": "Meter Commissioning Information Available",
+          "format": "CHAR(15)",
+          "required": true
+        }
+      ]
+    },
+    "97L": {
+      "name": "CT Details",
+      "parent": "96L",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2222",
+          "name": "Phase Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J2223",
+          "name": "Commissioning Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J0001",
+          "name": "Market Participant Role Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2224",
+          "name": "Commissioning Agent MPID",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2225",
+          "name": "CT Serial Number",
+          "format": "CHAR(20)",
+          "required": true
+        },
+        {
+          "ref": "J0505",
+          "name": "CT Class",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0506",
+          "name": "CT Rating",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J0454",
+          "name": "CT Ratio",
+          "format": "CHAR(6)",
+          "required": true
+        },
+        {
+          "ref": "J2226",
+          "name": "Burden on CT",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J2227",
+          "name": "Overall Burden on CT (VA)",
+          "format": "NUM(6)",
+          "required": false
+        }
+      ]
+    },
+    "98L": {
+      "name": "VT Details",
+      "parent": "96L",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2222",
+          "name": "Phase Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J2223",
+          "name": "Commissioning Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J0001",
+          "name": "Market Participant Role Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2224",
+          "name": "Commissioning Agent MPID",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2228",
+          "name": "VT Serial Number",
+          "format": "CHAR(20)",
+          "required": true
+        },
+        {
+          "ref": "J0677",
+          "name": "VT Class",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0678",
+          "name": "VT Rating",
+          "format": "NUM(3)",
+          "required": true
+        },
+        {
+          "ref": "J0455",
+          "name": "VT Ratio",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J2229",
+          "name": "Burden on VT",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J2230",
+          "name": "Overall Burden on VT (VA)",
+          "format": "NUM(6)",
+          "required": false
+        }
+      ]
+    },
+    "99L": {
+      "name": "Meter Details",
+      "parent": "96L",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2223",
+          "name": "Commissioning Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2224",
+          "name": "Commissioning Agent MPID",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J2231",
+          "name": "Meter Accuracy Class",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0454",
+          "name": "CT Ratio",
+          "format": "CHAR(6)",
+          "required": true
+        },
+        {
+          "ref": "J0455",
+          "name": "VT Ratio",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J2232",
+          "name": "Compensation Applied to Meter",
+          "format": "BOOLEAN(1)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

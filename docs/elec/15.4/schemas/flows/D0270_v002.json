@@ -1,0 +1,2192 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0270",
+  "flowVersion": "002",
+  "flowName": "Market Domain Data Incremental Set",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "The set of data which defines differences to the published market domain data since the last publication. Market domain data contains the set of data which defines the environment of the 1998 Trading Arrangements. This comprises the parties which trade, and the networks, configurations and parameters on which trading is based. Note this flow contains the minimum amount of data required to describe the differences between the current complete publication of the market domain data and the previous publication of the market domain data.",
+  "routes": [
+    {
+      "from": "MDDA",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "MDDA",
+      "to": "GRS Operator",
+      "version": "15.4"
+    },
+    {
+      "from": "MDDA",
+      "to": "HHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "MDDA",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MDDA",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MDDA",
+      "to": "MPAS Agent",
+      "version": "15.4"
+    },
+    {
+      "from": "MDDA",
+      "to": "NHHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "MDDA",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MDDA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "Grid Operator",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "HHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "MPAS Agent",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "NHHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "MDD": {
+      "name": "Market Domain Data Version",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0754",
+          "name": "MDD Version Number",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0773",
+          "name": "MDD Publication Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "MDP": {
+      "name": "Market Domain Data Previous version",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0754",
+          "name": "MDD Version Number",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0773",
+          "name": "MDD Publication Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "OFT": {
+      "name": "Off Tolerance Parameters",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J1287",
+          "name": "Off Tolerance",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0774",
+          "name": "Effective from Settlement Date {OT}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "THP": {
+      "name": "Threshold Parameters",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0760",
+          "name": "Threshold Parameter",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0765",
+          "name": "Effective from Settlement Date {TPAR}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "SMP": {
+      "name": "Smoothing Parameters",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0758",
+          "name": "Smoothing Parameter",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J0764",
+          "name": "Effective from Settlement Date {SPAR}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "RCT": {
+      "name": "Regression Coefficient Types",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0285",
+          "name": "Regression Coefficient Type",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J1289",
+          "name": "Regression Coefficient Description",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "DYT": {
+      "name": "Day Types",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0127",
+          "name": "Day Type Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1290",
+          "name": "Day Type Description",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "DOW": {
+      "name": "Day of the Week",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0726",
+          "name": "Day of the Week Id",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J1291",
+          "name": "Day of the Week Description",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "MRO": {
+      "name": "Market Roles",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0001",
+          "name": "Market Participant Role Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0753",
+          "name": "Market Role Description",
+          "format": "CHAR(40)",
+          "required": true
+        }
+      ]
+    },
+    "MCD": {
+      "name": "Measurement Class Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0082",
+          "name": "Measurement Class Id",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0311",
+          "name": "Measurement Class Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0299",
+          "name": "Effective from Settlement Date {MCLA}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0741",
+          "name": "Effective to Settlement Date {MCLA}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "CTC": {
+      "name": "Clock Time Changes",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0725",
+          "name": "Change Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0745",
+          "name": "GMT Time",
+          "format": "TIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0756",
+          "name": "Post Change Local Time",
+          "format": "TIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "EGS": {
+      "name": "Energisation Status",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1293",
+          "name": "Energisation Status Description",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "STD": {
+      "name": "Settlement Type Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0882",
+          "name": "Settlement Code Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0914",
+          "name": "Settlement Sequence Number",
+          "format": "NUM(2)",
+          "required": false
+        }
+      ]
+    },
+    "SED": {
+      "name": "Season Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0128",
+          "name": "Season Id",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0916",
+          "name": "Season Description",
+          "format": "CHAR(50)",
+          "required": true
+        }
+      ]
+    },
+    "YEA": {
+      "name": "Year",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J1294",
+          "name": "Year",
+          "format": "NUM(4)",
+          "required": true
+        }
+      ]
+    },
+    "YSD": {
+      "name": "Yearly Season Details",
+      "parent": "YEA",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0128",
+          "name": "Season Id",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0290",
+          "name": "Start Month",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0289",
+          "name": "Start Day",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0288",
+          "name": "End Month",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0287",
+          "name": "End Day",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "SDT": {
+      "name": "Settlement Day",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0127",
+          "name": "Day Type Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0128",
+          "name": "Season Id",
+          "format": "NUM(1)",
+          "required": true
+        }
+      ]
+    },
+    "PST": {
+      "name": "BSC Settlement Timetable Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0902",
+          "name": "Payment Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0747",
+          "name": "SVA Notification Deadline Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0918",
+          "name": "SAA Notification Deadline Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "SET": {
+      "name": "Settlement Period",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0167",
+          "name": "Settlement Period Label",
+          "format": "CHAR(6)",
+          "required": true
+        }
+      ]
+    },
+    "MAP": {
+      "name": "Market Participants",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0002",
+          "name": "Market Participant Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0750",
+          "name": "Market Participant Name",
+          "format": "CHAR(40)",
+          "required": true
+        },
+        {
+          "ref": "J0244",
+          "name": "BSC Trading Party Id",
+          "format": "CHAR(4)",
+          "required": false
+        }
+      ]
+    },
+    "MPR": {
+      "name": "Market Participant Roles",
+      "parent": "MAP",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0001",
+          "name": "Market Participant Role Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1297",
+          "name": "Effective from Date {MPR}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1298",
+          "name": "Effective to Date {MPR}",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J1310",
+          "name": "Distributor Business Id",
+          "format": "NUM(2)",
+          "required": false
+        },
+        {
+          "ref": "J0757",
+          "name": "Postcode",
+          "format": "CHAR(10)",
+          "required": true
+        }
+      ]
+    },
+    "ADL": {
+      "name": "Address Line",
+      "parent": "MPR",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1299",
+          "name": "Address Line",
+          "format": "CHAR(40)",
+          "required": true
+        }
+      ]
+    },
+    "GSG": {
+      "name": "GSP Groups",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "GGD": {
+      "name": "GSP Group Distributors",
+      "parent": "GSG",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0001",
+          "name": "Market Participant Role Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1297",
+          "name": "Effective from Date {MPR}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0728",
+          "name": "Effective from Settlement Date {GGD}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0735",
+          "name": "Effective to Settlement Date {GGD}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "PAA": {
+      "name": "MPAS Agent Appointment",
+      "parent": "GSG",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0111",
+          "name": "MPAS Agent Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0001",
+          "name": "Market Participant Role Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1297",
+          "name": "Effective from Date {MPR}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0730",
+          "name": "Effective From Date {PAA}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0737",
+          "name": "Effective to Date {PAA}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "IAA": {
+      "name": "ISR Agent Appointment",
+      "parent": "GSG",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0240",
+          "name": "Supplier Volume Allocation Agent Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0001",
+          "name": "Market Participant Role Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1297",
+          "name": "Effective from Date {MPR}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0729",
+          "name": "Effective From Date {IAA & SVAA}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0736",
+          "name": "Effective to Date {IAA & SVAA}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "LLF": {
+      "name": "Line Loss Factor Classes",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0001",
+          "name": "Market Participant Role Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1297",
+          "name": "Effective from Date {MPR}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J0776",
+          "name": "Line Loss Factor Class Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0775",
+          "name": "MS Specific LLF Class Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0733",
+          "name": "Effective from Settlement Date {LLFC}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0740",
+          "name": "Effective to Settlement Date {LLFC}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "PFC": {
+      "name": "Profile Class Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0122",
+          "name": "Profile Class Description",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J0123",
+          "name": "Switched Load Profile Class Ind",
+          "format": "BOOLEAN(0)",
+          "required": true
+        },
+        {
+          "ref": "J0777",
+          "name": "Effective from Settlement Date {PCLA}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0778",
+          "name": "Effective to Settlement Date {PCLA}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "DPP": {
+      "name": "Default Period Profile Class Coefficient",
+      "parent": "PFC",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1301",
+          "name": "Default Period Profile Class Coefficient",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "PRO": {
+      "name": "Profile Details",
+      "parent": "PFC",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0072",
+          "name": "Profile Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0124",
+          "name": "Profile Description",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J0878",
+          "name": "Profile Settlement Periods",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0125",
+          "name": "Effective from Settlement Date {PROF}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0400",
+          "name": "Effective to Settlement Date {PROF}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "PFL": {
+      "name": "Profile Set",
+      "parent": "PRO",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0734",
+          "name": "Effective from Settlement Date {PSET}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0766",
+          "name": "Effective to Settlement Date {PSET}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "GSP": {
+      "name": "GSP Group Average EAC",
+      "parent": "PFL",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1303",
+          "name": "Group Average Consumption",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "RES": {
+      "name": "Regression Equation Set",
+      "parent": "PFL",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0127",
+          "name": "Day Type Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0128",
+          "name": "Season Id",
+          "format": "NUM(1)",
+          "required": true
+        }
+      ]
+    },
+    "PER": {
+      "name": "Period Regression Equation",
+      "parent": "RES",
+      "level": 5,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "COF": {
+      "name": "Regression Coefficient",
+      "parent": "PER",
+      "level": 6,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0433",
+          "name": "Regression Coefficient",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0285",
+          "name": "Regression Coefficient Type",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "TPD": {
+      "name": "Time Pattern Regime Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0744",
+          "name": "GMT Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1214",
+          "name": "Time Pattern Regime Id",
+          "format": "CHAR(5)",
+          "required": true
+        },
+        {
+          "ref": "J0134",
+          "name": "Tele-Switch/Clock Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "TTP": {
+      "name": "Tele-switch Time Pattern Regime Details",
+      "parent": "TPD",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0136",
+          "name": "Tele-Switch Group Id",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0137",
+          "name": "Tele-Switch Switch Id",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0135",
+          "name": "Tele-Switch User Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "CKI": {
+      "name": "Clock Interval",
+      "parent": "TPD",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0726",
+          "name": "Day of the Week Id",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0287",
+          "name": "End Day",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0288",
+          "name": "End Month",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0143",
+          "name": "End Time",
+          "format": "TIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0289",
+          "name": "Start Day",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0290",
+          "name": "Start Month",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0142",
+          "name": "Start Time",
+          "format": "TIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "SCI": {
+      "name": "Standard Settlement Configuration Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0075",
+          "name": "Standard Settlement Configuration Desc",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J0496",
+          "name": "Effective from Settlement Date {SSC}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0401",
+          "name": "Effective to Settlement Date {SSC}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "TPR": {
+      "name": "Measurement Requirement",
+      "parent": "SCI",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J1214",
+          "name": "Time Pattern Regime Id",
+          "format": "CHAR(5)",
+          "required": true
+        }
+      ]
+    },
+    "VSD": {
+      "name": "VSCPC Details",
+      "parent": "SCI",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0398",
+          "name": "Effective from Settlement Date {VSCPC}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0447",
+          "name": "Effective to Settlement Date {VSCPC}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "GAE": {
+      "name": "GSP Group Profile Class Average EACs",
+      "parent": "VSD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0768",
+          "name": "Researched Average EAC",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0763",
+          "name": "Effective from Settlement Date {GGPCAE}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "SLM": {
+      "name": "Switched Load Measurement Requirement Details",
+      "parent": "VSD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0132",
+          "name": "Switched Load Indicator",
+          "format": "BOOLEAN(0)",
+          "required": true
+        },
+        {
+          "ref": "J1214",
+          "name": "Time Pattern Regime Id",
+          "format": "CHAR(5)",
+          "required": true
+        }
+      ]
+    },
+    "ASD": {
+      "name": "AFYCS Details",
+      "parent": "VSD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0731",
+          "name": "Effective from Settlement Date {AFOYCS}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0738",
+          "name": "Effective to Settlement Date {AFOYCS}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "AFD": {
+      "name": "Average Fraction of Yearly Consumption Details",
+      "parent": "ASD",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0133",
+          "name": "Average Fraction of Yearly Consumption",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J1214",
+          "name": "Time Pattern Regime Id",
+          "format": "CHAR(5)",
+          "required": true
+        }
+      ]
+    },
+    "MEQ": {
+      "name": "Measurements Quantities",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0727",
+          "name": "Direction of Energy Flow",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1306",
+          "name": "Measurement Quantity Description",
+          "format": "CHAR(50)",
+          "required": true
+        }
+      ]
+    },
+    "CCC": {
+      "name": "Consumption Component Classes",
+      "parent": "MEQ",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0160",
+          "name": "Consumption Component Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0163",
+          "name": "Data Aggregation Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0164",
+          "name": "Metered/Unmetered Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0020",
+          "name": "Actual/Estimated Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0161",
+          "name": "AA/EAC Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0162",
+          "name": "Consumption Component Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "GCF": {
+      "name": "GSP Group Correction Scaling Factor",
+      "parent": "CCC",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0732",
+          "name": "Effective from Settlement Date {GGCSF}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0165",
+          "name": "GSP Group Correction Scaling Factor",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0739",
+          "name": "Effective to Settlement Date {GGCSF}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "MMT": {
+      "name": "MTC Meter Type",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J1616",
+          "name": "MTC Meter Type Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1617",
+          "name": "MTC Meter Type Description",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J1599",
+          "name": "Effective From Settlement Date {MMT}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1606",
+          "name": "Effective To Settlement Date {MMT}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "MPT": {
+      "name": "MTC Payment Type",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J1618",
+          "name": "MTC Payment Type Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1619",
+          "name": "MTC Payment Type Description",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J1600",
+          "name": "Effective From Settlement Date {MPT}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1607",
+          "name": "Effective To Settlement Date {MPT}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "MTC": {
+      "name": "Meter Timeswitch Code",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0220",
+          "name": "Meter Timeswitch Code",
+          "format": "NUM(3)",
+          "required": true
+        },
+        {
+          "ref": "J1601",
+          "name": "Effective From Settlement Date {MTC}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1614",
+          "name": "MTC Common Code Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1620",
+          "name": "MTC Related Metering System Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1608",
+          "name": "Effective To Settlement Date {MTC}",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J1616",
+          "name": "MTC Meter Type Id",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J1618",
+          "name": "MTC Payment Type Id",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J1613",
+          "name": "Meter Timeswitch Code Description",
+          "format": "CHAR(50)",
+          "required": false
+        },
+        {
+          "ref": "J1615",
+          "name": "MTC Communication Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1622",
+          "name": "MTC Type Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1621",
+          "name": "MTC TPR Count",
+          "format": "NUM(2)",
+          "required": false
+        }
+      ]
+    },
+    "MPA": {
+      "name": "MTC In Distribution Services Area",
+      "parent": "MTC",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1602",
+          "name": "Effective From Settlement Date {MTCPA}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1609",
+          "name": "Effective To Settlement Date {MTCPA}",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J1616",
+          "name": "MTC Meter Type Id",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J1618",
+          "name": "MTC Payment Type Id",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J1613",
+          "name": "Meter Timeswitch Code Description",
+          "format": "CHAR(50)",
+          "required": false
+        },
+        {
+          "ref": "J1615",
+          "name": "MTC Communication Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1622",
+          "name": "MTC Type Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1621",
+          "name": "MTC TPR Count",
+          "format": "NUM(2)",
+          "required": false
+        }
+      ]
+    },
+    "VML": {
+      "name": "Valid MTC LLFC Combination",
+      "parent": "MPA",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J1603",
+          "name": "Effective From Settlement Date {VMTCLC}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1610",
+          "name": "Effective To Settlement Date {VMTCLC}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "VMS": {
+      "name": "Valid MTC SSC Combination",
+      "parent": "MPA",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1605",
+          "name": "Effective From Settlement Date {VMTCSC}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1612",
+          "name": "Effective To Settlement Date {VMTCSC}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "VLS": {
+      "name": "Valid MTC LLFC SSC Combination",
+      "parent": "VMS",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1286",
+          "name": "MDD Update Status",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J1604",
+          "name": "Effective From Settlement Date {VMTCLSC}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1611",
+          "name": "Effective To Settlement Date {VMTCLSC}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

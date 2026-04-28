@@ -1,0 +1,235 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0192",
+  "flowVersion": "001",
+  "flowName": "Readings and Settings from a Token or Key Meter",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Readings and settings from a token or key meter are being provided in response to a request for a special visit or following removal, de-energisation or shutdown of a token or key meter.",
+  "routes": [
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "392": {
+      "name": "Customer Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0045",
+          "name": "Meter Reading Flag",
+          "format": "BOOLEAN(0)",
+          "required": true
+        },
+        {
+          "ref": "J0022",
+          "name": "BSC Validation Status",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "22B": {
+      "name": "Site Visit Information",
+      "parent": "392",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "393": {
+      "name": "Meter Details",
+      "parent": "392",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0537",
+          "name": "Credit Balance",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0543",
+          "name": "Standing Charge",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0539",
+          "name": "Total Credit Accepted",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0544",
+          "name": "Total Debt Outstanding",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0547",
+          "name": "Debt Recovery Rate",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0545",
+          "name": "Emergency Credit Status",
+          "format": "BOOLEAN(0)",
+          "required": false
+        },
+        {
+          "ref": "J0540",
+          "name": "Total Tokens Inserted",
+          "format": "NUM(5)",
+          "required": false
+        }
+      ]
+    },
+    "23B": {
+      "name": "Site Visit Information",
+      "parent": "393",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "394": {
+      "name": "Meter Register Detail per Meter",
+      "parent": "393",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0016",
+          "name": "Reading Date & Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J0542",
+          "name": "Prepayment Unit Rate",
+          "format": "NUM(5)",
+          "required": true
+        }
+      ]
+    },
+    "24B": {
+      "name": "Site Visit Information",
+      "parent": "394",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

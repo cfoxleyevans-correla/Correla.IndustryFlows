@@ -1,0 +1,56 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0332",
+  "flowVersion": "001",
+  "flowName": "Green Deal Licensee Request for Information",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Used by the Green Deal Licensee to request information from the GDCC, including Default Bill Payer details.",
+  "routes": [
+    {
+      "from": "GD Licensee",
+      "to": "GDCC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "30H": {
+      "name": "GD Information Request",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1818",
+          "name": "Party Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1813",
+          "name": "Green Deal MPAN Core",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J1782",
+          "name": "GD Information Request Reason Code",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Can be used to request Default Bill Payer information or a refresh of a Green Deal Plan Data.Where the request passes validation a D0325 will be returned, in other circumstances a D0343 will be returned with appropriate response codes."
+}

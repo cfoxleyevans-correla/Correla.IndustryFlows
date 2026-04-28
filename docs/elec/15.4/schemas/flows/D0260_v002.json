@@ -1,0 +1,206 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0260",
+  "flowVersion": "002",
+  "flowName": "Notification from MPAS of Old Supplier Registration Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Advise New Supplier of Old Supplier's Registration Details.",
+  "routes": [
+    {
+      "from": "MPAS",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "757": {
+      "name": "File Sequence Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "758": {
+      "name": "Registration Details",
+      "parent": "757",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J0723",
+          "name": "Instruction Type",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0923",
+          "name": "Old Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0082",
+          "name": "Measurement Class Id",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0220",
+          "name": "Meter Timeswitch Code",
+          "format": "NUM(3)",
+          "required": false
+        },
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": false
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": false
+        },
+        {
+          "ref": "J0183",
+          "name": "Data Aggregator Id",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0163",
+          "name": "Data Aggregation Type",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0205",
+          "name": "Data Collector Id",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0218",
+          "name": "Data Collector Type",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0178",
+          "name": "Meter Operator Id",
+          "format": "CHAR(4)",
+          "required": false
+        },
+        {
+          "ref": "J0675",
+          "name": "Meter Operator Type",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1839",
+          "name": "SMETS Version",
+          "format": "CHAR(8)",
+          "required": false
+        },
+        {
+          "ref": "J1837",
+          "name": "Smart Metering System Operator Id",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1838",
+          "name": "Effective from Date {SMSO}",
+          "format": "DATE(8)",
+          "required": false
+        },
+        {
+          "ref": "J1835",
+          "name": "In Home Display (IHD) Install Status",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1836",
+          "name": "Effective from Date {IHDI}",
+          "format": "DATE(8)",
+          "required": false
+        },
+        {
+          "ref": "J2245",
+          "name": "Related MPAN Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "60M": {
+      "name": "Related MPANs",
+      "parent": "758",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2243",
+          "name": "Primary MPAN",
+          "format": "INT(13)",
+          "required": true
+        },
+        {
+          "ref": "J2244",
+          "name": "Secondary MPAN",
+          "format": "INT(13)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

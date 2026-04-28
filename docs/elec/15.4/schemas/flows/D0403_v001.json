@@ -1,0 +1,248 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0403",
+  "flowVersion": "001",
+  "flowName": "MHHS - GSP Group Demand Disconnection Totals Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Report of MHHS Consumption Component Class Demand Disconnection totals for each GSP Group.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "35K": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "36K": {
+      "name": "Demand Control Event Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2079",
+          "name": "Demand Control Event ID",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1577",
+          "name": "Start Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J1578",
+          "name": "End Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "21Z": {
+      "name": "Report Data",
+      "parent": "36K",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0195",
+          "name": "SSR Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0248",
+          "name": "Supplier Name",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "38K": {
+      "name": "GSP Group",
+      "parent": "36K",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "MCC": {
+      "name": "MHHS Consumption Component Class",
+      "parent": "38K",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2326",
+          "name": "MHHS Consumption Component Class ID",
+          "format": "NUM(3)",
+          "required": true
+        },
+        {
+          "ref": "J2327",
+          "name": "GSP Group Correction Scaling Weight",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J2329",
+          "name": "Market Segment Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2314",
+          "name": "Connection Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0162",
+          "name": "Consumption Component Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "23Z": {
+      "name": "MHHS Settlement Period",
+      "parent": "MCC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J2361",
+          "name": "Total CCC Aggregated Supplier Demand Disconnection",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2362",
+          "name": "Total CCC Aggregated Supplier Demand Disconnection Line Loss",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2363",
+          "name": "Total CCC Corrected Supplier Demand Disconnection",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2364",
+          "name": "Total CCC Corrected Supplier Demand Disconnection Line Loss",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2163",
+          "name": "Total CCC Disconnected MSID Count",
+          "format": "INT(8)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The Report will covers data for all Suppliers within a GSP Group even if their data does not contribute to the GSP Group Totals."
+}

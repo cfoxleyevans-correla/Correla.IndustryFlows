@@ -1,0 +1,92 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0173",
+  "flowVersion": "001",
+  "flowName": "Token Transaction Data",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Notification of token sales.",
+  "routes": [
+    {
+      "from": "PPMIP",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "358": {
+      "name": "PANs Against Which Payments Made",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0525",
+          "name": "PAN Number",
+          "format": "CHAR(19)",
+          "required": true
+        },
+        {
+          "ref": "J0526",
+          "name": "Customer Payment Amount",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0527",
+          "name": "Customer Payment Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0528",
+          "name": "Customer Payment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0529",
+          "name": "Payment Location",
+          "format": "CHAR(9)",
+          "required": true
+        },
+        {
+          "ref": "J0530",
+          "name": "Terminal Transaction Number",
+          "format": "NUM(6)",
+          "required": false
+        },
+        {
+          "ref": "J0532",
+          "name": "Polling Date",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0533",
+          "name": "Source of Transaction",
+          "format": "NUM(1)",
+          "required": false
+        },
+        {
+          "ref": "J0534",
+          "name": "Method of Payment",
+          "format": "NUM(1)",
+          "required": false
+        },
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

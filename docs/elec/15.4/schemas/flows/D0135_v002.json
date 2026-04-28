@@ -1,0 +1,231 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0135",
+  "flowVersion": "002",
+  "flowName": "Asset Condition Report",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "A report to the System Fault Information Centre of a concern with the Service Termination Equipment which does not require emergency attention",
+  "routes": [
+    {
+      "from": "ADSA",
+      "to": "SFIC",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "SFIC",
+      "version": "15.4"
+    },
+    {
+      "from": "CMRC",
+      "to": "SFIC",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "SFIC",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "SFIC",
+      "version": "15.4"
+    },
+    {
+      "from": "MRS",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MRS",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "SFIC",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "SFIC",
+      "version": "15.4"
+    },
+    {
+      "from": "SIP",
+      "to": "SFIC",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "SFIC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SFIC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "257": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0489",
+          "name": "Contact Name",
+          "format": "CHAR(50)",
+          "required": false
+        },
+        {
+          "ref": "J0490",
+          "name": "Contact Telephone Number",
+          "format": "CHAR(14)",
+          "required": false
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "258": {
+      "name": "Meters per MPAN Core",
+      "parent": "257",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J0419",
+          "name": "Meter Location",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "60H": {
+      "name": "Asset Condition",
+      "parent": "257",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2062",
+          "name": "Smart Meter Installation Visit",
+          "format": "BOOLEAN(1)",
+          "required": true
+        },
+        {
+          "ref": "J1825",
+          "name": "Asset Condition Report Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1824",
+          "name": "Asset Condition Code",
+          "format": "CHAR(3)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Assumed that urgent safety issues, ie immediate danger, would be subject to individual telephone call direct to SFIC.  Nature of defect to be shown in additional data field.Though all of the address data items included in this flow are defined within the structure as being optional, the address itself is mandatory and must be included in the flow.  The use of any individual address item cannot be made mandatory as, in the absence of an agreed address structure for all flows, an address may be constructed from any combination of the Address Line and Postcode items.This flow is only used to report Category B and C asset condition reports to the SFIC. Category A reports will be made by telephone."
+}

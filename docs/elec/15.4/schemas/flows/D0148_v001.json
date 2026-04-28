@@ -1,0 +1,249 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0148",
+  "flowVersion": "001",
+  "flowName": "Notification of Change to Other Parties",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Notification to a MOp, MA or DC of any change to relevant Agent appointments and/or terminations for the metering point for the three functional processes: new connection, change of supplier and change of agent(s)",
+  "routes": [
+    {
+      "from": "AMVLP",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "270": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "271": {
+      "name": "Data Collector Appointment or Termination Details",
+      "parent": "270",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0205",
+          "name": "Data Collector Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0459",
+          "name": "Agent Status",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "272": {
+      "name": "Effective from Date",
+      "parent": "271",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0219",
+          "name": "Effective from Date {DCA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "273": {
+      "name": "Effective to Date",
+      "parent": "271",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0399",
+          "name": "Effective to Date {DCA}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "274": {
+      "name": "Meter Operator Appointment or Termination Details",
+      "parent": "270",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0178",
+          "name": "Meter Operator Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0459",
+          "name": "Agent Status",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "275": {
+      "name": "Effective from Date",
+      "parent": "274",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0210",
+          "name": "Effective from Date {MOA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "276": {
+      "name": "Effective to Date",
+      "parent": "274",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0360",
+          "name": "Effective to Date {MOA}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "277": {
+      "name": "Data Aggregator Appointment or Termination Details",
+      "parent": "270",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0183",
+          "name": "Data Aggregator Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0459",
+          "name": "Agent Status",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "278": {
+      "name": "Effective from Date",
+      "parent": "277",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0334",
+          "name": "Effective from Settlement Date {DAA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "279": {
+      "name": "Effective to Date",
+      "parent": "277",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0340",
+          "name": "Effective to Settlement Date {DAA}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The content of this flow will depend on which Agents have changed, and which Agent is the recipient of the information.  The D0148 should be used to update and supersede only that information which the agent needs to know and is currently unaware of.For a definition of the content of the flow in the NHH and HH markets see the scenarios contained in Annex C.Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

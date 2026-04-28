@@ -1,0 +1,170 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0315",
+  "flowVersion": "001",
+  "flowName": "Embedded Network Supercustomer DUoS Daily Statement",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Supercustomer DUoS charges calculated from settlements data, produced at a summary level, for Distributors with embedded networks, to validate their DUoS bills, received from Distributors operating at the GSP Group level of the network.",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "Distributor",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "12G": {
+      "name": "Flow Structure Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0908",
+          "name": "Statement Number",
+          "format": "NUM(10)",
+          "required": true
+        },
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1724",
+          "name": "Embedded Distributor Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0196",
+          "name": "SSR Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0785",
+          "name": "Statement Total MSID Count",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0904",
+          "name": "Statement Total MSID Charge",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J0786",
+          "name": "Statement Total Unit Volume",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0909",
+          "name": "Statement Total Unit Charge",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J0910",
+          "name": "Statement Supercustomer DUoS Charge Amount",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "13G": {
+      "name": "Charges by Settlement Class",
+      "parent": "12G",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1723",
+          "name": "DUoS Mapping Code Id",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0791",
+          "name": "Settlement Class MSID Count",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J0906",
+          "name": "MSID Charge Indicator",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0792",
+          "name": "Settlement Class MSID Charge",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0794",
+          "name": "Settlement Class Unit Count",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0793",
+          "name": "Settlement Class Unit Charge",
+          "format": "NUM(12)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

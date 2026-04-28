@@ -1,0 +1,311 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0313",
+  "flowVersion": "002",
+  "flowName": "Auxiliary Meter Technical Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Communications and security information to accompany NHH Meter Technical Details for AMR Meter Types",
+  "routes": [
+    {
+      "from": "MOP",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "02G": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1254",
+          "name": "Effective from Settlement Date {MSMTD}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0418",
+          "name": "Meter COP",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J1686",
+          "name": "Meter COP Issue Number",
+          "format": "NUM(2)",
+          "required": false
+        },
+        {
+          "ref": "J1689",
+          "name": "Event Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1717",
+          "name": "Remote Disable/Enable Capability",
+          "format": "BOOLEAN(1)",
+          "required": true
+        }
+      ]
+    },
+    "03G": {
+      "name": "Outstation Details",
+      "parent": "02G",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0428",
+          "name": "Outstation Id",
+          "format": "CHAR(20)",
+          "required": true
+        },
+        {
+          "ref": "J0471",
+          "name": "Outstation Type",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J0469",
+          "name": "Outstation Number of Channels",
+          "format": "NUM(3)",
+          "required": true
+        },
+        {
+          "ref": "J1256",
+          "name": "Outstation Number of Dials",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0464",
+          "name": "Outstation PIN",
+          "format": "CHAR(12)",
+          "required": false
+        },
+        {
+          "ref": "J1688",
+          "name": "Outstation Multiplier",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J1714",
+          "name": "Outstation Username Level 1",
+          "format": "CHAR(12)",
+          "required": false
+        },
+        {
+          "ref": "J0470",
+          "name": "Outstation Password Level 1",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J1715",
+          "name": "Outstation Username Level 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1257",
+          "name": "Outstation Password Level 2",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1716",
+          "name": "Outstation Username Level 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1713",
+          "name": "Outstation Password Level 3",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "04G": {
+      "name": "Communications Details",
+      "parent": "03G",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0386",
+          "name": "Communications Method",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0385",
+          "name": "Communications Address",
+          "format": "CHAR(65)",
+          "required": true
+        },
+        {
+          "ref": "J1690",
+          "name": "Dial In/ Dial Out Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1260",
+          "name": "Baud Rate",
+          "format": "NUM(5)",
+          "required": false
+        },
+        {
+          "ref": "J1709",
+          "name": "Communications Provider",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "05G": {
+      "name": "Channel Number",
+      "parent": "03G",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0382",
+          "name": "Channel Number",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J0432",
+          "name": "Pulse Multiplier",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "06G": {
+      "name": "Meter Details",
+      "parent": "03G",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        }
+      ]
+    },
+    "07G": {
+      "name": "Meter Memory Details",
+      "parent": "06G",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1711",
+          "name": "Meter Memory Location Type",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1718",
+          "name": "Timestamp Meter Memory Location",
+          "format": "CHAR(32)",
+          "required": true
+        }
+      ]
+    },
+    "08G": {
+      "name": "Meter Register Information",
+      "parent": "07G",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1710",
+          "name": "Meter Memory Location",
+          "format": "CHAR(32)",
+          "required": true
+        },
+        {
+          "ref": "J1712",
+          "name": "Meter Register Description",
+          "format": "CHAR(16)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

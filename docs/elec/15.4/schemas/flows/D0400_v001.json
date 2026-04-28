@@ -1,0 +1,416 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0400",
+  "flowVersion": "001",
+  "flowName": "MHHS - Supplier BM Unit Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Report for each Supplier containing details of the Suppliers valid BM Units, GSP Group/BM Unit/ and consumption/generation by BM Unit and Consumption Component Class.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "RDT": {
+      "name": "Report Parameters",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1089",
+          "name": "User Name",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "HDR": {
+      "name": "Additional Header Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0882",
+          "name": "Settlement Code Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0195",
+          "name": "SSR Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0196",
+          "name": "SSR Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0197",
+          "name": "SSR Run Type Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "SUP": {
+      "name": "Supplier Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0248",
+          "name": "Supplier Name",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "GSP": {
+      "name": "GSP Group",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "BM1": {
+      "name": "BM Unit Energy by CCC and Settlement Period",
+      "parent": "GSP",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1628",
+          "name": "BM Unit Id",
+          "format": "CHAR(11)",
+          "required": true
+        },
+        {
+          "ref": "J1631",
+          "name": "Default BM Unit Flag",
+          "format": "BOOLEAN(0)",
+          "required": true
+        }
+      ]
+    },
+    "MCC": {
+      "name": "MHHS Consumption Component Class",
+      "parent": "BM1",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2326",
+          "name": "MHHS Consumption Component Class ID",
+          "format": "NUM(3)",
+          "required": true
+        },
+        {
+          "ref": "J2327",
+          "name": "GSP Group Correction Scaling Weight",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J2329",
+          "name": "Market Segment Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2314",
+          "name": "Connection Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0162",
+          "name": "Consumption Component Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "SEZ": {
+      "name": "Settlement Period Energy",
+      "parent": "MCC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0167",
+          "name": "Settlement Period Label",
+          "format": "CHAR(6)",
+          "required": true
+        },
+        {
+          "ref": "J2331",
+          "name": "Uncorrected BM Unit Period Level Consumption",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2332",
+          "name": "Uncorrected BM Unit Period Level Consumption Losses",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2333",
+          "name": "Corrected Component Consumption",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2330",
+          "name": "Corrected Component Losses",
+          "format": "NUM(16)",
+          "required": false
+        }
+      ]
+    },
+    "TLD": {
+      "name": "Daily BM Unit Energy",
+      "parent": "MCC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2334",
+          "name": "Daily Uncorrected BM Unit Period Level Consumption",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2335",
+          "name": "Daily Uncorrected BM Unit Period Level Consumption Losses",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2336",
+          "name": "Daily Corrected Component",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2337",
+          "name": "Daily Corrected Component Losses",
+          "format": "NUM(16)",
+          "required": false
+        }
+      ]
+    },
+    "BM2": {
+      "name": "BM Unit Energy by Settlement Period",
+      "parent": "GSP",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1628",
+          "name": "BM Unit Id",
+          "format": "CHAR(11)",
+          "required": true
+        },
+        {
+          "ref": "J1631",
+          "name": "Default BM Unit Flag",
+          "format": "BOOLEAN(0)",
+          "required": true
+        }
+      ]
+    },
+    "07Z": {
+      "name": "Period BM Unit",
+      "parent": "BM2",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0167",
+          "name": "Settlement Period Label",
+          "format": "CHAR(6)",
+          "required": true
+        },
+        {
+          "ref": "J2380",
+          "name": "Uncorrected Period BM Unit Total Allocated Volume",
+          "format": "NUM(16)",
+          "required": true
+        },
+        {
+          "ref": "J2381",
+          "name": "Period BM Unit Total Allocated Volume",
+          "format": "NUM(16)",
+          "required": true
+        }
+      ]
+    },
+    "03Z": {
+      "name": "Daily Total BM Unit Energy",
+      "parent": "BM2",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2382",
+          "name": "Daily Uncorrected Period BM Unit Total Allocated Volume",
+          "format": "NUM(16)",
+          "required": true
+        },
+        {
+          "ref": "J2383",
+          "name": "Daily Period BM Unit Total Allocated Volume",
+          "format": "NUM(16)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The Supplier BM Unit Report is output in ascending order by GSP Group Id. The sort order of the repeating groups is specified as follows: BM1 BM Unit Id, Consumption Component Class Id, Settlement Period Id  BM2 BM Unit Id, Settlement Period Id The BM1 group will include all BM Units effective in the GSP Group on the Settlement Day for the Supplier. This includes BM Units for which no energy was allocated by the SSR Run.  The BM2 group will include only those BM Units for which energy volumes have been allocated by the SSR Run."
+}

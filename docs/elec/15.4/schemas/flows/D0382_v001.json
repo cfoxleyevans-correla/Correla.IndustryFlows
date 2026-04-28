@@ -1,0 +1,54 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0382",
+  "flowVersion": "001",
+  "flowName": "Rejection Response for Request to LDSO for Site Technical Details",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "The rejection of a D0170 request sent with Action Code 21 (Provide Site Technical Details) when sent from a MOP to a Distributor.",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "SMEM",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "94L": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2215",
+          "name": "D0170 Rejection Description",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

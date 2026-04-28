@@ -1,0 +1,204 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0300",
+  "flowVersion": "001",
+  "flowName": "Disputed Readings or Missing Readings on Change of Supplier",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Notification of a disputed/missing Meter Readings on Change of Supplier and the associated details.",
+  "routes": [
+    {
+      "from": "NHHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "58C": {
+      "name": "MPAN Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1703",
+          "name": "MPAN Core Process",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0924",
+          "name": "Effective from Settlement Date {REGI} for New Supplier",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        },
+        {
+          "ref": "J1663",
+          "name": "Record Rejection Reason Indicator",
+          "format": "CHAR(2)",
+          "required": false
+        }
+      ]
+    },
+    "59C": {
+      "name": "Meter Id",
+      "parent": "58C",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J1704",
+          "name": "Initiating Flow Indicator",
+          "format": "NUM(1)",
+          "required": true
+        }
+      ]
+    },
+    "60C": {
+      "name": "Meter Register Details",
+      "parent": "59C",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": false
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1265",
+          "name": "Change of Supplier Reading Rejection Code",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J1659",
+          "name": "Proposed Register Reading",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1660",
+          "name": "Status of Proposed Reading(s)",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Although each address line in this flow is optional, the address itself is mandatory and must be included in the flow in Standard Address Format (SAF)"
+}

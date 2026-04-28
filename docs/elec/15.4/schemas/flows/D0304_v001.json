@@ -1,0 +1,188 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0304",
+  "flowVersion": "001",
+  "flowName": "Notification of Meter Asset Provider",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "This is a notification sent to inform Parties the identity of the New MAP for particular metering equipment.",
+  "routes": [
+    {
+      "from": "MAP",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "MAP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MAP",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "MPAS",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MPAS",
+      "to": "MOP",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "77C": {
+      "name": "New MAP Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1677",
+          "name": "Meter Asset Provider Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1682",
+          "name": "Effective from Date {MAPA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "78C": {
+      "name": "MPAN Cores",
+      "parent": "77C",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        },
+        {
+          "ref": "J0048",
+          "name": "Contract Reference",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J0274",
+          "name": "Service Reference",
+          "format": "CHAR(4)",
+          "required": false
+        },
+        {
+          "ref": "J0275",
+          "name": "Service Level Reference",
+          "format": "CHAR(4)",
+          "required": false
+        }
+      ]
+    },
+    "79C": {
+      "name": "Meter Details",
+      "parent": "78C",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0410",
+          "name": "Manufacturers Make & Type",
+          "format": "CHAR(60)",
+          "required": true
+        },
+        {
+          "ref": "J0716",
+          "name": "Timing Device Id (Serial Number)",
+          "format": "CHAR(10)",
+          "required": false
+        }
+      ]
+    },
+    "80C": {
+      "name": "Associated Equipment Details",
+      "parent": "79C",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1678",
+          "name": "Associated Equipment Type",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1679",
+          "name": "Associated Equipment Serial Number",
+          "format": "CHAR(16)",
+          "required": true
+        }
+      ]
+    },
+    "72M": {
+      "name": "MPAS Response",
+      "parent": "78C",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2255",
+          "name": "MPAS D0304 Response Code",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0340",
+  "flowVersion": "001",
+  "flowName": "MPAS Response to GDCC",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Response flow to the GDCC, including reason codes to indicate acceptance or reason for rejection of an update.",
+  "routes": [
+    {
+      "from": "MPAS",
+      "to": "GDCC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "42H": {
+      "name": "GDCC MPAN Green Deal Plan Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1809",
+          "name": "GDCC Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1813",
+          "name": "Green Deal MPAN Core",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "43H": {
+      "name": "GD Party Response Codes",
+      "parent": "42H",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1812",
+          "name": "GD Party Response Code",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The GDCC Instruction Number is the value received on the inbound flow to which the GDCC Response Codes relate.All relevant response codes will be included in Group 43H."
+}

@@ -1,0 +1,277 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0028",
+  "flowVersion": "001",
+  "flowName": "Standing Profile Data Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "A standing profile data report for one or all GSP Group containing data valid for a day.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "RDT": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1089",
+          "name": "User Name",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1191",
+          "name": "Report Paramaters (GSP Groups)",
+          "format": "CHAR(39)",
+          "required": true
+        }
+      ]
+    },
+    "HDR": {
+      "name": "Standing Profile Data Report Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0128",
+          "name": "Season Id",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0127",
+          "name": "Day Type Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1091",
+          "name": "Profile Production Date",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1092",
+          "name": "Profile Production Time",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "PCD": {
+      "name": "Profile Class Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0122",
+          "name": "Profile Class Description",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J0123",
+          "name": "Switched Load Profile Class Ind",
+          "format": "BOOLEAN(0)",
+          "required": true
+        }
+      ]
+    },
+    "PFD": {
+      "name": "Profile Details",
+      "parent": "PCD",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0072",
+          "name": "Profile Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0124",
+          "name": "Profile Description",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J0878",
+          "name": "Profile Settlement Periods",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "GAA": {
+      "name": "Group Average Annual Consumption",
+      "parent": "PFD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0129",
+          "name": "Group Average Annual Consumption",
+          "format": "NUM(12)",
+          "required": true
+        }
+      ]
+    },
+    "RGC": {
+      "name": "Regression Coefficient",
+      "parent": "PFD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1102",
+          "name": "Period Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0433",
+          "name": "Regression Coefficient",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0433",
+          "name": "Regression Coefficient",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0433",
+          "name": "Regression Coefficient",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0433",
+          "name": "Regression Coefficient",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0433",
+          "name": "Regression Coefficient",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0433",
+          "name": "Regression Coefficient",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0433",
+          "name": "Regression Coefficient",
+          "format": "NUM(12)",
+          "required": true
+        },
+        {
+          "ref": "J0433",
+          "name": "Regression Coefficient",
+          "format": "NUM(12)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "This Flow is only available upon request from the SVAA Helpdesk.Due to changes in the field length (from 39 to 42) for J1191 'Report Paramaters (GSP Groups)', this Flow will not be transmitted using the DTN, and participants should agree an alternative method with SVAA at the time of requesting the Flow."
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0350",
+  "flowVersion": "001",
+  "flowName": "Notification of DCC Services at Metering Point",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "DCC notifies MPAS that it is providing communications services to a metering point and provides any data updates required for MPAS.",
+  "routes": [
+    {
+      "from": "DCC",
+      "to": "MPAS",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "81H": {
+      "name": "File Sequence Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "82H": {
+      "name": "DCC data for MPAS",
+      "parent": "81H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J0723",
+          "name": "Instruction Type",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1833",
+          "name": "DCC Service Flag",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1834",
+          "name": "Effective from Date {DCCF}",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The notifying Supplier ID will inform MPAS which supplier requested the DCC flag update."
+}

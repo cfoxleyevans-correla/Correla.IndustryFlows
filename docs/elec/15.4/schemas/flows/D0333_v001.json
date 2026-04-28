@@ -1,0 +1,68 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0333",
+  "flowVersion": "001",
+  "flowName": "Change of Green Deal Provider",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Used to inform the GDCC where responsibility for a Green Deal Plan changes from one Green Deal Provider or GDAA Finance Party to another.",
+  "routes": [
+    {
+      "from": "GD Provider",
+      "to": "GDCC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "31H": {
+      "name": "GD Transfer Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1818",
+          "name": "Party Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1800",
+          "name": "GD Provider MPID",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1794",
+          "name": "GD Plan Transfer Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J1830",
+          "name": "GD Provider Reassignment Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1831",
+          "name": "Green Deal Provider Registration Reference",
+          "format": "CHAR(7)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The GD Provider who takes on responsibility for the Green Deal Plan will send a D0322 to update the Remittance Processor details as required.Where a Green Deal Provider is issuing the data flow, they should use the GD Provider Reassignment Type of N or T.Where a GDAA Finance Party is issuing the data flow, they should use the GD Provider Reassignment Type of A or R.The Green Deal Provider Registration Reference of the Green Deal Provider who will be responsible for the Green Deal Plan following the transfer should be provided, whether the same as the existing value or a new one."
+}

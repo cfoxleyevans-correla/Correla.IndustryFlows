@@ -1,0 +1,193 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0376",
+  "flowVersion": "001",
+  "flowName": "Supplier's Demand Disconnection Volume Data File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Aggregated line loss adjusted HH demand disconnection volumes by Supplier and GSP Group. Where this flow is intended for the Supplier, the set of Suppliers will be limited to that Supplier only.",
+  "routes": [
+    {
+      "from": "HHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDA",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "65K": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J1104",
+          "name": "GSP Group",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "66K": {
+      "name": "Demand Control Event Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2079",
+          "name": "Demand Control Event ID",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1577",
+          "name": "Start Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J1578",
+          "name": "End Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "67K": {
+      "name": "Supplier",
+      "parent": "66K",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "68K": {
+      "name": "Consumption Component Class",
+      "parent": "67K",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0160",
+          "name": "Consumption Component Class Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "69K": {
+      "name": "Settlement Period/Data Aggregator Disconnected HH MSID Count",
+      "parent": "68K",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J2153",
+          "name": "Data Aggregator Disconnected HH MSID Count",
+          "format": "INT(10)",
+          "required": true
+        }
+      ]
+    },
+    "70K": {
+      "name": "Aggregated Supplier Disconnection Volume",
+      "parent": "69K",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2174",
+          "name": "Supplier's Demand Disconnection Volume",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "71K": {
+      "name": "Aggregated Supplier Disconnection Line Loss",
+      "parent": "69K",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2168",
+          "name": "Supplier's Demand Disconnection Volume (Losses)",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Annex C for flow notes."
+}

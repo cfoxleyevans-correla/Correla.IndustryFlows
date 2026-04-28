@@ -1,0 +1,542 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0081",
+  "flowVersion": "001",
+  "flowName": "Supplier Half Hourly Demand Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Report for each Supplier containing details of all the half hourly demand for a Supplier by Consumption Component Class.  This will include the profiled and actual demand.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "RDT": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1089",
+          "name": "User Name",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "HDR": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0882",
+          "name": "Settlement Code Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0195",
+          "name": "SSR Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0196",
+          "name": "SSR Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0197",
+          "name": "SSR Run Type Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0248",
+          "name": "Supplier Name",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "GSP": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "CCC": {
+      "name": "",
+      "parent": "GSP",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0160",
+          "name": "Consumption Component Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0165",
+          "name": "GSP Group Correction Scaling Factor",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J0161",
+          "name": "AA/EAC Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0020",
+          "name": "Actual/Estimated Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0163",
+          "name": "Data Aggregation Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0164",
+          "name": "Metered/Unmetered Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0162",
+          "name": "Consumption Component Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "SPX": {
+      "name": "",
+      "parent": "CCC",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0167",
+          "name": "Settlement Period Label",
+          "format": "CHAR(6)",
+          "required": true
+        },
+        {
+          "ref": "J1200",
+          "name": "Aggregated Supplier Consumption Report Value",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J1201",
+          "name": "Aggregated Supplier Line Loss Report Value",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J0193",
+          "name": "Corrected Supplier Consumption",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J0256",
+          "name": "Corrected Supplier Line Loss",
+          "format": "NUM(13)",
+          "required": false
+        }
+      ]
+    },
+    "TOT": {
+      "name": "",
+      "parent": "CCC",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0894",
+          "name": "Daily CCC Aggregated Supplier Consumption",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J0895",
+          "name": "Daily CCC Aggregated Supplier Line Loss",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J0896",
+          "name": "Daily CCC Corrected Supplier Consumption",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J0897",
+          "name": "Daily CCC Corrected Supplier Line Loss",
+          "format": "NUM(13)",
+          "required": false
+        }
+      ]
+    },
+    "HD2": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0882",
+          "name": "Settlement Code Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0195",
+          "name": "SSR Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0196",
+          "name": "SSR Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0197",
+          "name": "SSR Run Type Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0248",
+          "name": "Supplier Name",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "GP2": {
+      "name": "",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "DA2": {
+      "name": "",
+      "parent": "GP2",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0183",
+          "name": "Data Aggregator Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0271",
+          "name": "Data Aggregator Name",
+          "format": "CHAR(40)",
+          "required": true
+        }
+      ]
+    },
+    "CC2": {
+      "name": "",
+      "parent": "DA2",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0161",
+          "name": "AA/EAC Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0020",
+          "name": "Actual/Estimated Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0160",
+          "name": "Consumption Component Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0162",
+          "name": "Consumption Component Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0163",
+          "name": "Data Aggregation Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0164",
+          "name": "Metered/Unmetered Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "SP2": {
+      "name": "",
+      "parent": "CC2",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0167",
+          "name": "Settlement Period Label",
+          "format": "CHAR(6)",
+          "required": true
+        },
+        {
+          "ref": "J1200",
+          "name": "Aggregated Supplier Consumption Report Value",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J1201",
+          "name": "Aggregated Supplier Line Loss Report Value",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J0241",
+          "name": "Data Aggregator HH MSID Count",
+          "format": "NUM(10)",
+          "required": true
+        }
+      ]
+    },
+    "TO2": {
+      "name": "",
+      "parent": "CC2",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0900",
+          "name": "Daily DA Aggregated Supplier Consumption",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J0901",
+          "name": "Daily DA Aggregated Supplier Line Loss",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J1120",
+          "name": "Daily DA HH MSID Count",
+          "format": "NUM(10)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Part 1 contains both the HH and profiled NHH demand data.  Part 2 contains the HH demand data only."
+}

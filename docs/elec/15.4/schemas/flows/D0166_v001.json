@@ -1,0 +1,68 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0166",
+  "flowVersion": "001",
+  "flowName": "Distribution System Enquiry",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "A Supplier sends an enquiry to the SFIC (System Fault Information Centre) of a specified Distributor requesting details or action regarding an outage, safety investigation or voltage complaint.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "SFIC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "345": {
+      "name": "Enquiry Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0705",
+          "name": "Supplier Reference",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0007",
+          "name": "Requested Action Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0688",
+          "name": "Date of Enquiry by Customer",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0028",
+          "name": "Date Action Required By",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Only requested action codes 14(outage enquiry), 15(safety investigation) and  16(voltage complaint) are valid for this flow.  The date specified for 'Date Action Required By' must not be more onerous than specified under relevant statutory obligations or agreements."
+}

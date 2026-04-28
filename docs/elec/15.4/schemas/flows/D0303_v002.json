@@ -1,0 +1,264 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0303",
+  "flowVersion": "002",
+  "flowName": "Notification of Meter Operator, Supplier and Metering Assets installed / removed by the MOP to the MAP",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Notification to the MAP of any change to relevant MOP appointments, Supplier registration and Meter Assets.",
+  "routes": [
+    {
+      "from": "AMEM",
+      "to": "MAP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "MAP",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "MAP",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "72C": {
+      "name": "Meter Operator Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0178",
+          "name": "Meter Operator Id",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "73C": {
+      "name": "MPAN Cores",
+      "parent": "72C",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0210",
+          "name": "Effective from Date {MOA}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0360",
+          "name": "Effective to Date {MOA}",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J1680",
+          "name": "Date of Installation / Removal of Timing Device / Associated Equipment",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J1681",
+          "name": "MAP Contract Reference",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J0274",
+          "name": "Service Reference",
+          "format": "CHAR(4)",
+          "required": false
+        },
+        {
+          "ref": "J0275",
+          "name": "Service Level Reference",
+          "format": "CHAR(4)",
+          "required": false
+        },
+        {
+          "ref": "J1194",
+          "name": "New Supplier Id",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "74C": {
+      "name": "Meter Details",
+      "parent": "73C",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0410",
+          "name": "Manufacturers Make & Type",
+          "format": "CHAR(60)",
+          "required": false
+        },
+        {
+          "ref": "J0848",
+          "name": "Date of Meter Installation",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0716",
+          "name": "Timing Device Id (Serial Number)",
+          "format": "CHAR(10)",
+          "required": false
+        }
+      ]
+    },
+    "75C": {
+      "name": "Associated Equipment Details",
+      "parent": "74C",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1678",
+          "name": "Associated Equipment Type",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1679",
+          "name": "Associated Equipment Serial Number",
+          "format": "CHAR(16)",
+          "required": true
+        }
+      ]
+    },
+    "76C": {
+      "name": "Removal Date",
+      "parent": "74C",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1269",
+          "name": "Date of Meter Removal",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The optionality of the MPAN Address and MAP contract details will be determined by the MAP in the bilateral agreement between the MAP and MOP or the agreement between the MAP and the Supplier as appropriate in the circumstances.In addition to the mandatory scenarios when this flow must be sent, it may also be used by bilateral agreement when the MPAN Address and / or MAP contract details have changed."
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0051",
+  "flowVersion": "001",
+  "flowName": "Affirmation of Half Hour Data Retrieval Method and Associated Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Establish the retrieval method and settlement details to be applied at a specified metering point.",
+  "routes": [
+    {
+      "from": "ADSA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "120": {
+      "name": "Retrieval Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0098",
+          "name": "Retrieval Method",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0722",
+          "name": "Retrieval Method Effective Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

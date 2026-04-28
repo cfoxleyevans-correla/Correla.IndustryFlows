@@ -1,0 +1,50 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0345",
+  "flowVersion": "001",
+  "flowName": "Green Deal Licensee Notification of Erroneous Registration",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Used by the erroneously registered Green Deal Licensee to notify the GDCC that an Erroneous Registration has been confirmed for a Green Deal MPAN Core",
+  "routes": [
+    {
+      "from": "GD Licensee",
+      "to": "GDCC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "62H": {
+      "name": "GD Erroneous Registration Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1818",
+          "name": "Party Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1813",
+          "name": "Green Deal MPAN Core",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The Effective from Settlement Date {REGI} should be populated with the value associated with the start of the Erroneous Registration period."
+}

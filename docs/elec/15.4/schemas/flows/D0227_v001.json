@@ -1,0 +1,162 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0227",
+  "flowVersion": "001",
+  "flowName": "BSCCo Market Domain Data File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "The set of data which defines the environment of the 1998 Trading Arrangements.",
+  "routes": [
+    {
+      "from": "MDDA",
+      "to": "NHHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "MDDA",
+      "to": "NHHDC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": []
+    },
+    "SCI": {
+      "name": "Standard Settlement Configuration Details",
+      "parent": "ZPD",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0075",
+          "name": "Standard Settlement Configuration Desc",
+          "format": "CHAR(50)",
+          "required": true
+        }
+      ]
+    },
+    "TPR": {
+      "name": "Measurement Requirement",
+      "parent": "SCI",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "VSD": {
+      "name": "Valid Settlement Configuration Profile Class Details",
+      "parent": "SCI",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1097",
+          "name": "Effective to Settlement Date",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "ASD": {
+      "name": "Average Fraction of Yearly Consumption Set Details",
+      "parent": "VSD",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1097",
+          "name": "Effective to Settlement Date",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "AFD": {
+      "name": "Average Fraction of Yearly Consumption Details",
+      "parent": "ASD",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0133",
+          "name": "Average Fraction of Yearly Consumption",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

@@ -1,0 +1,159 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0008",
+  "flowVersion": "001",
+  "flowName": "Meter Advance Reconciliation Report",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Cumulative reading from HH Meters (MIST/MOST) for performing meter advance reconciliation.",
+  "routes": [
+    {
+      "from": "ADSA",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "ADSA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "022": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0041",
+          "name": "MAR Status",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "023": {
+      "name": "Meter Consumption Summary",
+      "parent": "022",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0272",
+          "name": "Total Period Metered Consumption",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0273",
+          "name": "MAR Percentage Difference",
+          "format": "NUM(5)",
+          "required": true
+        }
+      ]
+    },
+    "024": {
+      "name": "Register Readings",
+      "parent": "023",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1019",
+          "name": "Reading Date & Time in UTC",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        }
+      ]
+    },
+    "025": {
+      "name": "Site Visit Information",
+      "parent": "022",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "This flow reports on the results of Meter Advance Reconciliation (MAR) for half-hourly meters, and includes the MAR reading and sum of half-hourly advances for the MAR period.Where an AMVLP (Asset Metering Virtual Lead Party) is involved and for the Electricity MEM the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

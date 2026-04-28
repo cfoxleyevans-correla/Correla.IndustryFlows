@@ -1,0 +1,337 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0278",
+  "flowVersion": "002",
+  "flowName": "Teleswitch Market Domain Data File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of the market domain data required for teleswitched metering systems.",
+  "routes": [
+    {
+      "from": "MDDA",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": []
+    },
+    "TPD": {
+      "name": "Time Pattern Regime Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0744",
+          "name": "GMT Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1214",
+          "name": "Time Pattern Regime Id",
+          "format": "CHAR(5)",
+          "required": true
+        },
+        {
+          "ref": "J0134",
+          "name": "Tele-Switch/Clock Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "TTP": {
+      "name": "Tele-Switch Time Pattern Regime Details",
+      "parent": "TPD",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0135",
+          "name": "Tele-Switch User Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0136",
+          "name": "Tele-Switch Group Id",
+          "format": "NUM(4)",
+          "required": true
+        }
+      ]
+    },
+    "TCR": {
+      "name": "Tele-Switch Contact Rule",
+      "parent": "TTP",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1574",
+          "name": "Tele-Switch Register Rule Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J1570",
+          "name": "Tele-Switch Contact Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1575",
+          "name": "Tele-Switch Contact Rule",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "CKI": {
+      "name": "Clock Interval",
+      "parent": "TPD",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0726",
+          "name": "Day of the Week Id",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0287",
+          "name": "End Day",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0288",
+          "name": "End Month",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0143",
+          "name": "End Time",
+          "format": "TIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0289",
+          "name": "Start Day",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0290",
+          "name": "Start Month",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0142",
+          "name": "Start Time",
+          "format": "TIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "SCE": {
+      "name": "Standard Settlement Configuration Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0075",
+          "name": "Standard Settlement Configuration Desc",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J0135",
+          "name": "Tele-Switch User Id",
+          "format": "NUM(2)",
+          "required": false
+        },
+        {
+          "ref": "J0136",
+          "name": "Tele-Switch Group Id",
+          "format": "NUM(4)",
+          "required": false
+        },
+        {
+          "ref": "J1683",
+          "name": "Standard Settlement Configuration Type",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "TPR": {
+      "name": "Measurement Requirement",
+      "parent": "SCE",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1214",
+          "name": "Time Pattern Regime Id",
+          "format": "CHAR(5)",
+          "required": true
+        }
+      ]
+    },
+    "VSD": {
+      "name": "VSCPC Details",
+      "parent": "SCE",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1097",
+          "name": "Effective to Settlement Date",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "SLM": {
+      "name": "Switched Load Measurement Requirement Details",
+      "parent": "VSD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0132",
+          "name": "Switched Load Indicator",
+          "format": "BOOLEAN(0)",
+          "required": true
+        },
+        {
+          "ref": "J1214",
+          "name": "Time Pattern Regime Id",
+          "format": "CHAR(5)",
+          "required": true
+        }
+      ]
+    },
+    "ASD": {
+      "name": "AFYCS Details",
+      "parent": "VSD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1096",
+          "name": "Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1097",
+          "name": "Effective to Settlement Date",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "AFD": {
+      "name": "Average Fraction of Yearly Consumption Details",
+      "parent": "ASD",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0133",
+          "name": "Average Fraction of Yearly Consumption",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J1214",
+          "name": "Time Pattern Regime Id",
+          "format": "CHAR(5)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

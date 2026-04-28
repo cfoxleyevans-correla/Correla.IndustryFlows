@@ -1,0 +1,578 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0095",
+  "flowVersion": "001",
+  "flowName": "Non Half Hourly Data Aggregation Exception Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of exceptions raised by the NHHDA pertaining to one Supplier.",
+  "routes": [
+    {
+      "from": "NHHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "EXH": {
+      "name": "Exception Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0205",
+          "name": "Data Collector Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1133",
+          "name": "From Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1134",
+          "name": "To Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1135",
+          "name": "Count of Metering Systems with at least 1 exception of type 01",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1137",
+          "name": "Count of Metering Systems with at least 1 exception of type 02",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1138",
+          "name": "Count of Metering Systems with at least 1 exception of type 03",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1139",
+          "name": "Count of Metering Systems with at least 1 exception of type 04",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1140",
+          "name": "Count of Metering Systems with at least 1 exception of type 05",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1141",
+          "name": "Count of Metering Systems with at least 1 exception of type 06",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1142",
+          "name": "Count of Metering Systems with at least 1 exception of type 07",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1143",
+          "name": "Count of Metering Systems with at least 1 exception of type 08",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1144",
+          "name": "Count of Metering Systems with at least 1 exception of type 09",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1145",
+          "name": "Count of Metering Systems with at least 1 exception of type 10",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1146",
+          "name": "Count of Metering Systems with at least 1 exception of type 11",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1147",
+          "name": "Count of Metering Systems with at least 1 exception of type 12",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1148",
+          "name": "Count of Metering Systems with at least 1 exception of type 13",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1149",
+          "name": "Count of Metering Systems with at least 1 exception of type 14",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1311",
+          "name": "Count of Metering Systems with at least 1 exception",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "EXP": {
+      "name": "MPAS Agent Identifier",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0111",
+          "name": "MPAS Agent Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "EXM": {
+      "name": "Metering System Identifier",
+      "parent": "EXP",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0083",
+          "name": "Metering System Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "E01": {
+      "name": "Exception Details (no EAC or AA for appointed DC)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1150",
+          "name": "Registration Effective from Settlement Date",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1151",
+          "name": "Data Aggregator Appointment Effective from Settlement Date",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "E02": {
+      "name": "Exception Details (missing subsequent consumption data)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1150",
+          "name": "Registration Effective from Settlement Date",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1151",
+          "name": "Data Aggregator Appointment Effective from Settlement Date",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1152",
+          "name": "First Settlement Date with no data",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "E03": {
+      "name": "Exception Details (AA with no DAA appointment)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1153",
+          "name": "AA Effective from Settlement Date",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "E04": {
+      "name": "Exception Details (EAC with no DAA appointment)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1154",
+          "name": "EAC Effective from Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "E05": {
+      "name": "Exception Details (non zero AA when de-energised)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1153",
+          "name": "AA Effective from Settlement Date",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "E06": {
+      "name": "Exception Details (missing preceding consumption data)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1152",
+          "name": "First Settlement Date with no data",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "E07": {
+      "name": "Exception Details (overlapping MAPs)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1155",
+          "name": "Effective from Settlement Date for AA from specified Data Collector",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1156",
+          "name": "Other Data Collector Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1157",
+          "name": "Effective from Settlement Date for AA from other Data Collector",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "E08": {
+      "name": "Exception Details (Supplier incorrect)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1158",
+          "name": "Supplier Id (DC)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1167",
+          "name": "Effective from Settlement Date of last MPAS data",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1219",
+          "name": "Effective from Settlement Date of last Data Collector data",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "E09": {
+      "name": "Exception Details (Measurement Class incorrect)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1160",
+          "name": "Measurement Class Id (MPAS)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1161",
+          "name": "Measurement Class Id (DC)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1167",
+          "name": "Effective from Settlement Date of last MPAS data",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1159",
+          "name": "Effective from Settlement Date of last DC data",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "E10": {
+      "name": "Exception Details (GSP Group incorrect)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1162",
+          "name": "GSP Group Id (MPAS)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1163",
+          "name": "GSP Group Id (DC)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1167",
+          "name": "Effective from Settlement Date of last MPAS data",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1159",
+          "name": "Effective from Settlement Date of last DC data",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "E11": {
+      "name": "Exception Details (Profile Class incorrect)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1164",
+          "name": "Profile Class Id (MPAS)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1166",
+          "name": "Profile Class Id (DC)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1167",
+          "name": "Effective from Settlement Date of last MPAS data",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1159",
+          "name": "Effective from Settlement Date of last DC data",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "E12": {
+      "name": "Exception Details (Energisation Status incorrect)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1168",
+          "name": "Energisation Status (MPAS)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1169",
+          "name": "Energisation Status (DC)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1167",
+          "name": "Effective from Settlement Date of last MPAS data",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1159",
+          "name": "Effective from Settlement Date of last DC data",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "E13": {
+      "name": "Exception Details (Standard Settlement Configuration incorrect)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1170",
+          "name": "SSC Id (MPAS)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1171",
+          "name": "SSC Id (DC)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1167",
+          "name": "Effective from Settlement Date of last MPAS data",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1159",
+          "name": "Effective from Settlement Date of last DC data",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "E14": {
+      "name": "Exception Details (no Registration)",
+      "parent": "EXM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1172",
+          "name": "Supplier Id (MPAS)",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1167",
+          "name": "Effective from Settlement Date of last MPAS data",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1159",
+          "name": "Effective from Settlement Date of last DC data",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "NHHDA URS states that this flow may contain multiple MPAS Agents, however Logica I/O structure constrains this to 1 flow per MPAS Agent. No such constraint is assumed here."
+}

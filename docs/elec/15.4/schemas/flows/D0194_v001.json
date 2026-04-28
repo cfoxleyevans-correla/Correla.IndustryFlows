@@ -1,0 +1,109 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0194",
+  "flowVersion": "001",
+  "flowName": "Request for Installation of Key Meter",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Request is being made and information provided to allow installation of key meter.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SMEM",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "398": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0489",
+          "name": "Contact Name",
+          "format": "CHAR(50)",
+          "required": true
+        },
+        {
+          "ref": "J0274",
+          "name": "Service Reference",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0275",
+          "name": "Service Level Reference",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0174",
+          "name": "Appointment Date",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0292",
+          "name": "Earliest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0293",
+          "name": "Latest Appointment Time",
+          "format": "TIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J0554",
+          "name": "Total Debt",
+          "format": "NUM(7)",
+          "required": false
+        },
+        {
+          "ref": "J0547",
+          "name": "Debt Recovery Rate",
+          "format": "NUM(5)",
+          "required": false
+        },
+        {
+          "ref": "J0591",
+          "name": "Tariff Setting",
+          "format": "NUM(3)",
+          "required": false
+        },
+        {
+          "ref": "J0673",
+          "name": "Requested Energisation Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

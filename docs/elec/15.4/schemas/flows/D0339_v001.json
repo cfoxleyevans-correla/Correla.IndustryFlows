@@ -1,0 +1,56 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0339",
+  "flowVersion": "001",
+  "flowName": "Reject Initial Plan Request",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Response flow from the GDCC rejecting initial request from GD Provider to create GD Plan",
+  "routes": [
+    {
+      "from": "GDCC",
+      "to": "GD Provider",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "40H": {
+      "name": "GD Party Instruction Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1818",
+          "name": "Party Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        }
+      ]
+    },
+    "41H": {
+      "name": "GDCC Response Codes",
+      "parent": "40H",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1811",
+          "name": "GDCC Response Code",
+          "format": "CHAR(3)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The Party Instruction Number is the value received on the inbound flow to which the GDCC Response Codes relate.This flow is only to be used to reject a D0317 where no Green Deal Plan Id has been created."
+}

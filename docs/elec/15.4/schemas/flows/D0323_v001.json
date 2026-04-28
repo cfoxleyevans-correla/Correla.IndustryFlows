@@ -1,0 +1,50 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0323",
+  "flowVersion": "001",
+  "flowName": "GD Provider Advice of Pending Green Deal",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "A request that the Green Deal Licensee generates the initial notification to the Bill Payer regarding a proposed Green Deal Plan",
+  "routes": [
+    {
+      "from": "GD Provider",
+      "to": "GDCC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "02H": {
+      "name": "Pending GD Plan Information",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J1818",
+          "name": "Party Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1793",
+          "name": "GD Plan Proposed End Date",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The GD Plan Proposed End Date should be populated only where this differs to that previously provided"
+}

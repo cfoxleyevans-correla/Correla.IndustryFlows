@@ -1,0 +1,122 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0322",
+  "flowVersion": "001",
+  "flowName": "GD Provider Update to Charging Information",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "GD Provider sends data which impacts on the charging information for the Green Deal Plan including changes to the End Date.",
+  "routes": [
+    {
+      "from": "GD Provider",
+      "to": "GDCC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "98G": {
+      "name": "GD Provider Update References",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J1818",
+          "name": "Party Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1801",
+          "name": "GD Provider Update Reason Code",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "99G": {
+      "name": "GD Charge Information",
+      "parent": "98G",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1776",
+          "name": "GD Charge Start Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1775",
+          "name": "GD Charge End Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1778",
+          "name": "GD Daily Charge",
+          "format": "NUM(8)",
+          "required": true
+        }
+      ]
+    },
+    "00H": {
+      "name": "GD Plan End Date",
+      "parent": "98G",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1791",
+          "name": "GD Plan Actual End Date",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    },
+    "01H": {
+      "name": "GD Remittance Processor Information",
+      "parent": "98G",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1803",
+          "name": "GD Remittance Processor MPID",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1802",
+          "name": "GD Remittance Processor EFD",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "On Initial (I) provision of charging information,  all groups must be populated.On Ending (E) of a Green Deal Plan where MPAS has been updated with GD MPAN EFD and GD ETD, but the Bill Payer has not yet been notified of pending Green Deal Charges, Groups 99G and 01H should not be present.  If the Bill Payer has been notified of the pending Green Deal charges this reason code should not be used.On Update (U) groups 00H, 99G, and 01H are optional, where any of these groups are present, all data items within that group are mandatory.The GD Charge End Date cannot be greater than the existing GD Plan Actual End Date held in the GDCC database.Where the GD Charge End Date provided is greater than the existing GD Plan Actual End Date held on the GDCC, an amended value should be provided in Group 00H."
+}

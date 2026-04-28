@@ -1,0 +1,266 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0089",
+  "flowVersion": "002",
+  "flowName": "Notification from MPAS of Changed Metering Point Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Advise Old or New Supplier of change to metering point details if any have become effective between an objection being raised or removed",
+  "routes": [
+    {
+      "from": "MPAS",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "743": {
+      "name": "File Sequence Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "201": {
+      "name": "Metering Point Change Data",
+      "parent": "743",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J0723",
+          "name": "Instruction Type",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0821",
+          "name": "Deemed Received Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0924",
+          "name": "Effective from Settlement Date {REGI} for New Supplier",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": false
+        },
+        {
+          "ref": "J0658",
+          "name": "Effective from Settlement Date {MSLLFC}",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J0306",
+          "name": "Effective from Settlement Date {MSGG}",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0082",
+          "name": "Measurement Class Id",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0220",
+          "name": "Meter Timeswitch Code",
+          "format": "NUM(3)",
+          "required": false
+        },
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": false
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": false
+        },
+        {
+          "ref": "J1839",
+          "name": "SMETS Version",
+          "format": "CHAR(8)",
+          "required": false
+        },
+        {
+          "ref": "J1833",
+          "name": "DCC Service Flag",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1834",
+          "name": "Effective from Date {DCCF}",
+          "format": "DATE(8)",
+          "required": false
+        },
+        {
+          "ref": "J1837",
+          "name": "Smart Metering System Operator Id",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1838",
+          "name": "Effective from Date {SMSO}",
+          "format": "DATE(8)",
+          "required": false
+        },
+        {
+          "ref": "J1835",
+          "name": "In Home Display (IHD) Install Status",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1836",
+          "name": "Effective from Date {IHDI}",
+          "format": "DATE(8)",
+          "required": false
+        },
+        {
+          "ref": "J2245",
+          "name": "Related MPAN Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "23M": {
+      "name": "Related MPANs",
+      "parent": "201",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2243",
+          "name": "Primary MPAN",
+          "format": "INT(13)",
+          "required": true
+        },
+        {
+          "ref": "J2244",
+          "name": "Secondary MPAN",
+          "format": "INT(13)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Each optional data item becomes mandatory if there has been a change to that individual item.  Though each address line in this flow is optional, when an address is to be updated using this flow the entire address must be included in the flow.  An update to an individual line within an address will require the entire address to be sent.  The Metering Point Address Lines 1-9 and Metering Point Postcode will be in Standard Address Format (SAF)."
+}

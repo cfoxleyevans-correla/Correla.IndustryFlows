@@ -1,0 +1,758 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0364",
+  "flowVersion": "004",
+  "flowName": "CM Supplier Invoice Backing Data",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Calculation details for Capacity Market payments from (or to) a Supplier.",
+  "routes": [
+    {
+      "from": "CM Settlement Services Provider",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "71I": {
+      "name": "EMR Invoice Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1889",
+          "name": "EMR Party Id",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1950",
+          "name": "EMR Invoice Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J1949",
+          "name": "EMR Invoice Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1951",
+          "name": "EMR Invoice Payment Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1952",
+          "name": "EMR Invoice Total",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "72I": {
+      "name": "CM Settlement Costs Levy",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1923",
+          "name": "CM Month Id",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J2043",
+          "name": "Total Settlement Cost",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1996",
+          "name": "Reference Period Supplier Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1999",
+          "name": "Reference Period Total Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1993",
+          "name": "Reference Period Start Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1992",
+          "name": "Reference Period End Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2015",
+          "name": "Supplier Settlement Cost Levy Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1972",
+          "name": "Net Payment",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "73I": {
+      "name": "CM Demand Daily Detail",
+      "parent": "72I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1937",
+          "name": "Daily Supplier Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1938",
+          "name": "Daily Total Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "74I": {
+      "name": "CM Demand Period Detail",
+      "parent": "73I",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J1984",
+          "name": "Period Supplier Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1985",
+          "name": "Period Total Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "75I": {
+      "name": "CM Supplier Charge Payment",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1923",
+          "name": "CM Month Id",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J2029",
+          "name": "Total Monthly Capacity Payments",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2009",
+          "name": "Supplier Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2031",
+          "name": "Total Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1993",
+          "name": "Reference Period Start Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1992",
+          "name": "Reference Period End Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1901",
+          "name": "Capacity Market Supplier Charge",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1972",
+          "name": "Net Payment",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "76I": {
+      "name": "CM Demand Daily Detail",
+      "parent": "75I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1937",
+          "name": "Daily Supplier Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1938",
+          "name": "Daily Total Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "77I": {
+      "name": "CM Demand Period Detail",
+      "parent": "76I",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J1984",
+          "name": "Period Supplier Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1985",
+          "name": "Period Total Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "46L": {
+      "name": "CM Net Demand Forecast Detail",
+      "parent": "75I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1923",
+          "name": "CM Month Id",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J2184",
+          "name": "Supplier Demand Forecast",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2185",
+          "name": "Total Supplier Demand Forecast",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "78I": {
+      "name": "CM Penalty Residual Supplier Amount",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1942",
+          "name": "Delivery Year",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J2061",
+          "name": "Total Over-delivery Payments",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2044",
+          "name": "Total Under-delivery Payments",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2035",
+          "name": "Total Penalty Residual Supplier Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2186",
+          "name": "Supplier Yearly Capacity Market Charge Paid",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2187",
+          "name": "Total Supplier Yearly Capacity Market Charge Paid",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1980",
+          "name": "Penalty Residual Supplier Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1972",
+          "name": "Net Payment",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "81I": {
+      "name": "CM Mutualisation Payment",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1893",
+          "name": "Amount in Default",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1941",
+          "name": "Defaulted Amount Due Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1996",
+          "name": "Reference Period Supplier Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1999",
+          "name": "Reference Period Total Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1993",
+          "name": "Reference Period Start Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1992",
+          "name": "Reference Period End Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2008",
+          "name": "Supplier Mutualisation Amount",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "82I": {
+      "name": "CM Demand Daily Detail",
+      "parent": "81I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1937",
+          "name": "Daily Supplier Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1938",
+          "name": "Daily Total Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "83I": {
+      "name": "CM Demand Period Detail",
+      "parent": "82I",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J1984",
+          "name": "Period Supplier Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1985",
+          "name": "Period Total Demand for Periods of High Demand",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "47L": {
+      "name": "CM Demand Forecast Detail",
+      "parent": "81I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1923",
+          "name": "CM Month Id",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J2184",
+          "name": "Supplier Demand Forecast",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2185",
+          "name": "Total Supplier Demand Forecast",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "48L": {
+      "name": "CM Mutualisation Credit",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1923",
+          "name": "CM Month Id",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J2188",
+          "name": "Total Mutualisation Credit Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2189",
+          "name": "Supplier Mutualisation Amount Paid",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2190",
+          "name": "Total Supplier Mutualisation Amount Paid",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2191",
+          "name": "Supplier Mutualisation Credit Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1972",
+          "name": "Net Payment",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "84I": {
+      "name": "CM Interest Payment",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1950",
+          "name": "EMR Invoice Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J1949",
+          "name": "EMR Invoice Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1893",
+          "name": "Amount in Default",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1955",
+          "name": "Interest Payment From Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1956",
+          "name": "Interest Payment To Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1954",
+          "name": "Interest Amount",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "85I": {
+      "name": "CM Interest Rate",
+      "parent": "84I",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1958",
+          "name": "Interest Rate Effective Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1957",
+          "name": "Interest Rate",
+          "format": "NUM(8)",
+          "required": true
+        }
+      ]
+    },
+    "75J": {
+      "name": "CM Settlement Costs Levy Refund",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2073",
+          "name": "CM Year",
+          "format": "INT(4)",
+          "required": true
+        },
+        {
+          "ref": "J2074",
+          "name": "CM Settlement Costs Levy Total Refund Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2076",
+          "name": "CM Settlement Costs Levy Supplier Yearly Payment",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2075",
+          "name": "CM Settlement Costs Levy Total Yearly Payment",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2072",
+          "name": "CM Settlement Costs Levy Supplier Refund Amount",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "49L": {
+      "name": "Supplier Recalculation of Credit Amounts",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2280",
+          "name": "Total Amount Invoiced To Suppliers",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2192",
+          "name": "Total Amount Received from Suppliers",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2193",
+          "name": "Total Amount Payable to Suppliers",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2194",
+          "name": "Original EMR Invoice Total",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2195",
+          "name": "Reduction to EMR Invoice Total",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

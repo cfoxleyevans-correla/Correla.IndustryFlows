@@ -1,0 +1,6458 @@
+[
+  {
+    "from": "CFD Settlement Services Provider",
+    "to": "CFD Generator",
+    "flow": "D0365",
+    "flowName": "CFD Generator Invoice Backing Data"
+  },
+  {
+    "from": "CFD Settlement Services Provider",
+    "to": "Supplier",
+    "flow": "D0363",
+    "flowName": "CFD Supplier Credit Cover Report"
+  },
+  {
+    "from": "CFD Settlement Services Provider",
+    "to": "Supplier",
+    "flow": "D0362",
+    "flowName": "CFD Supplier Invoice Backing Data"
+  },
+  {
+    "from": "CM Settlement Services Provider",
+    "to": "Capacity Provider",
+    "flow": "D0366",
+    "flowName": "CM Capacity Provider Invoice Backing Data"
+  },
+  {
+    "from": "CM Settlement Services Provider",
+    "to": "Supplier",
+    "flow": "D0364",
+    "flowName": "CM Supplier Invoice Backing Data"
+  },
+  {
+    "from": "DCC",
+    "to": "MPAS",
+    "flow": "D0350",
+    "flowName": "Notification of DCC Services at Metering Point"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0315",
+    "flowName": "Embedded Network Supercustomer DUoS Daily Statement"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0327",
+    "flowName": "Request Green Deal Plan End Date Amendment"
+  },
+  {
+    "from": "Distributor",
+    "to": "HHDA",
+    "flow": "D0265",
+    "flowName": "Line Loss Factor Data File"
+  },
+  {
+    "from": "Distributor",
+    "to": "HHDC",
+    "flow": "D0164",
+    "flowName": "Notification of New or Changed Interruption of Supply"
+  },
+  {
+    "from": "Distributor",
+    "to": "HHDC",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Distributor",
+    "to": "HHDC",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Distributor",
+    "to": "MOP",
+    "flow": "D0395",
+    "flowName": "Confirmation that an electricity meter has been moved during a service alteration"
+  },
+  {
+    "from": "Distributor",
+    "to": "MOP",
+    "flow": "D0394",
+    "flowName": "Notification of agreed or cancelled appointment to move a customer electricity meter during a service alteration"
+  },
+  {
+    "from": "Distributor",
+    "to": "MOP",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "MOP",
+    "flow": "D0382",
+    "flowName": "Rejection Response for Request to LDSO for Site Technical Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "MOP",
+    "flow": "D0383",
+    "flowName": "Notification of Commissioning Information"
+  },
+  {
+    "from": "Distributor",
+    "to": "MOP",
+    "flow": "D0215",
+    "flowName": "Provision of Site Technical Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "MOP",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "Distributor",
+    "to": "NHHDC",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Distributor",
+    "to": "NHHDC",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0381",
+    "flowName": "Metering Point Address Update"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0242",
+    "flowName": "Supercustomer DUoS Daily Statement"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0125",
+    "flowName": "Confirmation of Disconnection of Supply"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0262",
+    "flowName": "Rejection of Disconnection"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0225",
+    "flowName": "Priority Services Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0395",
+    "flowName": "Confirmation that an electricity meter has been moved during a service alteration"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0164",
+    "flowName": "Notification of New or Changed Interruption of Supply"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0215",
+    "flowName": "Provision of Site Technical Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0179",
+    "flowName": "Confirmation of Energisation/De-Energisation of Prepayment Meter"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0352",
+    "flowName": "Notification of Physical Disconnections"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0394",
+    "flowName": "Notification of agreed or cancelled appointment to move a customer electricity meter during a service alteration"
+  },
+  {
+    "from": "Distributor",
+    "to": "Supplier",
+    "flow": "D0265",
+    "flowName": "Line Loss Factor Data File"
+  },
+  {
+    "from": "Distributor",
+    "to": "SVAA",
+    "flow": "D0265",
+    "flowName": "Line Loss Factor Data File"
+  },
+  {
+    "from": "Distributor",
+    "to": "ADSA",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "Distributor",
+    "to": "ADSA",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Distributor",
+    "to": "ADSA",
+    "flow": "D0164",
+    "flowName": "Notification of New or Changed Interruption of Supply"
+  },
+  {
+    "from": "Distributor",
+    "to": "ADSA",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Distributor",
+    "to": "AMEM",
+    "flow": "D0382",
+    "flowName": "Rejection Response for Request to LDSO for Site Technical Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "AMEM",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "Distributor",
+    "to": "AMEM",
+    "flow": "D0394",
+    "flowName": "Notification of agreed or cancelled appointment to move a customer electricity meter during a service alteration"
+  },
+  {
+    "from": "Distributor",
+    "to": "AMEM",
+    "flow": "D0395",
+    "flowName": "Confirmation that an electricity meter has been moved during a service alteration"
+  },
+  {
+    "from": "Distributor",
+    "to": "AMEM",
+    "flow": "D0383",
+    "flowName": "Notification of Commissioning Information"
+  },
+  {
+    "from": "Distributor",
+    "to": "AMEM",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Distributor",
+    "to": "AMEM",
+    "flow": "D0215",
+    "flowName": "Provision of Site Technical Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "SDSA",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "Distributor",
+    "to": "SDSA",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Distributor",
+    "to": "SMEM",
+    "flow": "D0215",
+    "flowName": "Provision of Site Technical Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "SMEM",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "Distributor",
+    "to": "SMEM",
+    "flow": "D0395",
+    "flowName": "Confirmation that an electricity meter has been moved during a service alteration"
+  },
+  {
+    "from": "Distributor",
+    "to": "SMEM",
+    "flow": "D0382",
+    "flowName": "Rejection Response for Request to LDSO for Site Technical Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "SMEM",
+    "flow": "D0394",
+    "flowName": "Notification of agreed or cancelled appointment to move a customer electricity meter during a service alteration"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0332",
+    "flowName": "Green Deal Licensee Request for Information"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0335",
+    "flowName": "New Green Deal Plan MPAN Core"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0341",
+    "flowName": "GD Licensee Response to GDCC"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0328",
+    "flowName": "Provide Remittance Details"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0342",
+    "flowName": "Notice of Collection Cessation"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0326",
+    "flowName": "Green Deal Licensee Update to Bill Payer Details"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0345",
+    "flowName": "Green Deal Licensee Notification of Erroneous Registration"
+  },
+  {
+    "from": "GD Provider",
+    "to": "GDCC",
+    "flow": "D0321",
+    "flowName": "GD Provider Update to Plan Information"
+  },
+  {
+    "from": "GD Provider",
+    "to": "GDCC",
+    "flow": "D0333",
+    "flowName": "Change of Green Deal Provider"
+  },
+  {
+    "from": "GD Provider",
+    "to": "GDCC",
+    "flow": "D0322",
+    "flowName": "GD Provider Update to Charging Information"
+  },
+  {
+    "from": "GD Provider",
+    "to": "GDCC",
+    "flow": "D0317",
+    "flowName": "Create New Green Deal Plan"
+  },
+  {
+    "from": "GD Provider",
+    "to": "GDCC",
+    "flow": "D0320",
+    "flowName": "GD Provider Response to GDCC"
+  },
+  {
+    "from": "GD Provider",
+    "to": "GDCC",
+    "flow": "D0323",
+    "flowName": "GD Provider Advice of Pending Green Deal"
+  },
+  {
+    "from": "GD Remittance Processor",
+    "to": "GDCC",
+    "flow": "D0329",
+    "flowName": "Response to Green Deal Remittance Details"
+  },
+  {
+    "from": "GD Remittance Processor",
+    "to": "GDCC",
+    "flow": "D0347",
+    "flowName": "GD Remittance Processor Response to GDCC"
+  },
+  {
+    "from": "GDCC",
+    "to": "Distributor",
+    "flow": "D0318",
+    "flowName": "Response from GDCC to Distributor"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Licensee",
+    "flow": "D0343",
+    "flowName": "Response from GDCC to GD Licensee"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Licensee",
+    "flow": "D0319",
+    "flowName": "Request for Initial Green Deal Licensee Validation"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Licensee",
+    "flow": "D0336",
+    "flowName": "Request to Advise Bill Payer of Pending Green Deal"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Licensee",
+    "flow": "D0325",
+    "flowName": "Green Deal Plan Information for Green Deal Licensee"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Licensee",
+    "flow": "D0329",
+    "flowName": "Response to Green Deal Remittance Details"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Licensee",
+    "flow": "D0334",
+    "flowName": "Request for New Green Deal MPAN Core"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Licensee",
+    "flow": "D0331",
+    "flowName": "Update Green Deal Market Data"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Provider",
+    "flow": "D0338",
+    "flowName": "Update to Bill Payer Details"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Provider",
+    "flow": "D0346",
+    "flowName": "Notification of Erroneous Registration Status"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Provider",
+    "flow": "D0331",
+    "flowName": "Update Green Deal Market Data"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Provider",
+    "flow": "D0339",
+    "flowName": "Reject Initial Plan Request"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Provider",
+    "flow": "D0344",
+    "flowName": "Response from GDCC to GD Provider"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Provider",
+    "flow": "D0337",
+    "flowName": "Green Deal End Date Amendment Request to GD Provider"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Remittance Processor",
+    "flow": "D0346",
+    "flowName": "Notification of Erroneous Registration Status"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Remittance Processor",
+    "flow": "D0331",
+    "flowName": "Update Green Deal Market Data"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Remittance Processor",
+    "flow": "D0328",
+    "flowName": "Provide Remittance Details"
+  },
+  {
+    "from": "GDCC",
+    "to": "GD Remittance Processor",
+    "flow": "D0342",
+    "flowName": "Notice of Collection Cessation"
+  },
+  {
+    "from": "GDCC",
+    "to": "MPAS",
+    "flow": "D0324",
+    "flowName": "Advise Green Deal Active at MPAN"
+  },
+  {
+    "from": "HHDA",
+    "to": "CFD Settlement Services Provider",
+    "flow": "D0355",
+    "flowName": "Metering System Reporting Confirmation"
+  },
+  {
+    "from": "HHDA",
+    "to": "CFD Settlement Services Provider",
+    "flow": "D0357",
+    "flowName": "Half Hourly Metered Data for EMR"
+  },
+  {
+    "from": "HHDA",
+    "to": "CM Settlement Services Provider",
+    "flow": "D0357",
+    "flowName": "Half Hourly Metered Data for EMR"
+  },
+  {
+    "from": "HHDA",
+    "to": "CM Settlement Services Provider",
+    "flow": "D0355",
+    "flowName": "Metering System Reporting Confirmation"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0235",
+    "flowName": "Half Hourly Aggregation Exception Report"
+  },
+  {
+    "from": "HHDA",
+    "to": "MPAS Agent",
+    "flow": "D0023",
+    "flowName": "Failed Instructions"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0235",
+    "flowName": "Half Hourly Aggregation Exception Report"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0357",
+    "flowName": "Half Hourly Metered Data for EMR"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0376",
+    "flowName": "Supplier's Demand Disconnection Volume Data File"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0040",
+    "flowName": "Aggregated Half Hour Data File"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0355",
+    "flowName": "Metering System Reporting Confirmation"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0378",
+    "flowName": "BM Unit Aggregated Half Hour Demand Disconnection Data File"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0295",
+    "flowName": "Rejection of BM Unit Allocation"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0298",
+    "flowName": "BM Unit Aggregated Half Hour Data File"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0294",
+    "flowName": "Confirmation of BM Unit Allocation"
+  },
+  {
+    "from": "HHDA",
+    "to": "Supplier",
+    "flow": "D0356",
+    "flowName": "Metering System Reporting Rejection"
+  },
+  {
+    "from": "HHDA",
+    "to": "SVAA",
+    "flow": "D0392",
+    "flowName": "Invalid Metered Volume History Request"
+  },
+  {
+    "from": "HHDA",
+    "to": "SVAA",
+    "flow": "D0298",
+    "flowName": "BM Unit Aggregated Half Hour Data File"
+  },
+  {
+    "from": "HHDA",
+    "to": "SVAA",
+    "flow": "D0355",
+    "flowName": "Metering System Reporting Confirmation"
+  },
+  {
+    "from": "HHDA",
+    "to": "SVAA",
+    "flow": "D0356",
+    "flowName": "Metering System Reporting Rejection"
+  },
+  {
+    "from": "HHDA",
+    "to": "SVAA",
+    "flow": "D0376",
+    "flowName": "Supplier's Demand Disconnection Volume Data File"
+  },
+  {
+    "from": "HHDA",
+    "to": "SVAA",
+    "flow": "D0393",
+    "flowName": "Metered Volume History Acceptance"
+  },
+  {
+    "from": "HHDA",
+    "to": "SVAA",
+    "flow": "D0040",
+    "flowName": "Aggregated Half Hour Data File"
+  },
+  {
+    "from": "HHDA",
+    "to": "SVAA",
+    "flow": "D0378",
+    "flowName": "BM Unit Aggregated Half Hour Demand Disconnection Data File"
+  },
+  {
+    "from": "HHDA",
+    "to": "SVAA",
+    "flow": "D0385",
+    "flowName": "Metering System Half Hourly Metered Data"
+  },
+  {
+    "from": "HHDC",
+    "to": "Distributor",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "HHDC",
+    "to": "Distributor",
+    "flow": "D0022",
+    "flowName": "Estimated Half Hourly Data Report"
+  },
+  {
+    "from": "HHDC",
+    "to": "Distributor",
+    "flow": "D0036",
+    "flowName": "Validated Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDC",
+    "to": "Distributor",
+    "flow": "D0008",
+    "flowName": "Meter Advance Reconciliation Report"
+  },
+  {
+    "from": "HHDC",
+    "to": "Distributor",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "HHDC",
+    "to": "Distributor",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "HHDC",
+    "to": "Distributor",
+    "flow": "D0012",
+    "flowName": "Confirmation of the Inclusion of the Metering Point in the Reading Schedules"
+  },
+  {
+    "from": "HHDC",
+    "to": "Distributor",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "HHDC",
+    "to": "Distributor",
+    "flow": "D0375",
+    "flowName": "Disconnected MSIDs and Estimated Half Hourly Demand Disconnection Volumes"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDA",
+    "flow": "D0375",
+    "flowName": "Disconnected MSIDs and Estimated Half Hourly Demand Disconnection Volumes"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDA",
+    "flow": "D0036",
+    "flowName": "Validated Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDA",
+    "flow": "D0380",
+    "flowName": "Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0036",
+    "flowName": "Validated Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "HHDC",
+    "to": "MOP",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "HHDC",
+    "to": "MOP",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "HHDC",
+    "to": "MOP",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "HHDC",
+    "to": "MOP",
+    "flow": "D0008",
+    "flowName": "Meter Advance Reconciliation Report"
+  },
+  {
+    "from": "HHDC",
+    "to": "SFIC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0012",
+    "flowName": "Confirmation of the Inclusion of the Metering Point in the Reading Schedules"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0008",
+    "flowName": "Meter Advance Reconciliation Report"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0380",
+    "flowName": "Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0375",
+    "flowName": "Disconnected MSIDs and Estimated Half Hourly Demand Disconnection Volumes"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0390",
+    "flowName": "Asset Metering System Half Hourly Metered Data"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0022",
+    "flowName": "Estimated Half Hourly Data Report"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0036",
+    "flowName": "Validated Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "HHDC",
+    "to": "Supplier",
+    "flow": "D0051",
+    "flowName": "Affirmation of Half Hour Data Retrieval Method and Associated Details"
+  },
+  {
+    "from": "HHDC",
+    "to": "SVAA",
+    "flow": "D0390",
+    "flowName": "Asset Metering System Half Hourly Metered Data"
+  },
+  {
+    "from": "HHDC",
+    "to": "AMVLP",
+    "flow": "D0390",
+    "flowName": "Asset Metering System Half Hourly Metered Data"
+  },
+  {
+    "from": "HHDC",
+    "to": "AMVLP",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "HHDC",
+    "to": "AMVLP",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "HHDC",
+    "to": "AMVLP",
+    "flow": "D0022",
+    "flowName": "Estimated Half Hourly Data Report"
+  },
+  {
+    "from": "HHDC",
+    "to": "AMVLP",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "HHDC",
+    "to": "AMVLP",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "HHDC",
+    "to": "AMVLP",
+    "flow": "D0008",
+    "flowName": "Meter Advance Reconciliation Report"
+  },
+  {
+    "from": "HHDC",
+    "to": "ADSA",
+    "flow": "D0036",
+    "flowName": "Validated Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDC",
+    "to": "ESNA",
+    "flow": "D0036",
+    "flowName": "Validated Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDC",
+    "to": "ESNA",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "MAP",
+    "to": "MOP",
+    "flow": "D0304",
+    "flowName": "Notification of Meter Asset Provider"
+  },
+  {
+    "from": "MAP",
+    "to": "AMEM",
+    "flow": "D0304",
+    "flowName": "Notification of Meter Asset Provider"
+  },
+  {
+    "from": "MAP",
+    "to": "SMEM",
+    "flow": "D0304",
+    "flowName": "Notification of Meter Asset Provider"
+  },
+  {
+    "from": "MDDA",
+    "to": "Distributor",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "Distributor",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "GRS Operator",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "GRS Operator",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "HHDA",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "HHDA",
+    "flow": "D0299",
+    "flowName": "Stage 2 BM Unit Registration Data File"
+  },
+  {
+    "from": "MDDA",
+    "to": "HHDA",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "HHDC",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "HHDC",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "MOP",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "MOP",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "MPAS Agent",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "MPAS Agent",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "NHHDA",
+    "flow": "D0286",
+    "flowName": "Data Aggregation and Settlements Timetable File"
+  },
+  {
+    "from": "MDDA",
+    "to": "NHHDA",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "NHHDA",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "NHHDA",
+    "flow": "D0227",
+    "flowName": "BSCCo Market Domain Data File"
+  },
+  {
+    "from": "MDDA",
+    "to": "NHHDC",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "NHHDC",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "NHHDC",
+    "flow": "D0227",
+    "flowName": "BSCCo Market Domain Data File"
+  },
+  {
+    "from": "MDDA",
+    "to": "Supplier",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "Supplier",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "Supplier",
+    "flow": "D0280",
+    "flowName": "Teleswitch Contact to Register Mapping File"
+  },
+  {
+    "from": "MDDA",
+    "to": "Supplier",
+    "flow": "D0299",
+    "flowName": "Stage 2 BM Unit Registration Data File"
+  },
+  {
+    "from": "MDDA",
+    "to": "SVAA",
+    "flow": "D0278",
+    "flowName": "Teleswitch Market Domain Data File"
+  },
+  {
+    "from": "MDDA",
+    "to": "SVAA",
+    "flow": "D0286",
+    "flowName": "Data Aggregation and Settlements Timetable File"
+  },
+  {
+    "from": "MOP",
+    "to": "Distributor",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "Distributor",
+    "flow": "D0304",
+    "flowName": "Notification of Meter Asset Provider"
+  },
+  {
+    "from": "MOP",
+    "to": "Distributor",
+    "flow": "D0214",
+    "flowName": "Confirmation of Proving Tests"
+  },
+  {
+    "from": "MOP",
+    "to": "Distributor",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "MOP",
+    "to": "Distributor",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "MOP",
+    "to": "Distributor",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "MOP",
+    "to": "Distributor",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "MOP",
+    "to": "Distributor",
+    "flow": "D0313",
+    "flowName": "Auxiliary Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "Distributor",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "HHDC",
+    "flow": "D0214",
+    "flowName": "Confirmation of Proving Tests"
+  },
+  {
+    "from": "MOP",
+    "to": "HHDC",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "MOP",
+    "to": "HHDC",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "HHDC",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "MOP",
+    "to": "HHDC",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "MOP",
+    "to": "HHDC",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "MOP",
+    "to": "MAP",
+    "flow": "D0303",
+    "flowName": "Notification of Meter Operator, Supplier and Metering Assets installed / removed by the MOP to the MAP"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0291",
+    "flowName": "Notification of Register Readings on Change of Measurement Class coincident with Change of Supplier"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0383",
+    "flowName": "Notification of Commissioning Information"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0313",
+    "flowName": "Auxiliary Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "MPAS",
+    "flow": "D0304",
+    "flowName": "Notification of Meter Asset Provider"
+  },
+  {
+    "from": "MOP",
+    "to": "MPAS",
+    "flow": "D0312",
+    "flowName": "Notification of Meter Information to MPAS"
+  },
+  {
+    "from": "MOP",
+    "to": "NHHDC",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "MOP",
+    "to": "NHHDC",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "MOP",
+    "to": "NHHDC",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "MOP",
+    "to": "NHHDC",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "MOP",
+    "to": "NHHDC",
+    "flow": "D0313",
+    "flowName": "Auxiliary Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "NHHDC",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "SFIC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0214",
+    "flowName": "Confirmation of Proving Tests"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0179",
+    "flowName": "Confirmation of Energisation/De-Energisation of Prepayment Meter"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0221",
+    "flowName": "Notification of Failure to Install or Energise Metering System"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0224",
+    "flowName": "Notification of Programme for Re-Certification Meter Changes"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0192",
+    "flowName": "Readings and Settings from a Token or Key Meter"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0313",
+    "flowName": "Auxiliary Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0193",
+    "flowName": "Confirmation of Key Meter Installation"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0304",
+    "flowName": "Notification of Meter Asset Provider"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "Supplier",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "MOP",
+    "to": "AMVLP",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "MOP",
+    "to": "AMVLP",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "MOP",
+    "to": "AMVLP",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "AMVLP",
+    "flow": "D0221",
+    "flowName": "Notification of Failure to Install or Energise Metering System"
+  },
+  {
+    "from": "MOP",
+    "to": "AMVLP",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "MOP",
+    "to": "AMVLP",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "MOP",
+    "to": "AMVLP",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "MOP",
+    "to": "AMVLP",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "MOP",
+    "to": "AMVLP",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "MOP",
+    "to": "AMVLP",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "MOP",
+    "to": "AMEM",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "MOP",
+    "to": "AMEM",
+    "flow": "D0383",
+    "flowName": "Notification of Commissioning Information"
+  },
+  {
+    "from": "MOP",
+    "to": "AMEM",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "SMEM",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "MOP",
+    "to": "SMEM",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "DCC",
+    "flow": "D0351",
+    "flowName": "Rejection of Update to DCC Service Flag"
+  },
+  {
+    "from": "MPAS",
+    "to": "DCC",
+    "flow": "D0172",
+    "flowName": "Confirmation of Changes"
+  },
+  {
+    "from": "MPAS",
+    "to": "GDCC",
+    "flow": "D0340",
+    "flowName": "MPAS Response to GDCC"
+  },
+  {
+    "from": "MPAS",
+    "to": "HHDA",
+    "flow": "D0209",
+    "flowName": "Instruction(s) to Non Half Hourly or Half Hourly Data Aggregator"
+  },
+  {
+    "from": "MPAS",
+    "to": "HHDC",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "MOP",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "MOP",
+    "flow": "D0304",
+    "flowName": "Notification of Meter Asset Provider"
+  },
+  {
+    "from": "MPAS",
+    "to": "MOP",
+    "flow": "D0312",
+    "flowName": "Notification of Meter Information to MPAS"
+  },
+  {
+    "from": "MPAS",
+    "to": "NHHDA",
+    "flow": "D0209",
+    "flowName": "Instruction(s) to Non Half Hourly or Half Hourly Data Aggregator"
+  },
+  {
+    "from": "MPAS",
+    "to": "NHHDC",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "Supplier",
+    "flow": "D0203",
+    "flowName": "Rejection of Changes to Metering Point Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "Supplier",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "Supplier",
+    "flow": "D0172",
+    "flowName": "Confirmation of Changes"
+  },
+  {
+    "from": "MPAS",
+    "to": "Supplier",
+    "flow": "D0312",
+    "flowName": "Notification of Meter Information to MPAS"
+  },
+  {
+    "from": "MPAS",
+    "to": "Supplier",
+    "flow": "D0171",
+    "flowName": "Notification of Distributor Changes to Metering Point Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "Supplier",
+    "flow": "D0204",
+    "flowName": "Selective or Full Refresh of MPAS Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "Supplier",
+    "flow": "D0260",
+    "flowName": "Notification from MPAS of Old Supplier Registration Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "Supplier",
+    "flow": "D0213",
+    "flowName": "Advice from MPAS of Changed Metering Point Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "Supplier",
+    "flow": "D0089",
+    "flowName": "Notification from MPAS of Changed Metering Point Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "Supplier",
+    "flow": "D0386",
+    "flowName": "Manage Metering Point Relationships"
+  },
+  {
+    "from": "MPAS",
+    "to": "Supplier",
+    "flow": "D0217",
+    "flowName": "Confirmation of the Registration of a Metering Point"
+  },
+  {
+    "from": "MPAS",
+    "to": "MA",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "NHHDA",
+    "to": "MPAS Agent",
+    "flow": "D0023",
+    "flowName": "Failed Instructions"
+  },
+  {
+    "from": "NHHDA",
+    "to": "NHHDC",
+    "flow": "D0023",
+    "flowName": "Failed Instructions"
+  },
+  {
+    "from": "NHHDA",
+    "to": "Supplier",
+    "flow": "D0095",
+    "flowName": "Non Half Hourly Data Aggregation Exception Report"
+  },
+  {
+    "from": "NHHDA",
+    "to": "Supplier",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "NHHDA",
+    "to": "Supplier",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "NHHDA",
+    "to": "Supplier",
+    "flow": "D0377",
+    "flowName": "Disconnection Purchase Matrix Data File"
+  },
+  {
+    "from": "NHHDA",
+    "to": "Supplier",
+    "flow": "D0041",
+    "flowName": "Supplier Purchase Matrix Data File"
+  },
+  {
+    "from": "NHHDA",
+    "to": "SVAA",
+    "flow": "D0377",
+    "flowName": "Disconnection Purchase Matrix Data File"
+  },
+  {
+    "from": "NHHDA",
+    "to": "SVAA",
+    "flow": "D0041",
+    "flowName": "Supplier Purchase Matrix Data File"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Distributor",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Distributor",
+    "flow": "D0086",
+    "flowName": "Notification of Change of Supplier Readings"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Distributor",
+    "flow": "D0012",
+    "flowName": "Confirmation of the Inclusion of the Metering Point in the Reading Schedules"
+  },
+  {
+    "from": "NHHDC",
+    "to": "MOP",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "NHHDC",
+    "to": "MOP",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDA",
+    "flow": "D0019",
+    "flowName": "Metering System EAC/AA Data"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0152",
+    "flowName": "Metering System EAC/AA Historical Data"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0086",
+    "flowName": "Notification of Change of Supplier Readings"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "NHHDC",
+    "to": "SFIC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0012",
+    "flowName": "Confirmation of the Inclusion of the Metering Point in the Reading Schedules"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0019",
+    "flowName": "Metering System EAC/AA Data"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0310",
+    "flowName": "Notification of Failure to load or receive Metering System Settlement Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0300",
+    "flowName": "Disputed Readings or Missing Readings on Change of Supplier"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0086",
+    "flowName": "Notification of Change of Supplier Readings"
+  },
+  {
+    "from": "NHHDC",
+    "to": "Supplier",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "NHHDC",
+    "to": "UMSO",
+    "flow": "D0310",
+    "flowName": "Notification of Failure to load or receive Metering System Settlement Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "MRS",
+    "flow": "D0290",
+    "flowName": "Instruction to Read Meter"
+  },
+  {
+    "from": "PPMIP",
+    "to": "Supplier",
+    "flow": "D0173",
+    "flowName": "Token Transaction Data"
+  },
+  {
+    "from": "PPMIP",
+    "to": "Supplier",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "PPMIP",
+    "to": "Supplier",
+    "flow": "D0188",
+    "flowName": "Key Transaction Details"
+  },
+  {
+    "from": "RPS",
+    "to": "MOP",
+    "flow": "D0239",
+    "flowName": "Revenue Protection Report on Action Taken"
+  },
+  {
+    "from": "RPS",
+    "to": "Supplier",
+    "flow": "D0237",
+    "flowName": "Notification by Revenue Protection Service of Possible Irregularity"
+  },
+  {
+    "from": "RPS",
+    "to": "Supplier",
+    "flow": "D0236",
+    "flowName": "Revenue Protection Service Statistical Report"
+  },
+  {
+    "from": "RPS",
+    "to": "Supplier",
+    "flow": "D0239",
+    "flowName": "Revenue Protection Report on Action Taken"
+  },
+  {
+    "from": "RPS",
+    "to": "AMEM",
+    "flow": "D0239",
+    "flowName": "Revenue Protection Report on Action Taken"
+  },
+  {
+    "from": "RPS",
+    "to": "SMEM",
+    "flow": "D0239",
+    "flowName": "Revenue Protection Report on Action Taken"
+  },
+  {
+    "from": "SFIC",
+    "to": "MOP",
+    "flow": "D0368",
+    "flowName": "Notification of Agreed or Cancelled Appointment With Customer"
+  },
+  {
+    "from": "SFIC",
+    "to": "MOP",
+    "flow": "D0126",
+    "flowName": "Asset Condition Report Response / Clearance"
+  },
+  {
+    "from": "SFIC",
+    "to": "Supplier",
+    "flow": "D0167",
+    "flowName": "Response to Distribution System Enquiry"
+  },
+  {
+    "from": "SFIC",
+    "to": "Supplier",
+    "flow": "D0126",
+    "flowName": "Asset Condition Report Response / Clearance"
+  },
+  {
+    "from": "SFIC",
+    "to": "Supplier",
+    "flow": "D0368",
+    "flowName": "Notification of Agreed or Cancelled Appointment With Customer"
+  },
+  {
+    "from": "SFIC",
+    "to": "SIP",
+    "flow": "D0126",
+    "flowName": "Asset Condition Report Response / Clearance"
+  },
+  {
+    "from": "SFIC",
+    "to": "AMEM",
+    "flow": "D0368",
+    "flowName": "Notification of Agreed or Cancelled Appointment With Customer"
+  },
+  {
+    "from": "SFIC",
+    "to": "AMEM",
+    "flow": "D0126",
+    "flowName": "Asset Condition Report Response / Clearance"
+  },
+  {
+    "from": "SFIC",
+    "to": "SMEM",
+    "flow": "D0368",
+    "flowName": "Notification of Agreed or Cancelled Appointment With Customer"
+  },
+  {
+    "from": "SFIC",
+    "to": "SMEM",
+    "flow": "D0126",
+    "flowName": "Asset Condition Report Response / Clearance"
+  },
+  {
+    "from": "Supplier",
+    "to": "Distributor",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "Distributor",
+    "flow": "D0132",
+    "flowName": "Details of Disconnection of Supply"
+  },
+  {
+    "from": "Supplier",
+    "to": "Distributor",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "Supplier",
+    "to": "Distributor",
+    "flow": "D0225",
+    "flowName": "Priority Services Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "Distributor",
+    "flow": "D0134",
+    "flowName": "Request to Change Energisation Status"
+  },
+  {
+    "from": "Supplier",
+    "to": "Distributor",
+    "flow": "D0394",
+    "flowName": "Notification of agreed or cancelled appointment to move a customer electricity meter during a service alteration"
+  },
+  {
+    "from": "Supplier",
+    "to": "Distributor",
+    "flow": "D0381",
+    "flowName": "Metering Point Address Update"
+  },
+  {
+    "from": "Supplier",
+    "to": "Distributor",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDA",
+    "flow": "D0151",
+    "flowName": "Termination of Appointment or Contract by Supplier"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDA",
+    "flow": "D0153",
+    "flowName": "Notification of Data Aggregator Appointment and Terms"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDA",
+    "flow": "D0354",
+    "flowName": "Metering System Reporting Notification"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDA",
+    "flow": "D0297",
+    "flowName": "Notification of BM Unit Allocation"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0148",
+    "flowName": "Notification of Change to Other Parties"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0151",
+    "flowName": "Termination of Appointment or Contract by Supplier"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0289",
+    "flowName": "Notification of MC/EAC/PC"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0155",
+    "flowName": "Notification of Meter Operator or Data Collector Appointment and Terms"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0131",
+    "flowName": "Metering Point Address Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "HHDC",
+    "flow": "D0380",
+    "flowName": "Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0142",
+    "flowName": "Request for Installation or Change to a Metering System Functionality or the Removal of All Meters"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0148",
+    "flowName": "Notification of Change to Other Parties"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0151",
+    "flowName": "Termination of Appointment or Contract by Supplier"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0190",
+    "flowName": "Issue Customer Key"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0134",
+    "flowName": "Request to Change Energisation Status"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0191",
+    "flowName": "Request Special Visit to Read/Reset Key Meter"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0155",
+    "flowName": "Notification of Meter Operator or Data Collector Appointment and Terms"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0194",
+    "flowName": "Request for Installation of Key Meter"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0223",
+    "flowName": "Request to Install Check Meter or Carry Out Accuracy Tests"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0367",
+    "flowName": "Smart Meter Configuration Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0289",
+    "flowName": "Notification of MC/EAC/PC"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0225",
+    "flowName": "Priority Services Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "MOP",
+    "flow": "D0131",
+    "flowName": "Metering Point Address Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "MPAS",
+    "flow": "D0205",
+    "flowName": "Update Registration Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "MPAS",
+    "flow": "D0386",
+    "flowName": "Manage Metering Point Relationships"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDA",
+    "flow": "D0151",
+    "flowName": "Termination of Appointment or Contract by Supplier"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDA",
+    "flow": "D0153",
+    "flowName": "Notification of Data Aggregator Appointment and Terms"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0052",
+    "flowName": "Affirmation of Metering System Settlement Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0155",
+    "flowName": "Notification of Meter Operator or Data Collector Appointment and Terms"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0071",
+    "flowName": "Customer Own Reading or Supplier Estimated Reading on Change of Supplier"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0225",
+    "flowName": "Priority Services Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0311",
+    "flowName": "Notification of Old Supplier Information"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0131",
+    "flowName": "Metering Point Address Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0148",
+    "flowName": "Notification of Change to Other Parties"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0151",
+    "flowName": "Termination of Appointment or Contract by Supplier"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0072",
+    "flowName": "Instruction to Obtain Change of Supplier Reading"
+  },
+  {
+    "from": "Supplier",
+    "to": "NHHDC",
+    "flow": "D0300",
+    "flowName": "Disputed Readings or Missing Readings on Change of Supplier"
+  },
+  {
+    "from": "Supplier",
+    "to": "PPMIP",
+    "flow": "D0190",
+    "flowName": "Issue Customer Key"
+  },
+  {
+    "from": "Supplier",
+    "to": "PPMIP",
+    "flow": "D0174",
+    "flowName": "Issue Identity Card for Token Meter Customer"
+  },
+  {
+    "from": "Supplier",
+    "to": "PPMIP",
+    "flow": "D0189",
+    "flowName": "Adjust Key Meter Debt/Recovery Rate at Specific Locations"
+  },
+  {
+    "from": "Supplier",
+    "to": "RPS",
+    "flow": "D0238",
+    "flowName": "Request and Information for Revenue Protection Investigation"
+  },
+  {
+    "from": "Supplier",
+    "to": "SFIC",
+    "flow": "D0166",
+    "flowName": "Distribution System Enquiry"
+  },
+  {
+    "from": "Supplier",
+    "to": "SFIC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0300",
+    "flowName": "Disputed Readings or Missing Readings on Change of Supplier"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0307",
+    "flowName": "Debt Information"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0308",
+    "flowName": "Confirmation of Customer Debt Transfer"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0301",
+    "flowName": "Erroneous Transfer Communication"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0306",
+    "flowName": "Request for Debt Information"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0309",
+    "flowName": "Confirmation of Debt Assigned"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0311",
+    "flowName": "Notification of Old Supplier Information"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0354",
+    "flowName": "Metering System Reporting Notification"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0297",
+    "flowName": "Notification of BM Unit Allocation"
+  },
+  {
+    "from": "Supplier",
+    "to": "MA",
+    "flow": "D0151",
+    "flowName": "Termination of Appointment or Contract by Supplier"
+  },
+  {
+    "from": "Supplier",
+    "to": "MA",
+    "flow": "D0148",
+    "flowName": "Notification of Change to Other Parties"
+  },
+  {
+    "from": "Supplier",
+    "to": "MA",
+    "flow": "D0155",
+    "flowName": "Notification of Meter Operator or Data Collector Appointment and Terms"
+  },
+  {
+    "from": "Supplier",
+    "to": "SIP",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "ADSA",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "ADSA",
+    "flow": "D0225",
+    "flowName": "Priority Services Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "ADSA",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Supplier",
+    "to": "ADSA",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "Supplier",
+    "to": "ADSA",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "Supplier",
+    "to": "ADSA",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "ADSA",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "Supplier",
+    "to": "ADSA",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "ADSA",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "Supplier",
+    "to": "ADSA",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "AMEM",
+    "flow": "D0223",
+    "flowName": "Request to Install Check Meter or Carry Out Accuracy Tests"
+  },
+  {
+    "from": "Supplier",
+    "to": "AMEM",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "Supplier",
+    "to": "AMEM",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Supplier",
+    "to": "AMEM",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "AMEM",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "AMEM",
+    "flow": "D0134",
+    "flowName": "Request to Change Energisation Status"
+  },
+  {
+    "from": "Supplier",
+    "to": "AMEM",
+    "flow": "D0225",
+    "flowName": "Priority Services Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "AMEM",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "Supplier",
+    "to": "AMEM",
+    "flow": "D0142",
+    "flowName": "Request for Installation or Change to a Metering System Functionality or the Removal of All Meters"
+  },
+  {
+    "from": "Supplier",
+    "to": "SDSA",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "Supplier",
+    "to": "SDSA",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "SDSA",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "SDSA",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "Supplier",
+    "to": "SDSA",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "Supplier",
+    "to": "SDSA",
+    "flow": "D0225",
+    "flowName": "Priority Services Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "SDSA",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "SDSA",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0191",
+    "flowName": "Request Special Visit to Read/Reset Key Meter"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0134",
+    "flowName": "Request to Change Energisation Status"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0225",
+    "flowName": "Priority Services Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0142",
+    "flowName": "Request for Installation or Change to a Metering System Functionality or the Removal of All Meters"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0194",
+    "flowName": "Request for Installation of Key Meter"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0223",
+    "flowName": "Request to Install Check Meter or Carry Out Accuracy Tests"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0190",
+    "flowName": "Issue Customer Key"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "SMEM",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "CMRC",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "ESNA",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "Supplier",
+    "to": "ESNA",
+    "flow": "D0036",
+    "flowName": "Validated Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "SVAA",
+    "to": "CFD Settlement Services Provider",
+    "flow": "D0357",
+    "flowName": "Half Hourly Metered Data for EMR"
+  },
+  {
+    "from": "SVAA",
+    "to": "CM Settlement Services Provider",
+    "flow": "D0357",
+    "flowName": "Half Hourly Metered Data for EMR"
+  },
+  {
+    "from": "SVAA",
+    "to": "Distributor",
+    "flow": "D0369",
+    "flowName": "Aggregated Disconnected DUoS Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Distributor",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "Distributor",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "Distributor",
+    "flow": "D0372",
+    "flowName": "Aggregated Embedded Network Disconnected DUoS Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Distributor",
+    "flow": "D0030",
+    "flowName": "Aggregated DUoS Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Distributor",
+    "flow": "D0401",
+    "flowName": "MHHS - Aggregated Disconnected DUoS Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Distributor",
+    "flow": "D0314",
+    "flowName": "Non Half Hourly Embedded Network DUoS Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Grid Operator",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "Grid Operator",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "HHDA",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "HHDA",
+    "flow": "D0375",
+    "flowName": "Disconnected MSIDs and Estimated Half Hourly Demand Disconnection Volumes"
+  },
+  {
+    "from": "SVAA",
+    "to": "HHDA",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "HHDA",
+    "flow": "D0354",
+    "flowName": "Metering System Reporting Notification"
+  },
+  {
+    "from": "SVAA",
+    "to": "HHDA",
+    "flow": "D0391",
+    "flowName": "Metered Volume History Request"
+  },
+  {
+    "from": "SVAA",
+    "to": "HHDC",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "HHDC",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "HHDC",
+    "flow": "D0375",
+    "flowName": "Disconnected MSIDs and Estimated Half Hourly Demand Disconnection Volumes"
+  },
+  {
+    "from": "SVAA",
+    "to": "MDDA",
+    "flow": "D0287",
+    "flowName": "Annually Recalculated Researched Consumption"
+  },
+  {
+    "from": "SVAA",
+    "to": "MOP",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "MOP",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "MPAS Agent",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "MPAS Agent",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "NHHDA",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "NHHDA",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "NHHDA",
+    "flow": "D0375",
+    "flowName": "Disconnected MSIDs and Estimated Half Hourly Demand Disconnection Volumes"
+  },
+  {
+    "from": "SVAA",
+    "to": "NHHDC",
+    "flow": "D0029",
+    "flowName": "Standard Settlement Configuration Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "NHHDC",
+    "flow": "D0028",
+    "flowName": "Standing Profile Data Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "NHHDC",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "NHHDC",
+    "flow": "D0375",
+    "flowName": "Disconnected MSIDs and Estimated Half Hourly Demand Disconnection Volumes"
+  },
+  {
+    "from": "SVAA",
+    "to": "NHHDC",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "NHHDC",
+    "flow": "D0018",
+    "flowName": "Daily Profile Data Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "NHHDC",
+    "flow": "D0039",
+    "flowName": "Daily Profile Coefficient File"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0399",
+    "flowName": "MHHS - GSP Group Consumption Totals Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0276",
+    "flowName": "GSP Group Consumption Totals Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0373",
+    "flowName": "GSP Group Demand Disconnection Totals Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0030",
+    "flowName": "Aggregated DUoS Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0081",
+    "flowName": "Supplier Half Hourly Demand Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0401",
+    "flowName": "MHHS - Aggregated Disconnected DUoS Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0404",
+    "flowName": "MHHS - Supplier BM Unit Demand Disconnection Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0387",
+    "flowName": "Metering System Half Hourly Volume Adjustments"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0371",
+    "flowName": "Supplier - Supplier Disconnection Matrix Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0294",
+    "flowName": "Confirmation of BM Unit Allocation"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0296",
+    "flowName": "Supplier BM Unit Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0397",
+    "flowName": "MHHS - Supplier Half Hourly Demand Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0029",
+    "flowName": "Standard Settlement Configuration Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0400",
+    "flowName": "MHHS - Supplier BM Unit Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0374",
+    "flowName": "Supplier BM Unit Demand Disconnection Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0082",
+    "flowName": "Supplier - Supplier Purchase Matrix Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0402",
+    "flowName": "MHHS - Supplier Half Hourly Demand Disconnection Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0279",
+    "flowName": "Teleswitch Contact Interval Data Report File"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0018",
+    "flowName": "Daily Profile Data Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0369",
+    "flowName": "Aggregated Disconnected DUoS Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0028",
+    "flowName": "Standing Profile Data Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0355",
+    "flowName": "Metering System Reporting Confirmation"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0043",
+    "flowName": "Supplier Deemed Take Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0356",
+    "flowName": "Metering System Reporting Rejection"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0266",
+    "flowName": "Supplier Settlement Header Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0398",
+    "flowName": "MHHS - Supplier Settlement Header Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0079",
+    "flowName": "Supplier Purchase Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0403",
+    "flowName": "MHHS - GSP Group Demand Disconnection Totals Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0370",
+    "flowName": "Supplier Half Hourly Demand Disconnection Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "Supplier",
+    "flow": "D0295",
+    "flowName": "Rejection of BM Unit Allocation"
+  },
+  {
+    "from": "SVAA",
+    "to": "SVAA",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "SVAA",
+    "to": "SVAA",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "Teleswitch Agent",
+    "to": "SVAA",
+    "flow": "D0277",
+    "flowName": "Teleswitch Contact Interval Data File"
+  },
+  {
+    "from": "UMSO",
+    "to": "NHHDC",
+    "flow": "D0052",
+    "flowName": "Affirmation of Metering System Settlement Details"
+  },
+  {
+    "from": "UMSO",
+    "to": "Supplier",
+    "flow": "D0052",
+    "flowName": "Affirmation of Metering System Settlement Details"
+  },
+  {
+    "from": "UMSO",
+    "to": "MA",
+    "flow": "D0388",
+    "flowName": "UMS Inventory"
+  },
+  {
+    "from": "UMSO",
+    "to": "UMSDSA",
+    "flow": "D0388",
+    "flowName": "UMS Inventory"
+  },
+  {
+    "from": "MA",
+    "to": "HHDC",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "MA",
+    "to": "Supplier",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "MA",
+    "to": "Supplier",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "MA",
+    "to": "UMSO",
+    "flow": "D0389",
+    "flowName": "UMS Response"
+  },
+  {
+    "from": "AMVLP",
+    "to": "HHDC",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "AMVLP",
+    "to": "HHDC",
+    "flow": "D0151",
+    "flowName": "Termination of Appointment or Contract by Supplier"
+  },
+  {
+    "from": "AMVLP",
+    "to": "HHDC",
+    "flow": "D0148",
+    "flowName": "Notification of Change to Other Parties"
+  },
+  {
+    "from": "AMVLP",
+    "to": "HHDC",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "AMVLP",
+    "to": "HHDC",
+    "flow": "D0155",
+    "flowName": "Notification of Meter Operator or Data Collector Appointment and Terms"
+  },
+  {
+    "from": "AMVLP",
+    "to": "HHDC",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0155",
+    "flowName": "Notification of Meter Operator or Data Collector Appointment and Terms"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0142",
+    "flowName": "Request for Installation or Change to a Metering System Functionality or the Removal of All Meters"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0383",
+    "flowName": "Notification of Commissioning Information"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0151",
+    "flowName": "Termination of Appointment or Contract by Supplier"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0148",
+    "flowName": "Notification of Change to Other Parties"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0134",
+    "flowName": "Request to Change Energisation Status"
+  },
+  {
+    "from": "AMVLP",
+    "to": "MOP",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "AMVLP",
+    "to": "ADSA",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMEM",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMEM",
+    "flow": "D0383",
+    "flowName": "Notification of Commissioning Information"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMEM",
+    "flow": "D0142",
+    "flowName": "Request for Installation or Change to a Metering System Functionality or the Removal of All Meters"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMEM",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMEM",
+    "flow": "D0134",
+    "flowName": "Request to Change Energisation Status"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMEM",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "SIP",
+    "to": "SFIC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "SIP",
+    "to": "Supplier",
+    "flow": "D0396",
+    "flowName": "SIP Event Completed"
+  },
+  {
+    "from": "SIP",
+    "to": "Supplier",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "SIP",
+    "to": "Supplier",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "SIP",
+    "to": "Supplier",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "ADSA",
+    "to": "Distributor",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "ADSA",
+    "to": "Distributor",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "ADSA",
+    "to": "Distributor",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "ADSA",
+    "to": "Distributor",
+    "flow": "D0008",
+    "flowName": "Meter Advance Reconciliation Report"
+  },
+  {
+    "from": "ADSA",
+    "to": "SFIC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "ADSA",
+    "to": "Supplier",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "ADSA",
+    "to": "Supplier",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "ADSA",
+    "to": "Supplier",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "ADSA",
+    "to": "Supplier",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "ADSA",
+    "to": "Supplier",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "ADSA",
+    "to": "Supplier",
+    "flow": "D0008",
+    "flowName": "Meter Advance Reconciliation Report"
+  },
+  {
+    "from": "ADSA",
+    "to": "Supplier",
+    "flow": "D0051",
+    "flowName": "Affirmation of Half Hour Data Retrieval Method and Associated Details"
+  },
+  {
+    "from": "ADSA",
+    "to": "Supplier",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "ADSA",
+    "to": "Supplier",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "ADSA",
+    "to": "Supplier",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "ADSA",
+    "to": "Supplier",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "ADSA",
+    "to": "AMEM",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "ADSA",
+    "to": "AMEM",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "ADSA",
+    "to": "AMEM",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "ADSA",
+    "to": "AMEM",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "ADSA",
+    "to": "AMEM",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "AMEM",
+    "to": "Distributor",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "AMEM",
+    "to": "Distributor",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "AMEM",
+    "to": "Distributor",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "AMEM",
+    "to": "Distributor",
+    "flow": "D0214",
+    "flowName": "Confirmation of Proving Tests"
+  },
+  {
+    "from": "AMEM",
+    "to": "MAP",
+    "flow": "D0303",
+    "flowName": "Notification of Meter Operator, Supplier and Metering Assets installed / removed by the MOP to the MAP"
+  },
+  {
+    "from": "AMEM",
+    "to": "MOP",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "AMEM",
+    "to": "MOP",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "AMEM",
+    "to": "MOP",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "AMEM",
+    "to": "MOP",
+    "flow": "D0383",
+    "flowName": "Notification of Commissioning Information"
+  },
+  {
+    "from": "AMEM",
+    "to": "SFIC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "AMEM",
+    "to": "Supplier",
+    "flow": "D0224",
+    "flowName": "Notification of Programme for Re-Certification Meter Changes"
+  },
+  {
+    "from": "AMEM",
+    "to": "Supplier",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "AMEM",
+    "to": "Supplier",
+    "flow": "D0214",
+    "flowName": "Confirmation of Proving Tests"
+  },
+  {
+    "from": "AMEM",
+    "to": "Supplier",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "AMEM",
+    "to": "Supplier",
+    "flow": "D0221",
+    "flowName": "Notification of Failure to Install or Energise Metering System"
+  },
+  {
+    "from": "AMEM",
+    "to": "Supplier",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "AMEM",
+    "to": "Supplier",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "AMEM",
+    "to": "Supplier",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "AMEM",
+    "to": "Supplier",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "AMEM",
+    "to": "Supplier",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "AMEM",
+    "to": "Supplier",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMVLP",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMVLP",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMVLP",
+    "flow": "D0221",
+    "flowName": "Notification of Failure to Install or Energise Metering System"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMVLP",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMVLP",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "AMEM",
+    "to": "ADSA",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "AMEM",
+    "to": "ADSA",
+    "flow": "D0214",
+    "flowName": "Confirmation of Proving Tests"
+  },
+  {
+    "from": "AMEM",
+    "to": "ADSA",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "AMEM",
+    "to": "ADSA",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "AMEM",
+    "to": "ADSA",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0383",
+    "flowName": "Notification of Commissioning Information"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "SDSA",
+    "to": "Distributor",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "SDSA",
+    "to": "SFIC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "SDSA",
+    "to": "Supplier",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "SDSA",
+    "to": "Supplier",
+    "flow": "D0012",
+    "flowName": "Confirmation of the Inclusion of the Metering Point in the Reading Schedules"
+  },
+  {
+    "from": "SDSA",
+    "to": "Supplier",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "SDSA",
+    "to": "Supplier",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "SDSA",
+    "to": "Supplier",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "SDSA",
+    "to": "Supplier",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "SDSA",
+    "to": "Supplier",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "SDSA",
+    "to": "Supplier",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "SDSA",
+    "to": "Supplier",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "SDSA",
+    "to": "SDSA",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "SDSA",
+    "to": "SDSA",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "SDSA",
+    "to": "SMEM",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "SDSA",
+    "to": "SMEM",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "SDSA",
+    "to": "SMEM",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "SDSA",
+    "to": "MRS",
+    "flow": "D0290",
+    "flowName": "Instruction to Read Meter"
+  },
+  {
+    "from": "SMEM",
+    "to": "Distributor",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "SMEM",
+    "to": "Distributor",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "Distributor",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "Distributor",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "MAP",
+    "flow": "D0303",
+    "flowName": "Notification of Meter Operator, Supplier and Metering Assets installed / removed by the MOP to the MAP"
+  },
+  {
+    "from": "SMEM",
+    "to": "MOP",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "MOP",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "MOP",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "SFIC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0179",
+    "flowName": "Confirmation of Energisation/De-Energisation of Prepayment Meter"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0192",
+    "flowName": "Readings and Settings from a Token or Key Meter"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0224",
+    "flowName": "Notification of Programme for Re-Certification Meter Changes"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0221",
+    "flowName": "Notification of Failure to Install or Energise Metering System"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0193",
+    "flowName": "Confirmation of Key Meter Installation"
+  },
+  {
+    "from": "SMEM",
+    "to": "Supplier",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "SMEM",
+    "to": "SDSA",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "SDSA",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "SMEM",
+    "to": "SDSA",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "SDSA",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "SMEM",
+    "to": "SDSA",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "UMSDSA",
+    "to": "UMSO",
+    "flow": "D0389",
+    "flowName": "UMS Response"
+  },
+  {
+    "from": "CMRC",
+    "to": "Distributor",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "CMRC",
+    "to": "SFIC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "CMRC",
+    "to": "Supplier",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "CMRC",
+    "to": "Supplier",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "CMRC",
+    "to": "Supplier",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "MRS",
+    "to": "NHHDC",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "MRS",
+    "to": "NHHDC",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "MRS",
+    "to": "NHHDC",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "MRS",
+    "to": "NHHDC",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "MRS",
+    "to": "NHHDC",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "MRS",
+    "to": "NHHDC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "MRS",
+    "to": "SDSA",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "MRS",
+    "to": "SDSA",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "MRS",
+    "to": "SDSA",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "MRS",
+    "to": "SDSA",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "MRS",
+    "to": "SDSA",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "Capacity Provider",
+    "to": "CFD Settlement Services Provider",
+    "flow": "D0365",
+    "flowName": "CFD Generator Invoice Backing Data"
+  },
+  {
+    "from": "CFD Generator",
+    "to": "CFD Settlement Services Provider",
+    "flow": "D0363",
+    "flowName": "CFD Supplier Credit Cover Report"
+  },
+  {
+    "from": "CFD Settlement Services Provider",
+    "to": "CFD Settlement Services Provider",
+    "flow": "D0362",
+    "flowName": "CFD Supplier Invoice Backing Data"
+  },
+  {
+    "from": "CFD Settlement Services Provider",
+    "to": "CM Settlement Services Provider",
+    "flow": "D0366",
+    "flowName": "CM Capacity Provider Invoice Backing Data"
+  },
+  {
+    "from": "CFD Settlement Services Provider",
+    "to": "CM Settlement Services Provider",
+    "flow": "D0364",
+    "flowName": "CM Supplier Invoice Backing Data"
+  },
+  {
+    "from": "CM Settlement Services Provider",
+    "to": "DCC",
+    "flow": "D0350",
+    "flowName": "Notification of DCC Services at Metering Point"
+  },
+  {
+    "from": "CM Settlement Services Provider",
+    "to": "Distributor",
+    "flow": "D0315",
+    "flowName": "Embedded Network Supercustomer DUoS Daily Statement"
+  },
+  {
+    "from": "CM Settlement Services Provider",
+    "to": "Distributor",
+    "flow": "D0327",
+    "flowName": "Request Green Deal Plan End Date Amendment"
+  },
+  {
+    "from": "DCC",
+    "to": "Distributor",
+    "flow": "D0265",
+    "flowName": "Line Loss Factor Data File"
+  },
+  {
+    "from": "DCC",
+    "to": "Distributor",
+    "flow": "D0164",
+    "flowName": "Notification of New or Changed Interruption of Supply"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0395",
+    "flowName": "Confirmation that an electricity meter has been moved during a service alteration"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0394",
+    "flowName": "Notification of agreed or cancelled appointment to move a customer electricity meter during a service alteration"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0382",
+    "flowName": "Rejection Response for Request to LDSO for Site Technical Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0383",
+    "flowName": "Notification of Commissioning Information"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0215",
+    "flowName": "Provision of Site Technical Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0381",
+    "flowName": "Metering Point Address Update"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0242",
+    "flowName": "Supercustomer DUoS Daily Statement"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0125",
+    "flowName": "Confirmation of Disconnection of Supply"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0262",
+    "flowName": "Rejection of Disconnection"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0225",
+    "flowName": "Priority Services Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0164",
+    "flowName": "Notification of New or Changed Interruption of Supply"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0179",
+    "flowName": "Confirmation of Energisation/De-Energisation of Prepayment Meter"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0352",
+    "flowName": "Notification of Physical Disconnections"
+  },
+  {
+    "from": "Distributor",
+    "to": "Distributor",
+    "flow": "D0265",
+    "flowName": "Line Loss Factor Data File"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Licensee",
+    "flow": "D0332",
+    "flowName": "Green Deal Licensee Request for Information"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Licensee",
+    "flow": "D0335",
+    "flowName": "New Green Deal Plan MPAN Core"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Licensee",
+    "flow": "D0341",
+    "flowName": "GD Licensee Response to GDCC"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Licensee",
+    "flow": "D0328",
+    "flowName": "Provide Remittance Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Licensee",
+    "flow": "D0342",
+    "flowName": "Notice of Collection Cessation"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Licensee",
+    "flow": "D0326",
+    "flowName": "Green Deal Licensee Update to Bill Payer Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Licensee",
+    "flow": "D0345",
+    "flowName": "Green Deal Licensee Notification of Erroneous Registration"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Provider",
+    "flow": "D0321",
+    "flowName": "GD Provider Update to Plan Information"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Provider",
+    "flow": "D0333",
+    "flowName": "Change of Green Deal Provider"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Provider",
+    "flow": "D0322",
+    "flowName": "GD Provider Update to Charging Information"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Provider",
+    "flow": "D0317",
+    "flowName": "Create New Green Deal Plan"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Provider",
+    "flow": "D0320",
+    "flowName": "GD Provider Response to GDCC"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Provider",
+    "flow": "D0323",
+    "flowName": "GD Provider Advice of Pending Green Deal"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Remittance Processor",
+    "flow": "D0329",
+    "flowName": "Response to Green Deal Remittance Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "GD Remittance Processor",
+    "flow": "D0347",
+    "flowName": "GD Remittance Processor Response to GDCC"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0318",
+    "flowName": "Response from GDCC to Distributor"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0343",
+    "flowName": "Response from GDCC to GD Licensee"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0319",
+    "flowName": "Request for Initial Green Deal Licensee Validation"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0336",
+    "flowName": "Request to Advise Bill Payer of Pending Green Deal"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0325",
+    "flowName": "Green Deal Plan Information for Green Deal Licensee"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0329",
+    "flowName": "Response to Green Deal Remittance Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0334",
+    "flowName": "Request for New Green Deal MPAN Core"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0331",
+    "flowName": "Update Green Deal Market Data"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0338",
+    "flowName": "Update to Bill Payer Details"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0346",
+    "flowName": "Notification of Erroneous Registration Status"
+  },
+  {
+    "from": "Distributor",
+    "to": "GDCC",
+    "flow": "D0339",
+    "flowName": "Reject Initial Plan Request"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0344",
+    "flowName": "Response from GDCC to GD Provider"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0337",
+    "flowName": "Green Deal End Date Amendment Request to GD Provider"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0346",
+    "flowName": "Notification of Erroneous Registration Status"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0331",
+    "flowName": "Update Green Deal Market Data"
+  },
+  {
+    "from": "GD Licensee",
+    "to": "GDCC",
+    "flow": "D0324",
+    "flowName": "Advise Green Deal Active at MPAN"
+  },
+  {
+    "from": "GD Provider",
+    "to": "HHDA",
+    "flow": "D0355",
+    "flowName": "Metering System Reporting Confirmation"
+  },
+  {
+    "from": "GD Provider",
+    "to": "HHDA",
+    "flow": "D0357",
+    "flowName": "Half Hourly Metered Data for EMR"
+  },
+  {
+    "from": "GD Provider",
+    "to": "HHDA",
+    "flow": "D0235",
+    "flowName": "Half Hourly Aggregation Exception Report"
+  },
+  {
+    "from": "GD Provider",
+    "to": "HHDA",
+    "flow": "D0023",
+    "flowName": "Failed Instructions"
+  },
+  {
+    "from": "GD Remittance Processor",
+    "to": "HHDA",
+    "flow": "D0023",
+    "flowName": "Failed Instructions"
+  },
+  {
+    "from": "GD Remittance Processor",
+    "to": "HHDA",
+    "flow": "D0235",
+    "flowName": "Half Hourly Aggregation Exception Report"
+  },
+  {
+    "from": "GD Remittance Processor",
+    "to": "HHDA",
+    "flow": "D0357",
+    "flowName": "Half Hourly Metered Data for EMR"
+  },
+  {
+    "from": "GD Remittance Processor",
+    "to": "HHDA",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "GDCC",
+    "to": "HHDA",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "GDCC",
+    "to": "HHDA",
+    "flow": "D0376",
+    "flowName": "Supplier's Demand Disconnection Volume Data File"
+  },
+  {
+    "from": "GDCC",
+    "to": "HHDA",
+    "flow": "D0040",
+    "flowName": "Aggregated Half Hour Data File"
+  },
+  {
+    "from": "GDCC",
+    "to": "HHDA",
+    "flow": "D0355",
+    "flowName": "Metering System Reporting Confirmation"
+  },
+  {
+    "from": "GDCC",
+    "to": "HHDA",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "GDCC",
+    "to": "HHDA",
+    "flow": "D0378",
+    "flowName": "BM Unit Aggregated Half Hour Demand Disconnection Data File"
+  },
+  {
+    "from": "GDCC",
+    "to": "HHDA",
+    "flow": "D0295",
+    "flowName": "Rejection of BM Unit Allocation"
+  },
+  {
+    "from": "GDCC",
+    "to": "HHDA",
+    "flow": "D0298",
+    "flowName": "BM Unit Aggregated Half Hour Data File"
+  },
+  {
+    "from": "GDCC",
+    "to": "HHDA",
+    "flow": "D0294",
+    "flowName": "Confirmation of BM Unit Allocation"
+  },
+  {
+    "from": "GDCC",
+    "to": "HHDA",
+    "flow": "D0356",
+    "flowName": "Metering System Reporting Rejection"
+  },
+  {
+    "from": "GDCC",
+    "to": "HHDA",
+    "flow": "D0392",
+    "flowName": "Invalid Metered Volume History Request"
+  },
+  {
+    "from": "Grid Operator",
+    "to": "HHDA",
+    "flow": "D0393",
+    "flowName": "Metered Volume History Acceptance"
+  },
+  {
+    "from": "Grid Operator",
+    "to": "HHDA",
+    "flow": "D0040",
+    "flowName": "Aggregated Half Hour Data File"
+  },
+  {
+    "from": "Grid Operator",
+    "to": "HHDA",
+    "flow": "D0378",
+    "flowName": "BM Unit Aggregated Half Hour Demand Disconnection Data File"
+  },
+  {
+    "from": "Grid Operator",
+    "to": "HHDA",
+    "flow": "D0385",
+    "flowName": "Metering System Half Hourly Metered Data"
+  },
+  {
+    "from": "GRS Operator",
+    "to": "HHDC",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "GRS Operator",
+    "to": "HHDC",
+    "flow": "D0022",
+    "flowName": "Estimated Half Hourly Data Report"
+  },
+  {
+    "from": "GRS Operator",
+    "to": "HHDC",
+    "flow": "D0036",
+    "flowName": "Validated Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0008",
+    "flowName": "Meter Advance Reconciliation Report"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0012",
+    "flowName": "Confirmation of the Inclusion of the Metering Point in the Reading Schedules"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0375",
+    "flowName": "Disconnected MSIDs and Estimated Half Hourly Demand Disconnection Volumes"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0036",
+    "flowName": "Validated Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0380",
+    "flowName": "Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "HHDA",
+    "to": "HHDC",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0008",
+    "flowName": "Meter Advance Reconciliation Report"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0380",
+    "flowName": "Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0012",
+    "flowName": "Confirmation of the Inclusion of the Metering Point in the Reading Schedules"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0375",
+    "flowName": "Disconnected MSIDs and Estimated Half Hourly Demand Disconnection Volumes"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0390",
+    "flowName": "Asset Metering System Half Hourly Metered Data"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0022",
+    "flowName": "Estimated Half Hourly Data Report"
+  },
+  {
+    "from": "HHDC",
+    "to": "HHDC",
+    "flow": "D0051",
+    "flowName": "Affirmation of Half Hour Data Retrieval Method and Associated Details"
+  },
+  {
+    "from": "HHDC",
+    "to": "MAP",
+    "flow": "D0304",
+    "flowName": "Notification of Meter Asset Provider"
+  },
+  {
+    "from": "HHDC",
+    "to": "MDDA",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "HHDC",
+    "to": "MDDA",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "HHDC",
+    "to": "MDDA",
+    "flow": "D0299",
+    "flowName": "Stage 2 BM Unit Registration Data File"
+  },
+  {
+    "from": "MAP",
+    "to": "MDDA",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MAP",
+    "to": "MDDA",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "MDDA",
+    "to": "MDDA",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MOP",
+    "to": "MDDA",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "MOP",
+    "to": "MDDA",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "MOP",
+    "to": "MDDA",
+    "flow": "D0286",
+    "flowName": "Data Aggregation and Settlements Timetable File"
+  },
+  {
+    "from": "MOP",
+    "to": "MDDA",
+    "flow": "D0227",
+    "flowName": "BSCCo Market Domain Data File"
+  },
+  {
+    "from": "MOP",
+    "to": "MDDA",
+    "flow": "D0280",
+    "flowName": "Teleswitch Contact to Register Mapping File"
+  },
+  {
+    "from": "MOP",
+    "to": "MDDA",
+    "flow": "D0299",
+    "flowName": "Stage 2 BM Unit Registration Data File"
+  },
+  {
+    "from": "MOP",
+    "to": "MDDA",
+    "flow": "D0278",
+    "flowName": "Teleswitch Market Domain Data File"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0304",
+    "flowName": "Notification of Meter Asset Provider"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0214",
+    "flowName": "Confirmation of Proving Tests"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0303",
+    "flowName": "Notification of Meter Operator, Supplier and Metering Assets installed / removed by the MOP to the MAP"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0312",
+    "flowName": "Notification of Meter Information to MPAS"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0179",
+    "flowName": "Confirmation of Energisation/De-Energisation of Prepayment Meter"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0221",
+    "flowName": "Notification of Failure to Install or Energise Metering System"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0224",
+    "flowName": "Notification of Programme for Re-Certification Meter Changes"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0192",
+    "flowName": "Readings and Settings from a Token or Key Meter"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0193",
+    "flowName": "Confirmation of Key Meter Installation"
+  },
+  {
+    "from": "MOP",
+    "to": "MOP",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "MOP",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "MPAS",
+    "to": "MOP",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "MPAS",
+    "to": "MOP",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "MPAS",
+    "to": "MOP",
+    "flow": "D0383",
+    "flowName": "Notification of Commissioning Information"
+  },
+  {
+    "from": "MPAS",
+    "to": "MOP",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "MOP",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "MOP",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "MPAS",
+    "to": "MPAS",
+    "flow": "D0351",
+    "flowName": "Rejection of Update to DCC Service Flag"
+  },
+  {
+    "from": "MPAS",
+    "to": "MPAS",
+    "flow": "D0172",
+    "flowName": "Confirmation of Changes"
+  },
+  {
+    "from": "MPAS",
+    "to": "MPAS",
+    "flow": "D0340",
+    "flowName": "MPAS Response to GDCC"
+  },
+  {
+    "from": "MPAS",
+    "to": "MPAS",
+    "flow": "D0209",
+    "flowName": "Instruction(s) to Non Half Hourly or Half Hourly Data Aggregator"
+  },
+  {
+    "from": "MPAS Agent",
+    "to": "MPAS",
+    "flow": "D0209",
+    "flowName": "Instruction(s) to Non Half Hourly or Half Hourly Data Aggregator"
+  },
+  {
+    "from": "MPAS Agent",
+    "to": "MPAS",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "NHHDA",
+    "to": "MPAS",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "NHHDA",
+    "to": "MPAS",
+    "flow": "D0304",
+    "flowName": "Notification of Meter Asset Provider"
+  },
+  {
+    "from": "NHHDA",
+    "to": "MPAS",
+    "flow": "D0312",
+    "flowName": "Notification of Meter Information to MPAS"
+  },
+  {
+    "from": "NHHDA",
+    "to": "MPAS",
+    "flow": "D0209",
+    "flowName": "Instruction(s) to Non Half Hourly or Half Hourly Data Aggregator"
+  },
+  {
+    "from": "NHHDA",
+    "to": "MPAS",
+    "flow": "D0203",
+    "flowName": "Rejection of Changes to Metering Point Details"
+  },
+  {
+    "from": "NHHDA",
+    "to": "MPAS",
+    "flow": "D0172",
+    "flowName": "Confirmation of Changes"
+  },
+  {
+    "from": "NHHDA",
+    "to": "MPAS",
+    "flow": "D0171",
+    "flowName": "Notification of Distributor Changes to Metering Point Details"
+  },
+  {
+    "from": "NHHDA",
+    "to": "MPAS",
+    "flow": "D0204",
+    "flowName": "Selective or Full Refresh of MPAS Details"
+  },
+  {
+    "from": "NHHDA",
+    "to": "MPAS",
+    "flow": "D0260",
+    "flowName": "Notification from MPAS of Old Supplier Registration Details"
+  },
+  {
+    "from": "NHHDA",
+    "to": "MPAS",
+    "flow": "D0213",
+    "flowName": "Advice from MPAS of Changed Metering Point Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "MPAS",
+    "flow": "D0089",
+    "flowName": "Notification from MPAS of Changed Metering Point Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "MPAS",
+    "flow": "D0386",
+    "flowName": "Manage Metering Point Relationships"
+  },
+  {
+    "from": "NHHDC",
+    "to": "MPAS",
+    "flow": "D0217",
+    "flowName": "Confirmation of the Registration of a Metering Point"
+  },
+  {
+    "from": "NHHDC",
+    "to": "MPAS",
+    "flow": "D0203",
+    "flowName": "Rejection of Changes to Metering Point Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "MPAS",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDA",
+    "flow": "D0023",
+    "flowName": "Failed Instructions"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDA",
+    "flow": "D0095",
+    "flowName": "Non Half Hourly Data Aggregation Exception Report"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDA",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDA",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDA",
+    "flow": "D0377",
+    "flowName": "Disconnection Purchase Matrix Data File"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDA",
+    "flow": "D0041",
+    "flowName": "Supplier Purchase Matrix Data File"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0012",
+    "flowName": "Confirmation of the Inclusion of the Metering Point in the Reading Schedules"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0019",
+    "flowName": "Metering System EAC/AA Data"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0310",
+    "flowName": "Notification of Failure to load or receive Metering System Settlement Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0300",
+    "flowName": "Disputed Readings or Missing Readings on Change of Supplier"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "NHHDC",
+    "to": "NHHDC",
+    "flow": "D0290",
+    "flowName": "Instruction to Read Meter"
+  },
+  {
+    "from": "NHHDC",
+    "to": "PPMIP",
+    "flow": "D0173",
+    "flowName": "Token Transaction Data"
+  },
+  {
+    "from": "PPMIP",
+    "to": "PPMIP",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "PPMIP",
+    "to": "PPMIP",
+    "flow": "D0188",
+    "flowName": "Key Transaction Details"
+  },
+  {
+    "from": "PPMIP",
+    "to": "RPS",
+    "flow": "D0239",
+    "flowName": "Revenue Protection Report on Action Taken"
+  },
+  {
+    "from": "PPMIP",
+    "to": "RPS",
+    "flow": "D0237",
+    "flowName": "Notification by Revenue Protection Service of Possible Irregularity"
+  },
+  {
+    "from": "PPMIP",
+    "to": "RPS",
+    "flow": "D0236",
+    "flowName": "Revenue Protection Service Statistical Report"
+  },
+  {
+    "from": "RPS",
+    "to": "RPS",
+    "flow": "D0239",
+    "flowName": "Revenue Protection Report on Action Taken"
+  },
+  {
+    "from": "SFIC",
+    "to": "RPS",
+    "flow": "D0239",
+    "flowName": "Revenue Protection Report on Action Taken"
+  },
+  {
+    "from": "SFIC",
+    "to": "SFIC",
+    "flow": "D0368",
+    "flowName": "Notification of Agreed or Cancelled Appointment With Customer"
+  },
+  {
+    "from": "SFIC",
+    "to": "SFIC",
+    "flow": "D0126",
+    "flowName": "Asset Condition Report Response / Clearance"
+  },
+  {
+    "from": "SFIC",
+    "to": "SFIC",
+    "flow": "D0167",
+    "flowName": "Response to Distribution System Enquiry"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0132",
+    "flowName": "Details of Disconnection of Supply"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0225",
+    "flowName": "Priority Services Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0134",
+    "flowName": "Request to Change Energisation Status"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0394",
+    "flowName": "Notification of agreed or cancelled appointment to move a customer electricity meter during a service alteration"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0381",
+    "flowName": "Metering Point Address Update"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0151",
+    "flowName": "Termination of Appointment or Contract by Supplier"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0153",
+    "flowName": "Notification of Data Aggregator Appointment and Terms"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0354",
+    "flowName": "Metering System Reporting Notification"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0297",
+    "flowName": "Notification of BM Unit Allocation"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0148",
+    "flowName": "Notification of Change to Other Parties"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0289",
+    "flowName": "Notification of MC/EAC/PC"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0155",
+    "flowName": "Notification of Meter Operator or Data Collector Appointment and Terms"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0131",
+    "flowName": "Metering Point Address Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0380",
+    "flowName": "Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0142",
+    "flowName": "Request for Installation or Change to a Metering System Functionality or the Removal of All Meters"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0190",
+    "flowName": "Issue Customer Key"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0191",
+    "flowName": "Request Special Visit to Read/Reset Key Meter"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0194",
+    "flowName": "Request for Installation of Key Meter"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0223",
+    "flowName": "Request to Install Check Meter or Carry Out Accuracy Tests"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0367",
+    "flowName": "Smart Meter Configuration Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0205",
+    "flowName": "Update Registration Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0386",
+    "flowName": "Manage Metering Point Relationships"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0052",
+    "flowName": "Affirmation of Metering System Settlement Details"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0071",
+    "flowName": "Customer Own Reading or Supplier Estimated Reading on Change of Supplier"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0072",
+    "flowName": "Instruction to Obtain Change of Supplier Reading"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0174",
+    "flowName": "Issue Identity Card for Token Meter Customer"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0189",
+    "flowName": "Adjust Key Meter Debt/Recovery Rate at Specific Locations"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0238",
+    "flowName": "Request and Information for Revenue Protection Investigation"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0166",
+    "flowName": "Distribution System Enquiry"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "Supplier",
+    "to": "Supplier",
+    "flow": "D0036",
+    "flowName": "Validated Half Hourly Advances for Inclusion in Aggregated Supplier Matrix"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0357",
+    "flowName": "Half Hourly Metered Data for EMR"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0369",
+    "flowName": "Aggregated Disconnected DUoS Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0269",
+    "flowName": "Market Domain Data Complete Set"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0270",
+    "flowName": "Market Domain Data Incremental Set"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0372",
+    "flowName": "Aggregated Embedded Network Disconnected DUoS Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0030",
+    "flowName": "Aggregated DUoS Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0401",
+    "flowName": "MHHS - Aggregated Disconnected DUoS Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0314",
+    "flowName": "Non Half Hourly Embedded Network DUoS Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0375",
+    "flowName": "Disconnected MSIDs and Estimated Half Hourly Demand Disconnection Volumes"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0391",
+    "flowName": "Metered Volume History Request"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0287",
+    "flowName": "Annually Recalculated Researched Consumption"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0029",
+    "flowName": "Standard Settlement Configuration Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0028",
+    "flowName": "Standing Profile Data Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0018",
+    "flowName": "Daily Profile Data Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0039",
+    "flowName": "Daily Profile Coefficient File"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0399",
+    "flowName": "MHHS - GSP Group Consumption Totals Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0276",
+    "flowName": "GSP Group Consumption Totals Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0373",
+    "flowName": "GSP Group Demand Disconnection Totals Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0081",
+    "flowName": "Supplier Half Hourly Demand Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0404",
+    "flowName": "MHHS - Supplier BM Unit Demand Disconnection Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0387",
+    "flowName": "Metering System Half Hourly Volume Adjustments"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0371",
+    "flowName": "Supplier - Supplier Disconnection Matrix Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0294",
+    "flowName": "Confirmation of BM Unit Allocation"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0296",
+    "flowName": "Supplier BM Unit Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0397",
+    "flowName": "MHHS - Supplier Half Hourly Demand Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0400",
+    "flowName": "MHHS - Supplier BM Unit Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0374",
+    "flowName": "Supplier BM Unit Demand Disconnection Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0082",
+    "flowName": "Supplier - Supplier Purchase Matrix Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0402",
+    "flowName": "MHHS - Supplier Half Hourly Demand Disconnection Report"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0279",
+    "flowName": "Teleswitch Contact Interval Data Report File"
+  },
+  {
+    "from": "Supplier",
+    "to": "SVAA",
+    "flow": "D0355",
+    "flowName": "Metering System Reporting Confirmation"
+  },
+  {
+    "from": "SVAA",
+    "to": "SVAA",
+    "flow": "D0043",
+    "flowName": "Supplier Deemed Take Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "SVAA",
+    "flow": "D0356",
+    "flowName": "Metering System Reporting Rejection"
+  },
+  {
+    "from": "SVAA",
+    "to": "SVAA",
+    "flow": "D0266",
+    "flowName": "Supplier Settlement Header Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "SVAA",
+    "flow": "D0398",
+    "flowName": "MHHS - Supplier Settlement Header Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "SVAA",
+    "flow": "D0079",
+    "flowName": "Supplier Purchase Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "SVAA",
+    "flow": "D0403",
+    "flowName": "MHHS - GSP Group Demand Disconnection Totals Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "SVAA",
+    "flow": "D0370",
+    "flowName": "Supplier Half Hourly Demand Disconnection Report"
+  },
+  {
+    "from": "SVAA",
+    "to": "SVAA",
+    "flow": "D0295",
+    "flowName": "Rejection of BM Unit Allocation"
+  },
+  {
+    "from": "SVAA",
+    "to": "Teleswitch Agent",
+    "flow": "D0277",
+    "flowName": "Teleswitch Contact Interval Data File"
+  },
+  {
+    "from": "SVAA",
+    "to": "UMSO",
+    "flow": "D0052",
+    "flowName": "Affirmation of Metering System Settlement Details"
+  },
+  {
+    "from": "SVAA",
+    "to": "UMSO",
+    "flow": "D0388",
+    "flowName": "UMS Inventory"
+  },
+  {
+    "from": "SVAA",
+    "to": "MA",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "SVAA",
+    "to": "MA",
+    "flow": "D0011",
+    "flowName": "Agreement of Contractual Terms"
+  },
+  {
+    "from": "SVAA",
+    "to": "MA",
+    "flow": "D0261",
+    "flowName": "Rejection of Agent Appointment"
+  },
+  {
+    "from": "SVAA",
+    "to": "MA",
+    "flow": "D0389",
+    "flowName": "UMS Response"
+  },
+  {
+    "from": "UMSO",
+    "to": "AMVLP",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "UMSO",
+    "to": "AMVLP",
+    "flow": "D0151",
+    "flowName": "Termination of Appointment or Contract by Supplier"
+  },
+  {
+    "from": "UMSO",
+    "to": "AMVLP",
+    "flow": "D0148",
+    "flowName": "Notification of Change to Other Parties"
+  },
+  {
+    "from": "MA",
+    "to": "AMVLP",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "MA",
+    "to": "AMVLP",
+    "flow": "D0155",
+    "flowName": "Notification of Meter Operator or Data Collector Appointment and Terms"
+  },
+  {
+    "from": "MA",
+    "to": "AMVLP",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "MA",
+    "to": "AMVLP",
+    "flow": "D0142",
+    "flowName": "Request for Installation or Change to a Metering System Functionality or the Removal of All Meters"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMVLP",
+    "flow": "D0383",
+    "flowName": "Notification of Commissioning Information"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMVLP",
+    "flow": "D0268",
+    "flowName": "Advanced Meter Technical Details"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMVLP",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMVLP",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMVLP",
+    "flow": "D0170",
+    "flowName": "Request for Metering System Related Details"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMVLP",
+    "flow": "D0151",
+    "flowName": "Termination of Appointment or Contract by Supplier"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMVLP",
+    "flow": "D0148",
+    "flowName": "Notification of Change to Other Parties"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMVLP",
+    "flow": "D0384",
+    "flowName": "Notification of Commissioning Status"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMVLP",
+    "flow": "D0134",
+    "flowName": "Request to Change Energisation Status"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMVLP",
+    "flow": "D0302",
+    "flowName": "Notification of Customer Details"
+  },
+  {
+    "from": "AMVLP",
+    "to": "AMVLP",
+    "flow": "D0142",
+    "flowName": "Request for Installation or Change to a Metering System Functionality or the Removal of All Meters"
+  },
+  {
+    "from": "AMVLP",
+    "to": "SIP",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "AMVLP",
+    "to": "SIP",
+    "flow": "D0396",
+    "flowName": "SIP Event Completed"
+  },
+  {
+    "from": "AMVLP",
+    "to": "SIP",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "AMVLP",
+    "to": "SIP",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "AMVLP",
+    "to": "SIP",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "SIP",
+    "to": "ADSA",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "SIP",
+    "to": "ADSA",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0003",
+    "flowName": "Half Hourly Advances"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0008",
+    "flowName": "Meter Advance Reconciliation Report"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0051",
+    "flowName": "Affirmation of Half Hour Data Retrieval Method and Associated Details"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "ADSA",
+    "to": "ADSA",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0214",
+    "flowName": "Confirmation of Proving Tests"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0303",
+    "flowName": "Notification of Meter Operator, Supplier and Metering Assets installed / removed by the MOP to the MAP"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0224",
+    "flowName": "Notification of Programme for Re-Certification Meter Changes"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0221",
+    "flowName": "Notification of Failure to Install or Energise Metering System"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "AMEM",
+    "to": "AMEM",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "AMEM",
+    "to": "SDSA",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "AMEM",
+    "to": "SDSA",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "AMEM",
+    "to": "SDSA",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "AMEM",
+    "to": "SDSA",
+    "flow": "D0012",
+    "flowName": "Confirmation of the Inclusion of the Metering Point in the Reading Schedules"
+  },
+  {
+    "from": "SDSA",
+    "to": "SDSA",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "SDSA",
+    "to": "SDSA",
+    "flow": "D0275",
+    "flowName": "Validated Half Hourly Advances"
+  },
+  {
+    "from": "SDSA",
+    "to": "SDSA",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "SDSA",
+    "to": "SDSA",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "SDSA",
+    "to": "SDSA",
+    "flow": "D0379",
+    "flowName": "Half Hourly Advances UTC"
+  },
+  {
+    "from": "SDSA",
+    "to": "SDSA",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "SDSA",
+    "to": "SDSA",
+    "flow": "D0290",
+    "flowName": "Instruction to Read Meter"
+  },
+  {
+    "from": "SDSA",
+    "to": "SMEM",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "SDSA",
+    "to": "SMEM",
+    "flow": "D0150",
+    "flowName": "Traditional Meter Technical Details"
+  },
+  {
+    "from": "SDSA",
+    "to": "SMEM",
+    "flow": "D0149",
+    "flowName": "Notification of Mapping Details"
+  },
+  {
+    "from": "SDSA",
+    "to": "SMEM",
+    "flow": "D0303",
+    "flowName": "Notification of Meter Operator, Supplier and Metering Assets installed / removed by the MOP to the MAP"
+  },
+  {
+    "from": "SDSA",
+    "to": "SMEM",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0005",
+    "flowName": "Instruction on Action"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0179",
+    "flowName": "Confirmation of Energisation/De-Energisation of Prepayment Meter"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0192",
+    "flowName": "Readings and Settings from a Token or Key Meter"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0224",
+    "flowName": "Notification of Programme for Re-Certification Meter Changes"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0221",
+    "flowName": "Notification of Failure to Install or Energise Metering System"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0193",
+    "flowName": "Confirmation of Key Meter Installation"
+  },
+  {
+    "from": "SMEM",
+    "to": "SMEM",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "SMEM",
+    "to": "UMSDSA",
+    "flow": "D0389",
+    "flowName": "UMS Response"
+  },
+  {
+    "from": "SMEM",
+    "to": "CMRC",
+    "flow": "D0139",
+    "flowName": "Confirmation or Rejection of Energisation Status Change"
+  },
+  {
+    "from": "SMEM",
+    "to": "CMRC",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "SMEM",
+    "to": "CMRC",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "SMEM",
+    "to": "CMRC",
+    "flow": "D0002",
+    "flowName": "Fault Resolution Report or Request for Decision on Further Action"
+  },
+  {
+    "from": "SMEM",
+    "to": "MRS",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "SMEM",
+    "to": "MRS",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "SMEM",
+    "to": "MRS",
+    "flow": "D0010",
+    "flowName": "Meter Readings"
+  },
+  {
+    "from": "UMSDSA",
+    "to": "MRS",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "CMRC",
+    "to": "MRS",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  },
+  {
+    "from": "ESNA",
+    "to": "MRS",
+    "flow": "D0135",
+    "flowName": "Asset Condition Report"
+  },
+  {
+    "from": "ESNA",
+    "to": "MRS",
+    "flow": "D0004",
+    "flowName": "Notification of Failure to Obtain Reading"
+  },
+  {
+    "from": "ESNA",
+    "to": "MRS",
+    "flow": "D0136",
+    "flowName": "Report to Supplier of Possible Irregularity"
+  },
+  {
+    "from": "MRS",
+    "to": "MRS",
+    "flow": "D0001",
+    "flowName": "Request Metering System Investigation"
+  },
+  {
+    "from": "MRS",
+    "to": "MRS",
+    "flow": "D0222",
+    "flowName": "Change in Customer Details"
+  }
+]

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0265",
+  "flowVersion": "001",
+  "flowName": "Line Loss Factor Data File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of line loss factors published by line loss factor class",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "HHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "DIS": {
+      "name": "Distributor",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "LLF": {
+      "name": "Line Loss Factor Class",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        }
+      ]
+    },
+    "SDT": {
+      "name": "Settlement Date",
+      "parent": "LLF",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "SPL": {
+      "name": "Settlement Period Line Loss Factor",
+      "parent": "SDT",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0156",
+          "name": "Line Loss Factor",
+          "format": "NUM(5)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

@@ -1,0 +1,566 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0366",
+  "flowVersion": "003",
+  "flowName": "CM Capacity Provider Invoice Backing Data",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Calculation details for Capacity Market payments to (or from) a Capacity Provider.",
+  "routes": [
+    {
+      "from": "CM Settlement Services Provider",
+      "to": "Capacity Provider",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "93I": {
+      "name": "EMR Invoice Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1889",
+          "name": "EMR Party Id",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1950",
+          "name": "EMR Invoice Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J1949",
+          "name": "EMR Invoice Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1951",
+          "name": "EMR Invoice Payment Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1952",
+          "name": "EMR Invoice Total",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "CPM": {
+      "name": "Capacity Payment Month",
+      "parent": "93I",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1923",
+          "name": "CM Month Id",
+          "format": "NUM(6)",
+          "required": true
+        },
+        {
+          "ref": "J2192",
+          "name": "Total Amount Received from Suppliers",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2205",
+          "name": "Total Amount Payable to Capacity Providers",
+          "format": "NUM(14)",
+          "required": false
+        }
+      ]
+    },
+    "CPC": {
+      "name": "Capacity Payment CMU",
+      "parent": "CPM",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1930",
+          "name": "CMU Id",
+          "format": "CHAR(23)",
+          "required": true
+        },
+        {
+          "ref": "J2201",
+          "name": "Capacity Payment Suspension Start Date",
+          "format": "DATE(8)",
+          "required": false
+        },
+        {
+          "ref": "J2200",
+          "name": "Capacity Payment Suspension End Date",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    },
+    "95I": {
+      "name": "CM Capacity Payment",
+      "parent": "CPC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2294",
+          "name": "Capacity Agreement",
+          "format": "CHAR(19)",
+          "required": true
+        },
+        {
+          "ref": "J1895",
+          "name": "Auction Acquired Capacity Obligation",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2198",
+          "name": "Auction Acquired Capacity Obligation Start Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2197",
+          "name": "Auction Acquired Capacity Obligation End Date",
+          "format": "DATE(8)",
+          "required": false
+        },
+        {
+          "ref": "J2196",
+          "name": "Auction Acquired Capacity Obligation Effective Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1896",
+          "name": "Auction Identifier",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J1903",
+          "name": "Capacity Price",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J1900",
+          "name": "Capacity Cleared Price",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J1918",
+          "name": "CM Base CPI",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J1919",
+          "name": "CM CPI",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J1922",
+          "name": "CM Monthly Weighting Factor",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J1969",
+          "name": "Monthly Capacity Payment Due",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2299",
+          "name": "Monthly Capacity Payment Payable",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2055",
+          "name": "Capacity Payment Suspension Flag",
+          "format": "BOOLEAN(1)",
+          "required": true
+        }
+      ]
+    },
+    "96I": {
+      "name": "Physically Traded Capacity Obligation",
+      "parent": "CPC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1930",
+          "name": "CMU Id",
+          "format": "CHAR(23)",
+          "required": true
+        },
+        {
+          "ref": "J2295",
+          "name": "Capacity Trade ID",
+          "format": "CHAR(24)",
+          "required": true
+        },
+        {
+          "ref": "J1986",
+          "name": "Physically Traded Capacity Obligation",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2203",
+          "name": "Physically Traded Capacity Obligation Start Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2202",
+          "name": "Physically Traded Capacity Obligation End Date",
+          "format": "DATE(8)",
+          "required": false
+        },
+        {
+          "ref": "J1896",
+          "name": "Auction Identifier",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J1903",
+          "name": "Capacity Price",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J1900",
+          "name": "Capacity Cleared Price",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J1918",
+          "name": "CM Base CPI",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J1919",
+          "name": "CM CPI",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J1922",
+          "name": "CM Monthly Weighting Factor",
+          "format": "NUM(8)",
+          "required": true
+        },
+        {
+          "ref": "J1969",
+          "name": "Monthly Capacity Payment Due",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2299",
+          "name": "Monthly Capacity Payment Payable",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2055",
+          "name": "Capacity Payment Suspension Flag",
+          "format": "BOOLEAN(1)",
+          "required": true
+        }
+      ]
+    },
+    "CR1": {
+      "name": "CMU Cumulation Recovered",
+      "parent": "CPC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2304",
+          "name": "Relevant Expenditure",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2303",
+          "name": "Relevant Benefit",
+          "format": "NUM(14)",
+          "required": false
+        }
+      ]
+    },
+    "RCP": {
+      "name": "Recovery of Capacity Payments",
+      "parent": "CPC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2299",
+          "name": "Monthly Capacity Payment Payable",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2301",
+          "name": "Recovery Period Start Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2302",
+          "name": "Recovery Period End Date",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    },
+    "CR2": {
+      "name": "CMU Cumulation Reinstated",
+      "parent": "CPC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2304",
+          "name": "Relevant Expenditure",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2303",
+          "name": "Relevant Benefit",
+          "format": "NUM(14)",
+          "required": false
+        }
+      ]
+    },
+    "CAT": {
+      "name": "Capacity Agreement Termination",
+      "parent": "93I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2294",
+          "name": "Capacity Agreement",
+          "format": "CHAR(19)",
+          "required": true
+        },
+        {
+          "ref": "J2297",
+          "name": "CM Agreement Termination Reason",
+          "format": "CHAR(200)",
+          "required": true
+        },
+        {
+          "ref": "J2306",
+          "name": "Termination Fee Rate",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2296",
+          "name": "CM Agreement Termination Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1895",
+          "name": "Auction Acquired Capacity Obligation",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J1986",
+          "name": "Physically Traded Capacity Obligation",
+          "format": "NUM(13)",
+          "required": false
+        },
+        {
+          "ref": "J2305",
+          "name": "Termination Fee Due",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2298",
+          "name": "Credit Cover Drawdown",
+          "format": "NUM(14)",
+          "required": false
+        },
+        {
+          "ref": "J2300",
+          "name": "Net Termination Fee Payable",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "59L": {
+      "name": "CM Interest Payment",
+      "parent": "93I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1950",
+          "name": "EMR Invoice Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J1949",
+          "name": "EMR Invoice Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1893",
+          "name": "Amount in Default",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1955",
+          "name": "Interest Payment From Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1956",
+          "name": "Interest Payment To Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1954",
+          "name": "Interest Amount",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "60L": {
+      "name": "CM Interest Rate",
+      "parent": "59L",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1958",
+          "name": "Interest Rate Effective Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1957",
+          "name": "Interest Rate",
+          "format": "NUM(8)",
+          "required": true
+        }
+      ]
+    },
+    "61L": {
+      "name": "Capacity Provider Recalculation of Credit Amount",
+      "parent": "93I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2192",
+          "name": "Total Amount Received from Suppliers",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2205",
+          "name": "Total Amount Payable to Capacity Providers",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2194",
+          "name": "Original EMR Invoice Total",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2195",
+          "name": "Reduction to EMR Invoice Total",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

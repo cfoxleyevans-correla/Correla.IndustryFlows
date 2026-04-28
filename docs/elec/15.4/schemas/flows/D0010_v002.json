@@ -1,0 +1,403 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0010",
+  "flowVersion": "002",
+  "flowName": "Meter Readings",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Cumulative readings and maximum demand readings.",
+  "routes": [
+    {
+      "from": "ADSA",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "ADSA",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "ADSA",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "ADSA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "HHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MRS",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "SDSA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "ADSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "026": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0022",
+          "name": "BSC Validation Status",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "027": {
+      "name": "Site Visit Information",
+      "parent": "026",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "028": {
+      "name": "Meter/Reading Types",
+      "parent": "026",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "029": {
+      "name": "Site Visit Information",
+      "parent": "028",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "030": {
+      "name": "Register Readings",
+      "parent": "028",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0016",
+          "name": "Reading Date & Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J0044",
+          "name": "MD Reset Date & Time",
+          "format": "DATETIME(0)",
+          "required": false
+        },
+        {
+          "ref": "J1013",
+          "name": "Number of MD Resets",
+          "format": "NUM(3)",
+          "required": false
+        },
+        {
+          "ref": "J0045",
+          "name": "Meter Reading Flag",
+          "format": "BOOLEAN(0)",
+          "required": false
+        },
+        {
+          "ref": "J1888",
+          "name": "Reading Method",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "032": {
+      "name": "Meter Reading Validation Result",
+      "parent": "030",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0332",
+          "name": "Meter Reading Reason Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0047",
+          "name": "Meter Reading Status",
+          "format": "BOOLEAN(0)",
+          "required": true
+        }
+      ]
+    },
+    "033": {
+      "name": "Site Visit Information",
+      "parent": "030",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "NHH - This flow is for notification of validated/invalid non half-hourly meter readings and includes optional fields for any site visit check information.  In Change of Supplier processes this flow can be used to communicate candidate Change of Supplier readings. In particular, the Supplier to Supplier instance is used to communicate unvalidated readings taken directly from smart meters. Additional processing rules for DDC enrolled smart meters are contained in Annex C. It is also required to pass any remotely taken reads to NHHDCs for use in the Change of Supplier process. For all other cases Supplier must utilise D0071 to send candidate reads to NHHDC. For the avoidance of doubt NHHDC will always confirm a Change of Supplier reading using D0086.HH - The instances of the D0010 from MOP to Supplier and MOP to Distributor should only be used when the meter is Half-Hourly and the reading is either \"initial\" and/or \"final\".The instance of the D0010 from Supplier to Distributor should only be used where readings are taken (or sourced) by the Supplier from smart meters.The flow D0086 must always reflect this current flow. Where confirming a reading received on a D0071 where \"Reading Type\" has been populated with the value 'O' (Old Supplier's estimated CoS Reading) the NHHDC should populate the data item (Reading Type) with 'D' to signify that the reading has been Deemed or Estimated and is in line with meter reading history.Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

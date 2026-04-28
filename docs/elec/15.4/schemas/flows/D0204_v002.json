@@ -1,0 +1,604 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0204",
+  "flowVersion": "002",
+  "flowName": "Selective or Full Refresh of MPAS Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "The set of data sent to a Supplier following a request for refresh of the details held within MPAS.",
+  "routes": [
+    {
+      "from": "MPAS",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "751": {
+      "name": "File Sequence Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "763": {
+      "name": "Instruction Details",
+      "parent": "751",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J0723",
+          "name": "Instruction Type",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "440": {
+      "name": "Current MPAS Details",
+      "parent": "763",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1036",
+          "name": "Metering Point Address Line 1",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1037",
+          "name": "Metering Point Address Line 2",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1038",
+          "name": "Metering Point Address Line 3",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1039",
+          "name": "Metering Point Address Line 4",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1040",
+          "name": "Metering Point Address Line 5",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1041",
+          "name": "Metering Point Address Line 6",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1042",
+          "name": "Metering Point Address Line 7",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1043",
+          "name": "Metering Point Address Line 8",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1044",
+          "name": "Metering Point Address Line 9",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0263",
+          "name": "Metering Point Postcode",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "451": {
+      "name": "GSP Group Settlement Date Detail",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0306",
+          "name": "Effective from Settlement Date {MSGG}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "450": {
+      "name": "Line Loss Factor Class/Date Detail",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0658",
+          "name": "Effective from Settlement Date {MSLLFC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "441": {
+      "name": "Registration of Supplier Details",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0117",
+          "name": "Effective to Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0821",
+          "name": "Deemed Received Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "669": {
+      "name": "Objection Registration",
+      "parent": "441",
+      "level": 5,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "0, 1"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0821",
+          "name": "Deemed Received Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "670": {
+      "name": "Objection Removal",
+      "parent": "441",
+      "level": 5,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "0, 1"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0821",
+          "name": "Deemed Received Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "445": {
+      "name": "Energisation Status Details",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0297",
+          "name": "Effective from Settlement Date {MSES}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "447": {
+      "name": "Meter/Timeswitch Details",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0220",
+          "name": "Meter Timeswitch Code",
+          "format": "NUM(3)",
+          "required": true
+        },
+        {
+          "ref": "J0301",
+          "name": "Meter Timeswitch Code Effective from Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "448": {
+      "name": "Profile Class Settlement Date Detail",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0308",
+          "name": "Effective from Settlement Date {MSPC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "449": {
+      "name": "SSC Detail",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0300",
+          "name": "Effective from Settlement Date {SCON}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "446": {
+      "name": "Measurement Class Details",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0082",
+          "name": "Measurement Class Id",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0307",
+          "name": "Effective from Settlement Date {MSMC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "764": {
+      "name": "Data Aggregator Details",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0183",
+          "name": "Data Aggregator Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0163",
+          "name": "Data Aggregation Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0334",
+          "name": "Effective from Settlement Date {DAA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "443": {
+      "name": "Data Collector Details",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0205",
+          "name": "Data Collector Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0218",
+          "name": "Data Collector Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0219",
+          "name": "Effective from Date {DCA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "444": {
+      "name": "Meter Operator Details",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0178",
+          "name": "Meter Operator Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0675",
+          "name": "Meter Operator Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0210",
+          "name": "Effective from Date {MOA}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "90H": {
+      "name": "DCC Service Flag",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1833",
+          "name": "DCC Service Flag",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1834",
+          "name": "Effective from Date {DCCF}",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    },
+    "91H": {
+      "name": "SMETS Version",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1839",
+          "name": "SMETS Version",
+          "format": "CHAR(8)",
+          "required": false
+        }
+      ]
+    },
+    "92H": {
+      "name": "SMSO ID",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1837",
+          "name": "Smart Metering System Operator Id",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1838",
+          "name": "Effective from Date {SMSO}",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    },
+    "93H": {
+      "name": "IHD Install Status",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1835",
+          "name": "In Home Display (IHD) Install Status",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J1836",
+          "name": "Effective from Date {IHDI}",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    },
+    "47M": {
+      "name": "Related Status",
+      "parent": "440",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2245",
+          "name": "Related MPAN Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "48M": {
+      "name": "Related MPANs",
+      "parent": "47M",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2243",
+          "name": "Primary MPAN",
+          "format": "INT(13)",
+          "required": true
+        },
+        {
+          "ref": "J2244",
+          "name": "Secondary MPAN",
+          "format": "INT(13)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Sub-Groups are retained for Objection Registration and Objection Removal to attach meaning to the data item ''''''''Deemed Received Date'''''''' held in these groups.Though all of the address data items included in this flow are defined within the structure as being optional, the address itself is mandatory and must be included in the flow. The Metering Point Address Lines 1-9 and Metering Point Postcode will be in Standard Address Format (SAF). Metering Point Postcode should only be omitted if the Post Office have not allocated one."
+}

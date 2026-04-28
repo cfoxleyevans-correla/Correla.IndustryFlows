@@ -1,0 +1,252 @@
+{
+  "$schema": "https://example.com/rgma/flow-schema/v1",
+  "flowId": "G0701",
+  "flowVersion": "001",
+  "flowName": "Response (Rejection)",
+  "status": "Operational",
+  "ownership": "RGMA (SPAA Ltd)",
+  "description": "This flow structure covers the following data flows and is used where the incoming flow has been rejected:1. RRJOB (Response Request for Job)2. RNJOB (Response Notify Metering Job Details)3. RNAGE (Response Notify Agent Change)4. RRDET (Response Request Metering Detail)5. RNDET (Response Transfer of Metering Detail)6. RNUPD (Response Update)",
+  "routes": [],
+  "groups": {
+    "127": {
+      "code": "127",
+      "name": "Response Transaction",
+      "level": 1,
+      "parent": null,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0186",
+          "name": "File Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(8)"
+        },
+        {
+          "ref": "A0184",
+          "name": "Created date",
+          "required": true,
+          "conditional": false,
+          "format": "DATE(0)"
+        },
+        {
+          "ref": "A0185",
+          "name": "Created time",
+          "required": true,
+          "conditional": false,
+          "format": "TIME(0)"
+        }
+      ]
+    },
+    "16": {
+      "code": "16",
+      "name": "Reason",
+      "level": 2,
+      "parent": "127",
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0173",
+          "name": "Attribute Number",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0190",
+          "name": "Response Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0192",
+          "name": "Response Notes",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(210)"
+        }
+      ]
+    },
+    "17": {
+      "code": "17",
+      "name": "Transaction Outcome",
+      "level": 2,
+      "parent": "127",
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0197",
+          "name": "Response Type Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0193",
+          "name": "Outcome Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0072",
+          "name": "Meter Point Reference Number",
+          "required": true,
+          "conditional": false,
+          "format": "INT(10)"
+        },
+        {
+          "ref": "A0055",
+          "name": "Transaction Reference",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(15)"
+        },
+        {
+          "ref": "A0144",
+          "name": "Transaction Type Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0142",
+          "name": "Transaction Status Code",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        }
+      ]
+    },
+    "122": {
+      "code": "122",
+      "name": "Reason",
+      "level": 3,
+      "parent": "17",
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0173",
+          "name": "Attribute Number",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0190",
+          "name": "Response Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0192",
+          "name": "Response Notes",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(210)"
+        }
+      ]
+    },
+    "18": {
+      "code": "18",
+      "name": "Erroneous Record",
+      "level": 3,
+      "parent": "17",
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": []
+    },
+    "125": {
+      "code": "125",
+      "name": "Reason",
+      "level": 4,
+      "parent": "18",
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "A0177",
+          "name": "Record Identifier",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0173",
+          "name": "Attribute Number",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0190",
+          "name": "Response Code",
+          "required": true,
+          "conditional": false,
+          "format": "CHAR(5)"
+        },
+        {
+          "ref": "A0192",
+          "name": "Response Notes",
+          "required": false,
+          "conditional": false,
+          "format": "CHAR(210)"
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Response Transaction: Record Identifier (A0177) to be populated with REJFL for full file rejections only. In all other cases this should be populated with RESPN, i.e. where data group and/or data item level within a file are rejected.Reason: Record Identifier (A0177) for each Reason Group to be populated with REJRS.Reason Group (016) to be used to communicate the rejection reason only where a file level error has been identified e.g. incorrect file name.  This group is mandatory where the Response Transaction Record Identifier (A0177) is REJFL. Transaction Outcome Group (017) to be provided where there is a response at the data group and/or data item level.  Transaction Outcome: Record Identifier (A0177) to be populated with TROUT.Reason Group (122) to be used to communicate the rejection reason where a transaction level error has been identified e.g. mandatory data group missing.Erroneous Record Group (018) to be provided where there is a rejection at the data item level.   It would not be provided for a transaction which errored at the transaction level.  Reason (Group 125) to be used to communicate the rejection reason where a data item level error occurred e.g. invalid MDD code.  Reason (Group 125): Attribute Number (A0173) is mandatory. If the attribute cannot be identified, the rejection will be reported within Reason Group (122)"
+}

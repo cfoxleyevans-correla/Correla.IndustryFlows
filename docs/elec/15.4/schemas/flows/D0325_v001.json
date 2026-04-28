@@ -1,0 +1,344 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0325",
+  "flowVersion": "001",
+  "flowName": "Green Deal Plan Information for Green Deal Licensee",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Provides new or updated information regarding a Green Deal Plan to the Green Deal Licensee, including charging information.",
+  "routes": [
+    {
+      "from": "GDCC",
+      "to": "GD Licensee",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "05H": {
+      "name": "Green Deal Plan Instruction",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1813",
+          "name": "Green Deal MPAN Core",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J1809",
+          "name": "GDCC Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1810",
+          "name": "GDCC Instruction Type",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "06H": {
+      "name": "Default Bill Payer Information",
+      "parent": "05H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1749",
+          "name": "Default Bill Payer Name",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J1746",
+          "name": "Company Registration Number",
+          "format": "CHAR(20)",
+          "required": false
+        },
+        {
+          "ref": "J1026",
+          "name": "Address Line 1",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1027",
+          "name": "Address Line 2",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1028",
+          "name": "Address Line 3",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1029",
+          "name": "Address Line 4",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1030",
+          "name": "Address Line 5",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1031",
+          "name": "Address Line 6",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1032",
+          "name": "Address Line 7",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1033",
+          "name": "Address Line 8",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J1034",
+          "name": "Address Line 9",
+          "format": "CHAR(40)",
+          "required": false
+        },
+        {
+          "ref": "J0757",
+          "name": "Postcode",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J1748",
+          "name": "Default Bill Payer Contact Telephone Number",
+          "format": "CHAR(14)",
+          "required": false
+        },
+        {
+          "ref": "J1817",
+          "name": "Overseas Address Indicator",
+          "format": "BOOLEAN(1)",
+          "required": false
+        },
+        {
+          "ref": "J1779",
+          "name": "GD Default Bill Payer \u0096 EFD",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    },
+    "07H": {
+      "name": "GD Savings Data",
+      "parent": "05H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1804",
+          "name": "GD Savings - Electricity",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J1805",
+          "name": "GD Savings - Gas",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J1806",
+          "name": "GD Savings \u0096 Other Fuels",
+          "format": "NUM(9)",
+          "required": true
+        }
+      ]
+    },
+    "08H": {
+      "name": "Customer Account Information",
+      "parent": "05H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1750",
+          "name": "Electricity Account Number",
+          "format": "CHAR(20)",
+          "required": true
+        },
+        {
+          "ref": "J1777",
+          "name": "GD Customer Site Reference",
+          "format": "CHAR(20)",
+          "required": false
+        }
+      ]
+    },
+    "09H": {
+      "name": "GD Charge Information",
+      "parent": "05H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1776",
+          "name": "GD Charge Start Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1775",
+          "name": "GD Charge End Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1778",
+          "name": "GD Daily Charge",
+          "format": "NUM(8)",
+          "required": true
+        }
+      ]
+    },
+    "10H": {
+      "name": "GD Remittance Processor Information",
+      "parent": "05H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1803",
+          "name": "GD Remittance Processor MPID",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1802",
+          "name": "GD Remittance Processor EFD",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    },
+    "59H": {
+      "name": "Green Deal Plan Actual End Date",
+      "parent": "05H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1791",
+          "name": "GD Plan Actual End Date",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    },
+    "66H": {
+      "name": "Green Deal Provider Information",
+      "parent": "05H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1831",
+          "name": "Green Deal Provider Registration Reference",
+          "format": "CHAR(7)",
+          "required": true
+        },
+        {
+          "ref": "J1829",
+          "name": "Green Deal Provider Name",
+          "format": "CHAR(40)",
+          "required": true
+        },
+        {
+          "ref": "J1828",
+          "name": "Green Deal Provider EFD",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    },
+    "67H": {
+      "name": "GD Provider Information",
+      "parent": "05H",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1800",
+          "name": "GD Provider MPID",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0750",
+          "name": "Market Participant Name",
+          "format": "CHAR(40)",
+          "required": true
+        },
+        {
+          "ref": "J1827",
+          "name": "GD Provider EFD",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "GDCC Instruction Type refers to the original trigger for the update i.e. (I) initial data, (U) update, (P) Remittance Processor update to previous Supplier, (R) Refresh, (C) Change of Supply event, (E) Change of Supply following an Erroneous Registration, (T) Provision of revised charging information to Erroneously Registered Supplier, or (D) Default Bill Payer only.Though each address line is optional, when an address is to be updated using this flow the entire address must be included in the flow, an update to an individual line within an address will require the entire address to be sent.Where an D0325 is received by the GD Licensee, an D0341 response should always be generated."
+}

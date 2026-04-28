@@ -1,0 +1,109 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0390",
+  "flowVersion": "001",
+  "flowName": "Asset Metering System Half Hourly Metered Data",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Asset Metering System Half Hourly Metered Data",
+  "routes": [
+    {
+      "from": "HHDC",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "18A": {
+      "name": "MPAN Core",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "18B": {
+      "name": "Settlement Date",
+      "parent": "18A",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "18C": {
+      "name": "Settlement Period Metering System Metered Data",
+      "parent": "18B",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "46,48,50"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0020",
+          "name": "Actual/Estimated Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2273",
+          "name": "Period Asset Metering System Metered Data",
+          "format": "NUM(9)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The J0003 'MPAN Core' Data Item in this Data Flow will only report 'AMSID' values, as defined by the J2274 'AMSID Core' Data Item, which is an Alias of the J0003."
+}

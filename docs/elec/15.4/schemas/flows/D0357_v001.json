@@ -1,0 +1,240 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0357",
+  "flowVersion": "001",
+  "flowName": "Half Hourly Metered Data for EMR",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Half Hourly metered data for use by the CM Settlement Services Provider in calculating CM data, and/ or by the CFD Settlement Services provider in calculating CFD data.",
+  "routes": [
+    {
+      "from": "HHDA",
+      "to": "CFD Settlement Services Provider",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDA",
+      "to": "CM Settlement Services Provider",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "CFD Settlement Services Provider",
+      "version": "15.4"
+    },
+    {
+      "from": "SVAA",
+      "to": "CM Settlement Services Provider",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "19I": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J1104",
+          "name": "GSP Group",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "20I": {
+      "name": "Supplier",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "21I": {
+      "name": "EMR MPAN Cores",
+      "parent": "20I",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0020",
+          "name": "Actual/Estimated Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "22I": {
+      "name": "Settlement Period EMR Metered Data",
+      "parent": "21I",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "46,48,50"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J1872",
+          "name": "Period Metering System Metered Data",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J1873",
+          "name": "Period EMR Line Loss",
+          "format": "NUM(9)",
+          "required": true
+        }
+      ]
+    },
+    "23I": {
+      "name": "Supplier",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "24I": {
+      "name": "EMR MPAN Cores",
+      "parent": "23I",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0020",
+          "name": "Actual/Estimated Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "25I": {
+      "name": "Settlement Period EMR Metered Data",
+      "parent": "24I",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null,
+        "raw": "46,48,50"
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J1872",
+          "name": "Period Metering System Metered Data",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J1873",
+          "name": "Period EMR Line Loss",
+          "format": "NUM(9)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "When constructing this flow, the HHDA or the SVAA will not necessarily know which MPAN Cores are relevant to the CM Settlement Services Provider, and which to the CFD Settlement Services Provider. The HHDA or SVAA should therefore send the data flow to one or the other (and rely upon arrangements put in place between the CFD and CM Settlement Services Providers to ensure that data is used for the correct purposes). In practice, this means populating the flow header with the Market Participant Id of either Settlement Service Provider (or with their shared Market Participant Id, if they have not been allocated separate Market Participant Ids)."
+}

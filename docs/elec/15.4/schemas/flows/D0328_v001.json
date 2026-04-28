@@ -1,0 +1,139 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0328",
+  "flowVersion": "001",
+  "flowName": "Provide Remittance Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "The details of monies remitted between Green Deal Licensees and Remittance Processors.",
+  "routes": [
+    {
+      "from": "GD Licensee",
+      "to": "GDCC",
+      "version": "15.4"
+    },
+    {
+      "from": "GDCC",
+      "to": "GD Remittance Processor",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "15H": {
+      "name": "GD Remittance Reference Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1797",
+          "name": "GD Payment Transaction Remittance Reference",
+          "format": "CHAR(20)",
+          "required": true
+        },
+        {
+          "ref": "J1803",
+          "name": "GD Remittance Processor MPID",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J1783",
+          "name": "GD Licensee MPID",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "16H": {
+      "name": "GD Plan ID",
+      "parent": "15H",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        }
+      ]
+    },
+    "17H": {
+      "name": "GD Charges Remitted",
+      "parent": "16H",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1795",
+          "name": "GD Payment Transaction Reason Code",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J1781",
+          "name": "GD Energy Payment Method",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J1780",
+          "name": "GD Energy Payment Frequency",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1789",
+          "name": "GD Payment Period End Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1774",
+          "name": "GD Charge Net Payments Paid for Period",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J1790",
+          "name": "GD Payment Receipt Date",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    },
+    "18H": {
+      "name": "Total GD Charges Remitted",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1808",
+          "name": "GD Total Charges Remitted",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

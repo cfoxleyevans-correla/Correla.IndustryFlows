@@ -1,0 +1,96 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0022",
+  "flowVersion": "001",
+  "flowName": "Estimated Half Hourly Data Report",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "A report listing the dates over a period for which HH data has been estimated including the total consumption estimated.",
+  "routes": [
+    {
+      "from": "HHDC",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDC",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "062": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0100",
+          "name": "Estimation Reason Code",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    },
+    "063": {
+      "name": "Dates for Which HH Data Estimated",
+      "parent": "062",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0018",
+          "name": "Date (Midnight to Midnight UTC)",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0102",
+          "name": "Number of Periods Estimated",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0281",
+          "name": "Total kWh (and kVArh) of Estimated Periods",
+          "format": "NUM(12)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "This is a report (by MSID) showing dates for which meter period data has been estimated and includes total consumption estimated and number of half-hour periods affected.Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

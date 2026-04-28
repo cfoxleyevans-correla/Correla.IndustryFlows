@@ -1,0 +1,96 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0023",
+  "flowVersion": "001",
+  "flowName": "Failed Instructions",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of failures reported by the Data Aggregator to the source of the data.",
+  "routes": [
+    {
+      "from": "HHDA",
+      "to": "MPAS Agent",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDA",
+      "to": "MPAS Agent",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDA",
+      "to": "NHHDC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "MSH": {
+      "name": "Metering System Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0083",
+          "name": "Metering System Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0328",
+          "name": "Significant Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "INH": {
+      "name": "Instruction Header",
+      "parent": "MSH",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1100",
+          "name": "Instruction Sequence Number",
+          "format": "NUM(12)",
+          "required": true
+        }
+      ]
+    },
+    "INR": {
+      "name": "Instructions Reasons for Failure",
+      "parent": "INH",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1361",
+          "name": "Instruction Failure Reason Code",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J1101",
+          "name": "Failure Reason Additional Data",
+          "format": "CHAR(80)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "All MS Failure Details will relate to MPAN Core except where a Refresh fails, then this will refer to Distributor Id.Additional Failure Detail must be related to Rejection Reason Code."
+}

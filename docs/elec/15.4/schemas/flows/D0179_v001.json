@@ -1,0 +1,186 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0179",
+  "flowVersion": "001",
+  "flowName": "Confirmation of Energisation/De-Energisation of Prepayment Meter",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Confirmation is being given that the energisation status of a prepayment meter has been changed and readings and settings are being provided.",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "368": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0024",
+          "name": "Site Visit Check Code",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        },
+        {
+          "ref": "J0691",
+          "name": "Failure Reason Code",
+          "format": "CHAR(3)",
+          "required": false
+        },
+        {
+          "ref": "J0685",
+          "name": "Tariff Code",
+          "format": "NUM(4)",
+          "required": false
+        }
+      ]
+    },
+    "369": {
+      "name": "Meters Details per MPAN Core",
+      "parent": "368",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1022",
+          "name": "Prepayment Meter Shutdown Status",
+          "format": "BOOLEAN(0)",
+          "required": true
+        },
+        {
+          "ref": "J0173",
+          "name": "Reason for Request",
+          "format": "CHAR(100)",
+          "required": true
+        },
+        {
+          "ref": "J0014",
+          "name": "Date of Action",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0537",
+          "name": "Credit Balance",
+          "format": "NUM(5)",
+          "required": true
+        },
+        {
+          "ref": "J0539",
+          "name": "Total Credit Accepted",
+          "format": "NUM(7)",
+          "required": false
+        },
+        {
+          "ref": "J0540",
+          "name": "Total Tokens Inserted",
+          "format": "NUM(5)",
+          "required": false
+        },
+        {
+          "ref": "J0545",
+          "name": "Emergency Credit Status",
+          "format": "BOOLEAN(0)",
+          "required": false
+        },
+        {
+          "ref": "J0544",
+          "name": "Total Debt Outstanding",
+          "format": "NUM(7)",
+          "required": false
+        },
+        {
+          "ref": "J0547",
+          "name": "Debt Recovery Rate",
+          "format": "NUM(5)",
+          "required": false
+        },
+        {
+          "ref": "J0543",
+          "name": "Standing Charge",
+          "format": "NUM(5)",
+          "required": true
+        }
+      ]
+    },
+    "370": {
+      "name": "Register Detail per Meter",
+      "parent": "369",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J0542",
+          "name": "Prepayment Unit Rate",
+          "format": "NUM(5)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Though Tariff Code is defined within the structure as being optional it should be included in the Flow when the change of energisation status relates to either a Token Meter or Smart Card Meter."
+}

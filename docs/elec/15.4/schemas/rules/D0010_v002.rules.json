@@ -1,0 +1,30 @@
+{
+  "flowId": "D0010",
+  "flowVersion": "002",
+  "rules": [
+    {
+      "id": "D0010-001",
+      "severity": "error",
+      "message": "A suspect reading (Meter Reading Flag = F) requires a Meter Reading Reason Code in the Validation Result group.",
+      "scope": "030",
+      "when":   { "field": "J0045", "equals": "F" },
+      "expect": { "child": "032", "field": "J0332", "present": true }
+    },
+    {
+      "id": "D0010-006",
+      "severity": "error",
+      "message": "When the sender role is HHDC, Reading Type must be I (Initial) or F (Final).",
+      "scope": "028",
+      "when":   { "context": "senderRole", "equals": "HHDC" },
+      "expect": { "field": "J0171", "in": ["I", "F"] }
+    },
+    {
+      "id": "D0010-007",
+      "severity": "error",
+      "message": "MPAN Core check digit is invalid.",
+      "scope": "026",
+      "expect": { "field": "J0003", "satisfies": "mpanCheckDigit" }
+    }
+  ]
+}
+

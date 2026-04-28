@@ -1,0 +1,344 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0402",
+  "flowVersion": "001",
+  "flowName": "MHHS - Supplier Half Hourly Demand Disconnection Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Report for each Supplier containing details of all the half hourly demand disconnection for a Supplier by MHHS Consumption Component Class.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "17Z": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "02K": {
+      "name": "Report Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1089",
+          "name": "User Name",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "04K": {
+      "name": "Demand Control Event Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2079",
+          "name": "Demand Control Event ID",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1577",
+          "name": "Start Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J1578",
+          "name": "End Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "05K": {
+      "name": "Header",
+      "parent": "04K",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0882",
+          "name": "Settlement Code Description",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J0195",
+          "name": "SSR Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0196",
+          "name": "SSR Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0197",
+          "name": "SSR Run Type Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0248",
+          "name": "Supplier Name",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "06K": {
+      "name": "GSP Group Details",
+      "parent": "04K",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "MCC": {
+      "name": "MHHS Consumption Component Class",
+      "parent": "06K",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2326",
+          "name": "MHHS Consumption Component Class ID",
+          "format": "NUM(3)",
+          "required": true
+        },
+        {
+          "ref": "J2327",
+          "name": "GSP Group Correction Scaling Weight",
+          "format": "NUM(4)",
+          "required": true
+        },
+        {
+          "ref": "J2329",
+          "name": "Market Segment Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2314",
+          "name": "Connection Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0162",
+          "name": "Consumption Component Indicator",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    },
+    "19Z": {
+      "name": "Period Disconnection Values",
+      "parent": "MCC",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J2349",
+          "name": "Supplier Advanced Demand Disconnection Volume",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2350",
+          "name": "Supplier Advanced Demand Disconnection Volume Losses",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2351",
+          "name": "Supplier Smart and Unmetered Demand Disconnection Volume",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2352",
+          "name": "Supplier Smart and Unmetered Demand Disconnection Volume Losses",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2353",
+          "name": "Corrected Disconnection Component",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2354",
+          "name": "Corrected Disconnection Component Losses",
+          "format": "NUM(16)",
+          "required": false
+        }
+      ]
+    },
+    "20Z": {
+      "name": "Daily Disconnection Values",
+      "parent": "MCC",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2374",
+          "name": "Daily Supplier Advanced Demand Disconnection Volume",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2375",
+          "name": "Daily Supplier Advanced Demand Disconnection Volume Losses",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2357",
+          "name": "Daily Supplier Smart and Unmetered Demand Disconnection Volume",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2358",
+          "name": "Daily Supplier Smart and Unmetered Demand Disconnection Volume Losses",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2359",
+          "name": "Daily Supplier Corrected Disconnection Volume",
+          "format": "NUM(16)",
+          "required": false
+        },
+        {
+          "ref": "J2360",
+          "name": "Daily Supplier Corrected Disconnection Volume Losses",
+          "format": "NUM(16)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

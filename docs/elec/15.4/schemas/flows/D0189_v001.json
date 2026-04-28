@@ -1,0 +1,80 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0189",
+  "flowVersion": "001",
+  "flowName": "Adjust Key Meter Debt/Recovery Rate at Specific Locations",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "An instruction to place new total debt and debt recovery on a number of selected payment terminals for pick up by specified meter.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "PPMIP",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "388": {
+      "name": "Customer Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0389",
+          "name": "Customer Reference Number",
+          "format": "CHAR(20)",
+          "required": true
+        },
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0554",
+          "name": "Total Debt",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0547",
+          "name": "Debt Recovery Rate",
+          "format": "NUM(5)",
+          "required": true
+        }
+      ]
+    },
+    "389": {
+      "name": "Charging Machine Details",
+      "parent": "388",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0583",
+          "name": "Key Charging Machine Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

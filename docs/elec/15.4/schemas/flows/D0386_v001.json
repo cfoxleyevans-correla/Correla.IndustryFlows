@@ -1,0 +1,97 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0386",
+  "flowVersion": "001",
+  "flowName": "Manage Metering Point Relationships",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Used to initiate a change to a metering point relationship",
+  "routes": [
+    {
+      "from": "MPAS",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MPAS",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "18M": {
+      "name": "Relationship Action",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2243",
+          "name": "Primary MPAN",
+          "format": "INT(13)",
+          "required": true
+        },
+        {
+          "ref": "J2241",
+          "name": "Relationship Action",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "19M": {
+      "name": "Secondary MPANs",
+      "parent": "18M",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2244",
+          "name": "Secondary MPAN",
+          "format": "INT(13)",
+          "required": true
+        },
+        {
+          "ref": "J2242",
+          "name": "MPAN Action",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "20M": {
+      "name": "MPAS Response",
+      "parent": "18M",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2240",
+          "name": "Related MPAN Response Code",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Annex C for Flow Rules"
+}

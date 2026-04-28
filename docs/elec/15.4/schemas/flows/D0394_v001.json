@@ -1,0 +1,130 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0394",
+  "flowVersion": "001",
+  "flowName": "Notification of agreed or cancelled appointment to move a customer electricity meter during a service alteration",
+  "status": "Operational",
+  "ownership": "DCUSA",
+  "description": "Notification of a new, changed or cancelled customer appointment to move an electricity meter as part of a service alteration.",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "Distributor",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "86M": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "87M": {
+      "name": "Meter Id (Serial Number)",
+      "parent": "86M",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        }
+      ]
+    },
+    "88M": {
+      "name": "Customer Agreed Appointment Details",
+      "parent": "86M",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2050",
+          "name": "Customer Agreed Appointment Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2052",
+          "name": "Appointment Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2311",
+          "name": "Electricity Distributor intention to move meter [yes/no]",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "89M": {
+      "name": "Customer Cancelled Appointment",
+      "parent": "86M",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2053",
+          "name": "Customer Cancelled Appointment",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0012",
+          "name": "Additional Information",
+          "format": "CHAR(200)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The flow will be used to notify the Electricity Supplier and the Meter Operator of an Electricity Distributor intention to move an electricity meter during a service alteration and the appointment date. It can also be used to notify the Electricity Supplier of a Distributor service alteration even if they do not intend to move the electricity meter, ' although this is not mandatory. Where the Supplier objects, the flow will be used to notify the Electricity Distributor of their objection to the Distributor proposed meter move. The 'Additional Information' field within the '89M' Group should always be completed to provide the reason(s) for the objection The DCUSA Secretariat maintains a register detailing which electricity Suppliers have given their consent for Distributors to move their meters. For access to this register, please contact the DCUSA Secretariat at dcusa@electralink.co.uk. NB: This flow is not mandatory unless the meter is being relocated"
+}

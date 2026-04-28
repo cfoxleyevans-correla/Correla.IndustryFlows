@@ -1,0 +1,62 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0319",
+  "flowVersion": "001",
+  "flowName": "Request for Initial Green Deal Licensee Validation",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "GDCC passes information to the Green Deal Licensee to allow the initial account validation checks to take place.",
+  "routes": [
+    {
+      "from": "GDCC",
+      "to": "GD Licensee",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "91G": {
+      "name": "GDCC Green Deal Plan Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1809",
+          "name": "GDCC Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1813",
+          "name": "Green Deal MPAN Core",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        },
+        {
+          "ref": "J1750",
+          "name": "Electricity Account Number",
+          "format": "CHAR(20)",
+          "required": true
+        },
+        {
+          "ref": "J1777",
+          "name": "GD Customer Site Reference",
+          "format": "CHAR(20)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

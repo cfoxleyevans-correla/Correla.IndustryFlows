@@ -1,0 +1,199 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0377",
+  "flowVersion": "001",
+  "flowName": "Disconnection Purchase Matrix Data File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Details of NHH Disconnection volumes per Supplier aggregated per GSP Group by line loss factor class and measurement requirement.",
+  "routes": [
+    {
+      "from": "NHHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "NHHDA",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "72K": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J1104",
+          "name": "GSP Group",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "73K": {
+      "name": "Demand Control Event Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2079",
+          "name": "Demand Control Event ID",
+          "format": "CHAR(30)",
+          "required": true
+        },
+        {
+          "ref": "J1577",
+          "name": "Start Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J1578",
+          "name": "End Date and Time",
+          "format": "DATETIME(0)",
+          "required": true
+        }
+      ]
+    },
+    "74K": {
+      "name": "Supplier Details",
+      "parent": "73K",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "75K": {
+      "name": "Disconnection Purchase Matrix Details",
+      "parent": "74K",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J2080",
+          "name": "DPM Default EAC MSID Count",
+          "format": "INT(8)",
+          "required": true
+        },
+        {
+          "ref": "J2154",
+          "name": "DPM Default Unmetered MSID Count",
+          "format": "INT(8)",
+          "required": true
+        },
+        {
+          "ref": "J2081",
+          "name": "DPM Total AA MSID Count",
+          "format": "INT(8)",
+          "required": true
+        },
+        {
+          "ref": "J2169",
+          "name": "DPM Total Annualised Advance",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2170",
+          "name": "DPM Total EAC",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2084",
+          "name": "DPM Total EAC MSID Count",
+          "format": "INT(8)",
+          "required": true
+        },
+        {
+          "ref": "J2171",
+          "name": "DPM Total Unmetered Consumption",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2157",
+          "name": "DPM Total Unmetered MSID Count",
+          "format": "INT(8)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "See Annex C for flow notes."
+}

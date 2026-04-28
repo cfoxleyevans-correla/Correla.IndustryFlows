@@ -1,0 +1,170 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0363",
+  "flowVersion": "002",
+  "flowName": "CFD Supplier Credit Cover Report",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Daily report of CFD credit cover posted by a Supplier.",
+  "routes": [
+    {
+      "from": "CFD Settlement Services Provider",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "68I": {
+      "name": "CFD Credit Cover",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1889",
+          "name": "EMR Party Id",
+          "format": "CHAR(8)",
+          "required": true
+        },
+        {
+          "ref": "J2048",
+          "name": "Supplier Credit Cover Report Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J2022",
+          "name": "Total Credit Cover",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2021",
+          "name": "Total Cash Credit Cover",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2028",
+          "name": "Total Letters of Credit",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1968",
+          "name": "Minimum Credit Cover",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J2016",
+          "name": "Surplus Credit Cover",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1993",
+          "name": "Reference Period Start Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1992",
+          "name": "Reference Period End Date",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    },
+    "69I": {
+      "name": "Minimum Credit Cover Detail",
+      "parent": "68I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1959",
+          "name": "Interim Levy Payment",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1910",
+          "name": "CFD Levy Rate",
+          "format": "NUM(11)",
+          "required": true
+        },
+        {
+          "ref": "J1904",
+          "name": "CFD Daily Supplier Chargeable Demand",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1905",
+          "name": "CFD Daily Supplier EII Excluded Demand",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "70I": {
+      "name": "Letter of Credit",
+      "parent": "68I",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1963",
+          "name": "LoC Id",
+          "format": "CHAR(60)",
+          "required": true
+        },
+        {
+          "ref": "J1962",
+          "name": "LoC Amount",
+          "format": "NUM(14)",
+          "required": true
+        },
+        {
+          "ref": "J1964",
+          "name": "LoC Valid",
+          "format": "BOOLEAN(1)",
+          "required": true
+        },
+        {
+          "ref": "J2057",
+          "name": "LoC Expiry Date",
+          "format": "DATE(8)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

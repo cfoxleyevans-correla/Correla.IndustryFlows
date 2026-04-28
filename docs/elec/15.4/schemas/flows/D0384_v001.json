@@ -1,0 +1,157 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0384",
+  "flowVersion": "001",
+  "flowName": "Notification of Commissioning Status",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Half Hourly notification of Commissioning status when there is a new connection, change in equipment, configuration or upon Change of Agent.",
+  "routes": [
+    {
+      "from": "AMEM",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "AMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "AMVLP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "Distributor",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "AMVLP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "AMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "Supplier",
+      "to": "MOP",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "00M": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J2233",
+          "name": "Measurement Transformer Commissioning Completed",
+          "format": "BOOLEAN(1)",
+          "required": true
+        },
+        {
+          "ref": "J2234",
+          "name": "MOA Commissioning Completed",
+          "format": "BOOLEAN(1)",
+          "required": true
+        },
+        {
+          "ref": "J2235",
+          "name": "Overall Accuracy of Metering System within Limit(s) Defined within the Relevant BSC CoP.",
+          "format": "BOOLEAN(1)",
+          "required": true
+        }
+      ]
+    },
+    "01M": {
+      "name": "Feeder Information",
+      "parent": "00M",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2236",
+          "name": "Defect/Omission Reason",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J2215",
+          "name": "D0170 Rejection Description",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J2237",
+          "name": "Risk to Settlement",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J2238",
+          "name": "Defect/Omission Resolution Information",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Where an AMVLP (Asset Metering Virtual Lead Party) is involved, the MPAN Core must contain an AMSID (Asset Metering System Identifier) and not an MPAN."
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0327",
+  "flowVersion": "001",
+  "flowName": "Request Green Deal Plan End Date Amendment",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "A request from the Distribution Business to amend the end date of a Green Deal Plan where the meter point is to be (or has been) disconnected.",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "GDCC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "14H": {
+      "name": "GD Plan End Date Request",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1813",
+          "name": "Green Deal MPAN Core",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1818",
+          "name": "Party Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1819",
+          "name": "Requested New GD Plan End Date",
+          "format": "DATE(8)",
+          "required": true
+        },
+        {
+          "ref": "J1820",
+          "name": "Requested New GD Plan End Date Reason Code",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

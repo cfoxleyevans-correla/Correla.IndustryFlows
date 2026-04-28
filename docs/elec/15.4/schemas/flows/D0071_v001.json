@@ -1,0 +1,92 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0071",
+  "flowVersion": "001",
+  "flowName": "Customer Own Reading or Supplier Estimated Reading on Change of Supplier",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "On change of Supplier the customer has provided their own reading or the Old Supplier has provided an estimate of the Change of Supplier read which the New Supplier passes to NHHDC.",
+  "routes": [
+    {
+      "from": "Supplier",
+      "to": "NHHDC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "147": {
+      "name": "Change of Supplier Meter Reading Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J0016",
+          "name": "Reading Date & Time",
+          "format": "DATETIME(0)",
+          "required": true
+        },
+        {
+          "ref": "J0171",
+          "name": "Reading Type",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "148": {
+      "name": "Meter Detail per MPAN Core",
+      "parent": "147",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        }
+      ]
+    },
+    "149": {
+      "name": "Meter Register Detail per Meter",
+      "parent": "148",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0040",
+          "name": "Register Reading",
+          "format": "NUM(9)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

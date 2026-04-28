@@ -1,0 +1,272 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0152",
+  "flowVersion": "001",
+  "flowName": "Metering System EAC/AA Historical Data",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Historical details of the annualised advance and estimated actual consumption calculated by the data collector for a metering system.",
+  "routes": [
+    {
+      "from": "NHHDC",
+      "to": "NHHDC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "301": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        }
+      ]
+    },
+    "302": {
+      "name": "Meter Advance Period Settlement Dates",
+      "parent": "301",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0087",
+          "name": "Effective from Settlement Date {MACDC}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0088",
+          "name": "Effective to Settlement Date {MACDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "303": {
+      "name": "Annualised Advances",
+      "parent": "302",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0079",
+          "name": "Annualised Advance",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "304": {
+      "name": "EAC Effective Date",
+      "parent": "301",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0090",
+          "name": "Effective from Settlement Date {EACDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "305": {
+      "name": "EACs",
+      "parent": "304",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0078",
+          "name": "Time Pattern Regime",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0081",
+          "name": "Estimated Annual Consumption",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "306": {
+      "name": "SSC",
+      "parent": "301",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0091",
+          "name": "Effective from Settlement Date {SCDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "307": {
+      "name": "Supplier and Effective Date",
+      "parent": "301",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "308": {
+      "name": "Profile Class",
+      "parent": "301",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0092",
+          "name": "Effective from Settlement Date {MSPCDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "309": {
+      "name": "GSP Group",
+      "parent": "301",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0093",
+          "name": "Effective from Settlement Date {MSGGDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "310": {
+      "name": "Measurement Class",
+      "parent": "301",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0082",
+          "name": "Measurement Class Id",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0094",
+          "name": "Effective from Settlement Date {MSMCDC}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "311": {
+      "name": "Energisation Status",
+      "parent": "301",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0297",
+          "name": "Effective from Settlement Date {MSES}",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

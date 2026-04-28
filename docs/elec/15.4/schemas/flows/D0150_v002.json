@@ -1,0 +1,490 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0150",
+  "flowVersion": "002",
+  "flowName": "Traditional Meter Technical Details",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Meter Technical Details for Traditional Assets",
+  "routes": [
+    {
+      "from": "Distributor",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "NHHDC",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "MOP",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Distributor",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "MOP",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "SDSA",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "SMEM",
+      "version": "15.4"
+    },
+    {
+      "from": "SMEM",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "288": {
+      "name": "MPAN Cores",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0003",
+          "name": "MPAN Core",
+          "format": "NUM(13)",
+          "required": true
+        },
+        {
+          "ref": "J1254",
+          "name": "Effective from Settlement Date {MSMTD}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0082",
+          "name": "Measurement Class Id",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0080",
+          "name": "Energisation Status",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "289": {
+      "name": "SSCs",
+      "parent": "288",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0300",
+          "name": "Effective from Settlement Date {SCON}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1267",
+          "name": "Metering System Non Settlement Functionality Code",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J1268",
+          "name": "Effective From Settlement Date {MSNSFC}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "762": {
+      "name": "Metering Point Maintenance History",
+      "parent": "288",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0480",
+          "name": "Maintenance Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0008",
+          "name": "Nature of Maintenance",
+          "format": "CHAR(200)",
+          "required": true
+        }
+      ]
+    },
+    "290": {
+      "name": "Meter/Retrieval Method Details",
+      "parent": "288",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J0418",
+          "name": "Meter COP",
+          "format": "CHAR(3)",
+          "required": false
+        },
+        {
+          "ref": "J0461",
+          "name": "Meter COP Dispensation",
+          "format": "NUM(3)",
+          "required": false
+        },
+        {
+          "ref": "J0501",
+          "name": "Meter Current Rating",
+          "format": "NUM(3)",
+          "required": true
+        },
+        {
+          "ref": "J0419",
+          "name": "Meter Location",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0410",
+          "name": "Manufacturers Make & Type",
+          "format": "CHAR(60)",
+          "required": true
+        },
+        {
+          "ref": "J1677",
+          "name": "Meter Asset Provider Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0385",
+          "name": "Communications Address",
+          "format": "CHAR(65)",
+          "required": false
+        },
+        {
+          "ref": "J0386",
+          "name": "Communications Method",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J0464",
+          "name": "Outstation PIN",
+          "format": "CHAR(12)",
+          "required": false
+        },
+        {
+          "ref": "J0465",
+          "name": "Outstation COP",
+          "format": "CHAR(20)",
+          "required": false
+        },
+        {
+          "ref": "J0467",
+          "name": "Outstation COP Dispensation",
+          "format": "NUM(3)",
+          "required": false
+        },
+        {
+          "ref": "J0468",
+          "name": "Outstation Encryption Key",
+          "format": "CHAR(20)",
+          "required": false
+        },
+        {
+          "ref": "J0469",
+          "name": "Outstation Number of Channels",
+          "format": "NUM(3)",
+          "required": false
+        },
+        {
+          "ref": "J0470",
+          "name": "Outstation Password Level 1",
+          "format": "CHAR(12)",
+          "required": false
+        },
+        {
+          "ref": "J0471",
+          "name": "Outstation Type",
+          "format": "CHAR(3)",
+          "required": false
+        },
+        {
+          "ref": "J0455",
+          "name": "VT Ratio",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J0483",
+          "name": "Meter Type",
+          "format": "CHAR(5)",
+          "required": true
+        },
+        {
+          "ref": "J0848",
+          "name": "Date of Meter Installation",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0462",
+          "name": "Certification Date",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0463",
+          "name": "Certification Expiry Date",
+          "format": "DATE(0)",
+          "required": false
+        },
+        {
+          "ref": "J0716",
+          "name": "Timing Device Id (Serial Number)",
+          "format": "CHAR(10)",
+          "required": false
+        },
+        {
+          "ref": "J0134",
+          "name": "Tele-Switch/Clock Indicator",
+          "format": "CHAR(1)",
+          "required": false
+        },
+        {
+          "ref": "J0098",
+          "name": "Retrieval Method",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0722",
+          "name": "Retrieval Method Effective Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "291": {
+      "name": "CT Ratio",
+      "parent": "290",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0454",
+          "name": "CT Ratio",
+          "format": "CHAR(6)",
+          "required": true
+        }
+      ]
+    },
+    "293": {
+      "name": "Meter Register Details",
+      "parent": "290",
+      "level": 3,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0010",
+          "name": "Meter Register Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0474",
+          "name": "Meter Register Type",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0475",
+          "name": "Meter Register Multiplier",
+          "format": "NUM(9)",
+          "required": true
+        },
+        {
+          "ref": "J0408",
+          "name": "Main/Check Indicator",
+          "format": "BOOLEAN(0)",
+          "required": false
+        },
+        {
+          "ref": "J0478",
+          "name": "Number of Register Digits",
+          "format": "NUM(1)",
+          "required": true
+        },
+        {
+          "ref": "J0476",
+          "name": "Associated Meter Id",
+          "format": "(0)",
+          "required": false
+        },
+        {
+          "ref": "J0477",
+          "name": "Associated Meter Register Id",
+          "format": "(0)",
+          "required": false
+        }
+      ]
+    },
+    "295": {
+      "name": "Meter Channels",
+      "parent": "290",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0382",
+          "name": "Channel Number",
+          "format": "CHAR(3)",
+          "required": false
+        },
+        {
+          "ref": "J0103",
+          "name": "Measurement Quantity Id",
+          "format": "CHAR(2)",
+          "required": false
+        },
+        {
+          "ref": "J0432",
+          "name": "Pulse Multiplier",
+          "format": "NUM(9)",
+          "required": false
+        }
+      ]
+    },
+    "296": {
+      "name": "Metering System Maintenance History",
+      "parent": "290",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0480",
+          "name": "Maintenance Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0008",
+          "name": "Nature of Maintenance",
+          "format": "CHAR(200)",
+          "required": true
+        }
+      ]
+    },
+    "08A": {
+      "name": "Meters Removed",
+      "parent": "288",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0004",
+          "name": "Meter Id",
+          "format": "CHAR(10)",
+          "required": true
+        },
+        {
+          "ref": "J1269",
+          "name": "Date of Meter Removal",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1677",
+          "name": "Meter Asset Provider Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "Used for all Non Half Hourly Meters for Non-MHHS Metering Points or Traditional Metering Assets for MHHS Metering Points"
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0320",
+  "flowVersion": "001",
+  "flowName": "GD Provider Response to GDCC",
+  "status": "Operational",
+  "ownership": "MRA",
+  "description": "Response flow to the GDCC, including reason codes to indicate acceptance or reason for rejection of an update.",
+  "routes": [
+    {
+      "from": "GD Provider",
+      "to": "GDCC",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "92G": {
+      "name": "GDCC Provider Green Deal Plan Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1809",
+          "name": "GDCC Instruction Number",
+          "format": "INT(20)",
+          "required": true
+        },
+        {
+          "ref": "J1792",
+          "name": "GD Plan ID",
+          "format": "CHAR(12)",
+          "required": true
+        }
+      ]
+    },
+    "93G": {
+      "name": "GD Party Response Codes",
+      "parent": "92G",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1812",
+          "name": "GD Party Response Code",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The GDCC Instruction Number is the value received on the inbound flow to which the GDCC Response Codes relateAll relevant response codes will be included in Group 93G"
+}

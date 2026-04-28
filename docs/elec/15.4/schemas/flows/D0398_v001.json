@@ -1,0 +1,278 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0398",
+  "flowVersion": "001",
+  "flowName": "MHHS - Supplier Settlement Header Report",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "A report summarising the various production run details which were included within a settlement run.",
+  "routes": [
+    {
+      "from": "SVAA",
+      "to": "Supplier",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        }
+      ]
+    },
+    "RDD": {
+      "name": "Report Parameters",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1090",
+          "name": "Report Parameters",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "HDR": {
+      "name": "Report Data",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0882",
+          "name": "Settlement Code Description",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "SUT": {
+      "name": "Supplier Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0248",
+          "name": "Supplier Name",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0244",
+          "name": "BSC Trading Party Id",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "MDS": {
+      "name": "MDS Run Details",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J2325",
+          "name": "MDS Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J2324",
+          "name": "MDS Run Date",
+          "format": "DATE(8)",
+          "required": true
+        }
+      ]
+    },
+    "SSR": {
+      "name": "Settlement Run Execution",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0196",
+          "name": "SSR Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J0195",
+          "name": "SSR Run Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0197",
+          "name": "SSR Run Type Id",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1207",
+          "name": "SSR Run Status",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J1180",
+          "name": "Settlement Run Status Description",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "GSP": {
+      "name": "GSP Group",
+      "parent": "SSR",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J0269",
+          "name": "GSP Group Name",
+          "format": "CHAR(30)",
+          "required": true
+        }
+      ]
+    },
+    "IDS": {
+      "name": "System Market Participant Id",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J1181",
+          "name": "System Market Participant Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "SAA": {
+      "name": "SAA",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0649",
+          "name": "SAA Settlement Run Number",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0652",
+          "name": "SAA Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0650",
+          "name": "SAA Settlement Run Type Id",
+          "format": "CHAR(1)",
+          "required": true
+        },
+        {
+          "ref": "J1023",
+          "name": "CDCS Extract Number",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}

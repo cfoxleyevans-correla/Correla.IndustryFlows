@@ -1,0 +1,343 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0209",
+  "flowVersion": "001",
+  "flowName": "Instruction(s) to Non Half Hourly or Half Hourly Data Aggregator",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Covers appointment details for Data Aggregator/Data Collector and details of Registrations, Measurement Class, Energisation Status, Line Loss Factor Class, GSP Group, and for NHHDA will include Profile Class/Standard Settlement Configuration.",
+  "routes": [
+    {
+      "from": "MPAS",
+      "to": "HHDA",
+      "version": "15.4"
+    },
+    {
+      "from": "MPAS",
+      "to": "NHHDA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPI": {
+      "name": "Instruction File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0330",
+          "name": "File Sequence Number",
+          "format": "INT(12)",
+          "required": true
+        }
+      ]
+    },
+    "ZIN": {
+      "name": "Instruction Number",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0109",
+          "name": "Instruction Number",
+          "format": "INT(12)",
+          "required": true
+        },
+        {
+          "ref": "J1109",
+          "name": "Type Code",
+          "format": "(0)",
+          "required": true
+        },
+        {
+          "ref": "J0083",
+          "name": "Metering System Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "ISD": {
+      "name": "Significant Date",
+      "parent": "ZIN",
+      "level": 2,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0328",
+          "name": "Significant Date",
+          "format": "DATE(0)",
+          "required": true
+        }
+      ]
+    },
+    "MSH": {
+      "name": "Metering System Header",
+      "parent": "ZIN",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0083",
+          "name": "Metering System Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "SUP": {
+      "name": "Supplier Registration",
+      "parent": "ISD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "DAA": {
+      "name": "Data Aggregation Appointment",
+      "parent": "ISD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0334",
+          "name": "Effective from Settlement Date {DAA}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0340",
+          "name": "Effective to Settlement Date {DAA}",
+          "format": "DATE(0)",
+          "required": false
+        }
+      ]
+    },
+    "DCA": {
+      "name": "Data Collector Appointment",
+      "parent": "ISD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0219",
+          "name": "Effective from Date {DCA}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0205",
+          "name": "Data Collector Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "PSS": {
+      "name": "Profile Class/Standard Settlement Configuration",
+      "parent": "ISD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1562",
+          "name": "Effective from Settlement Date {PCSSCR}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0071",
+          "name": "Profile Class Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0076",
+          "name": "Standard Settlement Configuration (SSC) Id",
+          "format": "CHAR(4)",
+          "required": true
+        }
+      ]
+    },
+    "MCL": {
+      "name": "Measurement Class",
+      "parent": "ISD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1563",
+          "name": "Effective from Settlement Date {MCR}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0082",
+          "name": "Measurement Class Id",
+          "format": "CHAR(1)",
+          "required": true
+        }
+      ]
+    },
+    "EST": {
+      "name": "Energisation Status",
+      "parent": "ISD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0049",
+          "name": "Effective from Settlement Date {REGI}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1564",
+          "name": "Effective from Settlement Date {ESR}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J1099",
+          "name": "Energisation Status Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "LLF": {
+      "name": "Line Loss Factor Class",
+      "parent": "ISD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0658",
+          "name": "Effective from Settlement Date {MSLLFC}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        }
+      ]
+    },
+    "GGP": {
+      "name": "GSP Group",
+      "parent": "ISD",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0306",
+          "name": "Effective from Settlement Date {MSGG}",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0066",
+          "name": "GSP Group Id",
+          "format": "CHAR(2)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": "The data set of profile classes/standard settlement configurations must never be included when this flow is sent to a HHDA."
+}

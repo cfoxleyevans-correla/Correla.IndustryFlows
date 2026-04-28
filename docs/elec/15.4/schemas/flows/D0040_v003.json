@@ -1,0 +1,283 @@
+{
+  "$schema": "https://example.com/dtc/flow-schema/v1",
+  "flowId": "D0040",
+  "flowVersion": "003",
+  "flowName": "Aggregated Half Hour Data File",
+  "status": "Operational",
+  "ownership": "BSC",
+  "description": "Aggregated line loss adjusted HH consumption figures by Supplier and GSP Group. Where this flow is intended for the Supplier, the set of Suppliers will be limited to that Supplier only.",
+  "routes": [
+    {
+      "from": "HHDA",
+      "to": "Supplier",
+      "version": "15.4"
+    },
+    {
+      "from": "HHDA",
+      "to": "SVAA",
+      "version": "15.4"
+    }
+  ],
+  "groups": {
+    "ZPD": {
+      "name": "Data File Additional Header",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0073",
+          "name": "Settlement Date",
+          "format": "DATE(0)",
+          "required": true
+        },
+        {
+          "ref": "J0146",
+          "name": "Settlement Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1086",
+          "name": "Run Type Code",
+          "format": "CHAR(2)",
+          "required": true
+        },
+        {
+          "ref": "J1087",
+          "name": "Run Number",
+          "format": "NUM(7)",
+          "required": true
+        },
+        {
+          "ref": "J1104",
+          "name": "GSP Group",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "SUP": {
+      "name": "Supplier",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "CCC": {
+      "name": "Consumption Component Class",
+      "parent": "SUP",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0160",
+          "name": "Consumption Component Class Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "SET": {
+      "name": "Settlement Period/Data Aggregator HH MSID Count",
+      "parent": "CCC",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0241",
+          "name": "Data Aggregator HH MSID Count",
+          "format": "NUM(10)",
+          "required": true
+        }
+      ]
+    },
+    "ASC": {
+      "name": "Aggregated Supplier Consumption",
+      "parent": "SET",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0185",
+          "name": "Aggregated Supplier Consumption",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "ASL": {
+      "name": "Aggregated Supplier Line Loss",
+      "parent": "SET",
+      "level": 4,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0186",
+          "name": "Aggregated Supplier Line Loss",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "24J": {
+      "name": "Supplier ID",
+      "parent": null,
+      "level": 1,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0084",
+          "name": "Supplier Id",
+          "format": "(0)",
+          "required": true
+        }
+      ]
+    },
+    "25J": {
+      "name": "Consumption Component Class",
+      "parent": "24J",
+      "level": 2,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0160",
+          "name": "Consumption Component Class Id",
+          "format": "NUM(2)",
+          "required": true
+        }
+      ]
+    },
+    "26J": {
+      "name": "Line Loss Factor Class",
+      "parent": "25J",
+      "level": 3,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0189",
+          "name": "Distributor Id",
+          "format": "CHAR(4)",
+          "required": true
+        },
+        {
+          "ref": "J0147",
+          "name": "Line Loss Factor Class Id",
+          "format": "CHAR(3)",
+          "required": true
+        }
+      ]
+    },
+    "27J": {
+      "name": "Settlement Period/Data Aggregator HH MSID Count",
+      "parent": "26J",
+      "level": 4,
+      "cardinality": {
+        "min": 0,
+        "max": null
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0074",
+          "name": "Settlement Period Id",
+          "format": "NUM(2)",
+          "required": true
+        },
+        {
+          "ref": "J0241",
+          "name": "Data Aggregator HH MSID Count",
+          "format": "NUM(10)",
+          "required": true
+        }
+      ]
+    },
+    "28J": {
+      "name": "Aggregated Supplier Consumption",
+      "parent": "27J",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0185",
+          "name": "Aggregated Supplier Consumption",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    },
+    "29J": {
+      "name": "Aggregated Supplier Line Loss",
+      "parent": "27J",
+      "level": 5,
+      "cardinality": {
+        "min": 1,
+        "max": 1
+      },
+      "condition": "",
+      "fields": [
+        {
+          "ref": "J0186",
+          "name": "Aggregated Supplier Line Loss",
+          "format": "NUM(14)",
+          "required": true
+        }
+      ]
+    }
+  },
+  "rules": [],
+  "notes": ""
+}
